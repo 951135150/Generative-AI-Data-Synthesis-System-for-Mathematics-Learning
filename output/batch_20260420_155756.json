@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_155756",
+  "batch_name": "V3_Step_33",
+  "mode": "drill",
+  "generated_at": "2026-04-20T15:57:56.434594",
+  "target_topics": [
+    "Differential Equations"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the general solution to the differential equation \\\\( \\\\frac{dy}{dx} = \\\\frac{x^2}{y} \\\\).",
+      "question_type": "mcq",
+      "solution": "The given differential equation is \\\\( \\\\frac{dy}{dx} = \\\\frac{x^2}{y} \\\\). This is a separable equation. We can separate the variables by multiplying both sides by \\\\(y\\\\) and \\\\(dx\\\\): \\\\( y \\\\, dy = x^2 \\\\, dx \\\\). Next, we integrate both sides: \\\\( \\\\int y \\\\, dy = \\\\int x^2 \\\\, dx \\\\). Performing the integration gives: \\\\( \\\\frac{y^2}{2} = \\\\frac{x^3}{3} + C_1 \\\\), where \\\\(C_1\\\\) is the constant of integration. To eliminate the fractions, we can multiply the entire equation by 6: \\\\( 3y^2 = 2x^3 + 6C_1 \\\\). Let \\\\(C = 6C_1\\\\). Since \\\\(C_1\\\\) is an arbitrary constant, \\\\(C\\\\) is also an arbitrary constant. Rearranging the terms, we get the general solution in implicit form: \\\\( 3y^2 - 2x^3 = C \\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The given differential equation is of the form \\\\( \\\\frac{dy}{dx} = f(x)g(y) \\\\). Identify \\\\(f(x)\\\\) and \\\\(g(y)\\\\) and rearrange the equation to group all \\\\(y\\\\) terms with \\\\(dy\\\\) and all \\\\(x\\\\) terms with \\\\(dx\\\\)."
+        },
+        {
+          "step": 2,
+          "hint": "After separating the variables, you should have an equation of the form \\\\( h(y) dy = k(x) dx \\\\). Integrate both sides with respect to their respective variables: \\\\( \\\\int h(y) dy = \\\\int k(x) dx \\\\). Remember the power rule for integration: \\\\( \\\\int u^n du = \\\\frac{u^{n+1}}{n+1} + C \\\\)."
+        },
+        {
+          "step": 3,
+          "hint": "The integration will result in an equation involving \\\\(y^2\\\\) and \\\\(x^3\\\\), plus a constant of integration. Combine the constants into a single arbitrary constant \\\\(C\\\\) and rearrange the terms to match one of the given options."
+        }
+      ],
+      "options": {
+        "A": "\\\\( 3y^2 - 2x^3 = C \\\\)",
+        "B": "\\\\( 3y^2 + 2x^3 = C \\\\)",
+        "C": "\\\\( 2y - x^3 = C \\\\)",
+        "D": "\\\\( \\\\ln|y| - \\\\frac{x^3}{3} = C \\\\)"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Differential Equations",
+      "generated_at": "2026-04-20T15:57:28.645764",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Differential Equations"
+      ],
+      "source_topics_pool": [
+        "Differential Equations"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 80,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a well-constructed, standard example of a separable differential equation. | Suggestion: The problem is excellent as a procedural drill. To enhance its educational value, it could be presented with an initial condition to find a particular solution, or framed within a simple applied context (e.g., 'The rate of change of a quantity y with respect to x is modeled by...')."
+      }
+    }
+  ]
+}

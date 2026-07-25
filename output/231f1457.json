@@ -1,0 +1,50 @@
+{
+  "id": "231f1457",
+  "topic": "Limits and Continuity",
+  "problem_statement": "Let the function $ f(x) $ be defined as: $$ f(x) = \\begin{cases} ax + b & x \\le -1 \\\\ x^2 + 1 & -1 < x \\le 2 \\\\ 3x - a & x > 2 \\end{cases} $$ If the function $ f(x) $ is continuous for all real numbers, what is the value of $ b $?",
+  "question_type": "mcq",
+  "difficulty": 3,
+  "solution": "For $ f(x) $ to be continuous everywhere, it must be continuous at the points where the definition changes, i.e., at $ x = -1 $ and $ x = 2 $. The condition for continuity at a point $ c $ is $ \\lim_{x \\to c^{-}} f(x) = \\lim_{x \\to c^{+}} f(x) = f(c) $.\\\\Step 1: Analyze continuity at $ x = 2 $.\\\\The left-hand limit is: $ \\lim_{x \\to 2^{-}} f(x) = \\lim_{x \\to 2^{-}} (x^2 + 1) = 2^2 + 1 = 5 $.\\\\The right-hand limit is: $ \\lim_{x \\to 2^{+}} f(x) = \\lim_{x \\to 2^{+}} (3x - a) = 3(2) - a = 6 - a $.\\\\For continuity, we must have $ 5 = 6 - a $, which implies $ a = 1 $.\\\\Step 2: Analyze continuity at $ x = -1 $ using the value of $ a $ found in Step 1.\\\\The left-hand limit is: $ \\lim_{x \\to -1^{-}} f(x) = \\lim_{x \\to -1^{-}} (ax + b) = a(-1) + b = -a + b $.\\\\The right-hand limit is: $ \\lim_{x \\to -1^{+}} f(x) = \\lim_{x \\to -1^{+}} (x^2 + 1) = (-1)^2 + 1 = 2 $.\\\\For continuity, we must have $ -a + b = 2 $.\\\\Step 3: Solve for $ b $.\\\\Substitute $ a = 1 $ into the equation from Step 2: $ -(1) + b = 2 $.\\\\This gives $ b = 3 $. Therefore, for the function to be continuous everywhere, $ b $ must be 3.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "For a piecewise function to be continuous, the limits from the left and right must be equal at each point where the function's definition changes. In this case, you need to check continuity at $ x = -1 $ and $ x = 2 $."
+    },
+    {
+      "step": 2,
+      "hint": "Notice that the condition for continuity at $ x = 2 $ only involves the variable $ a $. Solve for $ a $ first. Then use this value of $ a $ in the continuity condition for $ x = -1 $ to find $ b $."
+    }
+  ],
+  "integration_analysis": "",
+  "options": {
+    "A": "1",
+    "B": "3",
+    "C": "2",
+    "D": "5"
+  },
+  "answer": "B",
+  "generated_at": "2026-04-26T19:51:48.813679",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Limits and Continuity",
+  "integrated_topics": [
+    "Limits and Continuity"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None | Suggestion: The problem is mathematically sound and the solution is correct. The scaffolding is helpful, but could be improved by being more granular. The second hint provides a high-level strategic plan. A better approach would be to insert a hint that prompts the student to first formulate the two necessary algebraic equations from the continuity conditions at x=-1 and x=2. Only after that step should a hint suggest the strategy of solving for 'a' first. This better separates the 'translation' part of the problem from the 'algebraic solution' part."
+  },
+  "problem_id": "231f1457"
+}

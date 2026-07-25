@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_145801",
+  "batch_name": "V3_Step_14",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:58:01.322447",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the interval on which the function $f(x) = x^3 - 3x^2 + 5$ is strictly decreasing.",
+      "question_type": "mcq",
+      "solution": "To find the interval where $f(x)$ is decreasing, we must find where its derivative, $f'(x)$, is negative. First, calculate the derivative: $f'(x) = \\\\frac{d}{dx}(x^3 - 3x^2 + 5) = 3x^2 - 6x$. Next, set up the inequality $f'(x) < 0$, which is $3x^2 - 6x < 0$. We can factor this to $3x(x - 2) < 0$. The critical points are the roots of $f'(x)=0$, which are $x=0$ and $x=2$. These points divide the number line into intervals. The quadratic $y=3x^2-6x$ is an upward-opening parabola, so it is negative between its roots. Therefore, the function is strictly decreasing on the interval $(0, 2)$.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The 'slope' of a function tells you if it's going up or down. What part of calculus helps you find the slope of a function at any point?"
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the first derivative, $f'(x)$. If the slope is negative, the function is decreasing. So, you are looking for the interval(s) where $f'(x) < 0$."
+        },
+        {
+          "step": 3,
+          "hint": "To solve the inequality $f'(x) < 0$, first find the critical points by solving $f'(x) = 0$. Then, test the sign of $f'(x)$ in the intervals created by these critical points."
+        }
+      ],
+      "options": {
+        "A": "$(0, 2)$",
+        "B": "$( -\\\\infty, 0)$",
+        "C": "$(2, \\\\infty)$",
+        "D": "$( -\\\\infty, 0) \\\\cup (2, \\\\infty)$"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-20T14:57:45.029772",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 95.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 75,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a well-constructed, standard example for its topic and difficulty level. | Suggestion: For a student who has mastered this, the problem could be enhanced by using a function that requires the product or quotient rule, such as $f(x) = x e^{-x}$ or $f(x) = \\frac{x^2}{x-1}$. This would integrate more prerequisite skills and require a more nuanced sign analysis of the derivative."
+      }
+    }
+  ]
+}

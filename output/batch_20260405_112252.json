@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260405_112252",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:22:52.921305",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: $$ \\\\lim_{x \\\\to 0} \\\\frac{\\\\sqrt{x+9} - 3}{x} $$",
+      "real_world_context": "In digital signal processing, engineers often analyze the behavior of a signal near a specific time point. The expression represents the normalized change in a signal's amplitude as the time interval `x` approaches zero. Evaluating this limit helps determine the signal's instantaneous rate of change at time `t=0`, which is crucial for identifying abrupt changes or instabilities.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Try to substitute `x=0` directly into the expression. What form does the result take? (e.g., a number, c/0, 0/0)"
+        },
+        {
+          "step": 2,
+          "hint": "The expression contains a term `\\\\sqrt{A} - B`. What algebraic technique can be used to eliminate the square root from the numerator?"
+        },
+        {
+          "step": 3,
+          "hint": "After applying the technique from the previous step and simplifying the numerator, is there a common factor in the numerator and denominator that can be canceled?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The limit is an indeterminate form `0/0`. To resolve this, we multiply the numerator and denominator by the conjugate of the numerator, which is `\\\\sqrt{x+9} + 3`. This algebraic manipulation is designed to use the difference of squares formula, `(a-b)(a+b) = a^2 - b^2`, to remove the radical from the numerator, allowing for simplification.",
+        "visual_conceptual": "Conceptually, this limit represents the slope of the tangent line to the function `f(x) = \\\\sqrt{x+9}` at the point `x=0`. The expression `(\\\\sqrt{x+9} - \\\\sqrt{0+9}) / (x - 0)` is the definition of the derivative of `f(x)` at `x=0`. Visually, if you graph the function `g(x) = (\\\\sqrt{x+9} - 3) / x`, you will see a continuous curve with a 'hole' at `x=0`. The limit is the y-value that would plug this hole, making the function continuous."
+      },
+      "solution": "Step 1: Identify the indeterminate form. Direct substitution of `x=0` into the expression gives:\n$$ \\\\frac{\\\\sqrt{0+9} - 3}{0} = \\\\frac{\\\\sqrt{9} - 3}{0} = \\\\frac{3 - 3}{0} = \\\\frac{0}{0} $$\nThis is an indeterminate form, so we must manipulate the expression algebraically.\n\nStep 2: Multiply the numerator and denominator by the conjugate of the numerator, which is `\\\\sqrt{x+9} + 3`.\n$$ \\\\lim_{x \\\\to 0} \\\\frac{\\\\sqrt{x+9} - 3}{x} \\\\cdot \\\\frac{\\\\sqrt{x+9} + 3}{\\\\sqrt{x+9} + 3} $$\n\nStep 3: Simplify the expression. The numerator becomes `(\\\\sqrt{x+9})^2 - 3^2 = (x+9) - 9 = x`.\n$$ \\\\lim_{x \\\\to 0} \\\\frac{(x+9) - 9}{x(\\\\sqrt{x+9} + 3)} = \\\\lim_{x \\\\to 0} \\\\frac{x}{x(\\\\sqrt{x+9} + 3)} $$\n\nStep 4: Cancel the common factor `x` from the numerator and denominator (since `x \\\\to 0`, `x` is not equal to 0).\n$$ \\\\lim_{x \\\\to 0} \\\\frac{1}{\\\\sqrt{x+9} + 3} $$\n\nStep 5: Evaluate the limit by substituting `x=0` into the simplified expression.\n$$ \\\\frac{1}{\\\\sqrt{0+9} + 3} = \\\\frac{1}{\\\\sqrt{9} + 3} = \\\\frac{1}{3 + 3} = \\\\frac{1}{6} $$",
+      "concepts": [
+        "Indeterminate Forms",
+        "Limits by Conjugate Method",
+        "Definition of the Derivative"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:22:13.891241",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context, while conceptually related to instantaneous change, feels artificial. The specific function `sqrt(x+9)` is not convincingly justified by the digital signal processing analogy, making the context seem tacked-on rather than integral to the problem. | Strengthen the real-world context by choosing a more natural application. For instance, frame it as a physics problem calculating the instantaneous velocity at t=0 for an object whose position is given by `p(t) = \\sqrt{t+9}`. Alternatively, lean into the 'visual_conceptual' explanation and present it as a purely geometric problem: 'Find the slope of the line tangent to the curve `y = \\sqrt{x+9}` at the point `x=0`.'"
+      }
+    }
+  ]
+}

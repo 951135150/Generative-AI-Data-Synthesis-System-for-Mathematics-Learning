@@ -1,0 +1,50 @@
+{
+  "id": "9f8c041f",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "A right circular cylinder is inscribed in a sphere of radius $ 3 $. What is the maximum possible volume of the cylinder?",
+  "question_type": "mcq",
+  "difficulty": 3,
+  "solution": "Let the radius of the sphere be $ R=3 $. Let the cylinder have radius $ r $ and height $ h $. The goal is to maximize the volume of the cylinder, $ V = \\pi r^2 h $.\n\nA cross-section of the sphere and inscribed cylinder forms a rectangle inscribed in a circle. By the Pythagorean theorem, the dimensions are related by the constraint equation:\n$$ r^2 + \\left(\\frac{h}{2}\\right)^2 = R^2 = 3^2 = 9 $$\nWe can express $ r^2 $ in terms of $ h $ to write the volume as a function of a single variable:\n$$ r^2 = 9 - \\frac{h^2}{4} $$\nSubstituting this into the volume formula:\n$$ V(h) = \\pi \\left(9 - \\frac{h^2}{4}\\right) h = 9\\pi h - \\frac{\\pi h^3}{4} $$\nTo find the maximum volume, we take the derivative of $ V $ with respect to $ h $ and set it to zero:\n$$ V'(h) = 9\\pi - \\frac{3\\pi h^2}{4} $$\nSet $ V'(h) = 0 $:\n$$ 9\\pi = \\frac{3\\pi h^2}{4} \\implies 9 = \\frac{3h^2}{4} \\implies 36 = 3h^2 \\implies h^2 = 12 \\implies h = \\sqrt{12} = 2\\sqrt{3} $$\nWe take the positive root since $ h $ must be positive. To confirm this is a maximum, we can use the second derivative test:\n$$ V''(h) = -\\frac{6\\pi h}{4} = -\\frac{3\\pi h}{2} $$\nSince $ V''(2\\sqrt{3}) = -3\\pi\\sqrt{3} < 0 $, the volume is maximized at $ h=2\\sqrt{3} $.\n\nNow, we find the corresponding radius $ r $:\n$$ r^2 = 9 - \\frac{h^2}{4} = 9 - \\frac{12}{4} = 9 - 3 = 6 $$\nFinally, we calculate the maximum volume:\n$$ V = \\pi r^2 h = \\pi (6) (2\\sqrt{3}) = 12\\pi\\sqrt{3} $$",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "This is an optimization problem. Start by writing the formula for the volume of a cylinder. Then, use the Pythagorean theorem on a cross-section of the sphere and cylinder to find a 'constraint' equation that relates the cylinder's radius $ r $, its height $ h $, and the sphere's radius $ R=3 $."
+    },
+    {
+      "step": 2,
+      "hint": "Use the constraint equation to express the volume $ V $ as a function of a single variable. Then, find the derivative of this volume function, set it equal to zero to find the critical points, and solve for the variable that maximizes the volume."
+    }
+  ],
+  "integration_analysis": null,
+  "options": {
+    "A": "$ 12\\pi\\sqrt{3} $",
+    "B": "$ 36\\pi $",
+    "C": "$ 24\\pi\\sqrt{3} $",
+    "D": "$ \\frac{81\\pi}{4} $"
+  },
+  "answer": "A",
+  "generated_at": "2026-05-06T15:59:43.000461",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: N/A | Suggestion: The solution is excellent. For added pedagogical rigor, consider explicitly stating the physical domain of the height `h` (i.e., 0 < h < 6) and noting that the volume is zero at the endpoints. This would formally confirm that the local maximum found is the absolute maximum on the relevant interval, reinforcing the Extreme Value Theorem."
+  },
+  "problem_id": "9f8c041f"
+}

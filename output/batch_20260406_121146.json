@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_121146",
+  "batch_name": "FullRun_Step_10",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:11:46.887460",
+  "target_topics": [
+    "Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The displacement of a drone from its launch pad is modeled by the function $s(t) = t^3 e^t$, where $s$ is in meters and $t$ is in seconds for $t \\ge 0$. Find the function for the instantaneous velocity of the drone, $v(t) = s'(t)$.",
+      "real_world_context": "In physics and engineering, the derivative of a position function with respect to time gives the instantaneous velocity. This is crucial for tracking objects, from celestial bodies to autonomous vehicles like drones, allowing for precise control and prediction of their motion.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The function $s(t)$ is a product of two simpler functions. Which differentiation rule is used for finding the derivative of a product of two functions?"
+        },
+        {
+          "step": 2,
+          "hint": "Let $f(t) = t^3$ and $g(t) = e^t$. The product rule states that $(f(t)g(t))' = f'(t)g(t) + f(t)g'(t)$. What are the individual derivatives, $f'(t)$ and $g'(t)$?"
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the functions and their derivatives into the product rule formula. Is there a common factor you can use to simplify the final expression?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "To find the derivative of $s(t) = t^3 e^t$, we must use the product rule. Let $f(t) = t^3$ and $g(t) = e^t$. The derivatives are $f'(t) = 3t^2$ (using the power rule) and $g'(t) = e^t$ (since the derivative of $e^t$ is itself). The product rule is $s'(t) = f'(t)g(t) + f(t)g'(t)$. Plugging in our functions and their derivatives gives $s'(t) = (3t^2)(e^t) + (t^3)(e^t)$. This is the velocity function.",
+        "visual_conceptual": "Conceptually, velocity is the instantaneous rate of change of position. Imagine the drone's position is determined by two interacting factors: one growing polynomially ($t^3$) and the other exponentially ($e^t$). The total change in position (the velocity) at any instant is the sum of the changes contributed by each factor. The product rule mathematically captures this: the term $3t^2 e^t$ represents the velocity contribution from the change in the $t^3$ part, and the term $t^3 e^t$ represents the contribution from the change in the $e^t$ part."
+      },
+      "solution": "To find the velocity $v(t)$, we need to compute the derivative of the displacement function $s(t) = t^3 e^t$. \\\\ We will use the product rule, which states that for two differentiable functions $u(t)$ and $w(t)$, the derivative of their product is $(u(t)w(t))' = u'(t)w(t) + u(t)w'(t)$. \\\\ Let $u(t) = t^3$ and $w(t) = e^t$. \\\\ First, find the derivatives of $u(t)$ and $w(t)$: \\\\ Using the power rule, $u'(t) = \\\\frac{d}{dt}(t^3) = 3t^2$. \\\\ The derivative of the natural exponential function is itself, so $w'(t) = \\\\frac{d}{dt}(e^t) = e^t$. \\\\ Now, apply the product rule: \\\\ $v(t) = s'(t) = u'(t)w(t) + u(t)w'(t)$ \\\\ $v(t) = (3t^2)(e^t) + (t^3)(e^t)$ \\\\ To simplify, we can factor out the common terms $t^2$ and $e^t$: \\\\ $v(t) = t^2 e^t (3 + t)$. \\\\ So, the instantaneous velocity of the drone is given by the function $v(t) = t^2 e^t (3 + t)$ meters per second.",
+      "concepts": [
+        "Product Rule",
+        "Derivatives of Polynomials",
+        "Derivatives of Exponential Functions",
+        "Instantaneous Velocity"
+      ],
+      "topic": "Derivatives",
+      "generated_at": "2026-04-06T12:11:35.007877",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives"
+      ],
+      "source_topics_pool": [
+        "Derivatives"
+      ],
+      "evaluation": {
+        "score": 94.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 85,
+          "scaffolding": 85,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The second scaffolding step is overly prescriptive. It provides the full product rule formula and explicitly defines the functions f(t) and g(t), removing the key cognitive steps of recalling the rule and identifying how to apply it. | Refine the second scaffolding step to be less revealing. Instead of giving the formula and function breakdown, prompt the student to do it themselves. For example: 'Let's call the two functions being multiplied f(t) and g(t). Identify these two functions and find their respective derivatives, f'(t) and g'(t).'"
+      }
+    }
+  ]
+}

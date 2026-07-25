@@ -1,0 +1,317 @@
+{
+    "metadata": {
+        "user_id": "Student_Chen_V3_Final",
+        "join_date": "2026-04-20",
+        "total_minutes": 124.83,
+        "dataset_version": "V3"
+    },
+    "topics_status": {
+        "Limits and Continuity": {
+            "mastery_score": 0.87,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Derivatives and Differentiation": {
+            "mastery_score": 0.88,
+            "current_level": 3,
+            "completed_count": 4
+        },
+        "Integration and FTOC": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Multivariable Calculus": {
+            "mastery_score": 0.85,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Applications of Derivatives": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Indefinite Integrals": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Applications of Integration": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Multiple Integrals": {
+            "mastery_score": 0.88,
+            "current_level": 3,
+            "completed_count": 4
+        },
+        "Vector Calculus": {
+            "mastery_score": 0.87,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Sequences and Series": {
+            "mastery_score": 0.87,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Differential Equations": {
+            "mastery_score": 0.87,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Techniques of Integration": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Parametric and Polar Curves": {
+            "mastery_score": 0.82,
+            "current_level": 3,
+            "completed_count": 2
+        }
+    },
+    "learning_history": [
+        {
+            "time": "2026-04-20T14:11:38.350299",
+            "topic": "Limits and Continuity",
+            "score": 98.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T14:12:30.216313",
+            "topic": "Limits and Continuity",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:17:24.773149",
+            "topic": "Limits and Continuity",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:18:23.921330",
+            "topic": "Derivatives and Differentiation",
+            "score": 89.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T14:20:09.110528",
+            "topic": "Derivatives and Differentiation",
+            "score": 90.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:27:27.926610",
+            "topic": "Derivatives and Differentiation",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:34:48.020046",
+            "topic": "Derivatives and Differentiation",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:35:55.875805",
+            "topic": "Integration and FTOC",
+            "score": 86.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T14:39:09.798899",
+            "topic": "Integration and FTOC",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:44:23.044080",
+            "topic": "Integration and FTOC",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:45:10.810154",
+            "topic": "Multivariable Calculus",
+            "score": 97.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T14:47:02.484907",
+            "topic": "Multivariable Calculus",
+            "score": 90.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:52:42.258809",
+            "topic": "Multivariable Calculus",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T14:58:01.326413",
+            "topic": "Applications of Derivatives",
+            "score": 95.5,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T14:58:51.048217",
+            "topic": "Applications of Derivatives",
+            "score": 97.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:04:12.131254",
+            "topic": "Applications of Derivatives",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:04:37.745756",
+            "topic": "Indefinite Integrals",
+            "score": 85.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:07:25.376766",
+            "topic": "Indefinite Integrals",
+            "score": 97.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:13:53.946624",
+            "topic": "Indefinite Integrals",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:14:56.851603",
+            "topic": "Applications of Integration",
+            "score": 90.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:18:08.023332",
+            "topic": "Applications of Integration",
+            "score": 96.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:25:05.921995",
+            "topic": "Applications of Integration",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:26:21.727917",
+            "topic": "Multiple Integrals",
+            "score": 88.5,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:28:49.566584",
+            "topic": "Multiple Integrals",
+            "score": 90.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:34:13.770115",
+            "topic": "Multiple Integrals",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:38:37.468153",
+            "topic": "Multiple Integrals",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:40:56.838405",
+            "topic": "Vector Calculus",
+            "score": 98.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:42:07.715871",
+            "topic": "Vector Calculus",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:48:12.453195",
+            "topic": "Vector Calculus",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:49:56.495112",
+            "topic": "Sequences and Series",
+            "score": 94.5,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:51:52.570701",
+            "topic": "Sequences and Series",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:56:56.939740",
+            "topic": "Sequences and Series",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T15:57:56.439612",
+            "topic": "Differential Equations",
+            "score": 96.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T15:58:56.571362",
+            "topic": "Differential Equations",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T16:05:47.699676",
+            "topic": "Differential Equations",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T16:06:39.767599",
+            "topic": "Techniques of Integration",
+            "score": 96.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T16:07:57.043452",
+            "topic": "Techniques of Integration",
+            "score": 96.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T16:11:40.115964",
+            "topic": "Techniques of Integration",
+            "score": 90,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T16:13:59.967173",
+            "topic": "Parametric and Polar Curves",
+            "score": 95.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T16:15:04.765628",
+            "topic": "Parametric and Polar Curves",
+            "score": 98.0,
+            "level_at_time": 3
+        }
+    ]
+}

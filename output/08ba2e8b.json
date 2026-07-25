@@ -1,0 +1,41 @@
+{
+  "id": "08ba2e8b",
+  "topic": "Limits and Continuity",
+  "problem_statement": "Find the value of the constant $ k $ that makes the function $ f(x) $ continuous on $ (-\\infty, \\infty) $, where $$ f(x) = \\begin{cases} kx - 3 & , x \\le 2 \\\\ x^2 + k & , x > 2 \\end{cases} $$",
+  "question_type": "calculation",
+  "difficulty": 2,
+  "solution": "For a function to be continuous everywhere, it must be continuous at every point in its domain. The function $ f(x) $ is defined by polynomials on the intervals $ (-\\infty, 2) $ and $ (2, \\infty) $, so it is continuous on those intervals. The only potential point of discontinuity is at $ x=2 $, where the definition of the function changes.\\\\ \\textbf{Step 1: State the condition for continuity at $ x=2 $.} \\\\ For $ f(x) $ to be continuous at $ x=2 $, the limit as $ x $ approaches 2 must exist and be equal to the function's value at $ x=2 $. The existence of the limit requires the left-hand limit to equal the right-hand limit: $$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x) $$ \\\\ \\textbf{Step 2: Calculate the left-hand limit.} \\\\ As $ x $ approaches 2 from the left (i.e., $ x < 2 $), we use the expression $ kx - 3 $. $$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} (kx - 3) = k(2) - 3 = 2k - 3 $$ \\\\ \\textbf{Step 3: Calculate the right-hand limit.} \\\\ As $ x $ approaches 2 from the right (i.e., $ x > 2 $), we use the expression $ x^2 + k $. $$ \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} (x^2 + k) = (2)^2 + k = 4 + k $$ \\\\ \\textbf{Step 4: Equate the limits and solve for $ k $.} \\\\ To ensure continuity, we set the left-hand right-hand limits equal to each other: $$ 2k - 3 = 4 + k $$ Now, we solve this linear equation for $ k $. Subtract $ k $ from both sides: $$ k - 3 = 4 $$ Add 3 to both sides: $$ k = 7 $$ Therefore, the value $ k=7 $ makes the function continuous on $ (-\\infty, \\infty) $.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "A piecewise function is continuous at the point where its definition changes if the limit from the left equals the limit from the right. At what value of $ x $ do you need to check this condition?"
+    },
+    {
+      "step": 2,
+      "hint": "Set up an equation by evaluating the limit of the first piece as $ x \\to 2^- $ and the limit of the second piece as $ x \\to 2^+ $. Set these two results equal to each other."
+    }
+  ],
+  "integration_analysis": "This problem is a foundational exercise in Limits and Continuity. It directly assesses the understanding of the definition of continuity at a point for a piecewise function. The solution involves evaluating one-sided limits and solving a simple linear algebraic equation. It does not integrate concepts from other major calculus topics like differentiation or integration.",
+  "generated_at": "2026-04-26T16:26:02.918185",
+  "mode": "drill",
+  "target_difficulty": 2,
+  "core_topic": "Limits and Continuity",
+  "integrated_topics": [
+    "Limits and Continuity"
+  ],
+  "evaluation": {
+    "score": 83.5,
+    "dimensions": {
+      "structure": 100,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 83.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: The solution correctly equates the left-hand and right-hand limits. For enhanced pedagogical rigor, Step 1 could explicitly state the full three-part definition of continuity at a point `c`: 1) `f(c)` is defined, 2) `lim(x->c) f(x)` exists, and 3) `lim(x->c) f(x) = f(c)`. The solution implicitly handles this since `f(2)` is evaluated using the left-hand limit's expression, but making the connection to the formal definition more explicit would be a slight improvement."
+  },
+  "problem_id": "08ba2e8b"
+}

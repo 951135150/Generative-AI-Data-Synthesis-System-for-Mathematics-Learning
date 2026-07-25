@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch_20260406_172445",
+  "batch_name": "FullRun_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:24:45.646054",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "In signal processing, a voltage signal $V(t)$ is modeled by the piecewise function:\n$$ V(t) = \\begin{cases} \\\\frac{t^2 + t - 6}{t - 2} & \\text{if } t < 2 \\\\ A & \\text{if } t = 2 \\\\ B\\\\cos(\\\\pi t) + 1 & \\text{if } t > 2 \\end{cases} $$\nFor the signal to be considered stable, the function $V(t)$ must be continuous everywhere. Determine the values of the constants $A$ and $B$ that ensure the continuity of the signal at $t=2$.",
+      "real_world_context": "This problem models a common scenario in electrical engineering and signal processing. When different mathematical models describe a system's behavior before and after a specific time (like flipping a switch), ensuring continuity at that point is crucial. A discontinuity would imply an instantaneous, infinite change in voltage, which is physically impossible and would represent a system failure or a surge.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "What are the three conditions that must be met for a function $f(x)$ to be continuous at a point $x=c$? Recall the relationship between the left-hand limit, the right-hand limit, and the function's value at the point."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the left-hand limit, $\\\\lim_{t \\\\to 2^-} V(t)$. Notice that direct substitution results in the indeterminate form $0/0$. What algebraic technique can you use to simplify the rational expression before evaluating the limit?"
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the right-hand limit, $\\\\lim_{t \\\\to 2^+} V(t)$. Since the cosine function is continuous everywhere, what is the most direct method to evaluate this limit?"
+        },
+        {
+          "step": 4,
+          "hint": "Using the definition of continuity from Step 1, set the results from the left-hand limit, the right-hand limit, and the function's value at $t=2$ equal to each other. This will give you equations to solve for $A$ and $B$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The algebraic solution involves rigorously applying the definition of continuity. For $V(t)$ to be continuous at $t=2$, the limit as $t$ approaches 2 must exist and be equal to the function's value at $t=2$. This means the left-hand limit must equal the right-hand limit, and both must equal $V(2)$. We compute the limit of the rational function for $t<2$ (requiring factorization) and the limit of the trigonometric function for $t>2$ (by substitution). Setting these two results and the value $A$ equal allows us to form a system of equations, $LHL = A = RHL$, which we then solve for $A$ and $B$.",
+        "visual_conceptual": "Conceptually, we are 'stitching' three different function pieces together at the point $t=2$. The first piece, for $t<2$, is the graph of a line with a 'hole' in it at $t=2$. The second piece is just a single point $(2, A)$. The third piece, for $t>2$, is a cosine wave. For the final graph to be a single, unbroken curve, the point $(2, A)$ must perfectly fill the hole in the line, and the starting point of the cosine wave must also be at this same location. Therefore, all three pieces must meet at the same y-value when $t=2$. The left-hand limit finds the y-value of the hole, the right-hand limit finds the starting y-value of the cosine curve, and $A$ is the y-value of the point itself. All three must be equal."
+      },
+      "solution": "For the function $V(t)$ to be continuous at $t=2$, the following condition must be met:\n$$ \\\\lim_{t \\\\to 2^-} V(t) = V(2) = \\\\lim_{t \\\\to 2^+} V(t) $$\nWe will calculate each of these three values.\n\n1.  **Calculate the left-hand limit:**\n    $$ \\\\lim_{t \\\\to 2^-} V(t) = \\\\lim_{t \\\\to 2^-} \\\\frac{t^2 + t - 6}{t - 2} $$\n    Substituting $t=2$ gives the indeterminate form $\\\\frac{0}{0}$. We must simplify by factoring the numerator.\n    $$ = \\\\lim_{t \\\\to 2^-} \\\\frac{(t - 2)(t + 3)}{t - 2} $$\n    Cancel the $(t-2)$ terms:\n    $$ = \\\\lim_{t \\\\to 2^-} (t + 3) = 2 + 3 = 5 $$\n\n2.  **Evaluate the function at t=2:**\n    From the definition of the piecewise function, we have:\n    $$ V(2) = A $$\n\n3.  **Calculate the right-hand limit:**\n    $$ \\\\lim_{t \\\\to 2^+} V(t) = \\\\lim_{t \\\\to 2^+} (B\\\\cos(\\\\pi t) + 1) $$\n    Since the function is continuous for $t>2$, we can use direct substitution:\n    $$ = B\\\\cos(2\\\\pi) + 1 = B(1) + 1 = B + 1 $$\n\n4.  **Set the values equal and solve for A and B:**\n    Using the condition for continuity:\n    $$ 5 = A = B + 1 $$\n    From this, we can create two separate equations:\n    -   $A = 5$\n    -   $5 = B + 1 \\\\implies B = 4$\n\n**Conclusion:**\nFor the function $V(t)$ to be continuous at $t=2$, the constants must be $A=5$ and $B=4$.",
+      "concepts": [
+        "Continuity at a Point",
+        "Piecewise Functions",
+        "Limits by Factoring",
+        "One-Sided Limits",
+        "Limits of Trigonometric Functions"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T17:24:29.700727",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound, pedagogically strong, and contextually relevant. It effectively assesses the target concepts in a cohesive manner. | To deepen the student's conceptual understanding, a follow-up part could be added asking them to sketch the graph of the now-continuous function V(t) over an interval like [0, 4]. This would visually reinforce the 'stitching' together of the different function pieces that they solved for algebraically."
+      }
+    }
+  ]
+}

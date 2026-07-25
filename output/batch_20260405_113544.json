@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260405_113544",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:35:44.131043",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the value of the constant $k$ that makes the function $f(x)$ continuous at $x = 1$. $$ f(x) = \\begin{cases} x^2 + 2x & \\text{if } x < 1 \\\\ k & \\text{if } x = 1 \\\\ 4x - 1 & \\text{if } x > 1 \\end{cases} $$",
+      "real_world_context": "In digital signal processing, a signal's voltage $V(t)$ is modeled by a piecewise function. For the first second ($t < 1$), the voltage is given by $V(t) = t^2 + 2t$. At exactly $t=1$, a measurement is taken, recording the voltage as $k$. For $t > 1$, the signal is described by $V(t) = 4t - 1$. For the signal to be stable and free of instantaneous jumps (glitches), the function representing the voltage must be continuous at $t=1$. You are tasked with finding the value of $k$ that ensures this stability.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point $c$. The function $f$ is continuous at $c$ if $\\\\lim_{x \\to c} f(x) = f(c)$. What does this mean for our problem at $x=1$?"
+        },
+        {
+          "step": 2,
+          "hint": "For the limit to exist at $x=1$, the left-hand limit must equal the right-hand limit. Calculate $\\\\lim_{x \\to 1^-} f(x)$ and $\\\\lim_{x \\to 1^+} f(x)$."
+        },
+        {
+          "step": 3,
+          "hint": "Once you have found the value of the limit as $x$ approaches 1, how does this relate to the value of $f(1)$, which is defined as $k$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "For $f(x)$ to be continuous at $x=1$, we need $\\\\lim_{x \\to 1} f(x) = f(1)$. This requires the left-hand limit and the right-hand limit to be equal. \nLeft-hand limit: $\\\\lim_{x \\to 1^-} f(x) = \\\\lim_{x \\to 1^-} (x^2 + 2x) = (1)^2 + 2(1) = 3$. \nRight-hand limit: $\\\\lim_{x \\to 1^+} f(x) = \\\\lim_{x \\to 1^+} (4x - 1) = 4(1) - 1 = 3$. \nSince both one-sided limits are equal to 3, $\\\\lim_{x \\to 1} f(x) = 3$. \nFor continuity, we must have $f(1) = \\\\lim_{x \\to 1} f(x)$. We are given $f(1) = k$. Therefore, $k = 3$.",
+        "visual_conceptual": "Imagine plotting the three parts of the function. The first part is a parabola $y = x^2 + 2x$ that stops as $x$ approaches 1. The third part is a line $y = 4x - 1$ that starts as $x$ moves away from 1. Continuity at $x=1$ means there is no jump or hole in the graph. The parabola and the line must meet at the same $y$-value when $x=1$. The point $(1, k)$ must be exactly this meeting point. As $x$ approaches 1 from the left, $y$ approaches $1^2 + 2(1) = 3$. As $x$ approaches 1 from the right, $y$ approaches $4(1) - 1 = 3$. To 'plug the hole' and connect the two pieces seamlessly, the point $(1, k)$ must be $(1, 3)$. Thus, $k$ must be 3."
+      },
+      "solution": "For the function $f(x)$ to be continuous at $x=1$, three conditions must be met:\n1. $f(1)$ must be defined. Here, $f(1) = k$.\n2. The limit $\\\\lim_{x \\to 1} f(x)$ must exist. This means the left-hand limit must equal the right-hand limit.\n3. $\\\\lim_{x \\to 1} f(x)$ must equal $f(1)$.\n\nStep 1: Calculate the left-hand limit.\n$$ \\\\lim_{x \\to 1^-} f(x) = \\\\lim_{x \\to 1^-} (x^2 + 2x) $$\n$$ = (1)^2 + 2(1) = 1 + 2 = 3 $$\n\nStep 2: Calculate the right-hand limit.\n$$ \\\\lim_{x \\to 1^+} f(x) = \\\\lim_{x \\to 1^+} (4x - 1) $$\n$$ = 4(1) - 1 = 4 - 1 = 3 $$\n\nStep 3: Check if the limit exists.\nSince $\\\\lim_{x \\to 1^-} f(x) = \\\\lim_{x \\to 1^+} f(x) = 3$, the limit exists and $\\\\lim_{x \\to 1} f(x) = 3$.\n\nStep 4: Apply the continuity condition.\nFor $f(x)$ to be continuous at $x=1$, we must have $f(1) = \\\\lim_{x \\to 1} f(x)$.\nSubstituting the known values:\n$$ k = 3 $$\nTherefore, the value of $k$ that makes the function continuous at $x=1$ is 3.",
+      "concepts": [
+        "Definition of Continuity at a Point",
+        "One-Sided Limits",
+        "Piecewise Functions"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:34:38.993819",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem is constructed such that the left-hand and right-hand limits are guaranteed to be equal (both evaluate to 3). This simplifies the task to merely evaluating a limit and assigning it to k, rather than testing the student's ability to enforce the equality of the limits as a condition. | To better assess the student's understanding of the core continuity condition (left limit = right limit), modify one of the branches to include the unknown constant. For example: `f(x) = { x^2 + 2x if x <= 1; 4x + k if x > 1 }`. This would require the student to set up and solve the equation `1^2 + 2(1) = 4(1) + k`, which is a more robust test of the concept than simply evaluating two separate expressions."
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "0782be36",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "Find the maximum possible volume of a right circular cylinder that can be inscribed in a sphere of radius $R = 2\\sqrt{3}$.",
+  "question_type": "calculation",
+  "difficulty": 3,
+  "solution": {
+    "mime_type": "text/latex",
+    "value": "Let the cylinder have radius $r$ and height $h$. The volume of the cylinder is given by the objective function $V = \\pi r^2 h$. \\\\ We need to find a constraint that relates $r$ and $h$. Consider a 2D cross-section of the sphere and cylinder. This shows a rectangle of width $2r$ and height $h$ inscribed in a circle of radius $R = 2\\sqrt{3}$. \\\\ By the Pythagorean theorem, we can relate the variables: $$r^2 + \\left(\\frac{h}{2}\\right)^2 = R^2$$ Substituting $R = 2\\sqrt{3}$, we get: $$r^2 + \\frac{h^2}{4} = (2\\sqrt{3})^2 = 12$$ We can express $r^2$ in terms of $h$: $$r^2 = 12 - \\frac{h^2}{4}$$ Now, substitute this into the volume formula to get volume as a function of one variable, $h$: $$V(h) = \\pi \\left(12 - \\frac{h^2}{4}\\right)h = 12\\pi h - \\frac{\\pi}{4}h^3$$ To find the maximum volume, we take the derivative of $V(h)$ with respect to $h$ and set it to zero. $$V'(h) = 12\\pi - \\frac{3\\pi}{4}h^2$$ Setting $V'(h) = 0$: $$12\\pi - \\frac{3\\pi}{4}h^2 = 0$$ $$12\\pi = \\frac{3\\pi}{4}h^2$$ $$12 = \\frac{3}{4}h^2$$ $$48 = 3h^2$$ $$h^2 = 16$$ Since height must be positive, $h = 4$. \\\\ To confirm this is a maximum, we can use the Second Derivative Test: $$V''(h) = -\\frac{6\\pi}{4}h = -\\frac{3\\pi}{2}h$$ At $h=4$, $V''(4) = -\\frac{3\\pi}{2}(4) = -6\\pi < 0$, which confirms a local maximum. \\\\ Now we find the corresponding radius $r^2$: $$r^2 = 12 - \\frac{h^2}{4} = 12 - \\frac{4^2}{4} = 12 - \\frac{16}{4} = 12 - 4 = 8$$ Finally, we calculate the maximum volume: $$V_{max} = \\pi r^2 h = \\pi (8)(4) = 32\\pi$$ The maximum possible volume is $32\\pi$ cubic units."
+  },
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Start by defining the objective function you want to maximize, which is the volume of the cylinder, $V = \\pi r^2 h$. Then, draw a 2D cross-section of the sphere and cylinder to find a constraint equation relating $r$, $h$, and the sphere's radius $R$ using the Pythagorean theorem."
+    },
+    {
+      "step": 2,
+      "hint": "Use the constraint equation to express the volume $V$ as a function of a single variable (either $r$ or $h$). Then, find the derivative of this function, set it to zero to find the critical points, and solve for the variable to find the dimension that yields the maximum volume."
+    }
+  ],
+  "integration_analysis": null,
+  "generated_at": "2026-05-02T21:57:55.868291",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None. The problem is a standard, well-posed optimization problem, and the provided solution is mathematically correct and logically sound. | Suggestion: The scaffolding is good but could be slightly improved. The second hint could be split into two to better guide students who struggle. For example, a new hint could focus solely on taking the derivative and finding critical points, and a subsequent hint could focus on using the second derivative test to confirm a maximum before calculating the final volume."
+  },
+  "problem_id": "0782be36"
+}

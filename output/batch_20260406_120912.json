@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_120912",
+  "batch_name": "FullRun_Step_7",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:09:12.038626",
+  "target_topics": [
+    "Integration and FTOC"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let the function $E(x)$ be defined by the integral: $$E(x) = \\\\int_{\\\\cos(x)}^{2x} e^{t^2} dt$$ Find the derivative $E'(x)$.",
+      "real_world_context": "In a thermodynamics experiment, the rate of heat energy absorbed by a special alloy is modeled by the function $r(t) = e^{t^2}$ joules per second, where $t$ is time in seconds. A monitoring device measures the total heat energy absorbed over a dynamically changing time interval, from $t_1 = \\\\cos(x)$ to $t_2 = 2x$, where $x$ is a control parameter. The function $E(x)$ represents this total absorbed energy. Your task is to find the instantaneous rate of change of the total absorbed energy with respect to the control parameter $x$.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The integral has variable limits of integration in both the lower and upper bounds. How can you rewrite the integral to apply the standard form of the Fundamental Theorem of Calculus? Consider splitting the integral at a convenient constant, such as $c=0$."
+        },
+        {
+          "step": 2,
+          "hint": "After splitting the integral, you will have a term like $\\\\int_{g(x)}^{c} f(t) dt$. How can you use the property $\\\\int_a^b f(t) dt = -\\\\int_b^a f(t) dt$ to make the variable limit appear in the upper bound for all terms?"
+        },
+        {
+          "step": 3,
+          "hint": "Recall the Fundamental Theorem of Calculus Part 1 combined with the Chain Rule: $\\\\frac{d}{dx} \\\\int_{a}^{g(x)} f(t) dt = f(g(x)) \\\\cdot g'(x)$. Apply this rule to each of your integral terms to find the final derivative $E'(x)$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution is found by applying the properties of definite integrals and the Fundamental Theorem of Calculus (FTOC) combined with the Chain Rule. First, we split the integral at a constant, say $c=0$, to handle the variable lower and upper bounds. Then we differentiate each part. Let $f(t) = e^{t^2}$. The derivative of $E(x)$ is found by differentiating $\\\\int_{\\\\cos(x)}^{0} f(t) dt + \\\\int_{0}^{2x} f(t) dt$. This is equivalent to differentiating $-\\\\int_{0}^{\\\\cos(x)} f(t) dt + \\\\int_{0}^{2x} f(t) dt$. Applying the FTOC and Chain Rule, $\\\\frac{d}{dx} \\\\int_{a}^{g(x)} f(t) dt = f(g(x))g'(x)$, to each term yields the final result.",
+        "visual_conceptual": "Conceptually, $E(x)$ represents the area under the curve $y=e^{t^2}$ from $t=\\\\cos(x)$ to $t=2x$. We are finding $E'(x)$, the rate at which this area changes as $x$ changes. This change is driven by the movement of both the left and right boundaries of the area. The right boundary at $t=2x$ moves with velocity $\\\\frac{d}{dx}(2x)=2$, adding area at a rate of $e^{(2x)^2} \\\\cdot 2$. The left boundary at $t=\\\\cos(x)$ moves with velocity $\\\\frac{d}{dx}(\\\\cos(x))=-\\\\sin(x)$. Since it's a left boundary, its movement subtracts area at a rate of $e^{(\\\\cos(x))^2} \\\\cdot (-\\\\sin(x))$. The total rate of change is the rate from the right boundary minus the rate from the left boundary: $2e^{4x^2} - (e^{\\\\cos^2(x)} \\\\cdot ( -\\\\sin(x) ))$. This gives the total instantaneous rate of change of the area."
+      },
+      "solution": "To find $E'(x)$, we first split the integral at a constant, for instance $c=0$, to separate the variable bounds.\n$$E(x) = \\\\int_{\\\\cos(x)}^{2x} e^{t^2} dt = \\\\int_{\\\\cos(x)}^{0} e^{t^2} dt + \\\\int_{0}^{2x} e^{t^2} dt$$\nNext, we use the property of integrals $\\\\int_a^b f(t) dt = -\\\\int_b^a f(t) dt$ to flip the bounds of the first term.\n$$E(x) = -\\\\int_{0}^{\\\\cos(x)} e^{t^2} dt + \\\\int_{0}^{2x} e^{t^2} dt$$\nNow, we can differentiate $E(x)$ with respect to $x$. We apply the Fundamental Theorem of Calculus Part 1, combined with the Chain Rule, which states that $\\\\frac{d}{dx} \\\\int_{a}^{g(x)} f(t) dt = f(g(x)) \\\\cdot g'(x)$.\n$$E'(x) = \\\\frac{d}{dx} \\\\left( -\\\\int_{0}^{\\\\cos(x)} e^{t^2} dt \\\\right) + \\\\frac{d}{dx} \\\\left( \\\\int_{0}^{2x} e^{t^2} dt \\\\right)$$\nApplying the rule to each term:\nFor the first term, let $g(x) = \\\\cos(x)$, so $g'(x) = -\\\\sin(x)$.\nFor the second term, let $h(x) = 2x$, so $h'(x) = 2$.\n$$E'(x) = -\\\\left( e^{(\\\\cos(x))^2} \\\\cdot (\\\\frac{d}{dx}(\\\\cos(x))) \\\\right) + \\\\left( e^{(2x)^2} \\\\cdot (\\\\frac{d}{dx}(2x)) \\\\right)$$\n$$E'(x) = -\\\\left( e^{\\\\cos^2(x)} \\\\cdot (-\\\\sin(x)) \\\\right) + \\\\left( e^{4x^2} \\\\cdot 2 \\\\right)$$\nSimplifying the expression gives the final answer:\n$$E'(x) = \\\\sin(x)e^{\\\\cos^2(x)} + 2e^{4x^2}$$",
+      "concepts": [
+        "Fundamental Theorem of Calculus Part 1",
+        "Chain Rule",
+        "Properties of Definite Integrals",
+        "Differentiation of Integral-Defined Functions"
+      ],
+      "topic": "Integration and FTOC",
+      "generated_at": "2026-04-06T12:08:51.666518",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Integration and FTOC"
+      ],
+      "source_topics_pool": [
+        "Integration and FTOC"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context is contrived. The functions defining the integration interval, t_1 = cos(x) and t_2 = 2x, are chosen for their mathematical utility rather than any plausible physical relationship to a single 'control parameter x'. This makes the context feel like a thin veneer over a pure math problem. | To make the problem more compelling, the real-world context could be revised to provide a more natural origin for the integral's limits. For example, the problem could be framed around a moving observation window, where 'x' is time, and the boundaries of the window are described by functions of time. Alternatively, a different scenario from a field like economics or signal processing might offer a more believable model where such limit functions could arise."
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_173836",
+  "batch_name": "FullRun_Step_10",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:38:36.778862",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A company manufactures high-performance drones. The total cost, $C(x)$, in dollars, to produce $x$ drones is given by the cost function: $$C(x) = 8000 + 70x + 0.02x^2$$ (A) Find the marginal cost function, $C'(x)$. (B) Calculate the marginal cost when the production level is 200 drones. (C) Interpret the meaning of your answer from part (B) in the context of this problem.",
+      "real_world_context": "In economics and business, 'marginal analysis' is a crucial concept for decision-making. The marginal cost represents the rate of change of the total cost with respect to the number of units produced. It is used to approximate the cost of producing one additional unit, which helps a company decide whether to increase production.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The term 'marginal cost' is the economic term for the instantaneous rate of change of the cost function. How do we find the instantaneous rate of change of a function in calculus?"
+        },
+        {
+          "step": 2,
+          "hint": "After finding the general formula for the marginal cost, $C'(x)$, what does 'at a production level of 200 drones' tell you to do with this formula?"
+        },
+        {
+          "step": 3,
+          "hint": "Consider the units. $C(x)$ is in 'dollars' and $x$ is in 'drones'. What are the units of the derivative, $\\frac{dC}{dx}$? How does this help explain what your answer from Part B means?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The marginal cost is the derivative of the cost function, $C'(x)$. We find this using the power rule for each term of the polynomial $C(x)$. We then evaluate this new function at the specified production level, $x=200$. The resulting number, $C'(200)$, gives the rate of change of cost at that exact point.",
+        "visual_conceptual": "Imagine graphing the cost function $C(x)$. It's an upward-opening parabola. The marginal cost, $C'(x)$, represents the slope of the tangent line to this curve at any point $x$. When we calculate $C'(200)$, we are finding the slope of the cost curve when 200 drones have been produced. This slope tells us how steeply the cost is rising at that instant. For a small step from $x=200$ to $x=201$, this tangent line is a very close approximation to the curve itself, which is why the marginal cost, $C'(200)$, is an excellent estimate for the actual cost of producing the 201st drone."
+      },
+      "solution": "The problem asks for the marginal cost, which is the derivative of the cost function $C(x)$.\n\n**Part (A): Find the marginal cost function, $C'(x)$.**\n\nThe cost function is given by:\n$$C(x) = 8000 + 70x + 0.02x^2$$\nTo find the marginal cost function, we differentiate $C(x)$ with respect to $x$ using the power rule, $(\\frac{d}{dx}x^n = nx^{n-1})$.\n$$C'(x) = \\frac{d}{dx}(8000) + \\frac{d}{dx}(70x) + \\frac{d}{dx}(0.02x^2)$$\n$$C'(x) = 0 + 70(1) + 0.02(2x)$$\n$$C'(x) = 70 + 0.04x$$\n\n**Part (B): Calculate the marginal cost at a production level of 200 drones.**\n\nWe substitute $x = 200$ into the marginal cost function $C'(x)$:\n$$C'(200) = 70 + 0.04(200)$$\n$$C'(200) = 70 + 8$$\n$$C'(200) = 78$$\n\n**Part (C): Interpret the meaning of your answer from part (B).**\n\nThe marginal cost at a production level of 200 drones is $78. This means that when the company is already producing 200 drones, the cost to produce one additional drone (the 201st drone) is approximately $78. The units of the derivative $\\frac{dC}{dx}$ are dollars per drone, so $C'(200) = 78$ dollars/drone represents the instantaneous rate of change of cost at that production level.",
+      "concepts": [
+        "Marginal Cost",
+        "Derivatives as Rates of Change",
+        "Applications in Economics",
+        "Power Rule"
+      ],
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-06T17:38:09.266356",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is well-constructed and mathematically sound. The assigned difficulty of 3 might be slightly inflated for a standard calculus curriculum; the problem is a straightforward application of the derivative, more typical of a difficulty level 2. | To increase the problem's complexity and justify a higher difficulty rating, consider adding a part (D) that involves optimization. For example: 'Find the production level that minimizes the average cost per drone.' This would require students to create the average cost function, A(x) = C(x)/x, find its derivative, and solve for the critical point, thus integrating optimization concepts."
+      }
+    }
+  ]
+}

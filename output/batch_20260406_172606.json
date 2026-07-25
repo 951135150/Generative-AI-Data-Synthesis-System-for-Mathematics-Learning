@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260406_172606",
+  "batch_name": "FullRun_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:26:06.396016",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position of a particle moving along a straight line is given by the function $s(t) = 3t^2 - 5t + 2$, where $s$ is in meters and $t$ is in seconds. Find the instantaneous velocity of the particle at time $t = 4$ seconds.",
+      "real_world_context": "In classical mechanics, the motion of objects is often described by functions of time. The derivative of the position function gives the velocity, which is the rate of change of position. This fundamental concept is crucial for analyzing everything from planetary orbits to vehicle dynamics.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the physical relationship between position and velocity. How is instantaneous velocity defined in terms of the position function $s(t)$?"
+        },
+        {
+          "step": 2,
+          "hint": "To find the velocity function, $v(t)$, you need to differentiate $s(t)$. Which differentiation rule applies to terms like $t^2$ and $t$?"
+        },
+        {
+          "step": 3,
+          "hint": "Once you have the general expression for velocity, $v(t)$, how do you find the velocity at the specific time $t=4$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The velocity function $v(t)$ is the derivative of the position function $s(t)$. We use the power rule, $\\\frac{d}{dt}(t^n) = nt^{n-1}$, to differentiate $s(t) = 3t^2 - 5t + 2$. This gives $v(t) = s'(t) = 6t - 5$. Substituting $t=4$ into the velocity function yields $v(4) = 6(4) - 5 = 19$ m/s.",
+        "visual_conceptual": "The function $s(t)$ describes the particle's position over time, which can be graphed as a parabola. The instantaneous velocity at any time $t$ is the slope of the tangent line to this graph at that point. We are looking for the slope of the tangent line at $t=4$. The derivative, $s'(t)$, gives us a formula for this slope at any point $t$. By calculating $s'(4)$, we find the specific slope, and thus the velocity, at that exact moment."
+      },
+      "solution": "Step 1: Identify the relationship between position and velocity. The instantaneous velocity $v(t)$ is the derivative of the position function $s(t)$ with respect to time $t$. $$v(t) = s'(t) = \\\\frac{ds}{dt}$$\n\nStep 2: Differentiate the position function $s(t) = 3t^2 - 5t + 2$ using the power rule and sum/difference rule. The power rule states that $\\\\frac{d}{dt}(at^n) = ant^{n-1}$.\n$$s'(t) = \\\\frac{d}{dt}(3t^2) - \\\\frac{d}{dt}(5t) + \\\\frac{d}{dt}(2)$$\n\nStep 3: Apply the differentiation rules to each term.\n$$s'(t) = (3 \\\\cdot 2)t^{2-1} - (5 \\\\cdot 1)t^{1-1} + 0$$\n$$s'(t) = 6t - 5t^0$$\nSince $t^0 = 1$, we have:\n$$s'(t) = 6t - 5$$\nSo, the velocity function is $v(t) = 6t - 5$.\n\nStep 4: Evaluate the velocity function at the specified time, $t=4$ seconds.\n$$v(4) = 6(4) - 5$$\n$$v(4) = 24 - 5$$\n$$v(4) = 19$$\n\nFinal Answer: The instantaneous velocity of the particle at $t=4$ seconds is 19 m/s.",
+      "concepts": [
+        "Derivative as a Rate of Change",
+        "Power Rule for Differentiation",
+        "Instantaneous Velocity"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T17:25:51.104595",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is a standard, well-constructed introductory exercise for the topic. | To enhance analytical thinking, add a follow-up question requiring interpretation, such as 'What is the particle's acceleration?' or 'During what time interval is the particle's speed increasing?'. This encourages students to connect velocity, speed, and acceleration, moving beyond a single computational step."
+      }
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# 敏感配置
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+
+# 日志与运行产物
+logs/
+*.log
+
+# 冗余文件
+项目副本/
+1.0.1
+
+# 系统文件
+.DS_Store
+Thumbs.db

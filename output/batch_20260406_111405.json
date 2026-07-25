@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_111405",
+  "batch_name": "FullRun_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:14:05.704624",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position of a particle moving along a line is given by the function $s(t) = 3t^4 - 5t^2 + 7t - 10$, where $t$ is time in seconds and $s(t)$ is the position in meters. Find the function $v(t)$ that represents the instantaneous velocity of the particle at any time $t$.",
+      "real_world_context": "In kinematics, a core branch of classical mechanics, the position of an object over time is often described by a function. The instantaneous velocity, which tells us how fast and in what direction the object is moving at a specific moment, is found by taking the derivative of the position function. This is a fundamental concept used in everything from vehicle engineering to celestial mechanics.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The velocity function $v(t)$ is the derivative of the position function $s(t)$, so you need to find $s'(t)$. Start by applying the Power Rule, $\\\\frac{d}{dt}(t^n) = nt^{n-1}$, to each term containing $t$."
+        },
+        {
+          "step": 2,
+          "hint": "Remember that differentiation is a linear operation. This means you can differentiate the polynomial term by term: $\\\\frac{d}{dt}(f(t) + g(t)) = f'(t) + g'(t)$."
+        },
+        {
+          "step": 3,
+          "hint": "What is the derivative of a constant term? Consider the term $-10$ in the function $s(t)$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The process of finding the velocity function $v(t)$ from the position function $s(t)$ is a direct application of differentiation rules. We are given $s(t) = 3t^4 - 5t^2 + 7t - 10$. To find the derivative, $s'(t)$, we differentiate the polynomial term by term. We use the Power Rule ($\\frac{d}{dx}x^n = nx^{n-1}$), the Constant Multiple Rule ($\\frac{d}{dx}[c \\cdot f(x)] = c \\cdot f'(x)$), and the Sum/Difference Rule. Each term is differentiated independently and the results are combined to form the new polynomial which represents the velocity.",
+        "visual_conceptual": "Conceptually, the function $s(t)$ provides a complete history of the particle's location. If you were to graph $s(t)$, the value on the y-axis would be the particle's position at time $t$ on the x-axis. The derivative, $v(t) = s'(t)$, represents the slope of the tangent line to the graph of $s(t)$ at any point $t$. This slope tells you the instantaneous rate of change of position. A steep positive slope means high positive velocity (moving fast in the positive direction), while a slope of zero means the particle is momentarily at rest."
+      },
+      "solution": "To find the velocity function $v(t)$, we need to compute the derivative of the position function $s(t)$ with respect to time $t$. \\\\nGiven the position function: \\\\n$$s(t) = 3t^4 - 5t^2 + 7t - 10$$ \\\\nThe velocity function is $v(t) = s'(t) = \\\\frac{ds}{dt}$. \\\\nWe can differentiate the function term by term using the Sum/Difference Rule: \\\\n$$v(t) = \\\\frac{d}{dt}(3t^4) - \\\\frac{d}{dt}(5t^2) + \\\\frac{d}{dt}(7t) - \\\\frac{d}{dt}(10)$$ \\\\nNow, we apply the Power Rule ($ \\\\frac{d}{dt}(t^n) = nt^{n-1} $) and the Constant Multiple Rule to each term: \\\\nFor the first term, $ \\\\frac{d}{dt}(3t^4) = 3 \\\\cdot 4t^{4-1} = 12t^3 $. \\\\nFor the second term, $ \\\\frac{d}{dt}(5t^2) = 5 \\\\cdot 2t^{2-1} = 10t^1 = 10t $. \\\\nFor the third term, $ \\\\frac{d}{dt}(7t) = \\\\frac{d}{dt}(7t^1) = 7 \\\\cdot 1t^{1-1} = 7t^0 = 7 \\\\cdot 1 = 7 $. \\\\nFor the constant term, the derivative of a constant is zero: $ \\\\frac{d}{dt}(10) = 0 $. \\\\nCombining these results, we get the velocity function: \\\\n$$v(t) = 12t^3 - 10t + 7 - 0$$ \\\\n$$v(t) = 12t^3 - 10t + 7$$ \\\\nThe units for velocity are meters per second (m/s).",
+      "concepts": [
+        "Power Rule",
+        "Sum and Difference Rules",
+        "Constant Multiple Rule",
+        "Derivative as Instantaneous Rate of Change"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T11:13:52.164767",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is well-constructed and serves its purpose as a drill exercise effectively. The assigned difficulty of 3 might be slightly high for what is a standard application of the power rule; it aligns more closely with a difficulty of 2, which was the target. | To increase complexity and assess further understanding, the problem could be extended with a second part. For example: 'b) Find the acceleration of the particle at any time t.' or 'b) At what time(s) is the particle momentarily at rest?'. This would require students to find the second derivative or solve v(t) = 0, respectively, moving beyond a simple procedural drill."
+      }
+    }
+  ]
+}

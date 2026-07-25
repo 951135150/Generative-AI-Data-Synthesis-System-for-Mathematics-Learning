@@ -1,0 +1,101 @@
+{
+    "metadata": {
+        "user_id": "Student_Chen_FullRun",
+        "join_date": "2026-04-20",
+        "total_minutes": 0.0,
+        "dataset_version": "V3"
+    },
+    "topics_status": {
+        "Limits and Continuity": {
+            "mastery_score": 0.86,
+            "current_level": 3,
+            "completed_count": 3
+        },
+        "Derivatives and Differentiation": {
+            "mastery_score": 0.49,
+            "current_level": 2,
+            "completed_count": 1
+        },
+        "Integration and FTOC": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Multivariable Calculus": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Applications of Derivatives": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Indefinite Integrals": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Applications of Integration": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Multiple Integrals": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Vector Calculus": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Sequences and Series": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Differential Equations": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Techniques of Integration": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Parametric and Polar Curves": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        }
+    },
+    "learning_history": [
+        {
+            "time": "2026-04-20T13:29:17.407895",
+            "topic": "Limits and Continuity",
+            "score": 80.5,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T13:30:17.224194",
+            "topic": "Limits and Continuity",
+            "score": 98.0,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T13:34:11.280423",
+            "topic": "Limits and Continuity",
+            "score": 92,
+            "level_at_time": 3
+        },
+        {
+            "time": "2026-04-20T13:34:44.999372",
+            "topic": "Derivatives and Differentiation",
+            "score": 82.5,
+            "level_at_time": 2
+        }
+    ]
+}

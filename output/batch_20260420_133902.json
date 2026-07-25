@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_133902",
+  "batch_name": "V3_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-20T13:39:02.258905",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "For what value of the constant \\(k\\) is the function \\(f(x)\\) continuous on \\((-\\infty, \\infty)\\)?\n\\[f(x) = \\begin{cases} \\frac{x^2 - 4}{x - 2} & \\text{if } x < 2 \\\\ 2x + k & \\text{if } x \\ge 2 \\end{cases}}\\]",
+      "question_type": "mcq",
+      "solution": "For the function \\(f(x)\\) to be continuous at \\(x=2\\), the following condition must be met:\n\\[\\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x) = f(2)\\]\nFirst, we calculate the left-hand limit:\n\\[ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} \\frac{x^2 - 4}{x - 2} \\]\nThis is an indeterminate form of type \\(\\frac{0}{0}\\). We can simplify by factoring the numerator:\n\\[ \\lim_{x \\to 2^-} \\frac{(x - 2)(x + 2)}{x - 2} = \\lim_{x \\to 2^-} (x + 2) \\]\nNow, we can substitute \\(x=2\\):\n\\[ 2 + 2 = 4 \\]\nNext, we calculate the right-hand limit and the function value at \\(x=2\\):\n\\[ \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} (2x + k) = 2(2) + k = 4 + k \\]\n\\[ f(2) = 2(2) + k = 4 + k \\]\nFor continuity, the left-hand limit must equal the right-hand limit:\n\\[ 4 = 4 + k \\]\nSolving for \\(k\\), we get:\n\\[ k = 4 - 4 = 0 \\]\nTherefore, the value of \\(k\\) that makes the function continuous is 0.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For a piecewise function to be continuous at the point where the rule changes (in this case, \\(x=2\\)), the left-hand limit and the right-hand limit must be equal at that point."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the left-hand limit, \\(\\lim_{x \\to 2^-} f(x)\\). You will need to resolve an indeterminate form \\(\\frac{0}{0}\\) by factoring the numerator."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the right-hand limit, \\(\\lim_{x \\to 2^+} f(x)\\). This will be an expression involving \\(k\\)."
+        },
+        {
+          "step": 4,
+          "hint": "Set the results from the left-hand limit and the right-hand limit equal to each other and solve the resulting equation for \\(k\\)."
+        }
+      ],
+      "options": {
+        "A": "0",
+        "B": "4",
+        "C": "8",
+        "D": "2"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T13:38:30.744727",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 92.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 80,
+          "scaffolding": 80,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The scaffolding is overly prescriptive, particularly in Step 2. It tells the student not only what to do (calculate the left-hand limit) but also exactly how to do it ('resolve an indeterminate form... by factoring'), which removes a key problem-solving step for the student. | Suggestion: To enhance the pedagogical value, the scaffolding should guide rather than instruct. For example, Step 2's hint could be revised to: 'Calculate the left-hand limit, \\(\\lim_{x \\to 2^-} f(x)\\). Note that direct substitution results in an indeterminate form.' This prompts the student to recognize the situation and decide on the appropriate technique (factoring, L'Hôpital's Rule) on their own."
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "a245157f",
+  "topic": "Limits and Continuity",
+  "problem_statement": "Calculate the following limit: $$ \\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3} $$",
+  "question_type": "calculation",
+  "difficulty": 2,
+  "solution": "We are asked to evaluate the limit: $$ \\lim_{x \\to 3} \\frac{x^2 - 9}{x - 3} $$ First, we attempt to evaluate the limit by direct substitution of $ x=3 $ into the expression. $$ \\frac{3^2 - 9}{3 - 3} = \\frac{9 - 9}{3 - 3} = \\frac{0}{0} $$ This is an indeterminate form, which suggests that we can simplify the expression algebraically. The numerator is a difference of squares, which can be factored as: $$ x^2 - 9 = (x - 3)(x + 3) $$ Now, we can substitute this back into the limit expression: $$ \\lim_{x \\to 3} \\frac{(x - 3)(x + 3)}{x - 3} $$ Since the limit is taken as $ x $ approaches 3, $ x $ is not equal to 3. Therefore, we cancel the $ (x - 3) $ term from the numerator and the denominator. $$ \\lim_{x \\to 3} (x + 3) $$ Now, we can evaluate this simplified limit by direct substitution: $$ 3 + 3 = 6 $$ Thus, the value of the limit is 6.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "If direct substitution results in an indeterminate form like $ \\frac{0}{0} $, you should try to simplify the expression algebraically."
+    },
+    {
+      "step": 2,
+      "hint": "Recall the difference of squares formula, $ a^2 - b^2 = (a-b)(a+b) $. Apply this to the numerator, $ x^2 - 9 $."
+    }
+  ],
+  "generated_at": "2026-04-25T16:14:02.989511",
+  "mode": "drill",
+  "target_difficulty": 2,
+  "core_topic": "Limits and Continuity",
+  "integrated_topics": [
+    "Limits and Continuity"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None | Suggestion: The second scaffolding hint is very explicit, providing the exact formula and where to apply it. For the target difficulty, this is acceptable. To increase the cognitive load slightly, the hint could be rephrased to 'The numerator is a difference of squares. How can you factor it?' This prompts the student to recall the formula themselves rather than just applying a given one."
+  },
+  "problem_id": "a245157f"
+}

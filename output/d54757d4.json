@@ -1,0 +1,50 @@
+{
+  "id": "d54757d4",
+  "topic": "Multiple Integrals",
+  "problem_statement": "Evaluate the double integral $ \\iint_D 2xy \\, dA $ where $ D $ is the region in the first quadrant bounded by the curves $ y = x^2 $ and $ y = x $.",
+  "question_type": "mcq",
+  "difficulty": 3,
+  "solution": "The first step is to determine the region of integration $ D $. We find the intersection points of the curves $ y = x^2 $ and $ y = x $ by setting them equal:\n$$ x^2 = x \\implies x^2 - x = 0 \\implies x(x-1) = 0 $$\nThe intersection points occur at $ x=0 $ and $ x=1 $. The corresponding $ y $ values are $ y=0 $ and $ y=1 $. The points are $ (0,0) $ and $ (1,1) $.\nIn the interval $ [0, 1] $, we have $ x \\ge x^2 $. Therefore, the region $ D $ is defined by the inequalities:\n$$ D = \\{ (x, y) \\mid 0 \\le x \\le 1, x^2 \\le y \\le x \\} $$\nNow we can set up the iterated integral. We will integrate with respect to $ y $ first, as the bounds for $ y $ are functions of $ x $.\n$$ \\iint_D 2xy \\, dA = \\int_{0}^{1} \\int_{x^2}^{x} 2xy \\, dy \\, dx $$\nFirst, we evaluate the inner integral with respect to $ y $:\n$$ \\int_{x^2}^{x} 2xy \\, dy = \\left[ x y^2 \\right]_{y=x^2}^{y=x} = x(x)^2 - x(x^2)^2 = x^3 - x^5 $$\nNext, we substitute this result into the outer integral and evaluate with respect to $ x $:\n$$ \\int_{0}^{1} (x^3 - x^5) \\, dx = \\left[ \\frac{x^4}{4} - \\frac{x^6}{6} \\right]_{0}^{1} $$\n$$ = \\left( \\frac{1^4}{4} - \\frac{1^6}{6} \\right) - \\left( \\frac{0^4}{4} - \\frac{0^6}{6} \\right) = \\frac{1}{4} - \\frac{1}{6} $$\nTo find the final value, we find a common denominator:\n$$ \\frac{1}{4} - \\frac{1}{6} = \\frac{3}{12} - \\frac{2}{12} = \\frac{1}{12} $$\nThus, the value of the double integral is $ \\frac{1}{12} $.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "First, sketch the region of integration $ D $ bounded by $ y=x^2 $ and $ y=x $. Find their intersection points to determine the limits for $ x $. Then, for a given $ x $ in this range, determine the lower and upper bounds for $ y $."
+    },
+    {
+      "step": 2,
+      "hint": "Set up the iterated integral $ \\int_{a}^{b} \\int_{g_1(x)}^{g_2(x)} 2xy \\, dy \\, dx $. Evaluate the inner integral with respect to $ y $, treating $ x $ as a constant. Then, integrate the resulting expression with respect to $ x $."
+    }
+  ],
+  "integration_analysis": "",
+  "options": {
+    "A": "$\\frac{1}{12}$",
+    "B": "$\\frac{1}{24}$",
+    "C": "$\\frac{5}{12}$",
+    "D": "$\\frac{1}{6}$"
+  },
+  "answer": "A",
+  "generated_at": "2026-04-26T18:29:08.184214",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Multiple Integrals",
+  "integrated_topics": [
+    "Multiple Integrals"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 90.0,
+      "scaffolding": 90.0,
+      "concept_integration": 10.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None | Suggestion: The problem is a classic, well-posed example. To enhance its pedagogical value, consider adding a conceptual follow-up question, such as 'Explain why integrating with respect to y first is more straightforward for this region' or 'Set up the integral with the order of integration reversed (dx dy) to highlight the difference between Type I and Type II regions.'"
+  },
+  "problem_id": "d54757d4"
+}

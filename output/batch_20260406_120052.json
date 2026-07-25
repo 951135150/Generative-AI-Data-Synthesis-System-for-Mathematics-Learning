@@ -1,0 +1,71 @@
+{
+  "batch_id": "batch_20260406_120052",
+  "batch_name": "FullRun_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:00:52.246144",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position of a particle moving along an axis is described by the function $p(t) = (t^2 + 1)\\\\cos(t)$, where $t$ is time in seconds. Find the instantaneous velocity of the particle at time $t = \\\\pi$ seconds.",
+      "real_world_context": "In physics and engineering, many systems exhibit oscillatory motion with changing amplitude, such as a driven pendulum or an RLC circuit. This problem models such a system where the position function $p(t)$ is a product of a polynomial (representing the changing amplitude) and a trigonometric function (representing the oscillation). Finding the derivative gives the instantaneous velocity, a crucial quantity for understanding the system's dynamics.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The position function $p(t)$ is a product of two functions: $(t^2+1)$ and $\\\\cos(t)$. Which differentiation rule should you apply to find the derivative of a product?"
+        },
+        {
+          "step": 2,
+          "hint": "Let's define $u(t) = t^2+1$ and $v(t) = \\\\cos(t)$. Find the derivatives of these two simpler functions, $u'(t)$ and $v'(t)$."
+        },
+        {
+          "step": 3,
+          "hint": "Apply the product rule, which states that $(uv)' = u'v + uv'$. Substitute the functions and their derivatives you found in the previous step to get the general expression for the velocity, $p'(t)$."
+        },
+        {
+          "step": 4,
+          "hint": "Now, substitute $t = \\\\pi$ into your expression for $p'(t)$. What are the values of $\\\\cos(\\\\pi)$ and $\\\\sin(\\\\pi)$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The velocity is the derivative of the position function, $v(t) = p'(t)$. We use the product rule, $(f(t)g(t))' = f'(t)g(t) + f(t)g'(t)$. Here, $f(t) = t^2+1$ and $g(t) = \\\\cos(t)$. The derivatives are $f'(t)=2t$ and $g'(t)=-\\\\sin(t)$. Applying the rule gives $p'(t) = (2t)\\\\cos(t) + (t^2+1)(-\\\\sin(t))$. Evaluating at $t=\\\\pi$ yields $p'(\\\\pi) = 2\\\\pi\\\\cos(\\\\pi) - (\\\\pi^2+1)\\\\sin(\\\\pi) = 2\\\\pi(-1) - (\\\\pi^2+1)(0) = -2\\\\pi$.",
+        "visual_conceptual": "Imagine a particle oscillating back and forth, but with its maximum distance from the origin increasing over time. The function $p(t)$ describes this motion. The velocity, $p'(t)$, tells us how fast and in which direction the particle is moving at any instant. We are asked to find this velocity at $t=\\\\pi$. At this specific moment, the particle is at a position of $p(\\\\pi) = (\\\\pi^2+1)\\\\cos(\\\\pi) = -(\\\\pi^2+1)$. Our calculation shows the velocity is $p'(\\\\pi) = -2\\\\pi$, which is negative. This means that at time $t=\\\\pi$, the particle is located at a negative position and is still moving in the negative direction (away from the origin)."
+      },
+      "solution": "Let the position function be $p(t) = (t^2 + 1)\\\\cos(t)$. To find the instantaneous velocity, we need to compute the derivative of $p(t)$ with respect to $t$, which we denote as $p'(t)$ or $v(t)$.\\\\nWe use the Product Rule for differentiation, which states that for two functions $u(t)$ and $v(t)$, the derivative of their product is $(u(t)v(t))' = u'(t)v(t) + u(t)v'(t)$.\\\\nLet $u(t) = t^2 + 1$ and $v(t) = \\\\cos(t)$.\\\\nFirst, find the derivatives of $u(t)$ and $v(t)$:$$ u'(t) = \\\\frac{d}{dt}(t^2 + 1) = 2t $$$$ v'(t) = \\\\frac{d}{dt}(\\\\cos(t)) = -\\\\sin(t) $$Now, apply the Product Rule:$$ p'(t) = u'(t)v(t) + u(t)v'(t) $$$$ p'(t) = (2t)(\\\\cos(t)) + (t^2 + 1)(-\\\\sin(t)) $$$$ p'(t) = 2t\\\\cos(t) - (t^2 + 1)\\\\sin(t) $$Finally, we evaluate the velocity at $t = \\\\pi$:$$ p'(\\\\pi) = 2(\\\\pi)\\\\cos(\\\\pi) - ((\\\\pi)^2 + 1)\\\\sin(\\\\pi) $$Recall the trigonometric values: $\\\\cos(\\\\pi) = -1$ and $\\\\sin(\\\\pi) = 0$.\\\\nSubstitute these values into the expression:$$ p'(\\\\pi) = 2\\\\pi(-1) - (\\\\pi^2 + 1)(0) $$$$ p'(\\\\pi) = -2\\\\pi - 0 $$$$ p'(\\\\pi) = -2\\\\pi $$The instantaneous velocity of the particle at $t = \\\\pi$ seconds is $-2\\\\pi$ units/second.",
+      "concepts": [
+        "Product Rule",
+        "Derivatives of Trigonometric Functions",
+        "Instantaneous Rate of Change"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T12:00:36.727047",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound, well-scaffolded, and contextually relevant. The difficulty is appropriate for the topic. | To deepen conceptual understanding, add a follow-up question such as: 'At t = π, is the particle speeding up or slowing down?' This would require students to calculate the acceleration (the second derivative) and compare the signs of velocity and acceleration, reinforcing the relationship between the first and second derivatives."
+      }
+    }
+  ]
+}

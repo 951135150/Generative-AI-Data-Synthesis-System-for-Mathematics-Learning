@@ -1,0 +1,112 @@
+{
+    "metadata": {
+        "user_id": "test_student_01",
+        "join_date": "2026-04-20",
+        "total_minutes": 0.0
+    },
+    "topics_status": {
+        "Limits and Continuity": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 1
+        },
+        "Derivatives and Differentiation": {
+            "mastery_score": 0.7,
+            "current_level": 2,
+            "completed_count": 1
+        },
+        "Integration and FTOC": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 1
+        },
+        "Multivariable Calculus": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 1
+        },
+        "Applications of Derivatives": {
+            "mastery_score": 0.7,
+            "current_level": 2,
+            "completed_count": 1
+        },
+        "Indefinite Integrals": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 1
+        },
+        "Applications of Integration": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Multiple Integrals": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Vector Calculus": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Sequences and Series": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Differential Equations": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Techniques of Integration": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        },
+        "Parametric and Polar Curves": {
+            "mastery_score": 0.0,
+            "current_level": 1,
+            "completed_count": 0
+        }
+    },
+    "learning_history": [
+        {
+            "time": "2026-04-20T12:36:11.352641",
+            "topic": "Limits and Continuity",
+            "score": 0.0,
+            "level_at_time": 1
+        },
+        {
+            "time": "2026-04-20T12:37:09.040544",
+            "topic": "Derivatives and Differentiation",
+            "score": 100.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T12:37:19.625010",
+            "topic": "Integration and FTOC",
+            "score": 0.0,
+            "level_at_time": 1
+        },
+        {
+            "time": "2026-04-20T12:37:55.411554",
+            "topic": "Multivariable Calculus",
+            "score": 0.0,
+            "level_at_time": 1
+        },
+        {
+            "time": "2026-04-20T12:38:54.965749",
+            "topic": "Applications of Derivatives",
+            "score": 100.0,
+            "level_at_time": 2
+        },
+        {
+            "time": "2026-04-20T12:39:01.124477",
+            "topic": "Indefinite Integrals",
+            "score": 0.0,
+            "level_at_time": 1
+        }
+    ]
+}

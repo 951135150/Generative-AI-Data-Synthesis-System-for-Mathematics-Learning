@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_144510",
+  "batch_name": "V3_Step_11",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:45:10.806233",
+  "target_topics": [
+    "Multivariable Calculus"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the gradient of the function \\\\(f(x, y) = x^2 y^3 + \\\\sin(\\\\pi x)\\\\) at the point \\\\((1, 2)\\\\).",
+      "question_type": "mcq",
+      "solution": "The gradient of a function \\\\(f(x, y)\\\\) is given by the vector \\\\(\\\\\\nabla f(x, y) = \\\\left< \\\\frac{\\\\\\\\partial f}{\\\\\\\\partial x}, \\\\frac{\\\\\\\\partial f}{\\\\\\\\partial y} \\\\right>\\\\). First, we compute the partial derivatives of \\\\(f(x, y) = x^2 y^3 + \\\\sin(\\\\pi x)\\\\):\\\\n\\\\n1. Partial derivative with respect to \\\\(x\\\\):\\\\n\\\\(\\\\\\\\frac{\\\\\\\\partial f}{\\\\\\\\partial x} = \\\\frac{\\\\\\\\partial}{\\\\\\\\partial x}(x^2 y^3 + \\\\sin(\\\\pi x)) = 2xy^3 + \\\\cos(\\\\pi x) \\\\\\cdot \\\\pi = 2xy^3 + \\\\pi\\\\cos(\\\\pi x)\\\\) \\\\n\\\\n2. Partial derivative with respect to \\\\(y\\\\):\\\\n\\\\(\\\\\\\\frac{\\\\\\\\partial f}{\\\\\\\\partial y} = \\\\frac{\\\\\\\\partial}{\\\\\\\\partial y}(x^2 y^3 + \\\\sin(\\\\pi x)) = x^2(3y^2) = 3x^2y^2\\\\) \\\\n\\\\nNext, we evaluate these partial derivatives at the point \\\\((1, 2)\\\\):\\\\n\\\\n1. \\\\(\\\\\\\\frac{\\\\\\\\partial f}{\\\\\\\\partial x}(1, 2) = 2(1)(2)^3 + \\\\pi\\\\cos(\\\\pi \\\\cdot 1) = 2(8) + \\\\pi(-1) = 16 - \\\\pi\\\\)\\\\n\\\\n2. \\\\(\\\\\\\\frac{\\\\\\\\partial f}{\\\\\\\\partial y}(1, 2) = 3(1)^2(2)^2 = 3(1)(4) = 12\\\\)\\\\n\\\\nTherefore, the gradient vector at \\\\((1, 2)\\\\) is \\\\(\\\\\\nabla f(1, 2) = \\\\left< 16 - \\\\pi, 12 \\\\right>\\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall that the gradient of a function \\\\(f(x, y)\\\\) is a vector of its partial derivatives: \\\\(\\\\\\nabla f = \\\\left< \\\\frac{\\\\\\\\partial f}{\\\\\\\\partial x}, \\\\frac{\\\\\\\\partial f}{\\\\\\\\partial y} \\\\right>\\\\)."
+        },
+        {
+          "step": 2,
+          "hint": "Compute the partial derivative of \\\\(f\\\\) with respect to \\\\(x\\\\). Remember to use the chain rule when differentiating the term \\\\(\\\\\\\\sin(\\\\pi x)\\\\)."
+        },
+        {
+          "step": 3,
+          "hint": "Compute the partial derivative of \\\\(f\\\\) with respect to \\\\(y\\\\)."
+        },
+        {
+          "step": 4,
+          "hint": "Substitute \\\\(x=1\\\\) and \\\\(y=2\\\\) into the expressions for the partial derivatives to find the components of the gradient vector at the specified point."
+        }
+      ],
+      "options": {
+        "A": "\\\\(\\\\left< 16 - \\\\pi, 12 \\\\right>\\\\)",
+        "B": "\\\\(\\\\left< 15, 12 \\\\right>\\\\)",
+        "C": "\\\\(\\\\left< 16 + \\\\pi, 12 \\\\right>\\\\)",
+        "D": "\\\\(\\\\left< 12, 16 - \\\\pi \\\\right>\\\\)"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Multivariable Calculus",
+      "generated_at": "2026-04-20T14:44:49.317967",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Multivariable Calculus"
+      ],
+      "source_topics_pool": [
+        "Multivariable Calculus"
+      ],
+      "evaluation": {
+        "score": 97.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 90,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None | Suggestion: The problem is an excellent procedural drill. To enhance conceptual understanding, a follow-up question could be added, such as asking for the direction of the maximum rate of increase of the function at the point, or calculating the directional derivative in a given direction using the computed gradient. This would connect the calculation to its geometric interpretation."
+      }
+    }
+  ]
+}

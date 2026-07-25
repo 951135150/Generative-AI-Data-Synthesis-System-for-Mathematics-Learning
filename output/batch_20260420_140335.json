@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_140335",
+  "batch_name": "V3_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:03:35.214503",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let `f(x)` be a function defined as: `f(x) = \\begin{cases} \\frac{x^2 - 9}{x - 3} & \\text{if } x < 3 \\\\ kx - 4 & \\text{if } x \\geq 3 \\end{cases}`. For what value of the constant `k` is the function `f(x)` continuous at `x=3`?",
+      "question_type": "mcq",
+      "solution": "For `f(x)` to be continuous at `x=3`, we must have `\\lim_{x \\to 3^-} f(x) = \\lim_{x \\to 3^+} f(x) = f(3)`. First, we compute the left-hand limit: `\\lim_{x \\to 3^-} f(x) = \\lim_{x \\to 3^-} \\frac{x^2 - 9}{x - 3} = \\lim_{x \\to 3^-} \\frac{(x-3)(x+3)}{x-3} = \\lim_{x \\to 3^-} (x+3) = 3+3 = 6`. Next, we compute the right-hand limit and the function value at `x=3`: `\\lim_{x \\to 3^+} f(x) = \\lim_{x \\to 3^+} (kx - 4) = 3k - 4`. Also, `f(3) = k(3) - 4 = 3k - 4`. For continuity, we set the left-hand limit equal to the right-hand limit: `6 = 3k - 4`. Solving for `k` gives `10 = 3k`, so `k = \\frac{10}{3}`.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point `c`. A function `f(x)` is continuous at `x=c` if `\\lim_{x \\to c} f(x) = f(c)`. This implies that the left-hand limit, the right-hand limit, and the function value must all be equal: `\\lim_{x \\to c^-} f(x) = \\lim_{x \\to c^+} f(x) = f(c)`."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the left-hand limit as `x` approaches 3: `\\lim_{x \\to 3^-} \\frac{x^2 - 9}{x - 3}`. You will need to factor the numerator to resolve the indeterminate form `\\frac{0}{0}`."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the right-hand limit as `x` approaches 3: `\\lim_{x \\to 3^+} (kx - 4)`. This can be found by direct substitution and will be an expression involving `k`."
+        },
+        {
+          "step": 4,
+          "hint": "Equate the results from the left-hand limit and the right-hand limit to ensure the overall limit exists. Solve the resulting linear equation for the constant `k`."
+        }
+      ],
+      "options": {
+        "A": "\\frac{10}{3}",
+        "B": "\\frac{4}{3}",
+        "C": "\\frac{2}{3}",
+        "D": "1"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T14:03:20.317177",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None | Suggestion: To deepen conceptual understanding, consider adding a follow-up task: 'Sketch the graph of the function f(x) using the value of k you found, and visually verify that the two pieces of the function meet at x=3.'"
+      }
+    }
+  ]
+}

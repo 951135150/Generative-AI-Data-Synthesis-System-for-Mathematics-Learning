@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_121237",
+  "batch_name": "FullRun_Step_11",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:12:37.928404",
+  "target_topics": [
+    "Derivatives"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Given the function $f(x) = \\frac{e^{2x}}{x^2 + 1}$, find the derivative $f'(x)$.",
+      "real_world_context": "In pharmacology, the concentration of a drug in a patient's bloodstream over time, $x$ (in hours), can be modeled by a function. The derivative of this function represents the rate at which the drug concentration is changing. This problem asks you to find the derivative of a function that models such a process, which is a crucial step in determining when the drug reaches its maximum efficacy.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The function is a ratio of two other functions. Which primary differentiation rule should you apply to find the derivative of a quotient?"
+        },
+        {
+          "step": 2,
+          "hint": "To use the quotient rule, you need the derivatives of the numerator ($e^{2x}$) and the denominator ($x^2 + 1$). What rule is needed to differentiate the numerator?"
+        },
+        {
+          "step": 3,
+          "hint": "Apply the quotient rule formula, which is $f'(x) = \\frac{v(x)u'(x) - u(x)v'(x)}{[v(x)]^2}$. Substitute the functions and their derivatives that you've found and then simplify."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem requires the application of the Quotient Rule, which states that for a function $f(x) = \\frac{u(x)}{v(x)}$, its derivative is $f'(x) = \\frac{v(x)u'(x) - u(x)v'(x)}{[v(x)]^2}$. This must be combined with the Chain Rule to find the derivative of the numerator, $u(x) = e^{2x}$.",
+        "visual_conceptual": "The derivative, $f'(x)$, represents the slope of the tangent line to the graph of $f(x)$ at any point $x$. In the drug concentration context, $f'(x)$ tells us how fast the concentration is changing. A positive derivative means the concentration is increasing (absorption dominates), a negative derivative means it's decreasing (clearance dominates), and a zero derivative indicates a point where the concentration is momentarily stable, likely at its maximum value."
+      },
+      "solution": "To find the derivative of $f(x) = \\frac{e^{2x}}{x^2 + 1}$, we use the Quotient Rule. Let the numerator be $u(x) = e^{2x}$ and the denominator be $v(x) = x^2 + 1$.\\n\\nStep 1: Find the derivative of the numerator, $u'(x)$. Using the Chain Rule:\\n$$u'(x) = \\frac{d}{dx}(e^{2x}) = e^{2x} \\cdot \\frac{d}{dx}(2x) = 2e^{2x}$$\\n\\nStep 2: Find the derivative of the denominator, $v'(x)$. Using the Power Rule:\\n$$v'(x) = \\frac{d}{dx}(x^2 + 1) = 2x$$\\n\\nStep 3: Apply the Quotient Rule formula: $f'(x) = \\frac{v(x)u'(x) - u(x)v'(x)}{[v(x)]^2}$.\\n$$f'(x) = \\frac{(x^2 + 1)(2e^{2x}) - (e^{2x})(2x)}{(x^2 + 1)^2}$$\\n\\nStep 4: Simplify the numerator by distributing and factoring.\\n$$f'(x) = \\frac{2x^2e^{2x} + 2e^{2x} - 2xe^{2x}}{(x^2 + 1)^2}$$\\nFactor out the common term $2e^{2x}$ from the numerator for the final expression:\\n$$f'(x) = \\frac{2e^{2x}(x^2 - x + 1)}{(x^2 + 1)^2}$$",
+      "concepts": [
+        "Quotient Rule",
+        "Chain Rule",
+        "Derivatives of Exponential Functions",
+        "Power Rule"
+      ],
+      "topic": "Derivatives",
+      "generated_at": "2026-04-06T12:12:12.921193",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Derivatives"
+      ],
+      "source_topics_pool": [
+        "Derivatives"
+      ],
+      "evaluation": {
+        "score": 86.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 65,
+          "scaffolding": 65,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context describes a drug concentration that peaks and then decreases (absorption followed by clearance). However, the derivative of the given function, $f'(x) = \\frac{2e^{2x}(x^2 - x + 1)}{(x^2 + 1)^2}$, is always positive. This means the function models a concentration that is always increasing, which is physically impossible and contradicts the provided context. This mismatch between the mathematical model and the real-world scenario is a significant pedagogical flaw. | To align the mathematics with the excellent real-world context, replace the function with one that accurately models pharmacological behavior. A function like $g(x) = \\frac{10x}{x^2 + 4}$ would be a better choice. This function increases to a maximum and then decreases, allowing for meaningful follow-up questions such as, 'At what time does the drug reach its maximum concentration?' which would require the student to set the derivative to zero and solve."
+      }
+    }
+  ]
+}

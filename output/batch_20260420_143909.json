@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_143909",
+  "batch_name": "V3_Step_9",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:39:09.794910",
+  "target_topics": [
+    "Integration and FTOC"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let a function be defined by \\\\(g(x) = \\\\int_{1}^{x^2} \\\\cos(\\\\pi t) \\\\, dt\\\\). Find the value of \\\\(g'(2)\\\\).",
+      "question_type": "mcq",
+      "solution": "To find \\\\(g'(x)\\\\), we use the Fundamental Theorem of Calculus Part 2, combined with the Chain Rule. The theorem states that if \\\\(F(x) = \\\\int_{a(x)}^{b(x)} f(t) \\\\, dt\\\\), then \\\\(F'(x) = f(b(x)) \\\\cdot b'(x) - f(a(x)) \\\\cdot a'(x)\\\\).\\\\nFor the given function \\\\(g(x) = \\\\int_{1}^{x^2} \\\\cos(\\\\pi t) \\\\, dt\\\\), we have:\\\\n- \\\\(f(t) = \\\\cos(\\\\pi t)\\\\)\\\\n- The lower limit is a constant, \\\\(a(x) = 1\\\\), so \\\\(a'(x) = 0\\\\).\\\\n- The upper limit is a function of x, \\\\(b(x) = x^2\\\\), so \\\\(b'(x) = 2x\\\\).\\\\n\\\\nApplying the formula for \\\\(g'(x)\\\\):\\\\n\\\\(g'(x) = f(b(x)) \\\\cdot b'(x) - f(a(x)) \\\\cdot a'(x)\\\\)\\\\n\\\\(g'(x) = \\\\cos(\\\\pi (x^2)) \\\\cdot (2x) - \\\\cos(\\\\pi (1)) \\\\cdot (0)\\\\)\\\\n\\\\(g'(x) = 2x \\\\cos(\\\\pi x^2)\\\\)\\\\n\\\\nNow, we evaluate \\\\(g'(x)\\\\) at \\\\(x=2\\\\):\\\\n\\\\(g'(2) = 2(2) \\\\cos(\\\\pi (2^2))\\\\)\\\\n\\\\(g'(2) = 4 \\\\cos(4\\\\pi)\\\\)\\\\n\\\\nSince \\\\(\\cos(2n\\\\pi) = 1\\\\) for any integer \\\\(n\\\\), we have \\\\(\\cos(4\\\\pi) = 1\\\\).\\\\nTherefore:\\\\n\\\\(g'(2) = 4 \\\\cdot 1 = 4\\\\)",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the Fundamental Theorem of Calculus Part 2. Since the upper limit of integration is \\\\(x^2\\\\) and not just \\\\(x\\\\), you will need to apply the Chain Rule."
+        },
+        {
+          "step": 2,
+          "hint": "Let \\\\(u = x^2\\\\). The derivative of \\\\(g(x)\\\\) with respect to \\\\(x\\\\) is given by \\\\(\\frac{d}{dx} \\\\left[ \\\\int_{1}^{u} \\\\cos(\\\\pi t) \\\\, dt \\\\right] = \\\\left( \\\\frac{d}{du} \\\\int_{1}^{u} \\\\cos(\\\\pi t) \\\\, dt \\\\right) \\\\cdot \\\\frac{du}{dx}\\\\. Calculate this expression."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the general expression for \\\\(g'(x)\\\\), substitute \\\\(x=2\\\\) and evaluate the result. Remember the value of \\\\(\\cos(4\\\\pi)\\\\)."
+        }
+      ],
+      "options": {
+        "A": "4",
+        "B": "1",
+        "C": "-4",
+        "D": "0"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Integration and FTOC",
+      "generated_at": "2026-04-20T14:36:42.952099",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Integration and FTOC"
+      ],
+      "source_topics_pool": [
+        "Integration and FTOC"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None | Suggestion: The problem is excellent and a classic example of its type. For maximum pedagogical impact, the solution text could be slightly rephrased to explicitly build the derivative using the chain rule (e.g., by defining an intermediate function H(u) and finding dH/du and du/dx), which would perfectly mirror the superior logic presented in the scaffolding steps. This reinforces the 'why' behind the formula."
+      }
+    }
+  ]
+}

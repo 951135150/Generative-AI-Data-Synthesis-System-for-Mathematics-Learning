@@ -1,0 +1,47 @@
+{
+  "id": "6a1ed3c4",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "Consider the function $f(x) = x^3 - 6x^2 + 9x + 1$. Find the coordinates $(x, y)$ of all local maximum and local minimum points.",
+  "question_type": "calculation",
+  "difficulty": 2,
+  "solution": "To find the local extrema, we first need to find the critical points of the function $f(x)$. We do this by finding the first derivative $f'(x)$ and setting it to zero.\n\nStep 1: Find the first derivative of $f(x)$.\n$$f(x) = x^3 - 6x^2 + 9x + 1$$\n$$f'(x) = \\frac{d}{dx}(x^3 - 6x^2 + 9x + 1) = 3x^2 - 12x + 9$$\n\nStep 2: Set the derivative to zero to find the critical points.\n$$3x^2 - 12x + 9 = 0$$\nFactor out the common term:\n$$3(x^2 - 4x + 3) = 0$$\nFactor the quadratic expression:\n$$3(x-1)(x-3) = 0$$\nThe critical points are $x=1$ and $x=3$.\n\nStep 3: Use the Second Derivative Test to classify the critical points. First, find the second derivative $f''(x)$.\n$$f''(x) = \\frac{d}{dx}(3x^2 - 12x + 9) = 6x - 12$$\n\nStep 4: Evaluate $f''(x)$ at each critical point.\nFor $x=1$:\n$$f''(1) = 6(1) - 12 = -6$$\nSince $f''(1) < 0$, the function has a local maximum at $x=1$.\n\nFor $x=3$:\n$$f''(3) = 6(3) - 12 = 18 - 12 = 6$$\nSince $f''(3) > 0$, the function has a local minimum at $x=3$.\n\nStep 5: Find the y-coordinates of these points.\nLocal maximum at $x=1$:\n$$y = f(1) = (1)^3 - 6(1)^2 + 9(1) + 1 = 1 - 6 + 9 + 1 = 5$$\nThe local maximum is at the point $(1, 5)$.\n\nLocal minimum at $x=3$:\n$$y = f(3) = (3)^3 - 6(3)^2 + 9(3) + 1 = 27 - 54 + 27 + 1 = 1$$\nThe local minimum is at the point $(3, 1)$.\n\nFinal Answer: The local maximum is at $(1, 5)$ and the local minimum is at $(3, 1)$.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "To find potential locations for local extrema, you must first find the critical points of the function. Where do critical points of a differentiable function occur?"
+    },
+    {
+      "step": 2,
+      "hint": "After finding the x-values of the critical points, you need to classify them. The Second Derivative Test is a common method. What does the sign of the second derivative at a critical point tell you about the function's concavity?"
+    },
+    {
+      "step": 3,
+      "hint": "You have found the x-values for the local maximum and minimum. The problem asks for the coordinates. How do you find the corresponding y-values?"
+    }
+  ],
+  "integration_analysis": "",
+  "generated_at": "2026-04-26T15:48:18.344765",
+  "mode": "drill",
+  "target_difficulty": 2,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None | Suggestion: The solution exclusively uses the Second Derivative Test. For completeness, it could briefly mention that the First Derivative Test is an alternative method for classifying critical points. This would reinforce that multiple valid strategies often exist in calculus."
+  },
+  "problem_id": "6a1ed3c4"
+}

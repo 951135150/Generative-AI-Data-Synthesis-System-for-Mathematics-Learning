@@ -1,0 +1,47 @@
+{
+  "id": "8453c0ef",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "Find the coordinates of the point(s) on the parabola $ y = x^2 $ that are closest to the point $ (0, \\frac{9}{2}) $.",
+  "question_type": "calculation",
+  "difficulty": 3,
+  "solution": "Let $ (x, y) $ be a point on the parabola $ y = x^2 $. The distance $ D $ between this point and the point $ (0, \\frac{9}{2}) $ is given by the distance formula:\n$$ D = \\sqrt{(x - 0)^2 + (y - \\frac{9}{2})^2} $$\nSince $ y = x^2 $, we can express $ D $ as a function of $ x $ alone:\n$$ D(x) = \\sqrt{x^2 + (x^2 - \\frac{9}{2})^2} $$\nTo find the minimum distance, we can minimize the square of the distance, $ S(x) = D(x)^2 $, as this simplifies the differentiation process and has the same critical points as $ D(x) $ for $ D>0 $.\n$$ S(x) = x^2 + (x^2 - \\frac{9}{2})^2 = x^2 + x^4 - 9x^2 + \\frac{81}{4} = x^4 - 8x^2 + \\frac{81}{4} $$\nTo find the minimum value of $ S(x) $, we first find its derivative with respect to $ x $:\n$$ S'(x) = \\frac{d}{dx}(x^4 - 8x^2 + \\frac{81}{4}) = 4x^3 - 16x $$\nSet the derivative to zero to find the critical points:\n$$ 4x^3 - 16x = 0 \\\\ 4x(x^2 - 4) = 0 \\\\ 4x(x - 2)(x + 2) = 0 $$\nThe critical points are $ x = 0 $, $ x = 2 $, and $ x = -2 $.\n\nNext, we use the Second Derivative Test to classify these points. The second derivative is:\n$$ S''(x) = \\frac{d}{dx}(4x^3 - 16x) = 12x^2 - 16 $$\nEvaluate $ S''(x) $ at each critical point:\n- For $ x = 0 $: $ S''(0) = 12(0)^2 - 16 = -16 < 0 $. This corresponds to a local maximum.\n- For $ x = 2 $: $ S''(2) = 12(2)^2 - 16 = 48 - 16 = 32 > 0 $. This corresponds to a local minimum.\n- For $ x = -2 $: $ S''(-2) = 12(-2)^2 - 16 = 48 - 16 = 32 > 0 $. This also corresponds to a local minimum.\n\nTo ensure these local minima are absolute minima, we examine the end behavior of $ S(x) $. As $ x \\to \\infty $, $ S(x) \\to \\infty $, and as $ x \\to -\\infty $, $ S(x) \\to \\infty $. Since the function increases without bound at both ends of its domain and we have found the only local minima, these must be the absolute minima.\n\nFinally, we find the coordinates of the points. The $ x $-coordinates that minimize the distance are $ x = 2 $ and $ x = -2 $.\n- When $ x = 2 $, $ y = x^2 = 2^2 = 4 $. The point is $ (2, 4) $.\n- When $ x = -2 $, $ y = x^2 = (-2)^2 = 4 $. The point is $ (-2, 4) $.\n\nThe points on the parabola closest to $ (0, \\frac{9}{2}) $ are $ (2, 4) $ and $ (-2, 4) $.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Let a point on the parabola be $ (x, x^2) $. Write a formula for the distance between this point and $ (0, \\frac{9}{2}) $. To simplify the calculations, it is easier to find the derivative of the square of the distance function."
+    },
+    {
+      "step": 2,
+      "hint": "After finding the function for the squared distance, $ S(x) $, find its derivative $ S'(x) $ and set it to zero to find the critical points. Use the Second Derivative Test, $ S''(x) $, to determine which of these points correspond to a minimum distance."
+    },
+    {
+      "step": 3,
+      "hint": "After identifying the $ x $-values that give a local minimum, verify they are absolute minima by considering the function's behavior as $ x \\to \\pm\\infty $. Then, use these $ x $-values to find the corresponding $ y $-values from the parabola's equation $ y = x^2 $."
+    }
+  ],
+  "integration_analysis": null,
+  "generated_at": "2026-05-02T22:38:45.992037",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 82.5,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 10.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 82.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: The problem is a classic, well-executed example of an optimization problem. The solution is thorough, including the use of the Second Derivative Test and justification for the absolute minimum. The scaffolding effectively guides students through the standard procedure. For a more advanced challenge, the problem could be extended to ask students to show that the line segment from the given point to the solution points is normal to the parabola at those points, thus connecting optimization with the geometric properties of derivatives."
+  },
+  "problem_id": "8453c0ef"
+}

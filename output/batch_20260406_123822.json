@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_20260406_123822",
+  "batch_name": "FullRun_Step_27",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:38:22.908212",
+  "target_topics": [
+    "Differential Equations"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A population of bacteria, $P(t)$, grows at a rate proportional to its current size, where $t$ is time in hours. Initially, there are 1000 bacteria. After 3 hours, the population has grown to 2000 bacteria. Find the exact population size after 5 hours.",
+      "real_world_context": "This problem models exponential growth, a fundamental concept in biology for population dynamics, in finance for compound interest, and in physics for processes like chain reactions. Understanding how to set up and solve this basic differential equation is key to modeling systems where the rate of change depends on the current state.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The problem states that the rate of growth ($\\frac{dP}{dt}$) is 'proportional to its current size' ($P$). How can you express this relationship as a differential equation involving a proportionality constant, $k$?"
+        },
+        {
+          "step": 2,
+          "hint": "The resulting differential equation is separable. Rearrange the equation to group all terms involving $P$ on one side with $dP$, and all terms involving $t$ on the other side with $dt$. Then, integrate both sides."
+        },
+        {
+          "step": 3,
+          "hint": "Your general solution will have two unknown constants (one from integration, and $k$). Use the initial condition, $P(0) = 1000$, to find the constant of integration. Then, use the second data point, $P(3) = 2000$, to solve for the growth constant $k$."
+        },
+        {
+          "step": 4,
+          "hint": "Now that you have the specific function for $P(t)$ with all constants determined, substitute $t=5$ to find the population after 5 hours. Leave your answer in exact form."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by setting up the differential equation $\\frac{dP}{dt} = kP$. This is a separable equation, which is solved by integrating $\\frac{1}{P} dP = k \\, dt$ to get $\\ln|P| = kt + C$. This leads to the general exponential solution $P(t) = A e^{kt}$. The constants $A$ and $k$ are determined algebraically using the two given data points, $P(0)=1000$ and $P(3)=2000$.",
+        "visual_conceptual": "The differential equation $\\frac{dP}{dt} = kP$ describes a system where the growth rate is not constant, but instead increases as the population size increases. Visually, the graph of $P(t)$ versus $t$ is an exponential curve that starts at the initial population $P(0)$ and gets progressively steeper. The slope of the tangent line at any point $(t, P(t))$ is equal to $k$ times the height of the point, $P(t)$. The constant $k$ determines the 'steepness' or speed of the growth."
+      },
+      "solution": "Let $P(t)$ be the population of bacteria at time $t$ in hours.\\\n1. Set up the differential equation based on the problem statement: The rate of growth is proportional to the size of the population.\\\n$$ \\frac{dP}{dt} = kP $$$2. Separate the variables to prepare for integration.\\\n$$ \\frac{1}{P} dP = k \\, dt $$$3. Integrate both sides.\\\n$$ \\int \\frac{1}{P} dP = \\int k \\, dt $$$$ \\ln|P| = kt + C $$$4. Solve for $P(t)$ by exponentiating both sides. Since population cannot be negative, $|P|=P$.\\\n$$ P(t) = e^{kt+C} = e^C e^{kt} $$$Let $A = e^C$. The general solution is $P(t) = A e^{kt}$.\\\n5. Use the initial condition $P(0) = 1000$ to find $A$.\\\n$$ 1000 = A e^{k(0)} \\implies 1000 = A(1) \\implies A = 1000 $$$The solution becomes $P(t) = 1000 e^{kt}$.\\\n6. Use the second condition $P(3) = 2000$ to find $k$.\\\n$$ 2000 = 1000 e^{k(3)} $$$$ 2 = e^{3k} $$$$ \\ln(2) = 3k \\implies k = \\frac{\\ln(2)}{3} $$$7. Write the specific model for this population.\\\n$$ P(t) = 1000 e^{t \\left(\\frac{\\ln(2)}{3}\\right)} = 1000 \\left(e^{\\ln(2)}\\right)^{t/3} = 1000 \\cdot 2^{t/3} $$$8. Find the population at $t=5$ hours.\\\n$$ P(5) = 1000 \\cdot 2^{5/3} $$$The exact population after 5 hours is $1000 \\cdot 2^{5/3}$ bacteria.",
+      "concepts": [
+        "Separation of Variables",
+        "Exponential Growth Models",
+        "Initial Value Problems",
+        "Solving for constants"
+      ],
+      "topic": "Differential Equations",
+      "generated_at": "2026-04-06T12:38:04.990368",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Differential Equations"
+      ],
+      "source_topics_pool": [
+        "Differential Equations"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem is a perfect, but highly standard, procedural exercise. Its primary weakness is that it doesn't challenge a student beyond applying a well-known algorithm, which may not reveal deeper conceptual understanding or misunderstanding. | To elevate the problem from a procedural drill to a conceptual check, add a follow-up question that modifies the conditions. For example: 'Suppose at t=3 hours, a limiting factor is introduced such that the growth constant k is halved for all subsequent time. Find the population at t=5 hours under this new condition.' This would test if the student truly understands the role of the constants and can adapt the model."
+      }
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_113014",
+  "batch_name": "FullRun_Step_16",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:30:14.918640",
+  "target_topics": [
+    "Sequences and Series"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A patient is prescribed a medication where they take a 100 mg dose every 24 hours. The body eliminates 40% of the drug in a 24-hour period. What is the long-term, or steady-state, amount of the drug in the patient's body, assuming the dose is taken indefinitely? The steady-state amount is measured immediately after a dose is taken.",
+      "real_world_context": "This model is fundamental in pharmacology for determining dosing regimens. It ensures that the concentration of a drug in the body stays within a therapeutic window—high enough to be effective but low enough to avoid toxicity. Understanding this 'steady-state' concentration is crucial for safe and effective long-term treatment.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Let $A_n$ be the amount of drug in the body immediately after the $n$-th dose. Write out the expression for $A_3$, the amount after the third dose. Remember that before each new dose, 60% of the previous day's total remains."
+        },
+        {
+          "step": 2,
+          "hint": "The total amount in the long run is the sum of an infinite series. Identify the type of series and its key parameters (first term and common ratio)."
+        },
+        {
+          "step": 3,
+          "hint": "Recall the formula for the sum of a convergent infinite geometric series, $S = \\\\frac{a}{1-r}$. Use this formula to calculate the long-term amount."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Let $A_n$ be the amount of drug in the body immediately after the $n$-th dose. The dose is 100 mg. If 40% is eliminated, 60% (or 0.6) remains. \nAfter the 1st dose: $A_1 = 100$. \nAfter the 2nd dose: $A_2 = 100 + (100 \\\\cdot 0.6)$. This is the new dose plus the remainder of the first dose. \nAfter the 3rd dose: $A_3 = 100 + (100 \\\\cdot 0.6 + 100 \\\\cdot 0.6^2)$. This is the new dose plus the remainder of the previous total. \nAs $n \\\\to \\\\infty$, the total amount is the sum of the infinite geometric series: \n$S = 100 + 100(0.6) + 100(0.6)^2 + 100(0.6)^3 + ...$ \nThis is a geometric series with first term $a = 100$ and common ratio $r = 0.6$. Since $|r| < 1$, the series converges. The sum is $S = \\\\frac{a}{1-r} = \\\\frac{100}{1-0.6} = \\\\frac{100}{0.4} = 250$ mg.",
+        "visual_conceptual": "Think about reaching an equilibrium or 'steady state'. Let $L$ be the long-term amount of the drug in the body right after a dose. In the next 24 hours, 40% of this amount is eliminated, so the amount removed is $0.4L$. At the same time, a new dose of 100 mg is added. For the system to be in a steady state, the amount of drug eliminated must equal the amount of drug added. Therefore, we can set up the equation: \nAmount eliminated = Amount added \n$0.4L = 100$ \nSolving for $L$ gives: \n$L = \\\\frac{100}{0.4} = 250$ mg. \nThis means the system stabilizes when the total drug level reaches 250 mg, as the body will then eliminate exactly 100 mg each day, which is perfectly replenished by the next dose."
+      },
+      "solution": "Let $D = 100$ mg be the daily dose. The fraction of the drug that remains after 24 hours is $r = 1 - 0.40 = 0.60$. \nLet $A_n$ be the amount of drug in the body immediately after the $n$-th dose. \n$A_1 = D = 100$ \n$A_2 = D + D \\\\cdot r = 100 + 100(0.6)$ \n$A_3 = D + (D + D \\\\cdot r)r = D + Dr + Dr^2 = 100 + 100(0.6) + 100(0.6)^2$ \nAs $n \\\\to \\\\infty$, the total amount of drug in the body is the sum of an infinite geometric series: \n$$ S = \\\\sum_{n=0}^{\\\\infty} D r^n = D + Dr + Dr^2 + Dr^3 + \\\\dots $$ \nThe first term is $a = D = 100$ and the common ratio is $r = 0.6$. \nSince $|r| = 0.6 < 1$, the series converges. The sum is given by the formula: \n$$ S = \\\\frac{a}{1-r} $$ \nPlugging in the values: \n$$ S = \\\\frac{100}{1 - 0.6} = \\\\frac{100}{0.4} = 250 $$ \nThus, the long-term amount of the drug in the patient's body is 250 mg.",
+      "concepts": [
+        "Infinite Geometric Series",
+        "Sequences",
+        "Steady-State Analysis",
+        "Mathematical Modeling"
+      ],
+      "topic": "Sequences and Series",
+      "generated_at": "2026-04-06T11:29:46.400053",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Sequences and Series"
+      ],
+      "source_topics_pool": [
+        "Sequences and Series"
+      ],
+      "evaluation": {
+        "score": 99.2,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 98,
+          "scaffolding": 98,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "No critical flaws exist. The problem is mathematically sound and pedagogically strong, particularly with the inclusion of two distinct solution methods (series summation and equilibrium analysis). | To deepen understanding, add a follow-up question asking for the minimum (or 'trough') drug amount in the body during the steady-state cycle, which would be the level right before the next dose is administered. This would require students to perform one more calculation (250 mg * 0.6, or 250 mg - 100 mg) and provide a more complete picture of the drug's fluctuation within the therapeutic window."
+      }
+    }
+  ]
+}

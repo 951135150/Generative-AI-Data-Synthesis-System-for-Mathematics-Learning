@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_141230",
+  "batch_name": "V3_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:12:30.212843",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let \\( f(x) \\) be the function defined by \\\\[ f(x) = \\begin{cases} \\frac{\\sin(kx)}{x} & \\text{if } x < 0 \\\\ 3x^2 + 5 & \\text{if } x \\ge 0 \\end{cases} \\\\] For what value of the constant \\( k \\) is the function \\( f(x) \\) continuous at \\( x=0 \\)?",
+      "question_type": "mcq",
+      "solution": "For \\( f(x) \\) to be continuous at \\( x=0 \\), we must have \\( \\lim_{x \\to 0^-} f(x) = \\lim_{x \\to 0^+} f(x) = f(0) \\). \\\\First, we find \\( f(0) \\) and the right-hand limit using the second piece of the function: \\\\ \\( f(0) = 3(0)^2 + 5 = 5 \\). \\\\ \\( \\lim_{x \\to 0^+} f(x) = \\lim_{x \\to 0^+} (3x^2 + 5) = 3(0)^2 + 5 = 5 \\). \\\\Next, we find the left-hand limit using the first piece: \\\\ \\( \\lim_{x \\to 0^-} f(x) = \\lim_{x \\to 0^-} \\frac{\\sin(kx)}{x} \\). \\\\To evaluate this limit, we use the known limit \\( \\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1 \\). We can rewrite our limit as: \\\\ \\( \\lim_{x \\to 0^-} k \\cdot \\frac{\\sin(kx)}{kx} \\). \\\\Let \\( u = kx \\). As \\( x \\to 0^- \\), \\( u \\to 0 \\). The limit becomes: \\\\ \\( k \\cdot \\lim_{u \\to 0} \\frac{\\sin(u)}{u} = k \\cdot 1 = k \\). \\\\For continuity, we must equate the left-hand limit and the right-hand limit (or the function value): \\\\ \\( k = 5 \\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point \\( c \\). For a piecewise function, this means the left-hand limit, right-hand limit, and the function value must all be equal at \\( c \\). In this case, \\( c=0 \\)."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate \\( f(0) \\) and the right-hand limit, \\( \\lim_{x \\to 0^+} f(x) \\), using the piece of the function defined for \\( x \\ge 0 \\)."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the left-hand limit, \\( \\lim_{x \\to 0^-} f(x) \\). You will need to use the special trigonometric limit \\( \\lim_{u \\to 0} \\frac{\\sin(u)}{u} = 1 \\) by making a suitable substitution or manipulation."
+        },
+        {
+          "step": 4,
+          "hint": "Set the result from the left-hand limit equal to the result from the right-hand limit (or \\(f(0)\\)) and solve for the constant \\( k \\)."
+        }
+      ],
+      "options": {
+        "A": "5",
+        "B": "3",
+        "C": "1",
+        "D": "0"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T14:12:09.964865",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a standard and well-formulated example for this topic. The solution's derivation is sound, and the scaffolding is logical. | Suggestion: To deepen the student's understanding, a follow-up question could be added: 'For the value of k you found, is the function f(x) differentiable at x=0? Why or why not?' This would challenge students to check if the derivatives of the two pieces match at x=0, reinforcing the relationship between continuity and differentiability."
+      }
+    }
+  ]
+}

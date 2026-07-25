@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260406_112440",
+  "batch_name": "FullRun_Step_11",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:24:40.487398",
+  "target_topics": [
+    "Multivariable Calculus"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let $f(x, y) = x^2 \\ln(y)$. Compute the first-order partial derivatives $f_x(x, y)$ and $f_y(x, y)$.",
+      "real_world_context": "A materials scientist is studying the temperature distribution $T(x, y)$ on a rectangular metal plate. The temperature at any point $(x, y)$ is given by the function $T(x, y) = x^2 \\ln(y)$, where $T$ is in degrees Celsius and $x, y$ are spatial coordinates in meters. To understand how temperature changes across the plate, the scientist needs to calculate the rate of change of temperature in the x-direction and the y-direction.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "To compute the partial derivative with respect to $x$, $f_x(x, y)$, which variable should you treat as a constant?"
+        },
+        {
+          "step": 2,
+          "hint": "When treating $y$ as a constant, the term $\\ln(y)$ is just a constant coefficient for $x^2$. What is the derivative of $C \\cdot x^2$ with respect to $x$, where $C$ is a constant?"
+        },
+        {
+          "step": 3,
+          "hint": "Now, to compute the partial derivative with respect to $y$, $f_y(x, y)$, which variable is treated as a constant? What differentiation rule applies to $\\ln(y)$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The process of finding a partial derivative involves applying single-variable differentiation rules to one variable while treating all other variables as constants. For $f_x$, we differentiate with respect to $x$, so $y$ and $\\ln(y)$ are treated as constants. For $f_y$, we differentiate with respect to $y$, so $x$ and $x^2$ are treated as constants.",
+        "visual_conceptual": "Imagine the function $f(x, y)$ as a surface in 3D space. The partial derivative $f_x(x, y)$ represents the slope of the tangent line to the surface at the point $(x, y, f(x, y))$ that is parallel to the xz-plane. It measures the instantaneous rate of change of the function as you move only in the x-direction. Similarly, $f_y(x, y)$ is the slope of the tangent line parallel to the yz-plane, measuring the rate of change as you move only in the y-direction."
+      },
+      "solution": "To find the partial derivative with respect to $x$, denoted $f_x(x, y)$, we treat $y$ as a constant and differentiate $f(x, y)$ with respect to $x$:\n$$ f_x(x, y) = \\frac{\\partial}{\\partial x} (x^2 \\ln(y)) $$\nSince $\\ln(y)$ is treated as a constant, we can pull it out of the derivative:\n$$ f_x(x, y) = \\ln(y) \\cdot \\frac{\\partial}{\\partial x} (x^2) = \\ln(y) \\cdot (2x) = 2x \\ln(y) $$\n\nTo find the partial derivative with respect to $y$, denoted $f_y(x, y)$, we treat $x$ as a constant and differentiate $f(x, y)$ with respect to $y$:\n$$ f_y(x, y) = \\frac{\\partial}{\\partial y} (x^2 \\ln(y)) $$\nSince $x^2$ is treated as a constant, we can pull it out of the derivative:\n$$ f_y(x, y) = x^2 \\cdot \\frac{\\partial}{\\partial y} (\\ln(y)) = x^2 \\cdot \\left(\\frac{1}{y}\\right) = \\frac{x^2}{y} $$\n\nTherefore, the first-order partial derivatives are $f_x(x, y) = 2x \\ln(y)$ and $f_y(x, y) = \\frac{x^2}{y}$.",
+      "concepts": [
+        "Partial Derivatives",
+        "Differentiation of Logarithmic Functions",
+        "Power Rule"
+      ],
+      "topic": "Multivariable Calculus",
+      "generated_at": "2026-04-06T11:24:24.358563",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Multivariable Calculus"
+      ],
+      "source_topics_pool": [
+        "Multivariable Calculus"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context, while a good idea, uses a function T(x, y) = x^2 * ln(y) that is physically implausible for temperature on a metal plate. The domain is restricted to y > 0, and the temperature approaches negative infinity as y approaches 0, which does not model a real physical system well. | To improve the problem, either change the function in the real-world context to a more physically realistic one (e.g., a polynomial like T(x,y) = 100 - x^2 - 2y^2, or a function involving trigonometric or exponential terms), or change the context itself to one where logarithmic models are more natural, such as in economics (e.g., a Cobb-Douglas production function) or information theory."
+      }
+    }
+  ]
+}

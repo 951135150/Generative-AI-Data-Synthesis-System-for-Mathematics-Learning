@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_161359",
+  "batch_name": "V3_Step_39",
+  "mode": "drill",
+  "generated_at": "2026-04-20T16:13:59.960095",
+  "target_topics": [
+    "Parametric and Polar Curves"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the slope of the tangent line to the parametric curve given by the equations \\\\( x(t) = t^2 + 1 \\\\) and \\\\( y(t) = t^3 - 2 \\\\) at the point where \\\\( t = 2 \\\\).",
+      "question_type": "mcq",
+      "solution": "The slope of the tangent line to a parametric curve is given by the formula \\\\( \\\\frac{dy}{dx} = \\\\frac{dy/dt}{dx/dt} \\\\).\\\\nFirst, we find the derivatives of \\\\(x(t)\\\\) and \\\\(y(t)\\\\) with respect to \\\\(t\\\\):\\\\n\\\\( \\\\frac{dx}{dt} = \\\\frac{d}{dt}(t^2 + 1) = 2t \\\\)\\\\n\\\\( \\\\frac{dy}{dt} = \\\\frac{d}{dt}(t^3 - 2) = 3t^2 \\\\)\\\\nNow, we substitute these into the formula for the slope:\\\\n\\\\( \\\\frac{dy}{dx} = \\\\frac{3t^2}{2t} = \\\\frac{3}{2}t \\\\), for \\\\( t \\\\neq 0 \\\\).\\\\nFinally, we evaluate this expression at \\\\( t = 2 \\\\):\\\\n\\\\( \\\\frac{dy}{dx} \\\\bigg|_{t=2} = \\\\frac{3}{2}(2) = 3 \\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the formula for the slope of a tangent line, \\\\(\\frac{dy}{dx}\\\\), for a parametric curve defined by \\\\(x(t)\\\\) and \\\\(y(t)\\\\). The slope is the ratio of the derivative of y with respect to t to the derivative of x with respect to t."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the individual derivatives: \\\\(\\frac{dx}{dt}\\\\) and \\\\(\\frac{dy}{dt}\\\\)."
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the derivatives into the formula \\\\(\\frac{dy}{dx} = \\frac{dy/dt}{dx/dt}\\\\) and then evaluate the resulting expression at the given value \\\\(t=2\\\\)."
+        }
+      ],
+      "options": {
+        "A": "3",
+        "B": "1/3",
+        "C": "12",
+        "D": "4"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Parametric and Polar Curves",
+      "generated_at": "2026-04-20T16:12:35.945226",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Parametric and Polar Curves"
+      ],
+      "source_topics_pool": [
+        "Parametric and Polar Curves"
+      ],
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 70,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The problem is a very basic procedural check. By providing the value of the parameter `t` directly, it misses an opportunity to assess a student's deeper understanding, such as finding `t` given a Cartesian point `(x, y)`. | Suggestion: To enhance the problem's rigor, ask for the slope at a Cartesian point instead of a parameter value. For example: 'Find the slope of the tangent line... at the point (5, 6).' This requires the student to first solve the system of equations `t^2 + 1 = 5` and `t^3 - 2 = 6` to find `t=2`, adding a crucial problem-solving step."
+      }
+    }
+  ]
+}

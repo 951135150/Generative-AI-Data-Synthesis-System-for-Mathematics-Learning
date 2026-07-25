@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_20260406_102808",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-06T10:28:08.753504",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Consider the piecewise function $f(x)$ defined as:\n$$ f(x) = \\begin{cases} ax + 3 & \\text{if } x < 2 \\\\ x^2 - 1 & \\text{if } x \\ge 2 \\end{cases} $$\nFind the value of the constant $a$ that makes the function $f(x)$ continuous at $x=2$.",
+      "real_world_context": "In financial modeling, a stock's price behavior might be described by different functions before and after a major company announcement (e.g., an earnings report). To ensure the model is stable and predictable, mathematicians require the price function to be continuous at the moment of the announcement. This problem asks you to find the parameter that 'stitches' two different model segments together seamlessly.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "What is the definition of continuity at a point? For $f(x)$ to be continuous at $x=2$, the limit as $x$ approaches 2 must exist and be equal to the function's value at $x=2$."
+        },
+        {
+          "step": 2,
+          "hint": "For the limit to exist at $x=2$, the left-hand limit must equal the right-hand limit. Write an equation that sets $\\lim_{x \\to 2^-} f(x)$ equal to $\\lim_{x \\to 2^+} f(x)$."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the left-hand limit using the expression for $x < 2$. Then, calculate the right-hand limit using the expression for $x \\ge 2$."
+        },
+        {
+          "step": 4,
+          "hint": "Substitute the results from the previous step into your equation and solve for the constant $a$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Algebraically, continuity at a point $x=c$ requires that the left-hand limit, the right-hand limit, and the function's value at that point are all equal: $\\lim_{x \\to c^-} f(x) = \\lim_{x \\to c^+} f(x) = f(c)$. In this problem, we enforce this equality at $x=2$ by setting the expression for the left side equal to the expression for the right side and solving for the unknown parameter $a$.",
+        "visual_conceptual": "Conceptually, making a piecewise function continuous is like connecting two different roads so that the transition is perfectly smooth. If you were drawing the graph of the function, you wouldn't want to lift your pen at the connection point. The value of $a$ changes the slope of the line segment for $x<2$. We are trying to find the specific slope that makes this line segment meet the parabola $y=x^2-1$ exactly at the point where $x=2$."
+      },
+      "solution": "For the function $f(x)$ to be continuous at $x=2$, the limit from the left must equal the limit from the right.\n$$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x) $$\nFirst, we evaluate the left-hand limit using the part of the function where $x < 2$:\n$$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} (ax + 3) = a(2) + 3 = 2a + 3 $$\nNext, we evaluate the right-hand limit using the part of the function where $x \\ge 2$:\n$$ \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} (x^2 - 1) = (2)^2 - 1 = 4 - 1 = 3 $$\nNow, we set the left-hand limit equal to the right-hand limit to ensure the overall limit exists and the function is continuous:\n$$ 2a + 3 = 3 $$\nSolving for $a$:\n$$ 2a = 3 - 3 $$\n$$ 2a = 0 $$\n$$ a = 0 $$\nThus, the value of $a$ that makes the function $f(x)$ continuous at $x=2$ is 0. We can also verify that $f(2) = 2^2 - 1 = 3$, which matches the limit.",
+      "concepts": [
+        "Definition of Continuity at a Point",
+        "Piecewise Functions",
+        "One-Sided Limits",
+        "Solving for a Constant"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T10:27:49.129727",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is a standard, well-constructed, and mathematically sound exercise for the topic. The assigned difficulty of 3 might be slightly high for a typical introductory calculus course, as this is a very common 'difficulty 2' type of problem, but this is a minor calibration point, not a flaw. | To make the real-world context more impactful, integrate it directly into the function definition. Instead of presenting an abstract function and a separate contextual paragraph, frame the problem using the context from the start. For example: 'A financial model for a stock price P(t) (in dollars) around an earnings announcement at day t=2 is given by P(t) = ...'. This would make the application feel more immediate and less like an afterthought."
+      }
+    }
+  ]
+}

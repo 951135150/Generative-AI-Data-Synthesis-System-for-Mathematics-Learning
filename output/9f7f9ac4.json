@@ -1,0 +1,50 @@
+{
+  "id": "9f7f9ac4",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "A company is designing a cylindrical can that must hold a volume of $2000\\pi$ cubic centimeters. To minimize production costs, the company wants to find the dimensions that use the least amount of material, which corresponds to minimizing the total surface area. What is the ratio of the height, $h$, to the radius, $r$, for the can that minimizes the surface area?",
+  "question_type": "mcq",
+  "difficulty": 3,
+  "solution": "Let $r$ be the radius and $h$ be the height of the cylindrical can. \\\\ 1. **Formulate the equations for Volume and Surface Area:** \\\\ The volume $V$ is given by $V = \\pi r^2 h$. \\\\ The surface area $A$ (top, bottom, and lateral side) is given by $A = 2\\pi r^2 + 2\\pi rh$. \\\\ 2. **Use the constraint to create a single-variable function:** \\\\ We are given the volume $V = 2000\\pi$. \\\\ $2000\\pi = \\pi r^2 h \\implies h = \\frac{2000}{r^2}$. \\\\ Substitute this expression for $h$ into the area formula to get $A$ as a function of $r$: \\\\ $A(r) = 2\\pi r^2 + 2\\pi r \\left(\\frac{2000}{r^2}\\right) = 2\\pi r^2 + \\frac{4000\\pi}{r}$. \\\\ 3. **Find the derivative to locate critical points:** \\\\ To find the value of $r$ that minimizes $A$, we need to find the derivative of $A(r)$ and set it to zero. \\\\ $A'(r) = \\frac{d}{dr} \\left(2\\pi r^2 + 4000\\pi r^{-1}\\right) = 4\\pi r - 4000\\pi r^{-2} = 4\\pi r - \\frac{4000\\pi}{r^2}$. \\\\ 4. **Solve for the critical value of r:** \\\\ Set $A'(r) = 0$: \\\\ $4\\pi r - \\frac{4000\\pi}{r^2} = 0$ \\\\ $4\\pi r = \\frac{4000\\pi}{r^2}$ \\\\ $4\\pi r^3 = 4000\\pi$ \\\\ $r^3 = 1000$ \\\\ $r = 10$ cm. \\\\ 5. **Calculate the corresponding height h:** \\\\ Use the relationship from step 2: \\\\ $h = \\frac{2000}{r^2} = \\frac{2000}{10^2} = \\frac{2000}{100} = 20$ cm. \\\\ 6. **Find the required ratio:** \\\\ The ratio of the height to the radius is $\\frac{h}{r}$. \\\\ $\\frac{h}{r} = \\frac{20}{10} = 2$. \\\\ (Optional: The second derivative $A''(r) = 4\\pi + \\frac{8000\\pi}{r^3}$ is positive for $r>0$, confirming this is a minimum.)",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Start by writing the formulas for the volume and surface area of a cylinder. Use the given volume to express the height $h$ in terms of the radius $r$."
+    },
+    {
+      "step": 2,
+      "hint": "After you have the surface area $A$ as a function of a single variable $r$, find its derivative $A'(r)$. Set the derivative equal to zero to find the critical points, which are potential locations for a minimum."
+    }
+  ],
+  "integration_analysis": null,
+  "options": {
+    "A": "2",
+    "B": "1",
+    "C": "\\pi",
+    "D": "\\frac{1}{2}"
+  },
+  "answer": "A",
+  "generated_at": "2026-04-26T17:41:20.318151",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 82.5,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 10.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 82.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: The problem is excellent for its stated difficulty. A potential extension for a higher difficulty problem could involve assigning different material costs for the circular top/bottom versus the cylindrical side, which would modify the objective function to be a cost function rather than simply the surface area."
+  },
+  "problem_id": "9f7f9ac4"
+}

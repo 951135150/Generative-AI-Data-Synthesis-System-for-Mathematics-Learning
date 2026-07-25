@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_141138",
+  "batch_name": "V3_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:11:38.347128",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: \\\\[ \\\\lim_{x \\\\to 3} \\\\frac{x^2 - x - 6}{x - 3} \\\\]",
+      "question_type": "mcq",
+      "solution": "To evaluate the limit, we first try direct substitution. Plugging in \\\\(x = 3\\\\) gives: \\\\( \\\\frac{3^2 - 3 - 6}{3 - 3} = \\\\frac{9 - 9}{0} = \\\\frac{0}{0} \\\\). This is an indeterminate form, which means we need to simplify the expression algebraically. We can factor the numerator: \\\\(x^2 - x - 6 = (x - 3)(x + 2)\\\\). Now, we can rewrite the limit expression: \\\\[ \\\\lim_{x \\\\to 3} \\\\frac{(x - 3)(x + 2)}{x - 3} \\\\] Since \\\\(x \\\\to 3\\\\), \\\\(x \\\\neq 3\\\\), so we can cancel the \\\\((x - 3)\\\\) term from the numerator and the denominator: \\\\[ \\\\lim_{x \\\\to 3} (x + 2) \\\\] Now, we can use direct substitution on the simplified expression: \\\\[ 3 + 2 = 5 \\\\] Therefore, the limit is 5.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Try substituting \\\\(x = 3\\\\) directly into the function. What is the resulting form? Is it a defined number, or an indeterminate form like \\\\(\\frac{0}{0}\\\\)?"
+        },
+        {
+          "step": 2,
+          "hint": "The indeterminate form \\\\(\\frac{0}{0}\\\\) suggests that \\\\((x-3)\\\\) is a factor of the numerator. Factor the quadratic expression \\\\(x^2 - x - 6\\\\)."
+        },
+        {
+          "step": 3,
+          "hint": "After factoring the numerator, cancel the common factor with the denominator and then evaluate the limit of the resulting simpler expression by direct substitution."
+        }
+      ],
+      "options": {
+        "A": "5",
+        "B": "0",
+        "C": "-2",
+        "D": "Does Not Exist"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T14:11:22.979531",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a quintessential and well-executed example for its topic and difficulty level. | Suggestion: This is an excellent foundational problem. To create a more challenging variant, one could use a higher-degree polynomial in the numerator that still has a root at x=3, requiring polynomial division instead of simple factoring. Alternatively, a similar structure could be used for a problem involving rationalizing a radical expression with radicals."
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_121851",
+  "batch_name": "drill_121851",
+  "mode": "drill",
+  "generated_at": "2026-04-20T12:18:51.217808",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find all open intervals on which the function `f(x) = x^3 - 3x^2 + 5` is increasing.",
+      "question_type": "mcq",
+      "solution": "To find the intervals where the function is increasing, we first need to find its derivative. The function is `f(x) = x^3 - 3x^2 + 5`.\\\\The derivative, using the power rule, is `f'(x) = 3x^2 - 6x`.\\\\A function is increasing where its derivative is positive, i.e., `f'(x) > 0`. We first find the critical points by setting `f'(x) = 0`.\\\\`3x^2 - 6x = 0`\\\\`3x(x - 2) = 0`\\\\The critical points are `x = 0` and `x = 2`. These points divide the number line into three intervals: `(-\\\\infty, 0)`, `(0, 2)`, and `(2, \\\\infty)`.\\\\We test a value from each interval in `f'(x)`:\\\\For the interval `(-\\\\infty, 0)`, let's test `x = -1`: `f'(-1) = 3(-1)^2 - 6(-1) = 3 + 6 = 9`. Since `f'(-1) > 0`, the function is increasing on `(-\\\\infty, 0)`.\\\\For the interval `(0, 2)`, let's test `x = 1`: `f'(1) = 3(1)^2 - 6(1) = 3 - 6 = -3`. Since `f'(1) < 0`, the function is decreasing on `(0, 2)`.\\\\For the interval `(2, \\\\infty)`, let's test `x = 3`: `f'(3) = 3(3)^2 - 6(3) = 27 - 18 = 9`. Since `f'(3) > 0`, the function is increasing on `(2, \\\\infty)`.\\\\Combining the intervals where the function is increasing, we get `(-\\\\infty, 0) \\\\cup (2, \\\\infty)`.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "To determine where a function is increasing or decreasing, you need to analyze the sign of its first derivative. What is the first derivative, `f'(x)`, of the given function `f(x) = x^3 - 3x^2 + 5`?"
+        },
+        {
+          "step": 2,
+          "hint": "Now, find the critical points of the function by setting the derivative `f'(x)` equal to zero and solving for `x`."
+        },
+        {
+          "step": 3,
+          "hint": "The critical points divide the number line into intervals. Test a point from each interval in the derivative `f'(x)` to determine if the function is increasing (`f'(x) > 0`) or decreasing (`f'(x) < 0`) on that interval."
+        }
+      ],
+      "options": {
+        "A": "`( -\\\\infty, 0 ) \\\\cup ( 2, \\\\infty )`",
+        "B": "`( 0, 2 )`",
+        "C": "`( -\\\\infty, \\\\infty )`",
+        "D": "`( 1, \\\\infty )`"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-20T12:18:33.360958",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a well-constructed, standard exercise that accurately tests the intended concept. | Suggestion: The problem is excellent for its purpose as a fundamental drill. To create a more challenging variant (aligning with a difficulty of 3/5), consider using a function that requires the product or quotient rule, or one with more complex critical points (e.g., involving trigonometric or exponential functions like `f(x) = x * e^(-x)`)."
+      }
+    }
+  ]
+}

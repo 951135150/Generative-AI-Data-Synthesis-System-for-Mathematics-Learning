@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_112230",
+  "batch_name": "FullRun_Step_9",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:22:30.565213",
+  "target_topics": [
+    "Integration and FTOC"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A particle moves along a straight line with a velocity given by $v(t) = 3t^2 - 2t$ meters per second, where $t$ is time in seconds. The net displacement of the particle from $t=2$ seconds to $t=x$ seconds is given by the function $D(x) = \\int_2^x (3t^2 - 2t) \\, dt$. Find the instantaneous rate of change of the net displacement at time $x$, which is $D'(x)$.",
+      "real_world_context": "In physics and engineering, the Fundamental Theorem of Calculus provides a crucial link between a quantity and its rate of change. For instance, if we know the velocity of an object over time (its rate of change of position), we can integrate to find its total displacement. Conversely, if we have a function representing the accumulated displacement, we can differentiate it to find the instantaneous velocity at any moment. This problem models this exact relationship for a particle's motion.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the first part of the Fundamental Theorem of Calculus (FTOC Part 1). It states that if a function $G(x)$ is defined as $G(x) = \\int_a^x f(t) \\, dt$, what is its derivative, $G'(x)$?"
+        },
+        {
+          "step": 2,
+          "hint": "In this problem, identify the function $f(t)$ inside the integral. What are the upper and lower limits of integration? How do they match the form required by the theorem?"
+        },
+        {
+          "step": 3,
+          "hint": "Apply the theorem by substituting the upper limit of integration, $x$, into the integrand function, $f(t) = 3t^2 - 2t$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem asks for the derivative of an integral function, $D(x) = \\int_2^x (3t^2 - 2t) \\, dt$. The Fundamental Theorem of Calculus, Part 1, states that if a function is defined as $G(x) = \\int_a^x f(t) \\, dt$, then its derivative is $G'(x) = f(x)$. In our case, the lower limit $a=2$ is a constant, the upper limit is $x$, and the integrand is $f(t) = 3t^2 - 2t$. Applying the theorem directly, we replace the variable $t$ in the integrand with the upper limit $x$. Therefore, the derivative is $D'(x) = 3x^2 - 2x$.",
+        "visual_conceptual": "Conceptually, the integral $D(x) = \\int_2^x v(t) \\, dt$ represents the accumulated net displacement (the signed area under the velocity curve) from a fixed start time ($t=2$) to a variable end time ($t=x$). The derivative, $D'(x)$, asks for the instantaneous rate at which this accumulated area is changing at the moment $x$. As we slightly increase the end time from $x$ to $x+\\Delta t$, the change in area is approximately a thin rectangle of height $v(x)$ and width $\\Delta t$. The rate of change is this change in area divided by the change in time: $\\frac{\\Delta D}{\\Delta t} \\approx \\frac{v(x) \\cdot \\Delta t}{\\Delta t} = v(x)$. In the limit as $\\Delta t \\to 0$, this approximation becomes exact. Thus, the rate of change of accumulated displacement at time $x$ is simply the velocity at that instant, $v(x)$. So, $D'(x) = v(x) = 3x^2 - 2x$."
+      },
+      "solution": "The problem asks us to find the derivative of the function $D(x) = \\int_2^x (3t^2 - 2t) \\, dt$. \n\nStep 1: Identify the structure of the problem. We are asked to compute $D'(x) = \\frac{d}{dx} \\left[ \\int_2^x (3t^2 - 2t) \\, dt \\right]$.\n\nStep 2: Recall the Fundamental Theorem of Calculus, Part 1 (FTOC Part 1). It states that for a continuous function $f$, if $G(x) = \\int_a^x f(t) \\, dt$, then $G'(x) = f(x)$.\n\nStep 3: Compare our function $D(x)$ to the general form $G(x)$.\n- The lower limit of integration is a constant, $a=2$.\n- The upper limit of integration is the variable, $x$.\n- The integrand is the function $f(t) = 3t^2 - 2t$.\n\nStep 4: Apply FTOC Part 1. We find the derivative by simply evaluating the integrand $f(t)$ at the upper limit of integration, $x$.\n\n$$D'(x) = f(x)$$\n\nStep 5: Substitute $x$ for $t$ in the expression for the integrand.\n\n$$D'(x) = 3x^2 - 2x$$\n\nThis is the instantaneous rate of change of the net displacement at time $x$, which is equivalent to the velocity function $v(x)$.",
+      "concepts": [
+        "Fundamental Theorem of Calculus Part 1",
+        "Derivatives of Integral Functions",
+        "Rate of Change",
+        "Displacement and Velocity"
+      ],
+      "topic": "Integration and FTOC",
+      "generated_at": "2026-04-06T11:22:10.666728",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Integration and FTOC"
+      ],
+      "source_topics_pool": [
+        "Integration and FTOC"
+      ],
+      "evaluation": {
+        "score": 94.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 85,
+          "scaffolding": 85,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem is too direct for its stated difficulty. The problem statement explicitly defines the function as an integral and then asks for its derivative, D'(x), leaving little room for student interpretation. The final scaffolding step is also overly prescriptive, telling the student the exact procedure ('substitute the upper limit... into the integrand') instead of guiding them to recall the theorem's conclusion. | To increase the cognitive demand, rephrase the problem to be less explicit. For example: 'The net displacement of a particle from t=2 to t=x is the accumulated area under its velocity curve, v(t) = 3t^2 - 2t. Find a function for the instantaneous rate of change of this net displacement at time x.' This requires the student to first set up the integral and then recognize the need to apply the FTOC. The final scaffolding hint should also be revised to prompt recall, e.g., 'According to the theorem, what is the relationship between the derivative of the integral function and the original integrand?'"
+      }
+    }
+  ]
+}

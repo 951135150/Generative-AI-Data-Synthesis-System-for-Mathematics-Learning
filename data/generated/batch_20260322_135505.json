@@ -1,0 +1,159 @@
+{
+  "batch_id": "batch_20260322_135505",
+  "batch_name": "generation_2",
+  "generated_at": "2026-03-22T13:55:05.740686",
+  "topics": [
+    "Intermediate Value Theorem",
+    "Related Rates",
+    "Fundamental Theorem of Calculus",
+    "Partial Derivatives"
+  ],
+  "num_per_topic": 5,
+  "total_generated": 3,
+  "problems": [
+    {
+      "problem_statement": "A cylindrical tank with a radius of 5 meters is being filled with water at a constant rate of 2 cubic meters per minute. Initially, the tank is empty. Determine if there is a time $t$ (in minutes) when the water level is exactly 3 meters high. Justify your answer using the Intermediate Value Theorem.",
+      "real_world_context": "Fluid Dynamics/Reservoir Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Define a function $V(t)$ representing the volume of water in the tank at time $t$. How is the volume related to the height $h$ and radius $r$ of the cylinder? Remember the formula for the volume of a cylinder is $V = \\pi r^2 h$."
+        },
+        {
+          "step": 2,
+          "hint": "Since the tank is being filled at a constant rate, express $V(t)$ as a linear function of $t$. Then, express the height $h(t)$ as a function of $t$ using the volume formula and the given radius."
+        },
+        {
+          "step": 3,
+          "hint": "Define a new function $f(t) = h(t) - 3$.  What condition on $f(t)$ at two different times $t_1$ and $t_2$ would guarantee, by the Intermediate Value Theorem, that there exists a time $t$ between $t_1$ and $t_2$ when $h(t) = 3$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by defining a volume function $V(t)$, deriving a height function $h(t)$, and then applying the IVT to the function $f(t) = h(t) - 3$.",
+        "visual_conceptual": "Imagine the water level rising in the tank. Since the filling rate is continuous, the height of the water is a continuous function of time. If the height starts below 3 meters and eventually rises above 3 meters, it *must* pass through 3 meters at some point."
+      },
+      "solution": "Let $V(t)$ be the volume of water in the tank at time $t$. Since the tank is filled at a rate of 2 cubic meters per minute, $V(t) = 2t$. The volume of a cylinder is given by $V = \\pi r^2 h$, where $r$ is the radius and $h$ is the height. In this case, $r = 5$, so $V(t) = \\pi (5^2) h(t) = 25\\pi h(t)$.  Therefore, $h(t) = \\frac{V(t)}{25\\pi} = \\frac{2t}{25\\pi}$.\n\nNow, let $f(t) = h(t) - 3 = \\frac{2t}{25\\pi} - 3$. We want to show that there exists a $t$ such that $f(t) = 0$.  Consider $t_1 = 0$ and $t_2 = 100\\pi$. Then $f(0) = \\frac{2(0)}{25\\pi} - 3 = -3 < 0$ and $f(100\\pi) = \\frac{2(100\\pi)}{25\\pi} - 3 = 8 - 3 = 5 > 0$. Since $f(t)$ is a continuous function (as it is a linear function), by the Intermediate Value Theorem, there exists a $c \\in (0, 100\\pi)$ such that $f(c) = 0$, which means $h(c) = 3$.",
+      "concepts": [
+        "Intermediate Value Theorem",
+        "Volume of a Cylinder",
+        "Linear Functions",
+        "Continuity",
+        "Rate of Change"
+      ],
+      "topic": "Intermediate Value Theorem",
+      "sub_topic": "Intermediate Value Theorem",
+      "generated_at": "2026-03-22T13:44:38.907760",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A conical tank, with vertex down, is 12 meters high and has a radius of 6 meters at the top. Water is being pumped into the tank at a constant rate of 2 cubic meters per minute. How fast is the water level rising when the water is 4 meters deep?",
+      "real_world_context": "Fluid Dynamics/Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the variables: $V$ (volume of water), $h$ (height of water), and $r$ (radius of the water surface). Recall the formula for the volume of a cone: $V = \\frac{1}{3}\\pi r^2 h$.  Also, use similar triangles to relate $r$ and $h$."
+        },
+        {
+          "step": 2,
+          "hint": "Differentiate both sides of the equation relating $V$ and $h$ with respect to time $t$. Remember that $r$ is a function of $h$, so you'll need to use the chain rule when differentiating terms involving $r$."
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the given information ($dV/dt = 2$ m$^3$/min, $h = 4$ m) and the value of $r$ when $h=4$ into the differentiated equation. Solve for $dh/dt$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Using the volume formula of a cone and related rates to find the rate of change of height with respect to time.",
+        "visual_conceptual": "Imagine a cone filling with water. The radius and height of the water-filled portion change over time, and we're interested in how quickly the height increases as water is added."
+      },
+      "solution": "Let $V$ be the volume of water, $h$ be the height of the water, and $r$ be the radius of the water surface. We have $V = \\frac{1}{3}\\pi r^2 h$. By similar triangles, $\\frac{r}{h} = \\frac{6}{12} = \\frac{1}{2}$, so $r = \\frac{1}{2}h$. Substituting this into the volume formula, we get $V = \\frac{1}{3}\\pi (\\frac{1}{2}h)^2 h = \\frac{1}{12}\\pi h^3$. Differentiating with respect to time $t$, we have $\\frac{dV}{dt} = \\frac{1}{4}\\pi h^2 \\frac{dh}{dt}$. We are given $\\frac{dV}{dt} = 2$ m$^3$/min and we want to find $\\frac{dh}{dt}$ when $h = 4$ m. Plugging in these values, we get $2 = \\frac{1}{4}\\pi (4^2) \\frac{dh}{dt} = 4\\pi \\frac{dh}{dt}$. Therefore, $\\frac{dh}{dt} = \\frac{2}{4\\pi} = \\frac{1}{2\\pi}$ m/min.",
+      "concepts": [
+        "related rates",
+        "volume of a cone",
+        "similar triangles",
+        "implicit differentiation",
+        "chain rule"
+      ],
+      "topic": "Related Rates",
+      "sub_topic": "Related Rates",
+      "generated_at": "2026-03-22T13:47:32.118697",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A chemical reaction in a closed container produces a gas. The rate of gas production, $R(t)$ (in liters per minute), is monitored and found to be given by $R(t) = 5t^2 + 2t$ liters/minute, where $t$ is the time in minutes after the reaction begins. The initial volume of gas in the container is 10 liters. Determine the volume of gas in the container after 3 minutes. Furthermore, find the rate at which the volume of gas is changing at $t=3$ minutes.",
+      "real_world_context": "Chemical Kinetics/Rate of Reaction",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recognize that the volume of gas is the integral of the rate of gas production.  Consider how to represent the total volume of gas produced between time 0 and time $t$."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the definite integral of $R(t)$ from 0 to 3. Remember to add the initial volume of gas to find the total volume at $t=3$."
+        },
+        {
+          "step": 3,
+          "hint": "The Fundamental Theorem of Calculus states that the derivative of the volume function is equal to the rate of gas production.  Evaluate $R(3)$ to find the rate of change of volume at $t=3$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem involves finding a definite integral to determine the change in volume and then applying the Fundamental Theorem of Calculus to find the instantaneous rate of change.",
+        "visual_conceptual": "The rate of gas production, $R(t)$, represents the slope of a curve. The integral of $R(t)$ from 0 to 3 represents the area under the curve, which corresponds to the total amount of gas produced during those 3 minutes. The volume at any time $t$ is the initial volume plus the accumulated gas production."
+      },
+      "solution": "Let $V(t)$ be the volume of gas in the container at time $t$. We are given $R(t) = 5t^2 + 2t$ and $V(0) = 10$.  The volume at time $t$ is given by $V(t) = V(0) + \\int_0^t R(s) ds = 10 + \\int_0^t (5s^2 + 2s) ds$.  \n\nTo find the volume at $t=3$, we evaluate:\n$V(3) = 10 + \\int_0^3 (5s^2 + 2s) ds = 10 + \\left[ \\frac{5}{3}s^3 + s^2 \\right]_0^3 = 10 + \\left( \\frac{5}{3}(3^3) + 3^2 \\right) - \\left( \\frac{5}{3}(0^3) + 0^2 \\right) = 10 + (45 + 9) = 10 + 54 = 64$ liters.\n\nThe rate of change of volume at $t=3$ is given by $R(3) = 5(3^2) + 2(3) = 5(9) + 6 = 45 + 6 = 51$ liters/minute.",
+      "concepts": [
+        "Fundamental Theorem of Calculus",
+        "Definite Integral",
+        "Rate of Change",
+        "Accumulation",
+        "Antiderivatives"
+      ],
+      "topic": "Fundamental Theorem of Calculus",
+      "sub_topic": "Fundamental Theorem of Calculus",
+      "generated_at": "2026-03-22T13:50:11.519934",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    }
+  ]
+}

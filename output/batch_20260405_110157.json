@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260405_110157",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:01:57.464516",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: $$ \\\\lim_{t \\to 3} \\\\frac{t^2 - 9}{t^2 - 2t - 3} $$",
+      "real_world_context": "In a digital signal processing model, the stability of a filter is described by the function $S(t) = \\\\frac{t^2 - 9}{t^2 - 2t - 3}$, where $t$ is a time parameter in microseconds. A critical event occurs at $t=3$. Directly calculating $S(3)$ leads to a computational error. Determine the true stability value the system approaches as $t$ gets infinitesimally close to 3.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "What is the result when you substitute $t=3$ directly into the numerator and the denominator? What does this form, often called an 'indeterminate form', suggest about the next step?"
+        },
+        {
+          "step": 2,
+          "hint": "Since both the numerator and denominator are zero at $t=3$, it implies that $(t-3)$ is a factor of both polynomials. How can you factor the numerator and the denominator?"
+        },
+        {
+          "step": 3,
+          "hint": "After factoring and canceling the common term, you are left with a new, simpler rational function. Evaluate the limit of this new function as $t \\to 3$ by direct substitution."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem asks for the limit of a rational function. When direct substitution yields the indeterminate form $\\\\frac{0}{0}$, it indicates that the numerator and denominator share a common factor corresponding to the limit point. By factoring both polynomials, we can cancel this common factor and then evaluate the limit of the simplified expression by direct substitution. This algebraic simplification effectively 'removes' the discontinuity at the point of interest.",
+        "visual_conceptual": "Imagine the graph of the function $S(t)$. Because substituting $t=3$ results in division by zero, there is a 'hole' in the graph at $t=3$; the function is not defined there. However, the limit asks what value the function *approaches* as $t$ gets closer and closer to 3 from both sides. By simplifying the function, we are essentially 'plugging' the hole. The simplified function is identical to the original one everywhere except at $t=3$, but it is continuous. The value of this new function at $t=3$ is the y-coordinate of the hole, which is precisely the limit we are looking for."
+      },
+      "solution": "We are asked to evaluate $L = \\\\lim_{t \\to 3} \\\\frac{t^2 - 9}{t^2 - 2t - 3}$.\\\\n\\\\nStep 1: Attempt direct substitution.\\\\n$$ \\\\frac{3^2 - 9}{3^2 - 2(3) - 3} = \\\\frac{9 - 9}{9 - 6 - 3} = \\\\frac{0}{0} \\\\n$$This is an indeterminate form, which suggests we can simplify the expression.\\\\n\\\\nStep 2: Factor the numerator and the denominator.\\\\nThe numerator is a difference of squares: $t^2 - 9 = (t-3)(t+3)$.\\\\nThe denominator is a quadratic trinomial: $t^2 - 2t - 3 = (t-3)(t+1)$.\\\\n\\\\nStep 3: Rewrite the limit with the factored forms.\\\\n$$ L = \\\\lim_{t \\to 3} \\\\frac{(t-3)(t+3)}{(t-3)(t+1)} \\\\n$$Step 4: Cancel the common factor $(t-3)$. This is permissible because for the limit as $t \\\\to 3$, $t$ is close to 3 but not equal to 3, so $t-3 \\\\neq 0$.\\\\n$$ L = \\\\lim_{t \\to 3} \\\\frac{t+3}{t+1} \\\\n$$Step 5: Evaluate the simplified limit by direct substitution.\\\\n$$ L = \\\\frac{3+3}{3+1} = \\\\frac{6}{4} = \\\\frac{3}{2} \\\\n$$Thus, the limit is $\\\\frac{3}{2}$.",
+      "concepts": [
+        "Limits of Rational Functions",
+        "Indeterminate Forms",
+        "Factoring Polynomials",
+        "Removable Discontinuity"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:01:32.543420",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context is contrived and potentially misleading. In digital signal processing, a root in the denominator (a pole) at a specific time or frequency often implies instability, which contradicts the idea of finding a stable, finite limiting value. | The context could be made more robust or replaced. A better context might involve an economic model where a pricing strategy becomes undefined at a certain point, but the limiting value represents a fair market price. Alternatively, frame the problem graphically: ask the student to find the coordinates of the 'hole' in the function's graph, which makes the concept of a removable discontinuity more tangible."
+      }
+    }
+  ]
+}

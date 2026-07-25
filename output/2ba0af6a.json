@@ -1,0 +1,50 @@
+{
+  "id": "2ba0af6a",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "A right circular cylinder is inscribed in a right circular cone with a height of $9$ cm and a base radius of $6$ cm. What is the maximum possible volume of such a cylinder?",
+  "question_type": "mcq",
+  "difficulty": 3,
+  "solution": "Let $H$ and $R$ be the height and radius of the cone, respectively, so $H=9$ and $R=6$. Let $h$ and $r$ be the height and radius of the inscribed cylinder. By considering a 2D cross-section of the setup, we can see two similar right triangles. The larger triangle is formed by the cone's height and radius, and the smaller triangle is on top of the cylinder, with height $H-h$ and base $r$. The similarity gives the proportion:\n$$ \\frac{H-h}{r} = \\frac{H}{R} \\implies \\frac{9-h}{r} = \\frac{9}{6} = \\frac{3}{2} $$\nWe can solve for $h$ in terms of $r$ to create a function for the cylinder's volume in a single variable.\n$$ 2(9-h) = 3r \\\\ 18 - 2h = 3r \\\\ 2h = 18 - 3r \\\\ h = 9 - \\frac{3}{2}r $$\nThe volume $V$ of the cylinder is given by $V = \\pi r^2 h$. Substituting the expression for $h$:\n$$ V(r) = \\pi r^2 \\left(9 - \\frac{3}{2}r\\right) = 9\\pi r^2 - \\frac{3\\pi}{2}r^3 $$\nTo find the maximum volume, we must find the critical points of $V(r)$ by taking its derivative with respect to $r$ and setting it to zero. The domain for $r$ is $(0, 6)$.\n$$ V'(r) = \\frac{d}{dr}\\left(9\\pi r^2 - \\frac{3\\pi}{2}r^3\\right) = 18\\pi r - \\frac{9\\pi}{2}r^2 $$\nSetting $V'(r) = 0$:\n$$ 18\\pi r - \\frac{9\\pi}{2}r^2 = 0 \\\\ 9\\pi r \\left(2 - \\frac{1}{2}r\\right) = 0 $$\nSince $r$ must be positive, we solve $2 - \\frac{1}{2}r = 0$, which gives $r=4$. To confirm this is a maximum, we can use the second derivative test:\n$$ V''(r) = 18\\pi - 9\\pi r \\\\ V''(4) = 18\\pi - 9\\pi(4) = -18\\pi < 0 $$\nSince the second derivative is negative, $r=4$ corresponds to a maximum volume. Now we find the corresponding height and the maximum volume:\n$$ h = 9 - \\frac{3}{2}(4) = 9 - 6 = 3 \\text{ cm} $$\n$$ V_{max} = \\pi r^2 h = \\pi (4^2)(3) = \\pi(16)(3) = 48\\pi \\text{ cm}^3 $$\nThus, the maximum possible volume of the cylinder is $48\\pi$ cm$^3$.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Draw a 2D cross-section of the cone and the inscribed cylinder. Use similar triangles to establish a relationship between the cylinder's radius $r$ and its height $h$. This will serve as your constraint equation."
+    },
+    {
+      "step": 2,
+      "hint": "Write the formula for the volume of the cylinder, $V = \\pi r^2 h$. Use the constraint from Step 1 to express $V$ as a function of a single variable, either $r$ or $h$. Then, find the critical points by taking the derivative and setting it to zero."
+    }
+  ],
+  "integration_analysis": null,
+  "options": {
+    "A": "$48\\pi$ cm$^3$",
+    "B": "$54\\pi$ cm$^3$",
+    "C": "$24\\pi$ cm$^3$",
+    "D": "$108\\pi$ cm$^3$"
+  },
+  "answer": "A",
+  "generated_at": "2026-04-26T19:49:23.979625",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 79.5,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 90.0,
+      "scaffolding": 90.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 79.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: The second scaffolding hint is very explicit, outlining the entire calculus procedure (substitute, differentiate, set to zero). For a difficulty 3 problem, consider making it slightly more conceptual to encourage the student to recall the optimization process, e.g., 'Now, write the volume formula for the cylinder. Use your constraint equation to express this volume as a function of a single variable and find its maximum.'"
+  },
+  "problem_id": "2ba0af6a"
+}

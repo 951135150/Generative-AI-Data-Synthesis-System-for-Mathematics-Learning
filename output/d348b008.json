@@ -1,0 +1,43 @@
+{
+  "id": "d348b008",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "A rectangle is to be inscribed in a semicircle of radius $ 5\\sqrt{2} $ units. One side of the rectangle lies along the diameter of the semicircle. Find the dimensions (width and height) of the rectangle that will maximize its area.",
+  "question_type": "calculation",
+  "difficulty": 3,
+  "solution": "Let the semicircle be centered at the origin, so its equation is $ y = \\sqrt{(5\\sqrt{2})^2 - x^2} = \\sqrt{50 - x^2} $ for $ y \\ge 0 $. Let the vertices of the rectangle on the x-axis be at $ (-x, 0) $ and $ (x, 0) $. The top vertices will be at $ (-x, y) $ and $ (x, y) $, where the point $ (x, y) $ lies on the semicircle.\n\nThe width of the rectangle is $ 2x $ and the height is $ y $. The area $ A $ of the rectangle is given by:\n$$ A = (2x)y $$\nSince the point $ (x, y) $ is on the semicircle, we can substitute $ y = \\sqrt{50 - x^2} $ into the area formula to express the area as a function of a single variable, $ x $:\n$$ A(x) = 2x \\sqrt{50 - x^2} $$\nTo find the maximum area, we need to find the derivative of $ A(x) $ and set it to zero. To simplify the calculation, we can maximize the square of the area, $ S(x) = A(x)^2 $, since the area $ A $ is always non-negative. The maximum of $ A(x) $ will occur at the same value of $ x $ that maximizes $ S(x) $.\n$$ S(x) = (2x \\sqrt{50 - x^2})^2 = 4x^2(50 - x^2) = 200x^2 - 4x^4 $$\nNow, we differentiate $ S(x) $ with respect to $ x $:\n$$ S'(x) = \\frac{d}{dx}(200x^2 - 4x^4) = 400x - 16x^3 $$\nSet the derivative equal to zero to find the critical points:\n$$ 400x - 16x^3 = 0 $$\n$$ 16x(25 - x^2) = 0 $$\nSince $ x $ represents half the width, $ x > 0 $. Thus, we solve for $ 25 - x^2 = 0 $:\n$$ x^2 = 25 \\implies x = 5 $$\nTo confirm this is a maximum, we can use the second derivative test:\n$$ S''(x) = 400 - 48x^2 $$\n$$ S''(5) = 400 - 48(5^2) = 400 - 48(25) = 400 - 1200 = -800 $$\nSince $ S''(5) < 0 $, the area is maximized at $ x = 5 $.\n\nNow we find the dimensions of the rectangle:\nWidth: $ w = 2x = 2(5) = 10 $ units.\nHeight: $ h = y = \\sqrt{50 - x^2} = \\sqrt{50 - 5^2} = \\sqrt{50 - 25} = \\sqrt{25} = 5 $ units.\n\nThe dimensions of the rectangle with the maximum area are a width of 10 units and a height of 5 units.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Start by setting up a coordinate system. Place the diameter of the semicircle on the x-axis, centered at the origin. Express the area of the inscribed rectangle in terms of variables, for example, $x$ and $y$. Use the equation of the semicircle as a constraint to write the area as a function of a single variable."
+    },
+    {
+      "step": 2,
+      "hint": "To find the value of the variable that maximizes the area, you need to find the critical points of the area function. Take the derivative of the area function, set it to zero, and solve. To simplify the differentiation process, it is often easier to work with the square of the area function, $A^2$."
+    }
+  ],
+  "integration_analysis": null,
+  "generated_at": "2026-05-02T21:43:40.546868",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 81.0,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 81.0/60.0 | Mode: DRILL | Flaw: None | Suggestion: The solution correctly uses the second derivative test to confirm a local maximum. For enhanced rigor, it could also analyze the function's behavior at the endpoints of its domain, $x \\in (0, 5\\sqrt{2})$. Since the area is zero at both endpoints ($x=0$ and $x=5\\sqrt{2}$), this would confirm that the critical point found corresponds to the absolute maximum on the interval."
+  },
+  "problem_id": "d348b008"
+}

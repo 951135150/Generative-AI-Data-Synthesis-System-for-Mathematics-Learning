@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_113308",
+  "batch_name": "FullRun_Step_18",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:33:08.457038",
+  "target_topics": [
+    "Differential Equations"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Solve the following initial value problem: $$\\frac{dy}{dx} = x^2 y, \\quad y(0) = 5$$",
+      "real_world_context": "In a specific biological culture, the growth rate of a microorganism population `y` is found to be dependent on both the current population size and the square of the time `x` (in hours) since the experiment began. This relationship is modeled by the differential equation provided. The initial population at time `x=0` is 5 (in millions of cells).",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "This is a separable differential equation. How can you rearrange the equation to group all the `y` terms with `dy` and all the `x` terms with `dx`?"
+        },
+        {
+          "step": 2,
+          "hint": "After separating the variables, integrate both sides of the equation. Remember to include a constant of integration, `C`."
+        },
+        {
+          "step": 3,
+          "hint": "Use the initial condition `y(0) = 5` to solve for the constant of integration and find the particular solution."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The equation can be solved using the method of separation of variables. We rearrange the terms to get `(1/y) dy = x^2 dx`. Integrating both sides yields `\\\\int (1/y) dy = \\\\int x^2 dx`, which results in `\\\\ln|y| = (x^3)/3 + C`. Exponentiating both sides gives `|y| = e^((x^3)/3 + C) = e^C \\\\cdot e^(x^3/3)`. We can write this as `y = A e^(x^3/3)`, where `A` is an arbitrary constant. Using the initial condition `y(0) = 5`, we substitute `x=0` and `y=5` to find `5 = A e^(0/3)`, which simplifies to `A=5`. Thus, the particular solution is `y = 5e^(x^3/3)`.",
+        "visual_conceptual": "The differential equation `dy/dx = x^2y` describes a slope field. The slope of the solution curve at any point `(x, y)` is given by `x^2y`. Since the initial condition `y(0)=5` is positive, the solution curve starts above the x-axis. The term `x^2` is always non-negative, so the slope `dy/dx` will have the same sign as `y`. This means the function is always increasing (or stationary). At `x=0`, the slope is `0^2 \\\\cdot 5 = 0`, indicating a horizontal tangent at the y-intercept. As `|x|` increases, `x^2` grows quickly, causing the slope to become very steep. This results in a curve that is flat at its center and grows extremely rapidly as it moves away from the y-axis."
+      },
+      "solution": "\\\\begin{aligned} \\\\frac{dy}{dx} &= x^2 y \\\\\\\\ \\\\frac{1}{y} dy &= x^2 dx \\\\\\\\ \\\\int \\\\frac{1}{y} dy &= \\\\int x^2 dx \\\\\\\\ \\\\ln|y| &= \\\\frac{x^3}{3} + C_1 \\\\\\\\ y &= e^{\\\\frac{x^3}{3} + C_1} \\\\\\\\ y &= e^{C_1}e^{\\\\frac{x^3}{3}} \\\\\\\\ y &= C e^{\\\\frac{x^3}{3}} \\\\\\\\ \\\\text{Using the initial condition } y(0) = 5: \\\\\\\\ 5 &= C e^{\\\\frac{0^3}{3}} \\\\\\\\ 5 &= C e^0 \\\\\\\\ C &= 5 \\\\\\\\ \\\\text{Therefore, the solution is:} \\\\\\\\ y(x) &= 5e^{\\\\frac{x^3}{3}} \\\\end{aligned}",
+      "concepts": [
+        "Separable Differential Equations",
+        "Initial Value Problems",
+        "Integration of Basic Functions",
+        "Natural Logarithm and Exponential Functions"
+      ],
+      "topic": "Differential Equations",
+      "generated_at": "2026-04-06T11:32:49.292893",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Differential Equations"
+      ],
+      "source_topics_pool": [
+        "Differential Equations"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context is biologically implausible. A population's per-capita growth rate (the 'x^2' term) that increases quadratically with time is highly unusual. Typically, population growth rates decrease over time due to resource depletion, not accelerate. | To improve the problem, the context could be changed to a more plausible physical science scenario where a rate might depend on the square of time. Alternatively, the biological context could be framed as a purely hypothetical model, for example: 'Consider a hypothetical microorganism whose growth factor is artificially stimulated in a lab, causing it to increase with the square of time...'. This acknowledges the non-standard nature of the model while retaining the mathematical structure."
+      }
+    }
+  ]
+}

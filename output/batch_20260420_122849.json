@@ -1,0 +1,57 @@
+{
+  "batch_id": "batch_20260420_122849",
+  "batch_name": "drill_122849",
+  "mode": "drill",
+  "generated_at": "2026-04-20T12:28:49.109280",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the derivative, \\\\(f'(x)\\\\), of the function \\\\(f(x) = 3x^4 - 5x^2 + 7\\\\).",
+      "question_type": "mcq",
+      "solution": "To find the derivative of \\\\(f(x)\\\\), we differentiate the function term by term using the power rule and the constant rule.\\\\nThe function is \\\\(f(x) = 3x^4 - 5x^2 + 7\\\\).\\\\n\\\\n1. Differentiate the first term, \\\\(3x^4\\\\), using the power rule \\\\(\\frac{d}{dx}(ax^n) = anx^{n-1}\\\\):\\\\n\\\\(\\frac{d}{dx}(3x^4) = 4 \\\\cdot 3x^{4-1} = 12x^3\\\\)\\\\n\\\\n2. Differentiate the second term, \\\\(-5x^2\\\\), using the power rule:\\\\n\\\\(\\frac{d}{dx}(-5x^2) = 2 \\\\cdot (-5)x^{2-1} = -10x\\\\)\\\\n\\\\n3. Differentiate the constant term, \\\\(7\\\\). The derivative of a constant is 0:\\\\n\\\\(\\frac{d}{dx}(7) = 0\\\\)\\\\n\\\\n4. Combine the results:\\\\n\\\\(f'(x) = 12x^3 - 10x + 0 = 12x^3 - 10x\\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "To find the derivative of a polynomial, apply the power rule, \\\\(\\frac{d}{dx}(x^n) = nx^{n-1}\\\\), to each term individually. Remember to also consider the rule for the derivative of a constant."
+        }
+      ],
+      "options": {
+        "A": "\\\\(12x^3 - 10x\\\\)",
+        "B": "\\\\(12x^4 - 10x^2\\\\)",
+        "C": "\\\\(12x^3 - 10x + 7\\\\)",
+        "D": "\\\\(4x^3 - 2x\\\\)"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-20T12:28:33.600970",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The assigned difficulty of 3 is too high for a straightforward application of the power rule on a simple polynomial. This is a foundational, entry-level differentiation problem, which should be rated as difficulty 1 or 2. | Suggestion: Re-classify the difficulty to 2 to align with the target difficulty. The problem itself is an excellent, clear-cut example of the power rule and is well-suited for students first learning the concept. The scaffolding and distractors, which target common errors, are pedagogically sound."
+      }
+    }
+  ]
+}

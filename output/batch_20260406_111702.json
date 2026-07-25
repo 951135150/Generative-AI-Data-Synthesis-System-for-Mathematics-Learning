@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch_20260406_111702",
+  "batch_name": "FullRun_Step_6",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:17:02.356542",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A technology firm has determined that the daily profit `P(x)` in thousands of dollars from manufacturing and selling `x` hundred units of a new graphics card is given by the function: $$ P(x) = -\\\\frac{1}{3}x^3 + 30x^2 - 500x - 1000 $$ for `x \\\\geq 0`. Determine the production level `x` (in hundreds of units) that maximizes the daily profit, and find this maximum profit.",
+      "real_world_context": "In business and economics, marginal analysis is a key concept. The derivative of a profit function, `P'(x)`, represents the marginal profit – the additional profit from producing one more unit. Profit is maximized when the marginal profit is zero, meaning the cost of producing the next unit equals the revenue it generates. This problem models finding that optimal production level.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The problem asks to find the maximum value of the function P(x). What is the first step in an optimization problem using calculus?"
+        },
+        {
+          "step": 2,
+          "hint": "After finding the derivative P'(x), set it equal to zero to find the critical points. The resulting equation will be a quadratic. How can you solve for x?"
+        },
+        {
+          "step": 3,
+          "hint": "You should have two positive values for x from the previous step. How can you determine which one corresponds to a maximum profit versus a minimum?"
+        },
+        {
+          "step": 4,
+          "hint": "Once you have identified the production level x that maximizes profit, how do you find the actual maximum profit value?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The process involves finding the derivative of the profit function, `P'(x)`, which represents the rate of change of profit. Setting this derivative to zero (`P'(x) = 0`) identifies the critical points, which are potential locations for maxima or minima. The Second Derivative Test (`P''(x)`) is then used to classify these points. A negative second derivative at a critical point indicates that the function is concave down, confirming a local maximum.",
+        "visual_conceptual": "Imagine the graph of the profit function `P(x)`. We are looking for the highest point on this curve. At the peak of a smooth curve, the tangent line is horizontal, meaning its slope is zero. The derivative, `P'(x)`, gives us the slope of the tangent line. By finding where `P'(x) = 0`, we find all the points with horizontal tangents (the peaks and valleys). To ensure we've found a peak (maximum) and not a valley (minimum), we check the curve's shape. If the curve is shaped like an upside-down bowl (concave down) at that point, we are at a maximum. The second derivative, `P''(x)`, tells us about this curvature."
+      },
+      "solution": "The goal is to find the maximum value of the profit function `P(x) = -\\\\frac{1}{3}x^3 + 30x^2 - 500x - 1000`.\n\n**Step 1: Find the first derivative of the profit function.**\nThe derivative `P'(x)` represents the marginal profit.\n$$ P'(x) = \\\\frac{d}{dx} \\\\left( -\\\\frac{1}{3}x^3 + 30x^2 - 500x - 1000 \\\\right) $$$$ P'(x) = -x^2 + 60x - 500 $$\n\n**Step 2: Find the critical points.**\nSet the first derivative equal to zero and solve for `x`.\n$$ -x^2 + 60x - 500 = 0 $$$$ x^2 - 60x + 500 = 0 $$\nFactor the quadratic equation:\n$$ (x - 10)(x - 50) = 0 $$\nThe critical points are `x = 10` and `x = 50`.\n\n**Step 3: Use the Second Derivative Test.**\nFirst, find the second derivative, `P''(x)`.\n$$ P''(x) = \\\\frac{d}{dx} (-x^2 + 60x - 500) = -2x + 60 $$\nEvaluate `P''(x)` at each critical point to determine if it is a maximum or minimum.\nFor `x = 10`:\n$$ P''(10) = -2(10) + 60 = 40 $$\nSince `P''(10) > 0`, the profit function is concave up at `x = 10`, which corresponds to a local minimum.\nFor `x = 50`:\n$$ P''(50) = -2(50) + 60 = -100 + 60 = -40 $$\nSince `P''(50) < 0`, the profit function is concave down at `x = 50`, which corresponds to a local maximum.\n\n**Step 4: Calculate the maximum profit.**\nThe maximum profit occurs at a production level of `x = 50` (which is 50 hundred, or 5,000 units). Substitute this value back into the original profit function `P(x)`.\n$$ P(50) = -\\\\frac{1}{3}(50)^3 + 30(50)^2 - 500(50) - 1000 $$$$ P(50) = -\\\\frac{1}{3}(125000) + 30(2500) - 25000 - 1000 $$$$ P(50) = -\\\\frac{125000}{3} + 75000 - 26000 $$$$ P(50) = -\\\\frac{125000}{3} + 49000 = -\\\\frac{125000}{3} + \\\\frac{147000}{3} = \\\\frac{22000}{3} \\\\approx 7333.33 $$\n**Conclusion:** The production level that maximizes profit is 50 hundred units (5,000 graphics cards). The maximum daily profit is `\\\\$22000/3` thousand dollars, which is approximately `$7,333,333.33`.",
+      "concepts": [
+        "Optimization Problems",
+        "Finding Extrema",
+        "First Derivative Test",
+        "Second Derivative Test",
+        "Marginal Analysis"
+      ],
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-06T11:16:43.601841",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound, pedagogically well-structured, and contextually relevant. The numbers are well-chosen to allow for straightforward calculus (factorable derivative) while still yielding a non-integer final profit, adding a touch of realism. | To enhance conceptual understanding, a follow-up question could be added: 'Interpret the business significance of both critical points you found.' This would compel the student to explain why x=10 represents a local minimum loss (perhaps due to initial tooling and scaling costs) and x=50 represents the optimal production level, moving beyond a purely mechanical application of the second derivative test."
+      }
+    }
+  ]
+}

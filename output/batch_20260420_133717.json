@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_133717",
+  "batch_name": "V3_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-20T13:37:17.636892",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: \\\\lim_{x \\\\to 3} \\\\frac{x^2 - 9}{x - 3}",
+      "question_type": "mcq",
+      "solution": "The limit presents an indeterminate form \\\\frac{0}{0} upon direct substitution. We can simplify the expression by factoring the numerator, which is a difference of squares: \\\\lim_{x \\\\to 3} \\\\frac{x^2 - 9}{x - 3} = \\\\lim_{x \\\\to 3} \\\\frac{(x - 3)(x + 3)}{x - 3}. For x \\\\neq 3, we can cancel the (x - 3) terms: \\\\lim_{x \\\\to 3} (x + 3). Now, we can use direct substitution: 3 + 3 = 6.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, try to evaluate the limit by substituting x = 3 directly into the expression. What form does the result take?"
+        },
+        {
+          "step": 2,
+          "hint": "Since direct substitution results in an indeterminate form (\\\\frac{0}{0}), you need to simplify the expression. How can the numerator, x^2 - 9, be factored?"
+        },
+        {
+          "step": 3,
+          "hint": "After factoring the numerator and canceling the common term with the denominator, evaluate the limit of the resulting simplified expression by direct substitution."
+        }
+      ],
+      "options": {
+        "A": "6",
+        "B": "0",
+        "C": "9",
+        "D": "Does Not Exist"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T13:36:58.100319",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 94.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 85,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The problem's assigned difficulty of 3 is misaligned with its content. This is a canonical, introductory-level limit problem (typically difficulty 1 or 2) that tests a single, basic algebraic manipulation. It is the 'hello world' of indeterminate forms. | Suggestion: To create a more challenging problem that better assesses conceptual understanding, introduce more complex algebra or a parameter. For example, use a higher-degree polynomial like lim (x^3 - 8)/(x^2 - 4) as x->2, or ask a conceptual question like: 'Find the value of 'k' such that lim (x^2 + kx - 10)/(x - 2) as x->2 exists, and then find the limit.' This forces the student to understand the underlying principle that the numerator must be zero at the limit point for a finite result."
+      }
+    }
+  ]
+}

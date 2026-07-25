@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_143555",
+  "batch_name": "V3_Step_8",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:35:55.869852",
+  "target_topics": [
+    "Integration and FTOC"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "If $F(x) = \\int_{3}^{x} (t^2 + 5) \\, dt$, what is $F'(x)$?",
+      "question_type": "mcq",
+      "solution": "The Fundamental Theorem of Calculus, Part 1, states that if a function $F$ is defined by $F(x) = \\int_{a}^{x} f(t) \\, dt$, then its derivative is $F'(x) = f(x)$.\\\\In this problem, we are given $F(x) = \\int_{3}^{x} (t^2 + 5) \\, dt$. The integrand is $f(t) = t^2 + 5$ and the upper limit of integration is $x$.\\\\According to the theorem, the derivative $F'(x)$ is found by substituting the upper limit $x$ for the variable $t$ in the integrand.\\\\Therefore, $F'(x) = x^2 + 5$.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "This problem asks for the derivative of a function that is defined as an integral. Which theorem connects differentiation and integration?"
+        },
+        {
+          "step": 2,
+          "hint": "Recall the Fundamental Theorem of Calculus, Part 1: If $F(x) = \\int_{a}^{x} f(t) \\, dt$, then $F'(x) = f(x)$."
+        },
+        {
+          "step": 3,
+          "hint": "Identify the function $f(t)$ from the integrand in the given problem, $F(x) = \\int_{3}^{x} (t^2 + 5) \\, dt$."
+        },
+        {
+          "step": 4,
+          "hint": "Substitute $x$ for $t$ in the expression for $f(t)$ to find $F'(x)$."
+        }
+      ],
+      "options": {
+        "A": "$x^2 + 5$",
+        "B": "$\\frac{x^3}{3} + 5x$",
+        "C": "$2x$",
+        "D": "$x^2 - 9$"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Integration and FTOC",
+      "generated_at": "2026-04-20T14:35:34.366016",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Integration and FTOC"
+      ],
+      "source_topics_pool": [
+        "Integration and FTOC"
+      ],
+      "evaluation": {
+        "score": 86.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 65,
+          "scaffolding": 65,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The scaffolding is overly prescriptive and reveals the solution method too directly. Step 2, which explicitly states the Fundamental Theorem of Calculus, Part 1, removes the need for the student to recall and apply the concept independently, turning the problem into a simple substitution drill. | Suggestion: The scaffolding should be revised to encourage student recall and reasoning. Instead of stating the theorem in Step 2, it should prompt the student to remember it, for example: 'What does the Fundamental Theorem of Calculus (Part 1) state about the relationship between a function defined by an integral and its derivative?' This would better assess and develop the student's understanding."
+      }
+    }
+  ]
+}

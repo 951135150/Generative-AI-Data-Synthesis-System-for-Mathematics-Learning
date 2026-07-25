@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260412_121949",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-12T12:19:49.337170",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: $$ \\lim_{x \\to 2} \\frac{x^2 + 3x - 10}{x - 2} $$",
+      "real_world_context": "In physics, the instantaneous velocity of an object is the limit of its average velocity as the time interval shrinks to zero. The average velocity of a drone between time $a=2$ seconds and a later time $t$ is given by the function $V_{avg}(t) = \\frac{t^2 + 3t - 10}{t - 2}$ in meters per second. To find the drone's precise velocity at the exact moment $t=2$ seconds, you need to evaluate the limit of $V_{avg}(t)$ as $t$ approaches 2.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, try to substitute $x=2$ directly into the expression. What numerical form do you get? Is it a defined value?"
+        },
+        {
+          "step": 2,
+          "hint": "The form $\\frac{0}{0}$ is indeterminate, which suggests that the numerator and denominator share a common factor. Can you factor the quadratic expression in the numerator, $x^2 + 3x - 10$?"
+        },
+        {
+          "step": 3,
+          "hint": "After factoring the numerator, you should be able to cancel a term with the denominator. What is the simplified expression? Now, can you evaluate the limit of this new expression by direct substitution?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The limit is found by first recognizing that direct substitution yields the indeterminate form $\\frac{0}{0}$. This indicates that $(x-2)$ is a factor of the numerator. We factor the numerator $x^2 + 3x - 10$ into $(x-2)(x+5)$. Then, we can cancel the $(x-2)$ terms, as the limit process considers values of $x$ close to 2, but not equal to 2. The problem simplifies to finding the limit of $(x+5)$ as $x$ approaches 2, which can be solved by direct substitution.",
+        "visual_conceptual": "The function $f(x) = \\frac{x^2 + 3x - 10}{x - 2}$ is a rational function that is undefined at $x=2$. This creates a 'hole' in the graph, which is a type of removable discontinuity. For all other values of $x$, the graph of $f(x)$ is identical to the graph of the line $g(x) = x+5$. Finding the limit as $x$ approaches 2 is equivalent to finding the y-coordinate of this hole. By looking at the simplified function $g(x)$, we can see that as $x$ gets closer and closer to 2, the function value gets closer and closer to $g(2) = 2+5 = 7$. The limit is the value that 'plugs' the hole."
+      },
+      "solution": "We are asked to evaluate the limit: $$ \\lim_{x \\to 2} \\frac{x^2 + 3x - 10}{x - 2} $$ \n\n1.  **Direct Substitution:** First, we attempt to substitute $x=2$ into the expression: $$ \\frac{(2)^2 + 3(2) - 10}{2 - 2} = \\frac{4 + 6 - 10}{0} = \\frac{0}{0} $$ This is an indeterminate form, so we must manipulate the expression algebraically. \n\n2.  **Factor the Numerator:** Since substituting $x=2$ resulted in 0 in the numerator, we know that $(x-2)$ must be a factor of the numerator, $x^2 + 3x - 10$. We look for two numbers that multiply to -10 and add to +3. These numbers are +5 and -2. So, the factorization is: $$ x^2 + 3x - 10 = (x+5)(x-2) $$ \n\n3.  **Simplify the Expression:** Now, substitute the factored form back into the limit: $$ \\lim_{x \\to 2} \\frac{(x+5)(x-2)}{x - 2} $$ Since the limit considers values of $x$ approaching 2 but not equal to 2 (i.e., $x \\neq 2$), the term $(x-2)$ is non-zero, and we can safely cancel it from the numerator and denominator: $$ \\lim_{x \\to 2} (x+5) $$ \n\n4.  **Evaluate the Final Limit:** Now we can use direct substitution on the simplified expression: $$ \\lim_{x \\to 2} (x+5) = 2 + 5 = 7 $$ Thus, the value of the limit is 7.",
+      "concepts": [
+        "Limits of Rational Functions",
+        "Indeterminate Forms",
+        "Factoring Polynomials",
+        "Removable Discontinuity"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-12T12:19:33.201925",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound and pedagogically well-structured. | To deepen the connection to the real-world context, add a follow-up question asking students to interpret the meaning of the limit's value (7) in terms of the drone's motion (i.e., its instantaneous velocity at t=2 seconds is 7 m/s). This reinforces the link between the abstract calculation and the physical application."
+      }
+    }
+  ]
+}

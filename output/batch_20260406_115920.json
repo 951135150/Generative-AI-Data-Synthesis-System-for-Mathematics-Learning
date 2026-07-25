@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_115920",
+  "batch_name": "FullRun_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:59:20.125994",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the limit: $$ \\lim_{t \\to 3} \\frac{t^2 - t - 6}{t - 3} $$",
+      "real_world_context": "In a physics experiment, the velocity $v(t)$ of a particle at time $t$ (in seconds) is modeled by the function $v(t) = \\frac{t^2 - t - 6}{t - 3}$ for $t \\ge 0$. The measuring instrument has a glitch and fails to record data at the exact moment $t=3$ seconds. To estimate the particle's behavior, your team needs to determine the instantaneous velocity at the moment of failure by evaluating the limit of $v(t)$ as $t$ approaches 3.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "What is the result when you substitute $t=3$ directly into the expression? What is this type of result called?"
+        },
+        {
+          "step": 2,
+          "hint": "Since direct substitution leads to an indeterminate form, we need to simplify the expression. How can you factor the numerator, $t^2 - t - 6$?"
+        },
+        {
+          "step": 3,
+          "hint": "After factoring and simplifying the fraction, what is the new, simpler expression for the function (valid for $t \\neq 3$)? Now, evaluate the limit using this simplified expression."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The limit is of the indeterminate form $\\frac{0}{0}$, which suggests that the numerator and denominator share a common factor. By factoring the quadratic polynomial in the numerator, we can cancel this common factor. The limit of the resulting simplified function can then be found by direct substitution. This process algebraically 'removes' the point of discontinuity.",
+        "visual_conceptual": "The graph of the function $v(t) = \\frac{t^2 - t - 6}{t - 3}$ is a straight line with a single point missing. This missing point is a 'removable discontinuity' or a 'hole' at $t=3$. The function is identical to the line $y = t+2$ everywhere except at $t=3$. Finding the limit as $t$ approaches 3 is equivalent to finding the y-coordinate of this hole in the graph. We are not concerned with the value *at* $t=3$ (which is undefined), but rather the value that the function approaches as we get infinitely close to $t=3$ from both the left and the right."
+      },
+      "solution": "$$ \\begin{aligned} & \\text{First, we attempt direct substitution:} \\\\ & \\lim_{t \\to 3} \\frac{t^2 - t - 6}{t - 3} = \\frac{(3)^2 - (3) - 6}{3 - 3} = \\frac{9 - 3 - 6}{0} = \\frac{0}{0} \\\\ & \\text{This is an indeterminate form, which suggests we can simplify the expression.} \\\\ & \\text{Next, we factor the numerator:} \\\\ & t^2 - t - 6 = (t - 3)(t + 2) \\\\ & \\text{Now, substitute the factored form back into the limit and simplify:} \\\\ & \\lim_{t \\to 3} \\frac{(t - 3)(t + 2)}{t - 3} \\\\ & \\text{Since } t \\to 3, t \\neq 3, \\text{ so we can cancel the } (t-3) \\text{ term:} \\\\ & = \\lim_{t \\to 3} (t + 2) \\\\ & \\text{Finally, evaluate the limit by direct substitution into the simplified expression:} \\\\ & = 3 + 2 = 5 \\end{aligned} $$",
+      "concepts": [
+        "Limits of Rational Functions",
+        "Indeterminate Forms",
+        "Factoring Polynomials",
+        "Removable Discontinuity"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T11:56:40.088872",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "No critical flaws identified. The problem is a well-constructed, standard example of evaluating a limit involving a removable discontinuity. It is fundamentally sound. | To deepen the application of the real-world context, a follow-up question could be added, such as: 'Sketch the graph of the velocity function for t ≥ 0. What does the y-intercept represent in the context of the experiment, and what is its value?' This would reinforce the visual representation and connect another key feature of the function to the narrative."
+      }
+    }
+  ]
+}

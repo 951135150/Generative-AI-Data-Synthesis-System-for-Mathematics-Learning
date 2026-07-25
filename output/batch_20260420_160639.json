@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_160639",
+  "batch_name": "V3_Step_36",
+  "mode": "drill",
+  "generated_at": "2026-04-20T16:06:39.763608",
+  "target_topics": [
+    "Techniques of Integration"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the definite integral: \\\\int_{0}^{\\\\pi/2} \\\\sin^3(x) \\\\cos(x) \\, dx.",
+      "question_type": "mcq",
+      "solution": "This integral can be solved using the method of u-substitution. Let \\\\(u = \\\\sin(x)\\\\). Then, the differential is \\\\(du = \\\\cos(x) \\, dx\\\\). We must also change the limits of integration from x-values to u-values. \\\\nWhen \\\\(x = 0\\\\), \\\\(u = \\\\sin(0) = 0\\\\).\\\\nWhen \\\\(x = \\\\pi/2\\\\), \\\\(u = \\\\sin(\\\\pi/2) = 1\\\\).\\\\nSubstituting these into the integral, we get:\\\\n\\\\\\\\int_{0}^{1} u^3 \\, du \\\\nNow, we evaluate this simpler integral:\\\\n\\\\\\\\[ \\\\frac{u^4}{4} \\\\\\\\]_{0}^{1} = \\\\frac{1^4}{4} - \\\\frac{0^4}{4} = \\\\frac{1}{4} - 0 = \\\\frac{1}{4}.\\\\nTherefore, the value of the definite integral is \\\\(\\frac{1}{4}\\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Notice that the integrand contains a function, \\\\(\\sin(x)\\\\), raised to a power, and its derivative, \\\\(\\cos(x)\\\\). This suggests that u-substitution is a good strategy. What would be a good choice for \\\\(u\\\\)?"
+        },
+        {
+          "step": 2,
+          "hint": "Let \\\\(u = \\\\sin(x)\\\\). Calculate the differential \\\\(du\\\\). Remember to also convert the limits of integration from x-values (0 and \\\\(\\pi/2\\\\)) to their corresponding u-values."
+        },
+        {
+          "step": 3,
+          "hint": "After substitution, you should have a much simpler integral of the form \\\\(\\int_{a}^{b} u^n \\, du\\\\). Evaluate this integral using the power rule for integration."
+        }
+      ],
+      "options": {
+        "A": "\\\\frac{1}{4}\\\\",
+        "B": "\\\\frac{1}{2}\\\\",
+        "C": "0",
+        "D": "-\\\\frac{1}{4}\\\\"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Techniques of Integration",
+      "generated_at": "2026-04-20T16:06:14.389247",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Techniques of Integration"
+      ],
+      "source_topics_pool": [
+        "Techniques of Integration"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is mathematically sound, and the solution is derived correctly. | Suggestion: The problem is very effective for its purpose. A minor pedagogical weakness is that a student who correctly finds the antiderivative in terms of x (i.e., sin⁴(x)/4) but forgets to change the limits of integration will still arrive at the correct numerical answer by evaluating at the original limits. To more robustly test the skill of changing limits, consider a problem where this coincidence does not occur, for example, by changing the limits to [π/6, π/2]."
+      }
+    }
+  ]
+}

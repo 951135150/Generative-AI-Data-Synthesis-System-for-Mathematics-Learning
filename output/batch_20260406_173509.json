@@ -1,0 +1,90 @@
+{
+  "batch_id": "batch_20260406_173509",
+  "batch_name": "FullRun_Step_8",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:35:09.281372",
+  "target_topics": [
+    "Multivariable Calculus"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The elevation $z$ (in meters) of a terrain is modeled by the function $z(x, y) = x^3 - 4xy + 2y^2$, where $x$ is the distance east and $y$ is the distance north from a reference point (in kilometers). Find the partial derivatives $\\frac{\\partial z}{\\partial x}$ and $\\frac{\\partial z}{\\partial y}$ at the point $(x, y) = (2, 1)$ and interpret their physical meaning.",
+      "real_world_context": "This problem models a common application in geography and civil engineering, where partial derivatives are used to determine the steepness or grade of a terrain in specific directions. This is crucial for planning roads, drainage systems, and assessing landslide risks.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "To find the partial derivative with respect to $x$, $\\frac{\\partial z}{\\partial x}$, how should you treat the variable $y$?"
+        },
+        {
+          "step": 2,
+          "hint": "Apply the power rule and constant multiple rule to differentiate each term of $z(x, y)$ with respect to $x$."
+        },
+        {
+          "step": 3,
+          "hint": "Similarly, to find $\\frac{\\partial z}{\\partial y}$, how should you treat the variable $x$?"
+        },
+        {
+          "step": 4,
+          "hint": "Once you have the general expressions for the partial derivatives, what is the final step to find their values at the point $(2, 1)$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The process involves applying the rules of differentiation to a multivariable function one variable at a time. For $\\frac{\\partial z}{\\partial x}$, we differentiate $x^3 - 4xy + 2y^2$ treating $y$ as a fixed number. For $\\frac{\\partial z}{\\partial y}$, we do the same but treat $x$ as a fixed number. This isolates the rate of change along each coordinate axis.",
+        "visual_conceptual": "Imagine you are standing on the terrain at the point corresponding to $(x, y) = (2, 1)$. The value $\\frac{\\partial z}{\\partial x}$ represents the instantaneous steepness of the ground if you were to take a step directly to the east (in the positive x-direction). A positive value means you are going uphill. The value $\\frac{\\partial z}{\\partial y}$ represents the steepness if you were to take a step directly to the north (in the positive y-direction). A negative value means you are going downhill."
+      },
+      "solution": {
+        "preamble": "Given the elevation function $z(x, y) = x^3 - 4xy + 2y^2$. We need to find the first-order partial derivatives and evaluate them at the point $(2, 1)$.",
+        "steps": [
+          {
+            "step_title": "Partial Derivative with respect to x",
+            "step_body": "To find $\\frac{\\partial z}{\\partial x}$, we treat $y$ as a constant and differentiate with respect to $x$: $$ \\frac{\\partial z}{\\partial x} = \\frac{\\partial}{\\partial x} (x^3 - 4xy + 2y^2) = \\frac{d}{dx}(x^3) - 4y \\frac{d}{dx}(x) + \\frac{d}{dx}(2y^2) $$ $$ \\frac{\\partial z}{\\partial x} = 3x^2 - 4y(1) + 0 = 3x^2 - 4y $$"
+          },
+          {
+            "step_title": "Partial Derivative with respect to y",
+            "step_body": "To find $\\frac{\\partial z}{\\partial y}$, we treat $x$ as a constant and differentiate with respect to $y$: $$ \\frac{\\partial z}{\\partial y} = \\frac{\\partial}{\\partial y} (x^3 - 4xy + 2y^2) = \\frac{d}{dy}(x^3) - 4x \\frac{d}{dy}(y) + \\frac{d}{dy}(2y^2) $$ $$ \\frac{\\partial z}{\\partial y} = 0 - 4x(1) + 4y = -4x + 4y $$"
+          },
+          {
+            "step_title": "Evaluation at the point (2, 1)",
+            "step_body": "Now, we substitute $x=2$ and $y=1$ into the expressions for the partial derivatives. For $\\frac{\\partial z}{\\partial x}$: $$ \\frac{\\partial z}{\\partial x} \\bigg|_{(2,1)} = 3(2)^2 - 4(1) = 3(4) - 4 = 12 - 4 = 8 $$ For $\\frac{\\partial z}{\\partial y}$: $$ \\frac{\\partial z}{\\partial y} \\bigg|_{(2,1)} = -4(2) + 4(1) = -8 + 4 = -4 $$"
+          }
+        ],
+        "conclusion": "At the point $(2, 1)$, the rate of change of elevation in the east direction is $8$ meters per kilometer (meaning the terrain is rising). The rate of change of elevation in the north direction is $-4$ meters per kilometer (meaning the terrain is falling)."
+      },
+      "concepts": [
+        "Partial Derivatives",
+        "Rate of Change in Multivariable Functions",
+        "Geometric Interpretation of Derivatives"
+      ],
+      "topic": "Multivariable Calculus",
+      "generated_at": "2026-04-06T17:34:50.294474",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Multivariable Calculus"
+      ],
+      "source_topics_pool": [
+        "Multivariable Calculus"
+      ],
+      "evaluation": {
+        "score": 92.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 40
+        },
+        "passed": true,
+        "issues": [
+          "Detected high similarity with Golden Dataset."
+        ],
+        "ai_feedback": "The problem introduces a mixed-unit system (meters for elevation 'z', kilometers for horizontal distances 'x' and 'y'). While physically realistic and correctly handled in the solution's conclusion, this can be a significant source of confusion for students who might overlook the units and misinterpret the final rate of change. It's a pedagogical hurdle, not a mathematical error. | Add a follow-up question that deepens the interpretation, such as: 'At the point (2, 1), is it steeper to walk directly east or directly north? Justify your answer.' This would require students to compare the absolute values of the partial derivatives (|8| vs. |-4|) and reinforce the concept of steepness as the magnitude of the rate of change, independent of direction (uphill/downhill)."
+      }
+    }
+  ]
+}

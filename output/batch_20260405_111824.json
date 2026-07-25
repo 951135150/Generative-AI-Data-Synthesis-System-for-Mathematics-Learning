@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_20260405_111824",
+  "batch_name": "Validation_Test",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:18:24.413121",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A digital signal processor (DSP) models a continuous signal using the piecewise function $f(x)$ shown below. Find the values of the constants $a$ and $b$ that make the function $f(x)$ continuous for all real numbers.\n$$ f(x) = \\begin{cases} ax + b & \\text{if } x < 1 \\\\ x^2 - 3x + 5 & \\text{if } 1 \\le x \\le 4 \\\\ bx - a & \\text{if } x > 4 \\end{cases} $$",
+      "real_world_context": "In digital signal processing, it's often necessary to combine different mathematical models to describe a signal over time. For the signal to be physically realistic and avoid abrupt, instantaneous changes (which can cause errors or damage in physical systems), it must be continuous. This problem involves finding the correct parameters to 'stitch' together different function pieces into one smooth, continuous signal.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For a function to be continuous at a point $c$, the limit as $x$ approaches $c$ must exist and be equal to the function's value at $c$. This means the left-hand limit, right-hand limit, and $f(c)$ must all be equal. Where are the potential points of discontinuity in this piecewise function?"
+        },
+        {
+          "step": 2,
+          "hint": "Apply the definition of continuity at the first transition point, $x=1$. Set the limit from the left equal to the function's value (which is defined by the middle piece). This will give you one equation involving $a$ and $b$."
+        },
+        {
+          "step": 3,
+          "hint": "Now, apply the definition of continuity at the second transition point, $x=4$. Set the function's value (from the middle piece) equal to the limit from the right. This will give you a second equation involving $a$ and $b$."
+        },
+        {
+          "step": 4,
+          "hint": "You should now have a system of two linear equations with two variables, $a$ and $b$. Solve this system using substitution or elimination to find the values of $a$ and $b$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The core of this problem is algebraic. Continuity at a point $c$ requires that $\\\\lim_{x \\to c^-} f(x) = \\\\lim_{x \\to c^+} f(x) = f(c)$. We must enforce this condition at the 'seams' of the piecewise function, which are at $x=1$ and $x=4$. This creates a system of two linear equations in terms of the unknown parameters $a$ and $b$. The solution is found by systematically solving this system, which is a standard algebraic procedure.",
+        "visual_conceptual": "Imagine graphing the three pieces of the function. The middle piece is a fixed parabola segment. The first and third pieces are lines whose slopes and intercepts depend on $a$ and $b$. For the overall function to be continuous, there can be no 'jumps' or 'holes' in the graph. This means the line for $x<1$ must end at the exact same point where the parabola begins. Similarly, the parabola must end at the exact same point where the second line for $x>4$ begins. Our task is to find the specific values of $a$ and $b$ that perfectly 'stitch' these three graphs together into a single, unbroken curve."
+      },
+      "solution": "For $f(x)$ to be continuous, it must be continuous at the transition points $x=1$ and $x=4$. The individual pieces are polynomials, which are continuous on their domains.\n\n1.  **Continuity at $x=1$:**\n    We need $\\\\lim_{x \\to 1^-} f(x) = f(1)$.\n    The left-hand limit is $\\\\lim_{x \\to 1^-} (ax + b) = a(1) + b = a+b$.\n    The function value is $f(1) = (1)^2 - 3(1) + 5 = 1 - 3 + 5 = 3$.\n    Setting them equal gives our first equation: $a + b = 3$.\n\n2.  **Continuity at $x=4$:**\n    We need $\\\\lim_{x \\to 4^+} f(x) = f(4)$.\n    The right-hand limit is $\\\\lim_{x \\to 4^+} (bx - a) = b(4) - a = 4b - a$.\n    The function value is $f(4) = (4)^2 - 3(4) + 5 = 16 - 12 + 5 = 9$.\n    Setting them equal gives our second equation: $4b - a = 9$, or $-a + 4b = 9$.\n\n3.  **Solve the system of equations:**\n    We have the system:\n    (1) $a + b = 3$\n    (2) $-a + 4b = 9$\n\n    Add equation (1) and equation (2) to eliminate $a$:\n    $(a + b) + (-a + 4b) = 3 + 9$\n    $5b = 12$\n    $b = \\\\frac{12}{5}$\n\n    Substitute the value of $b$ back into equation (1):\n    $a + \\\\frac{12}{5} = 3$\n    $a = 3 - \\\\frac{12}{5} = \\\\frac{15}{5} - \\\\frac{12}{5} = \\\\frac{3}{5}$\n\n    Thus, the values that make the function continuous are $a = \\\\frac{3}{5}$ and $b = \\\\frac{12}{5}$.",
+      "concepts": [
+        "Continuity of a function",
+        "Piecewise functions",
+        "Left-hand and right-hand limits",
+        "Solving systems of linear equations"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:18:01.693778",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context, while plausible and relevant, is somewhat generic. It correctly identifies an application area (DSP) but doesn't provide specific, tangible consequences of discontinuity that would make the problem more memorable or motivating for a student. | Enhance the real-world context to be more vivid. For instance, frame the problem as designing a control path for a robot arm, where f(x) is the velocity. A discontinuity would represent an instantaneous, physically impossible change in velocity (infinite acceleration), which would damage the arm's motors. This provides a more concrete and compelling reason for enforcing continuity."
+      }
+    }
+  ]
+}

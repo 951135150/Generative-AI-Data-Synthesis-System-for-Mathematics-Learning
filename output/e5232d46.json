@@ -1,0 +1,46 @@
+{
+  "id": "e5232d46",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "An open-top box is to be made from a 16 cm by 10 cm rectangular piece of cardboard by cutting out identical squares from each corner and folding up the sides. The side length of the square to be cut out that maximizes the volume of the box is [BLANK_1] cm. The corresponding maximum volume is [BLANK_2] cm$^{3}$.",
+  "question_type": "fill_in",
+  "difficulty": 3,
+  "solution": "Let $ x $ be the side length of the square cut from each corner, in cm. The dimensions of the rectangular piece of cardboard are 16 cm by 10 cm. After cutting the squares and folding the sides, the dimensions of the open-top box will be:\n$$ \nl, w, h = 16 - 2x, 10 - 2x, x \n$$ \nThe volume of the box, $ V(x) $, is given by the product of its dimensions:\n$$ V(x) = (16 - 2x)(10 - 2x)x $$ \nFor the dimensions to be physically meaningful (i.e., positive), we must have $ x > 0 $, $ 16 - 2x > 0 $, and $ 10 - 2x > 0 $. These inequalities simplify to $ x > 0 $, $ x < 8 $, and $ x < 5 $. Thus, the valid domain for $ x $ is $ 0 < x < 5 $. \n\nTo find the value of $ x $ that maximizes the volume, we first expand the volume function:\n$$ V(x) = (160 - 32x - 20x + 4x^2)x = 4x^3 - 52x^2 + 160x $$ \nNext, we find the derivative of $ V(x) $ with respect to $ x $:\n$$ V'(x) = \\frac{d}{dx}(4x^3 - 52x^2 + 160x) = 12x^2 - 104x + 160 $$ \nWe set the derivative to zero to find the critical points:\n$$ 12x^2 - 104x + 160 = 0 $$ \nDividing the entire equation by 4 simplifies it:\n$$ 3x^2 - 26x + 40 = 0 $$ \nUsing the quadratic formula, $ x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} $:\n$$ x = \\frac{-(-26) \\pm \\sqrt{(-26)^2 - 4(3)(40)}}{2(3)} = \\frac{26 \\pm \\sqrt{676 - 480}}{6} = \\frac{26 \\pm \\sqrt{196}}{6} = \\frac{26 \\pm 14}{6} $$ \nThis gives two possible values for $ x $:\n$$ x_1 = \\frac{26 + 14}{6} = \\frac{40}{6} = \\frac{20}{3} $$ \n$$ x_2 = \\frac{26 - 14}{6} = \\frac{12}{6} = 2 $$ \nWe check these critical points against our domain $ (0, 5) $. The value $ x_1 = \\frac{20}{3} \\approx 6.67 $ is outside the domain. The value $ x_2 = 2 $ is inside the domain. \n\nTo verify that $ x=2 $ corresponds to a maximum, we use the Second Derivative Test:\n$$ V''(x) = \\frac{d}{dx}(12x^2 - 104x + 160) = 24x - 104 $$ \nEvaluating at $ x=2 $:\n$$ V''(2) = 24(2) - 104 = 48 - 104 = -56 $$ \nSince $ V''(2) < 0 $, the function is concave down at $ x=2 $, which confirms a local maximum. As it is the only critical point in the domain, it is the absolute maximum. \n\nTherefore, the side length of the square that maximizes the volume is $ x = 2 $ cm. This is the value for [BLANK_1]. \n\nThe maximum volume is found by substituting $ x=2 $ into the volume function:\n$$ V(2) = (16 - 2(2))(10 - 2(2))(2) = (12)(6)(2) = 144 $$ \nThe maximum volume is 144 cm$^{3}$. This is the value for [BLANK_2].",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Let $ x $ be the side length of the square cut from each corner. Express the length, width, and height of the resulting box in terms of $ x $. Then, write the volume $ V(x) $ as a function of $ x $."
+    },
+    {
+      "step": 2,
+      "hint": "Find the derivative of the volume function, $ V'(x) $, and set it to zero to find the critical points. Remember to consider the valid domain for $ x $ based on the physical constraints of the problem."
+    }
+  ],
+  "correct_values": [
+    "2",
+    "144"
+  ],
+  "generated_at": "2026-05-03T00:21:45.556941",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 82.5,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 100.0,
+      "scaffolding": 100.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 82.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: None needed. The problem is a canonical and effective example for its stated topic and difficulty. The solution is detailed and logically sound, and the scaffolding appropriately guides the student through the key stages of setting up the function and performing the optimization."
+  },
+  "problem_id": "e5232d46"
+}

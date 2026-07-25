@@ -1,0 +1,71 @@
+{
+  "batch_id": "batch_20260406_121423",
+  "batch_name": "FullRun_Step_12",
+  "mode": "exam",
+  "generated_at": "2026-04-06T12:14:23.314663",
+  "target_topics": [
+    "Derivatives"
+  ],
+  "difficulty_setting": 4,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Two autonomous drones, Alpha and Beta, are being tested in a large, flat area. A coordinate system is established with units in meters. At time $t \\ge 0$ seconds, the position of drone Alpha, which moves along the x-axis, is given by $x(t) = 200 - 10t$. The position of drone Beta, which moves along the y-axis, is given by $y(t) = 5t^2 - 40$. Let $D(t)$ be the straight-line distance between the two drones at time $t$.\n\n**Part A:** An operator needs to know how quickly the drones are separating from each other at the start of the test ($t=0$). Calculate the rate of change of the distance between the drones, $\\\\frac{dD}{dt}$, at $t=0$. Interpret the sign of your answer in the context of the problem.\n\n**Part B:** A critical safety protocol is based on the minimum distance between the drones. Find the time $t > 0$ at which the distance $D(t)$ is at a minimum. Justify that this time corresponds to a minimum distance using the second derivative test. Then, calculate this minimum distance.\n\n**Part C:** The drones' guidance systems can be overloaded if the 'relative approach acceleration' is too large. This is modeled by the second derivative of the distance, $\\\\frac{d^2D}{dt^2}$. The system flags a warning if $\\\\frac{d^2D}{dt^2} > 5$ m/s$^2$ at the moment the drones are closest. Using your time $t$ from Part B, calculate $\\\\frac{d^2D}{dt^2}$ at that instant. Determine whether the system will flag a warning.",
+      "real_world_context": "This problem models a common scenario in robotics and autonomous vehicle navigation, where systems must constantly calculate and predict the distances to other objects. The rates of change of these distances (velocity and acceleration) are critical for collision avoidance, path planning, and system stability. Analyzing the minimum distance and the acceleration at that point helps engineers design robust safety protocols.",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For Part A, start by writing an equation for the square of the distance, $D^2$, in terms of $x(t)$ and $y(t)$. Then, differentiate this entire equation implicitly with respect to time $t$ to find a relationship involving $D$, $dD/dt$, $x$, $y$, $dx/dt$, and $dy/dt$. Evaluate all quantities at $t=0$."
+        },
+        {
+          "step": 2,
+          "hint": "For Part B, to find the minimum distance, you must find the critical points by setting $\\frac{dD}{dt} = 0$. Note that minimizing $D$ is equivalent to minimizing its square, $D^2$. This simplifies the derivative calculation. After finding the critical time, use the second derivative test on $D^2(t)$ to confirm it's a minimum."
+        },
+        {
+          "step": 3,
+          "hint": "For Part C, to find $\\frac{d^2D}{dt^2}$, you need to differentiate the expression for $\\frac{dD}{dt}$. It is algebraically simpler to start from the implicit equation $D \\frac{dD}{dt} = x \\frac{dx}{dt} + y \\frac{dy}{dt}$ and differentiate again using the product rule. Remember that at the time of minimum distance, $\\frac{dD}{dt} = 0$, which will significantly simplify your calculation."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution involves setting up the distance function $D(t) = \\sqrt{x(t)^2 + y(t)^2}$. The rates of change are found using implicit differentiation and the chain rule. Part A is a direct application of related rates at a specific time. Part B is an optimization problem solved by finding the critical points of $D(t)$ (or $D(t)^2$ for simplicity) by setting its first derivative to zero and solving for $t$. The second derivative test confirms the nature of the extremum. Part C requires calculating the second derivative of $D(t)$ at the critical time found in Part B. This involves careful differentiation of a complex expression, which is simplified by the fact that $\\frac{dD}{dt}=0$ at that specific time.",
+        "visual_conceptual": "Imagine two points moving on the x and y axes. The distance between them is the hypotenuse of a right triangle whose legs are $|x(t)|$ and $|y(t)|$. In Part A, at $t=0$, drone Alpha is at $(200,0)$ and moving left, while drone Beta is at $(0,-40)$ and momentarily at rest before moving up. Since Alpha is moving towards the y-axis, the distance is initially decreasing, hence we expect $\\frac{dD}{dt}$ to be negative. In Part B, the drones are closest not necessarily when they are at the origin, but when the geometry of their positions and velocity vectors align such that the distance stops decreasing and starts increasing. This corresponds to the lowest point on the graph of $D(t)$ vs. $t$. In Part C, $\\frac{d^2D}{dt^2}$ represents the curvature of this graph at its minimum. A large positive value means the drones 'whip' past each other, with the distance rapidly starting to increase after the point of closest approach. This sudden change can be stressful for a guidance system."
+      },
+      "solution": "**Part A: Rate of change of distance at t=0**\n\n1.  The square of the distance between the drones is $D^2 = x(t)^2 + y(t)^2$.\n    $D(t)^2 = (200 - 10t)^2 + (5t^2 - 40)^2$.\n2.  Differentiate both sides with respect to $t$:\n    $2D \\frac{dD}{dt} = 2(200 - 10t)(-10) + 2(5t^2 - 40)(10t)$.\n    $\\frac{dD}{dt} = \\frac{-10(200 - 10t) + 10t(5t^2 - 40)}{D(t)}$.\n3.  At $t=0$:\n    $x(0) = 200$, $y(0) = -40$.\n    $D(0) = \\sqrt{200^2 + (-40)^2} = \\sqrt{40000 + 1600} = \\sqrt{41600} = 40\\sqrt{26}$.\n4.  Substitute $t=0$ into the expression for $\\frac{dD}{dt}$:\n    $\\frac{dD}{dt} \\bigg|_{t=0} = \\frac{-10(200 - 0) + 0}{40\\sqrt{26}} = \\frac{-2000}{40\\sqrt{26}} = -\\frac{50}{\\sqrt{26}}$ m/s.\n\n*Interpretation:* The negative sign indicates that at $t=0$, the distance between the drones is decreasing. They are getting closer to each other.\n\n**Part B: Minimum Distance**\n\n1.  To find the minimum distance, we set $\\frac{dD}{dt} = 0$. This occurs when the numerator is zero.\n    $-10(200 - 10t) + 10t(5t^2 - 40) = 0$.\n    $-2000 + 100t + 50t^3 - 400t = 0$.\n    $50t^3 - 300t - 2000 = 0$.\n    $t^3 - 6t - 40 = 0$.\n2.  By inspection or the Rational Root Theorem, we test divisors of 40. Let $f(t) = t^3 - 6t - 40$. \n    $f(4) = 4^3 - 6(4) - 40 = 64 - 24 - 40 = 0$. So, $t=4$ seconds is the critical time.\n3.  *Justification (Second Derivative Test):* Let $L(t) = D(t)^2$. Minimizing $D$ is equivalent to minimizing $L$. \n    $L'(t) = 2D \\frac{dD}{dt} = 50t^3 - 300t - 2000$. \n    $L''(t) = 150t^2 - 300$. \n    At $t=4$, $L''(4) = 150(4^2) - 300 = 150(16) - 300 = 2400 - 300 = 2100 > 0$. \n    Since the second derivative is positive, $t=4$ corresponds to a local minimum.\n4.  Calculate the minimum distance at $t=4$:\n    $x(4) = 200 - 10(4) = 160$ m.\n    $y(4) = 5(4^2) - 40 = 5(16) - 40 = 80 - 40 = 40$ m.\n    $D_{min} = \\sqrt{160^2 + 40^2} = \\sqrt{25600 + 1600} = \\sqrt{27200} = \\sqrt{1600 \\cdot 17} = 40\\sqrt{17}$ m.\n\n**Part C: Relative Approach Acceleration**\n\n1.  Start with the differentiated expression before solving for $\\frac{dD}{dt}$:\n    $D \\frac{dD}{dt} = x x' + y y'$.\n2.  Differentiate again with respect to $t$ using the product rule on the left and right sides:\n    $(\\frac{dD}{dt})(\\frac{dD}{dt}) + D (\\frac{d^2D}{dt^2}) = (x')^2 + x x'' + (y')^2 + y y''$.\n3.  We need to evaluate this at $t=4$. From Part B, we know that at $t=4$, $\\frac{dD}{dt} = 0$. The equation simplifies to:\n    $D(4) \\frac{d^2D}{dt^2} \\bigg|_{t=4} = (x'(4))^2 + x(4)x''(4) + (y'(4))^2 + y(4)y''(4)$.\n4.  Find the necessary components:\n    $x(t) = 200 - 10t \\implies x'(t) = -10 \\implies x''(t) = 0$.\n    $y(t) = 5t^2 - 40 \\implies y'(t) = 10t \\implies y''(t) = 10$.\n    At $t=4$: \n    $D(4) = 40\\sqrt{17}$.\n    $x(4)=160, x'(4)=-10, x''(4)=0$.\n    $y(4)=40, y'(4)=40, y''(4)=10$.\n5.  Substitute these values into the simplified equation:\n    $(40\\sqrt{17}) \\frac{d^2D}{dt^2} = (-10)^2 + (160)(0) + (40)^2 + (40)(10)$.\n    $(40\\sqrt{17}) \\frac{d^2D}{dt^2} = 100 + 0 + 1600 + 400 = 2100$.\n    $\\frac{d^2D}{dt^2} = \\frac{2100}{40\\sqrt{17}} = \\frac{105}{2\\sqrt{17}}$.\n6.  Compare this value to the threshold of 5 m/s$^2$:\n    Is $\\frac{105}{2\\sqrt{17}} > 5$? \n    $105 > 10\\sqrt{17}$?\n    $10.5 > \\sqrt{17}$?\n    Squaring both sides (since both are positive): $(10.5)^2 = 110.25$ and $(\\sqrt{17})^2 = 17$.\n    Since $110.25 > 17$, the inequality is true.\n\n*Conclusion:* Yes, $\\frac{d^2D}{dt^2} \\approx 12.73$ m/s$^2$, which is greater than 5 m/s$^2$. The system will flag a warning.",
+      "concepts": [
+        "Related Rates",
+        "Optimization",
+        "Derivatives of Position, Velocity, and Acceleration",
+        "Implicit Differentiation",
+        "Second Derivative Test",
+        "Chain Rule",
+        "Product Rule"
+      ],
+      "topic": "Multi-topic Integration",
+      "generated_at": "2026-04-06T12:13:51.411263",
+      "model": "gemini-2.5-pro",
+      "mode": "exam",
+      "target_difficulty": 4,
+      "integrated_topics": [
+        "Derivatives"
+      ],
+      "source_topics_pool": [
+        "Derivatives"
+      ],
+      "evaluation": {
+        "score": 99.4,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 98,
+          "pedagogical_alignment": 100,
+          "scaffolding": 100,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is exceptionally well-constructed. The only potential difficulty is the algebraic step of solving the cubic equation in Part B, which might be a significant hurdle for some students, potentially overshadowing the calculus concepts being tested. | To ensure students focus on the calculus concepts rather than getting stuck on algebra, consider adding a small hint for Part B, such as: 'The critical time occurs at a small, positive integer value of t.' This helps them solve the cubic equation without diminishing the calculus challenge."
+      }
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "batch_id": "batch_20260406_175002",
+  "batch_name": "FullRun_Step_15",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:50:02.584483",
+  "target_topics": [
+    "Applications of Integration"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "An inverted conical tank has a height of 10 meters and a radius of 4 meters at the top. The tank is filled to the brim with water. Calculate the total work required to pump all the water to a point 2 meters above the top of the tank. Use the weight-density of water, $\\omega = \\rho g$, as 9800 N/m$^3$.",
+      "real_world_context": "This problem models a common scenario in civil engineering and agriculture, where calculating the energy (work) required to pump fluids from storage tanks is essential for designing efficient pumping systems and estimating operational costs.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Consider a thin, horizontal slice (a disk) of water at an arbitrary height 'y' from the bottom of the tank. What is the formula for the work done to lift this single slice? Recall that Work = Force × Distance. The force here is the weight of the slice."
+        },
+        {
+          "step": 2,
+          "hint": "The radius 'r' of the slice depends on its height 'y'. Use similar triangles to establish a relationship between 'r' and 'y'. Compare the ratio of radius to height for the whole tank with the ratio for the slice."
+        },
+        {
+          "step": 3,
+          "hint": "The slice at height 'y' must be lifted to a final height of 12 meters (10m tank height + 2m above). What is the expression for the distance this specific slice must travel?"
+        },
+        {
+          "step": 4,
+          "hint": "Combine your findings to set up a definite integral representing the total work. What are the limits of integration for 'y' if the tank is initially full?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution involves integrating the work done on infinitesimal slices of water. The work $dW$ on a slice of thickness $dy$ at height $y$ is its weight multiplied by the distance it is lifted. The weight is the volume of the slice, $\\pi r(y)^2 dy$, times the weight-density $\\omega$. The distance is $(12-y)$. By relating $r$ to $y$ using similar triangles ($r/y = 4/10$), we can express $dW$ entirely in terms of $y$ and $dy$. The total work $W$ is the integral of $dW$ from the bottom of the tank ($y=0$) to the top ($y=10$).",
+        "visual_conceptual": "Imagine the water in the cone is a stack of thin, circular coins. To find the total work, we calculate the work needed to lift each individual coin to the outlet pipe and then sum up the work for all the coins. The coins near the bottom are smaller (less weight) but must be lifted a longer distance. The coins near the top are wider (more weight) but are lifted a shorter distance. The integral is a mathematical tool that performs this summation perfectly, accounting for the changing radius and lifting distance for each 'coin' of water."
+      },
+      "solution": {
+        "brief": "The total work required is $2,352,000\\pi$ Joules.",
+        "detailed": "1. **Set up the Coordinate System:** Let $y$ be the height measured from the vertex (bottom tip) of the cone upwards. The origin $(0,0)$ is at the vertex. The tank's height is $H=10$ m and its top radius is $R=4$ m.\n\n2. **Find the Radius of a Slice:** Consider a thin horizontal slice of water at height $y$ with radius $r$. By similar triangles, the ratio of the radius to the height is constant:\n$$ \\frac{r}{y} = \\frac{R}{H} = \\frac{4}{10} = \\frac{2}{5} \\implies r = \\frac{2}{5}y $$\n\n3. **Define a Slice of Water:**\n- The volume of a thin slice of thickness $dy$ at height $y$ is $dV = A(y) dy = \\pi r^2 dy = \\pi \\left(\\frac{2}{5}y\\right)^2 dy = \\frac{4\\pi}{25}y^2 dy$.\n- The weight (force) of this slice is $dF = \\omega \\cdot dV = 9800 \\cdot \\frac{4\\pi}{25}y^2 dy = 1568\\pi y^2 dy$.\n\n4. **Determine the Lifting Distance:** The water is pumped to a height of $10 + 2 = 12$ meters. The slice at height $y$ must be lifted a distance of $d(y) = 12 - y$.\n\n5. **Set Up the Work Integral:** The work $dW$ to lift this single slice is $dW = dF \\cdot d(y)$.\n$$ dW = (1568\\pi y^2) (12 - y) dy $$\nTo find the total work, we integrate from the bottom of the tank ($y=0$) to the top ($y=10$), since the tank is full.\n$$ W = \\int_{0}^{10} 1568\\pi y^2 (12 - y) dy $$\n\n6. **Evaluate the Integral:**\n$$ W = 1568\\pi \\int_{0}^{10} (12y^2 - y^3) dy $$\n$$ W = 1568\\pi \\left[ 12\\frac{y^3}{3} - \\frac{y^4}{4} \\right]_{0}^{10} $$\n$$ W = 1568\\pi \\left[ 4y^3 - \\frac{y^4}{4} \\right]_{0}^{10} $$\n$$ W = 1568\\pi \\left[ \\left(4(10)^3 - \\frac{10^4}{4}\\right) - \\left(4(0)^3 - \\frac{0^4}{4}\\right) \\right] $$\n$$ W = 1568\\pi \\left[ 4000 - \\frac{10000}{4} \\right] $$\n$$ W = 1568\\pi [4000 - 2500] $$\n$$ W = 1568\\pi (1500) = 2,352,000\\pi $$\n\nThe total work required is $2,352,000\\pi$ Joules."
+      },
+      "concepts": [
+        "Work as an Integral",
+        "Volumes by Slicing",
+        "Similar Triangles",
+        "Definite Integrals"
+      ],
+      "topic": "Applications of Integration",
+      "generated_at": "2026-04-06T17:49:17.853020",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Applications of Integration"
+      ],
+      "source_topics_pool": [
+        "Applications of Integration"
+      ],
+      "evaluation": {
+        "score": 99.2,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 98,
+          "scaffolding": 98,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None | To deepen conceptual understanding, add a follow-up question asking the student to re-solve the problem by placing the origin at the top of the tank and measuring distance downwards. This tests their ability to adapt the distance function and integration limits, ensuring they haven't just memorized a single formulaic approach."
+      }
+    }
+  ]
+}

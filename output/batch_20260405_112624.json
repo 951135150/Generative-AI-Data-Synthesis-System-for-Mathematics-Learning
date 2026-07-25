@@ -1,0 +1,70 @@
+{
+  "batch_id": "batch_20260405_112624",
+  "batch_name": "Demo_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:26:24.596325",
+  "target_topics": [
+    "Differentiation Rules"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the derivative of the function $g(t) = 5t^4 + \\\\frac{1}{t^2} - \\\\sqrt{t}$ with respect to $t$.",
+      "real_world_context": "In a physics laboratory, the displacement (in meters) of a particle from an origin point along a track at time $t$ (in seconds) is modeled by the function $g(t)$. Finding the derivative, $g'(t)$, gives the instantaneous velocity of the particle at any time $t$.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Before differentiating, rewrite the function $g(t)$ so that each term is in the form $c \\\\cdot t^n$. How can you express $\\\\frac{1}{t^2}$ and $\\\\sqrt{t}$ using exponents?"
+        },
+        {
+          "step": 2,
+          "hint": "Apply the power rule, which states that the derivative of $t^n$ is $nt^{n-1}$, to each term of the rewritten function. Remember that the derivative of a sum or difference of terms is the sum or difference of their derivatives."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the derivative for each term, combine them to form the final function $g'(t)$. You can leave the answer with negative exponents or rewrite it using fractions and roots."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The process involves three main algebraic steps. First, we rewrite the function using exponent notation to make it compatible with the power rule: $g(t) = 5t^4 + t^{-2} - t^{1/2}$. Second, we apply the power rule $(d/dt) t^n = nt^{n-1}$ to each term individually. For $5t^4$, the derivative is $20t^3$. For $t^{-2}$, it's $-2t^{-3}$. For $-t^{1/2}$, it's $-\\\\frac{1}{2}t^{-1/2}$. Third, we sum these results to get the final derivative: $g'(t) = 20t^3 - 2t^{-3} - \\\\frac{1}{2}t^{-1/2}$.",
+        "visual_conceptual": "Conceptually, the function $g(t)$ describes the position of a particle over time. The derivative, $g'(t)$, represents the instantaneous velocity of that particle. If you were to graph the position function $g(t)$, the value of the derivative $g'(t)$ at any specific time $t=c$ would be the slope of the tangent line to the curve at the point $(c, g(c))$. This slope tells you exactly how fast the particle's position is changing at that instant. A positive value for $g'(c)$ means the particle is moving in the positive direction, while a negative value means it's moving in the negative direction."
+      },
+      "solution": "The goal is to find the derivative of $g(t) = 5t^4 + \\\\frac{1}{t^2} - \\\\sqrt{t}$.\n\n**Step 1: Rewrite the function using power rule-friendly exponents.**\nWe rewrite each term in the form $c \\\\cdot t^n$.\n$g(t) = 5t^4 + t^{-2} - t^{1/2}$\n\n**Step 2: Apply the Sum/Difference Rule and the Power Rule.**\nWe can differentiate term by term.\nThe power rule states that $\\\\frac{d}{dt}(t^n) = nt^{n-1}$.\n\n$g'(t) = \\\\frac{d}{dt}(5t^4) + \\\\frac{d}{dt}(t^{-2}) - \\\\frac{d}{dt}(t^{1/2})$\n\n**Step 3: Differentiate each term.**\n- For the first term: $\\\\frac{d}{dt}(5t^4) = 5 \\\\cdot 4t^{4-1} = 20t^3$\n- For the second term: $\\\\frac{d}{dt}(t^{-2}) = -2t^{-2-1} = -2t^{-3}$\n- For the third term: $\\\\frac{d}{dt}(t^{1/2}) = \\\\frac{1}{2}t^{1/2 - 1} = \\\\frac{1}{2}t^{-1/2}$\n\n**Step 4: Combine the results.**\n$g'(t) = 20t^3 - 2t^{-3} - \\\\frac{1}{2}t^{-1/2}$\n\n**Step 5: (Optional) Rewrite the expression without negative exponents.**\n$g'(t) = 20t^3 - \\\\frac{2}{t^3} - \\\\frac{1}{2t^{1/2}} = 20t^3 - \\\\frac{2}{t^3} - \\\\frac{1}{2\\\\sqrt{t}}$\n\n$$g'(t) = 20t^3 - \\\\frac{2}{t^3} - \\\\frac{1}{2\\\\sqrt{t}}$$",
+      "concepts": [
+        "Power Rule for Differentiation",
+        "Sum/Difference Rule for Differentiation",
+        "Constant Multiple Rule for Differentiation",
+        "Properties of Exponents"
+      ],
+      "topic": "Differentiation Rules",
+      "generated_at": "2026-04-05T11:26:05.528471",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Differentiation Rules"
+      ],
+      "source_topics_pool": [
+        "Differentiation Rules"
+      ],
+      "evaluation": {
+        "score": 90.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 40
+        },
+        "passed": true,
+        "issues": [
+          "Detected high similarity with Golden Dataset."
+        ],
+        "ai_feedback": "The real-world context, while thematically appropriate (displacement/velocity), is physically implausible for the given function. The term `1/t^2` implies infinite displacement at `t=0`, and the `sqrt(t)` term is undefined for `t<0`, making the model awkward for a typical physics scenario which often starts at `t=0`. | To strengthen the problem, select a function that is more physically realistic within the given context. A polynomial function, for example, `g(t) = -t^3 + 12t^2 + 5`, would still test the power and sum/difference rules effectively while representing a scenario that is well-defined and finite at `t=0`, making the connection between the mathematical model and the physical context more robust and meaningful."
+      }
+    }
+  ]
+}

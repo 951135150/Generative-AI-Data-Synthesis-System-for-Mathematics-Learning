@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch_20260406_121641",
+  "batch_name": "FullRun_Step_14",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:16:41.328816",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A manufacturing company is designing a cylindrical can that must hold a volume of $1000 \\\\text{ cm}^3$. The material for the top and bottom circular lids costs twice as much per unit area as the material for the cylindrical side. Find the ratio of the height $h$ to the radius $r$ of the can that minimizes the total cost of the material.",
+      "real_world_context": "This type of optimization problem is fundamental in manufacturing and logistics. Companies aim to minimize material costs while meeting product specifications (like volume). The solution informs the design and dimensions of packaging, containers, and structural components to make production as economically efficient as possible.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, define the objective function (the cost) and the constraint function (the volume). Let $r$ be the radius and $h$ be the height. Let the cost per unit area of the side be a constant $k$. What are the formulas for the volume $V$ and the total cost $C$ in terms of $r$, $h$, and $k$?"
+        },
+        {
+          "step": 2,
+          "hint": "The cost function $C$ depends on two variables, $r$ and $h$. Use the volume constraint equation to express $h$ in terms of $r$. Substitute this expression into the cost function to get a new function $C(r)$ that depends only on the radius $r$."
+        },
+        {
+          "step": 3,
+          "hint": "To find the value of $r$ that minimizes the cost, find the derivative of the cost function, $C'(r)$, set it to zero, and solve for $r$. How can you verify that this value of $r$ corresponds to a minimum cost?"
+        },
+        {
+          "step": 4,
+          "hint": "You have found a condition for the optimal radius. Use this condition, along with the volume constraint, to establish a direct relationship between the optimal $h$ and $r$. Then, calculate the required ratio $h/r$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem requires minimizing a cost function subject to a volume constraint. We set up the cost function $C(r, h)$ and the volume function $V(r, h)$. Using the constraint $V=1000$, we express $h$ in terms of $r$ to create a single-variable cost function $C(r)$. Taking the derivative $C'(r)$, setting it to zero, and solving gives the critical point for $r$. This critical point, which represents the optimal radius, is then used to find the corresponding height and the final ratio $h/r$.",
+        "visual_conceptual": "Imagine two cans with the same volume. One is tall and thin (large $h$, small $r$), the other is short and wide (small $h$, large $r$). The tall can has a large side area but small top/bottom areas. The wide can has a small side area but large top/bottom areas. Since the top and bottom are more expensive, our intuition suggests we should try to reduce their area by making $r$ smaller. However, making the can too tall and thin increases the side area too much. The derivative helps us find the exact 'sweet spot' where the marginal cost savings from reducing the radius are perfectly balanced by the marginal cost increase from the corresponding increase in height. The solution $h=4r$ represents this optimal balance point, which is different from the $h=2r$ result you'd get if all materials cost the same."
+      },
+      "solution": "Let $r$ be the radius and $h$ be the height of the cylindrical can.\n\n1.  **Constraint Equation (Volume):**\nThe volume $V$ of a cylinder is given by $V = \\\\pi r^2 h$. We are given $V = 1000 \\\\text{ cm}^3$.\n$$ \\\\pi r^2 h = 1000 $$ \n\n2.  **Objective Function (Cost):**\nLet $k$ be the cost per unit area for the side material. The cost for the top and bottom material is $2k$.\nArea of the side: $A_{side} = 2 \\\\pi r h$\nArea of the top and bottom lids: $A_{lids} = 2 \\\\pi r^2$\nThe total cost $C$ is:\n$$ C = k \\\\cdot A_{side} + 2k \\\\cdot A_{lids} = k(2 \\\\pi r h) + 2k(2 \\\\pi r^2) = 2k\\\\pi(rh + 2r^2) $$\n\n3.  **Express Cost as a Single-Variable Function:**\nTo minimize $C$, we can minimize the expression $f(r,h) = rh + 2r^2$, since $2k\\\\pi$ is a positive constant.\nFrom the volume constraint, we solve for $h$: $h = \\\\frac{1000}{\\\\pi r^2}$.\nSubstitute this into our function $f(r,h)$:\n$$ f(r) = r \\\\left( \\\\frac{1000}{\\\\pi r^2} \\\\right) + 2r^2 = \\\\frac{1000}{\\\\pi r} + 2r^2 $$\n\n4.  **Find the Critical Point:**\nTake the derivative of $f(r)$ with respect to $r$ and set it to zero.\n$$ f'(r) = \\\\frac{d}{dr} \\\\left( \\\\frac{1000}{\\\\pi}r^{-1} + 2r^2 \\\\right) = -\\\\frac{1000}{\\\\pi r^2} + 4r $$\nSet $f'(r) = 0$:\n$$ 4r = \\\\frac{1000}{\\\\pi r^2} \\\\implies 4\\\\pi r^3 = 1000 $$\n\n5.  **Determine the Ratio h/r:**\nWe have two key equations:\n(i) $h = \\\\frac{1000}{\\\\pi r^2}$ (from volume)\n(ii) $1000 = 4\\\\pi r^3$ (from minimizing cost)\n\nSubstitute (ii) into (i):\n$$ h = \\\\frac{4\\\\pi r^3}{\\\\pi r^2} $$\n$$ h = 4r $$\nTherefore, the ratio of the height to the radius is:\n$$ \\\\frac{h}{r} = 4 $$\n\n**Verification (Second Derivative Test):**\n$f''(r) = \\\\frac{2000}{\\\\pi r^3} + 4$. Since the radius $r$ must be positive, $f''(r)$ is always positive. This confirms that our critical point corresponds to a local and absolute minimum.",
+      "concepts": [
+        "Optimization",
+        "Applied Maximum and Minimum Problems",
+        "Derivatives",
+        "Cost Function",
+        "Constraint Equation"
+      ],
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-06T12:16:19.342012",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound and well-structured. | To deepen conceptual understanding, add a follow-up question asking the student to first solve the problem assuming uniform material cost (which yields h/r = 2), and then compare that result to the h/r = 4 found here. This would force them to articulate *why* the differing material costs lead to a taller, narrower optimal can, directly connecting the mathematical result to the physical and economic constraints."
+      }
+    }
+  ]
+}

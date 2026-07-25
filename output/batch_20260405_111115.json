@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260405_111115",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:11:15.474331",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the following limit: $$ \\lim_{x \\to 3} \\frac{x^2 - x - 6}{x - 3} $$",
+      "real_world_context": "In a physics simulation, the average rate of change of a particle's temperature over a short time interval from time $t=3$ to a nearby time $x$ is given by the function $R(x) = \\frac{x^2 - x - 6}{x - 3}$. To determine the instantaneous rate of temperature change at the exact moment $t=3$, you must calculate the limit of this function as $x$ approaches 3.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, try to evaluate the function by direct substitution of $x=3$. What is the resulting form of the expression (e.g., a number, $\\frac{k}{0}$, or $\\frac{0}{0}$)? This is called an indeterminate form."
+        },
+        {
+          "step": 2,
+          "hint": "Since direct substitution results in $\\frac{0}{0}$, this suggests that $(x-3)$ is a factor of the numerator. Factor the quadratic polynomial in the numerator, $x^2 - x - 6$."
+        },
+        {
+          "step": 3,
+          "hint": "After factoring the numerator, you should be able to cancel a common term with the denominator. What is the simplified function? Now, evaluate the limit of this new, simpler function as $x \\to 3$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem presents a limit of a rational function. When $x=3$ is substituted directly, we get the indeterminate form $\\frac{0}{0}$. This is a strong indicator that both the numerator and the denominator share a common factor, which in this case is $(x-3)$. By factoring the numerator into $(x-3)(x+2)$, we can algebraically cancel the $(x-3)$ terms. This process removes the source of the indeterminacy. The limit of the original function is the same as the limit of the simplified function, $x+2$, which can be found by direct substitution.",
+        "visual_conceptual": "The graph of the function $f(x) = \\frac{x^2 - x - 6}{x - 3}$ is identical to the graph of the line $g(x) = x+2$ everywhere except at the point $x=3$. At $x=3$, the function $f(x)$ is undefined, creating a 'hole' in the graph, which is known as a removable discontinuity. The limit as $x$ approaches 3 asks what y-value the function is approaching as we get infinitely close to this hole. By observing the graph of the line $y=x+2$, we can see that as $x$ gets closer to 3, the y-value gets closer to 5. The limit is the y-coordinate of this hole."
+      },
+      "solution": "We are asked to evaluate the limit: $$ \\lim_{x \\to 3} \\frac{x^2 - x - 6}{x - 3} $$\n\nStep 1: Attempt direct substitution.\nPlugging in $x=3$ into the expression yields:\n$$ \\frac{(3)^2 - (3) - 6}{3 - 3} = \\frac{9 - 3 - 6}{0} = \\frac{0}{0} $$\nThis is an indeterminate form, which means we must manipulate the expression to find the limit.\n\nStep 2: Factor the numerator.\nThe quadratic expression $x^2 - x - 6$ can be factored. We look for two numbers that multiply to -6 and add to -1. These numbers are -3 and +2.\n$$ x^2 - x - 6 = (x - 3)(x + 2) $$\n\nStep 3: Substitute the factored numerator back into the limit and simplify.\n$$ \\lim_{x \\to 3} \\frac{(x - 3)(x + 2)}{x - 3} $$\nSince $x$ is approaching 3 but is not equal to 3, $x-3 \\neq 0$, so we can cancel the $(x-3)$ term from the numerator and denominator:\n$$ \\lim_{x \\to 3} (x + 2) $$\n\nStep 4: Evaluate the simplified limit by direct substitution.\n$$ \\lim_{x \\to 3} (x + 2) = 3 + 2 = 5 $$\n\nThus, the value of the limit is 5.",
+      "concepts": [
+        "Limits of Rational Functions",
+        "Indeterminate Forms",
+        "Factoring Polynomials",
+        "Removable Discontinuity"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:10:55.622268",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is a well-structured, canonical example for introducing limits involving indeterminate forms. | The problem is very effective for its purpose. A minor enhancement to the 'real_world_context' could be to explicitly state the underlying physical quantity function, such as 'Total temperature increase is modeled by T(t) = t^2 - t', to more directly show how the given rational function is derived from the definition of an average rate of change, (T(x) - T(3))/(x - 3)."
+      }
+    }
+  ]
+}

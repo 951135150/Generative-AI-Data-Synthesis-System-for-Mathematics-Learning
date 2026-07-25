@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260412_122137",
+  "batch_name": "Demo_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-12T12:21:37.973685",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "In economics, the average cost to produce a commodity is a key metric for efficiency. A company's total cost (in thousands of dollars) to manufacture `x` hundred high-performance computer chips is given by the function `C(x) = 0.5x^2 + 10x + 18`. The average cost per hundred chips is therefore `A(x) = \\frac{C(x)}{x}`. Find the rate at which the average cost is changing with respect to the number of chips produced when the production level is `x = 6` (i.e., 600 chips). Express your answer in thousands of dollars per hundred chips.",
+      "real_world_context": "This problem models a common scenario in microeconomics and business operations. Companies constantly analyze their cost structures to find the production level that minimizes the average cost per unit. The derivative of the average cost function helps identify this optimal point of production efficiency. A negative rate indicates that increasing production lowers the average cost, while a positive rate means increasing production makes it more expensive on average.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, write down the function for the average cost, A(x), by substituting the given total cost function C(x). The function will be a ratio."
+        },
+        {
+          "step": 2,
+          "hint": "To find the rate of change, you need to calculate the derivative, A'(x). Which differentiation rule is most appropriate for a function that is a ratio of two other functions (a fraction)?"
+        },
+        {
+          "step": 3,
+          "hint": "Once you have the expression for the derivative A'(x), substitute the specific production level given in the problem to find the numerical rate of change."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution uses the Quotient Rule, `(u/v)' = (u'v - uv')/v^2`, to differentiate the average cost function `A(x)`. This provides a precise formula for the rate of change at any production level `x`.",
+        "visual_conceptual": "The derivative `A'(x)` represents the slope of the tangent line to the average cost curve. A value of `A'(6) = 0` signifies that the tangent line is horizontal at `x=6`. This occurs at a local minimum or maximum of the function. In this economic context, it represents the point of maximum efficiency where the average cost per unit is minimized."
+      },
+      "solution": "Step 1: Define the average cost function `A(x)`.\n$$ A(x) = \\frac{C(x)}{x} = \\frac{0.5x^2 + 10x + 18}{x} $$\n\nStep 2: Apply the Quotient Rule to find the derivative `A'(x)`.\nLet `u(x) = 0.5x^2 + 10x + 18` and `v(x) = x`.\nThen `u'(x) = x + 10` and `v'(x) = 1`.\nThe Quotient Rule is `A'(x) = \\frac{u'(x)v(x) - u(x)v'(x)}{[v(x)]^2}`.\n$$ A'(x) = \\frac{(x + 10)(x) - (0.5x^2 + 10x + 18)(1)}{x^2} $$\n\nStep 3: Simplify the expression for `A'(x)`.\n$$ A'(x) = \\frac{x^2 + 10x - 0.5x^2 - 10x - 18}{x^2} $$\n$$ A'(x) = \\frac{0.5x^2 - 18}{x^2} $$\n\nStep 4: Evaluate `A'(x)` at `x = 6`.\n$$ A'(6) = \\frac{0.5(6)^2 - 18}{6^2} $$\n$$ A'(6) = \\frac{0.5(36) - 18}{36} $$\n$$ A'(6) = \\frac{18 - 18}{36} = \\frac{0}{36} = 0 $$\n\nThe rate at which the average cost is changing is 0 thousand dollars per hundred chips. This indicates that the average cost is at a minimum at this production level.",
+      "concepts": [
+        "Quotient Rule",
+        "Derivatives as Rates of Change",
+        "Average Cost Functions"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-12T12:21:20.627862",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem asks for the rate of change at the exact point where the function's minimum occurs (x=6), resulting in a derivative of zero. This is a special case that conflates the general skill of finding a rate of change with the more specific concept of optimization. A student might be confused by the zero result and believe they made an error, rather than understanding its significance. | To better assess the core skill, change the evaluation point to a value other than the minimum, such as `x=4` or `x=10`. This would yield a non-zero rate of change. A follow-up question could then ask the student to find the production level that minimizes the average cost, explicitly guiding them to set the derivative to zero. This separates the skill of calculation from the skill of optimization."
+      }
+    }
+  ]
+}

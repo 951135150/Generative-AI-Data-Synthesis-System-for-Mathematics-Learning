@@ -1,0 +1,73 @@
+{
+  "batch_id": "batch_20260406_174454",
+  "batch_name": "FullRun_Step_11",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:44:54.494115",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "An aerospace engineering team is designing a fuel tank for a new satellite. The tank is shaped like a cylinder with a hemisphere at each end. The total volume of the tank must be exactly $\\\\frac{1250\\\\pi}{3}$ cubic meters. The material for the cylindrical part costs \\\\$200 per square meter, while the more complex hemispherical ends cost \\\\$300 per square meter. Find the radius $r$ and the height $h$ of the cylindrical part of the tank that will minimize the total cost of the material. What is this minimum cost?",
+      "real_world_context": "This is a classic optimization problem found in engineering and manufacturing. In aerospace, minimizing weight is critical, and weight is often directly related to surface area and material choice. By finding the dimensions that minimize cost (or surface area for a uniform material), engineers can design more efficient and economical components, from satellite fuel tanks to beverage cans.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the objective and the constraint. What function are you trying to minimize (the 'objective function')? What condition is fixed (the 'constraint equation')? Write down the mathematical formulas for the total cost and the total volume in terms of the radius $r$ and the cylindrical height $h$."
+        },
+        {
+          "step": 2,
+          "hint": "The cost function depends on two variables, $r$ and $h$. To use single-variable calculus, you must eliminate one. Use the volume constraint equation to express $h$ in terms of $r$. Substitute this expression into your cost function to get the cost $C(r)$ as a function of only the radius $r$."
+        },
+        {
+          "step": 3,
+          "hint": "To find the value of $r$ that minimizes the cost, you need to find the critical points of the function $C(r)$. Calculate the derivative $C'(r)$, set it equal to zero, and solve for $r$."
+        },
+        {
+          "step": 4,
+          "hint": "Once you have the optimal radius $r$, use the relationship between $h$ and $r$ from the volume constraint to find the corresponding optimal height $h$. Finally, plug both optimal $r$ and $h$ back into your original cost formula to find the minimum cost."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution involves setting up the cost function $C(r, h)$ and the volume constraint $V(r, h)$. By substituting the constraint into the cost function, we obtain a single-variable function $C(r)$. The minimum of this function is found by taking the derivative with respect to $r$, setting it to zero ($C'(r)=0$), and solving for $r$. This value of $r$ corresponds to a point where the instantaneous rate of change of cost with respect to radius is zero, indicating a potential minimum. The second derivative test, $C''(r) > 0$, confirms it is a local minimum.",
+        "visual_conceptual": "Imagine two extreme designs for the tank. One is very long and thin (large $h$, small $r$), and the other is short and wide like a pancake (small $h$, large $r$). The long tank has a large cylindrical surface area. The pancake-like tank has large hemispherical ends. Since the ends are more expensive per square meter than the cylindrical part, the pancake design will likely be very costly. The long, thin design might also be expensive due to its large cylindrical area. The optimal design lies somewhere in between these extremes. Calculus, specifically finding where the derivative is zero, provides the exact 'sweet spot' or 'balancing point' where the trade-off between the cost of the cylindrical part and the cost of the ends results in the overall minimum cost."
+      },
+      "solution": "1.  **Define variables and formulas:**\n    Let $r$ be the radius of the hemispheres and the cylinder.\n    Let $h$ be the height of the cylindrical part.\n    The surface area of the two hemispherical ends (a full sphere) is $A_{ends} = 4\\\\pi r^2$.\n    The surface area of the cylindrical side is $A_{cyl} = 2\\\\pi r h$.\n    The total cost, $C$, is the objective function:\n    $$ C(r, h) = 300 \\\\cdot (A_{ends}) + 200 \\\\cdot (A_{cyl}) = 300(4\\\\pi r^2) + 200(2\\\\pi r h) = 1200\\\\pi r^2 + 400\\\\pi r h $$\n    The total volume is the constraint:\n    $$ V = V_{cyl} + V_{ends} = \\\\pi r^2 h + \\\\frac{4}{3}\\\\pi r^3 = \\\\frac{1250\\\\pi}{3} $$\n\n2.  **Express Cost as a function of one variable:**\n    From the volume constraint, solve for $h$:\n    $$ \\\\pi r^2 h = \\\\frac{1250\\\\pi}{3} - \\\\frac{4}{3}\\\\pi r^3 \\\\implies h = \\\\frac{1}{\\\\pi r^2} \\\\left( \\\\frac{1250\\\\pi}{3} - \\\\frac{4}{3}\\\\pi r^3 \\\\right) = \\\\frac{1250}{3r^2} - \\\\frac{4}{3}r $$\n    Substitute this $h$ into the cost function $C(r,h)$:\n    $$ C(r) = 1200\\\\pi r^2 + 400\\\\pi r \\\\left( \\\\frac{1250}{3r^2} - \\\\frac{4}{3}r \\\\right) $$\n    $$ C(r) = 1200\\\\pi r^2 + \\\\frac{500000\\\\pi}{3r} - \\\\frac{1600\\\\pi}{3}r^2 $$\n    $$ C(r) = \\\\left(1200\\\\pi - \\\\frac{1600\\\\pi}{3}\\\\right)r^2 + \\\\frac{500000\\\\pi}{3r} = \\\\frac{2000\\\\pi}{3}r^2 + \\\\frac{500000\\\\pi}{3r} $$\n\n3.  **Find the critical points:**\n    Differentiate $C(r)$ with respect to $r$:\n    $$ C'(r) = \\\\frac{d}{dr} \\\\left( \\\\frac{2000\\\\pi}{3}r^2 + \\\\frac{500000\\\\pi}{3}r^{-1} \\\\right) = \\\\frac{4000\\\\pi}{3}r - \\\\frac{500000\\\\pi}{3r^2} $$\n    Set $C'(r) = 0$ to find critical points:\n    $$ \\\\frac{4000\\\\pi}{3}r = \\\\frac{500000\\\\pi}{3r^2} $$\n    $$ 4000r = \\\\frac{500000}{r^2} \\\\implies 4000r^3 = 500000 $$\n    $$ r^3 = \\\\frac{500}{4} = 125 \\\\implies r = \\\\sqrt[3]{125} = 5 \\\\text{ meters} $$\n    (We can verify this is a minimum by checking the second derivative, $C''(r) = \\\\frac{4000\\\\pi}{3} + \\\\frac{1000000\\\\pi}{3r^3}$, which is positive for $r>0$.)\n\n4.  **Calculate the corresponding height h:**\n    Use the expression for $h$ from Step 2:\n    $$ h = \\\\frac{1250}{3r^2} - \\\\frac{4}{3}r = \\\\frac{1250}{3(5^2)} - \\\\frac{4}{3}(5) = \\\\frac{1250}{75} - \\\\frac{20}{3} $$\n    $$ h = \\\\frac{50}{3} - \\\\frac{20}{3} = \\\\frac{30}{3} = 10 \\\\text{ meters} $$\n    The optimal dimensions are a radius of $r=5$ m and a cylindrical height of $h=10$ m.\n\n5.  **Calculate the minimum cost:**\n    Plug $r=5$ and $h=10$ into the original cost function:\n    $$ C_{min} = 1200\\\\pi (5^2) + 400\\\\pi (5)(10) = 1200\\\\pi (25) + 400\\\\pi (50) $$\n    $$ C_{min} = 30000\\\\pi + 20000\\\\pi = 50000\\\\pi $$\n    The minimum cost is \\\\$50,000\\\\pi$, which is approximately \\\\$157,080.",
+      "concepts": [
+        "Optimization",
+        "Derivatives",
+        "Critical Points",
+        "Applied Word Problems",
+        "Volume and Surface Area"
+      ],
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-06T17:44:21.697187",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem does not prompt the student to consider the physical domain of the function being optimized. The height of the cylinder, h, must be non-negative, which imposes an upper bound on the radius r. While the calculated optimal value r=5 is valid, a complete analysis requires checking the function's domain, and the problem misses the opportunity to teach this crucial step. | Add a scaffolding step or a follow-up question asking the student to determine the valid domain for the radius, r, based on the physical constraint that h ≥ 0. For example: 'Step 2.5: Before you differentiate, consider the physical limitations of the tank. What is the valid range of values for r? Hint: what happens to h if r gets very large?' This would encourage a more rigorous approach to applied optimization."
+      }
+    }
+  ]
+}

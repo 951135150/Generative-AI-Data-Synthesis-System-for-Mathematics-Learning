@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_20260405_105202",
+  "batch_name": "Demo_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-05T10:52:02.848819",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let $f(x)$ be a piecewise function defined as: $$ f(x) = \\begin{cases} kx^2 + 3 & \\text{if } x < 2 \\\\ 5x - k & \\text{if } x \\ge 2 \\end{cases} $$ Find the value of the constant $k$ that makes the function $f(x)$ continuous for all real numbers.",
+      "real_world_context": "In financial modeling, different formulas may be used to price an asset under different market conditions. For example, a model might change at a specific price threshold. For the model to be considered stable, the pricing function must be continuous at this threshold to avoid sudden, unrealistic jumps in value. This problem asks you to find the parameter that ensures such a smooth transition between two model regimes.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point $c$. What must be true about the limit as $x$ approaches $c$ and the function's value at $c$?"
+        },
+        {
+          "step": 2,
+          "hint": "For the limit $\\lim_{x \\to 2} f(x)$ to exist, what must be the relationship between the left-hand limit ($\\lim_{x \\to 2^-} f(x)$) and the right-hand limit ($\\lim_{x \\to 2^+} f(x)$)?"
+        },
+        {
+          "step": 3,
+          "hint": "Set up the expressions for the left-hand and right-hand limits by substituting $x=2$ into the appropriate pieces of the function."
+        },
+        {
+          "step": 4,
+          "hint": "Form an equation by setting the left-hand limit equal to the right-hand limit, and then solve for $k$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "A function $f(x)$ is continuous at a point $x=c$ if $\\lim_{x \\to c} f(x) = f(c)$. For a piecewise function, this requires the left-hand limit to equal the right-hand limit. We set $\\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x)$. This gives the equation $k(2)^2 + 3 = 5(2) - k$. Solving $4k + 3 = 10 - k$ yields $5k = 7$, so $k = 7/5$.",
+        "visual_conceptual": "Imagine the graph of $f(x)$. To the left of $x=2$, the graph is a parabola ($y = kx^2 + 3$). To the right of $x=2$, it's a line ($y = 5x - k$). For the function to be continuous, there can be no 'jump' or 'hole' at $x=2$. This means the parabola and the line must meet at the same point when $x=2$. We are essentially finding the value of $k$ that adjusts the shape of the parabola and the position of the line so they connect perfectly."
+      },
+      "solution": "For $f(x)$ to be continuous at $x=2$, the following condition must be met:\n$$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x) = f(2) $$\nFirst, we find the left-hand limit:\n$$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^-} (kx^2 + 3) = k(2)^2 + 3 = 4k + 3 $$\nNext, we find the right-hand limit. Note that this is also the value of $f(2)$.\n$$ \\lim_{x \\to 2^+} f(x) = \\lim_{x \\to 2^+} (5x - k) = 5(2) - k = 10 - k $$\nNow, we set the left-hand limit equal to the right-hand limit to ensure the overall limit exists:\n$$ 4k + 3 = 10 - k $$\nTo solve for $k$, we gather the $k$ terms on one side and the constant terms on the other:\n$$ 4k + k = 10 - 3 $$\n$$ 5k = 7 $$\n$$ k = \\frac{7}{5} $$\nWhen $k = 7/5$, both the left-hand and right-hand limits equal $4(7/5) + 3 = 28/5 + 15/5 = 43/5$. Since $f(2) = 10 - 7/5 = 43/5$ as well, the function is continuous at $x=2$.",
+      "concepts": [
+        "Definition of Continuity",
+        "One-Sided Limits",
+        "Piecewise Functions",
+        "Solving for a Parameter"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T10:51:47.561226",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem is classified with a difficulty of 3, which may be slightly high for what is a standard, canonical problem in introductory calculus. This type of problem is often considered a benchmark for understanding the definition of continuity, typically aligning with a difficulty level of 2. | To better justify a difficulty of 3 and deepen the student's understanding, consider adding a follow-up question. For example: 'Using the value of k you found, determine if the function f(x) is differentiable at x=2. Explain why or why not.' This would require students to not only ensure the function connects but also that the connection is 'smooth', linking continuity to differentiability."
+      }
+    }
+  ]
+}

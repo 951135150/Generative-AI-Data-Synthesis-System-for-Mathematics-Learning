@@ -1,0 +1,89 @@
+{
+  "batch_id": "batch_20260420_145851",
+  "batch_name": "V3_Step_15",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:58:51.044227",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A rectangle is constructed with its base on the x-axis and its two upper vertices on the parabola given by the equation \\(y = 12 - x^2\\). What is the largest possible area of such a rectangle?",
+      "question_type": "mcq",
+      "solution": {
+        "explanation": "Let the rectangle have vertices at \\((-x, 0), (x, 0), (x, y), \\) and \\((-x, y)\\), where \\(y = 12 - x^2\\) and \\(x > 0\\). The width of the rectangle is \\(2x\\) and the height is \\(y = 12 - x^2\\). The area of the rectangle, \\(A\\), as a function of \\(x\\) is:\\\\n\\\\[A(x) = (\\text{width}) \\times (\\text{height}) = (2x)(12 - x^2) = 24x - 2x^3.\\\\]\\\\nTo find the maximum area, we need to find the critical points of \\(A(x)\\) by taking the derivative with respect to \\(x\\) and setting it to zero:\\\\n\\\\[A'(x) = \\\\frac{d}{dx}(24x - 2x^3) = 24 - 6x^2.\\\\]\\\\nSet the derivative equal to zero:\\\\n\\\\[24 - 6x^2 = 0 \\\\implies 6x^2 = 24 \\\\implies x^2 = 4.\\\\]\\\\nSince \\(x\\) represents a physical dimension, we take the positive root, \\(x = 2\\).\\\\nTo confirm this critical point corresponds to a maximum, we use the Second Derivative Test:\\\\n\\\\[A''(x) = \\\\frac{d}{dx}(24 - 6x^2) = -12x.\\\\]\\\\nEvaluate the second derivative at \\(x=2\\):\\\\n\\\\[A''(2) = -12(2) = -24.\\\\]\\\\nSince \\(A''(2) < 0\\), the area is maximized at \\(x = 2\\).\\\\nThe maximum area is found by substituting \\(x = 2\\) back into the area function \\(A(x)\\):\\\\n\\\\[A(2) = 24(2) - 2(2)^3 = 48 - 2(8) = 48 - 16 = 32.\\\\]\\\\nThus, the largest possible area of the rectangle is 32 square units.",
+        "intermediate_steps": [
+          {
+            "step_title": "Define the Area Function",
+            "step_content": "Let one of the upper vertices be at \\((x, y)\\). The width of the rectangle is \\(2x\\) and the height is \\(y = 12 - x^2\\). The area is \\(A(x) = (2x)(12 - x^2) = 24x - 2x^3\\)."
+          },
+          {
+            "step_title": "Find the Derivative",
+            "step_content": "Differentiate the area function with respect to \\(x\\): \\(A'(x) = 24 - 6x^2\\)."
+          },
+          {
+            "step_title": "Find Critical Points",
+            "step_content": "Set \\(A'(x) = 0\\): \\(24 - 6x^2 = 0 \\implies x^2 = 4 \\implies x = 2\\) (since \\(x>0\\))."
+          },
+          {
+            "step_title": "Verify Maximum and Calculate Area",
+            "step_content": "Use the Second Derivative Test: \\(A''(x) = -12x\\), so \\(A''(2) = -24 < 0\\), confirming a maximum. The maximum area is \\(A(2) = 24(2) - 2(2)^3 = 48 - 16 = 32\\)."
+          }
+        ]
+      },
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Let one of the upper vertices of the rectangle be at \\((x, y)\\). Since the rectangle is symmetric about the y-axis, its width is \\(2x\\). The height is given by the y-coordinate on the parabola, \\(y = 12 - x^2\\). Use these to write the area \\(A = \\text{width} \\times \\text{height}\\) as a function of \\(x\\)."
+        },
+        {
+          "step": 2,
+          "hint": "Apply the power rule to differentiate the area function \\(A(x)\\) that you found in Step 1."
+        },
+        {
+          "step": 3,
+          "hint": "Solve the equation \\(A'(x) = 0\\) for \\(x\\). Remember that the dimensions of the rectangle must be positive, so \\(x\\) must be positive."
+        },
+        {
+          "step": 4,
+          "hint": "Substitute the positive value of \\(x\\) you found in the previous step back into your area function \\(A(x)\\). To be certain it's a maximum, you can check the sign of the second derivative, \\(A''(x)\\), at that point. A negative second derivative indicates a local maximum."
+        }
+      ],
+      "options": {
+        "A": "32",
+        "B": "16",
+        "C": "24",
+        "D": "64"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-20T14:58:36.602343",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 97.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 90,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a standard, well-constructed optimization problem that is mathematically sound and pedagogically effective. | Suggestion: The problem is excellent for its intended purpose. To add a layer of complexity or variation, the question could be rephrased to ask for the dimensions (width and height) of the rectangle with the largest area, which would ensure the student fully understands the relationship between the calculated 'x' and the geometric properties of the shape."
+      }
+    }
+  ]
+}

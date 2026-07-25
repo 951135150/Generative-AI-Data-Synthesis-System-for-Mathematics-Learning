@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_111602",
+  "batch_name": "FullRun_Step_5",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:16:02.289436",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A company manufactures open-top boxes from a square piece of cardboard that is 12 inches on each side. To create the box, a square of side length $x$ is cut from each of the four corners, and the sides are folded up. What is the side length $x$ of the square that should be cut out to maximize the volume of the box?",
+      "real_world_context": "This problem models a common scenario in manufacturing and packaging where the goal is to optimize a design (like a box) to maximize a certain quantity (like volume) while being constrained by the amount of material available. This is a fundamental application of optimization in engineering and logistics.",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, express the volume of the box as a function of $x$. The height of the box will be $x$. What will the length and width of the base be after cutting out the corners and folding up the sides?"
+        },
+        {
+          "step": 2,
+          "hint": "The function to be maximized is the Volume function, $V(x)$. To find the value of $x$ that maximizes this function, you need to find its derivative, $V'(x)$, and identify the critical points."
+        },
+        {
+          "step": 3,
+          "hint": "Set the derivative, $V'(x)$, equal to zero and solve for $x$. Consider the physical constraints of the problem: what is the valid range for the value of $x$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The volume of the box, $V$, is the product of its length, width, and height. The height is $x$. The length and width are both $12 - 2x$. So, $V(x) = (12-2x)(12-2x)x = x(12-2x)^2$. To find the maximum, we take the derivative $V'(x)$, set it to zero, and solve for $x$. The derivative tells us the rate of change of the volume with respect to the cut size $x$. The maximum volume occurs when this rate of change is zero.",
+        "visual_conceptual": "Imagine the flat 12x12 inch cardboard. If you cut a very tiny square from the corners (small $x$), you get a very shallow box with a large base. Its volume is small. If you cut a very large square ($x$ approaches 6 inches), you get a very tall, skinny box with a tiny base. Its volume is also small. The volume starts at 0, increases to a maximum, and then decreases back to 0. Calculus helps us find the exact value of $x$ that corresponds to the peak of this volume curve."
+      },
+      "solution": "The dimensions of the box are height $h=x$, length $l=12-2x$, and width $w=12-2x$. The volume $V$ is given by the function: $$ V(x) = l \\cdot w \\cdot h = (12-2x)(12-2x)x = x(12-2x)^2 $$ To maximize the volume, we first expand the function: $$ V(x) = x(144 - 48x + 4x^2) = 4x^3 - 48x^2 + 144x $$ Next, we find the derivative of the volume function with respect to $x$: $$ V'(x) = \\\\frac{d}{dx}(4x^3 - 48x^2 + 144x) = 12x^2 - 96x + 144 $$ To find the critical points, we set the derivative equal to zero and solve for $x$: $$ 12x^2 - 96x + 144 = 0 $$ Dividing the entire equation by 12 simplifies it to: $$ x^2 - 8x + 12 = 0 $$ Factoring the quadratic equation gives: $$ (x-2)(x-6) = 0 $$ This yields two possible values for $x$: $x=2$ and $x=6$. The side length of the cut, $x$, must be less than half the side of the cardboard, so the domain is $0 < x < 6$. Therefore, $x=6$ is not a valid solution. The only critical point within the valid domain is $x=2$. Thus, the side length of the square to be cut from each corner to maximize the volume is 2 inches.",
+      "concepts": [
+        "Optimization",
+        "Critical Points",
+        "Derivatives of Polynomials",
+        "Problem Modeling"
+      ],
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-06T11:15:41.686388",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 95,
+          "pedagogical_alignment": 100,
+          "scaffolding": 100,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The solution correctly identifies the critical points but relies on domain exclusion to find the answer rather than formally proving the nature of the extremum. It dismisses x=6 as 'not a valid solution' because it's an endpoint of the physical domain, but doesn't explicitly verify that x=2 yields a maximum (e.g., via the First or Second Derivative Test). | To improve mathematical completeness, the solution should explicitly verify that x=2 corresponds to a maximum. This can be done by adding a step that applies the Second Derivative Test: calculate V''(x) = 24x - 96, and show that V''(2) = 48 - 96 = -48, which is negative, thus confirming a local maximum."
+      }
+    }
+  ]
+}

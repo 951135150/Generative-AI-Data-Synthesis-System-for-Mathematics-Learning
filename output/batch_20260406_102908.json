@@ -1,0 +1,71 @@
+{
+  "batch_id": "batch_20260406_102908",
+  "batch_name": "Demo_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-06T10:29:08.483655",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let $f(x)$ be a function defined as: $$ f(x) = \\begin{cases} ax - b & \\text{if } x < -1 \\\\ x^2 + 3x + 1 & \\text{if } -1 \\le x \\le 2 \\\\ ax^2 + b & \\text{if } x > 2 \\end{cases} $$ Find the values of the constants $a$ and $b$ that make the function $f(x)$ continuous for all real numbers.",
+      "real_world_context": "In digital signal processing, it's crucial that voltage signals are continuous over time to prevent instantaneous, infinite power surges that could damage equipment. The function $f(x)$ models such a voltage signal, where $x$ represents time. Different formulas describe the signal during different time intervals. Your task is to determine the parameters $a$ and $b$ that ensure a smooth, continuous transition of the voltage signal at the critical time points $x = -1$ and $x = 2$.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point $c$: the limit as $x$ approaches $c$ must exist and be equal to the function's value at $c$. This means the left-hand limit must equal the right-hand limit, and both must equal $f(c)$."
+        },
+        {
+          "step": 2,
+          "hint": "Apply the definition of continuity at the first transition point, $x = -1$. Set the limit of the first piece ($ax - b$) equal to the limit of the second piece ($x^2 + 3x + 1$) as $x$ approaches $-1$. This will give you one equation involving $a$ and $b$."
+        },
+        {
+          "step": 3,
+          "hint": "Now, do the same for the second transition point, $x = 2$. Set the limit of the second piece equal to the limit of the third piece ($ax^2 + b$) as $x$ approaches $2$. This will give you a second equation involving $a$ and $b$."
+        },
+        {
+          "step": 4,
+          "hint": "You now have a system of two linear equations with two variables. Use methods like substitution or elimination to solve for the values of $a$ and $b$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by enforcing the definition of continuity at the two points where the function's definition changes: $x=-1$ and $x=2$. For each point, we set the left-hand limit equal to the right-hand limit. This creates a system of two linear equations with two unknowns, $a$ and $b$. Solving this system algebraically yields the unique values for $a$ and $b$ that make the function continuous everywhere.",
+        "visual_conceptual": "Imagine plotting the three pieces of the function. The first piece is a line, the middle is a parabola, and the third is another parabola. For the overall function to be 'continuous', you must be able to draw it without lifting your pen. This means the endpoint of the line segment for $x < -1$ must perfectly connect to the starting point of the parabolic segment at $x=-1$. Similarly, the end of the middle parabolic segment at $x=2$ must connect seamlessly to the start of the final parabolic piece. We are finding the specific parameters $a$ and $b$ that make these connections perfect, eliminating any jumps or holes in the graph."
+      },
+      "solution": "For $f(x)$ to be continuous, the limits from the left and right must be equal at the points where the function definition changes, $x=-1$ and $x=2$. \n\n**Step 1: Continuity at $x = -1$**\nThe left-hand limit must equal the right-hand limit:\n$$ \\lim_{x \\to -1^-} f(x) = \\lim_{x \\to -1^+} f(x) $$\n$$ \\lim_{x \\to -1^-} (ax - b) = \\lim_{x \\to -1^+} (x^2 + 3x + 1) $$\nPlugging in $x = -1$:\n$$ a(-1) - b = (-1)^2 + 3(-1) + 1 $$\n$$ -a - b = 1 - 3 + 1 $$\n$$ -a - b = -1 $$\n$$ a + b = 1 \\quad \\text{(Equation 1)} $$\n\n**Step 2: Continuity at $x = 2$**\nThe left-hand limit must equal the right-hand limit:\n$$ \\lim_{x \\to 2^-} f(x) = \\lim_{x \\to 2^+} f(x) $$\n$$ \\lim_{x \\to 2^-} (x^2 + 3x + 1) = \\lim_{x \\to 2^+} (ax^2 + b) $$\nPlugging in $x = 2$:\n$$ (2)^2 + 3(2) + 1 = a(2)^2 + b $$\n$$ 4 + 6 + 1 = 4a + b $$\n$$ 11 = 4a + b \\quad \\text{(Equation 2)} $$\n\n**Step 3: Solve the system of linear equations**\nWe have the system:\n1) $a + b = 1$\n2) $4a + b = 11$\n\nFrom Equation 1, we can express $b$ as $b = 1 - a$.\nSubstitute this into Equation 2:\n$$ 4a + (1 - a) = 11 $$\n$$ 3a + 1 = 11 $$\n$$ 3a = 10 $$\n$$ a = \\frac{10}{3} $$\n\nNow, substitute the value of $a$ back into the expression for $b$:\n$$ b = 1 - a = 1 - \\frac{10}{3} = \\frac{3}{3} - \\frac{10}{3} = -\\frac{7}{3} $$\n\nThe values that make the function continuous are $a = \\frac{10}{3}$ and $b = -\\frac{7}{3}$.",
+      "concepts": [
+        "Continuity of a Function",
+        "Limits of Piecewise Functions",
+        "Solving Systems of Linear Equations"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T10:28:46.343190",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context uses the word 'smooth', which in a calculus context implies differentiability. The function that results from the solution is continuous but not differentiable at the transition points, creating a minor semantic conflict between the problem's narrative and its mathematical goal. | To improve precision, replace the phrase 'smooth, continuous transition' in the real-world context with 'a continuous, uninterrupted transition'. This aligns the language perfectly with the mathematical concept being tested (continuity) and avoids potential confusion with differentiability, which is a separate concept."
+      }
+    }
+  ]
+}

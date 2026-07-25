@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_142009",
+  "batch_name": "V3_Step_5",
+  "mode": "drill",
+  "generated_at": "2026-04-20T14:20:09.107536",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The function `f(x) = e^{kx} \\\\sin(x)` has a horizontal tangent at `x = \\\\frac{\\\\pi}{4}`. What is the value of the constant `k`?",
+      "question_type": "mcq",
+      "solution": "The derivative of `f(x)` is found using the product rule, `(uv)' = u'v + uv'`, and the chain rule. Let `u(x) = e^{kx}` and `v(x) = \\\\sin(x)`. Then `u'(x) = k e^{kx}` and `v'(x) = \\\\cos(x)`.\\\\nThe derivative is `f'(x) = u'(x)v(x) + u(x)v'(x) = k e^{kx} \\\\sin(x) + e^{kx} \\\\cos(x)`.\\\\nFactoring out `e^{kx}` gives `f'(x) = e^{kx} (k \\\\sin(x) + \\\\cos(x))`.\\\\nA horizontal tangent means the slope of the tangent line is zero, so `f'(x) = 0`. We are given this occurs at `x = \\\\frac{\\\\pi}{4}`.\\\\n`f'(\\\\frac{\\\\pi}{4}) = e^{k\\\\pi/4} (k \\\\sin(\\\\frac{\\\\pi}{4}) + \\\\cos(\\\\frac{\\\\pi}{4})) = 0`.\\\\nSince `e^{k\\\\pi/4}` is always positive, the expression in the parentheses must be zero:\\\\n`k \\\\sin(\\\\frac{\\\\pi}{4}) + \\\\cos(\\\\frac{\\\\pi}{4}) = 0`.\\\\nWe know that `\\\\sin(\\\\frac{\\\\pi}{4}) = \\\\frac{\\\\sqrt{2}}{2}` and `\\\\cos(\\\\frac{\\\\pi}{4}) = \\\\frac{\\\\sqrt{2}}{2}`.\\\\nSubstituting these values:\\\\n`k (\\\\frac{\\\\sqrt{2}}{2}) + \\\\frac{\\\\sqrt{2}}{2} = 0`.\\\\n`k (\\\\frac{\\\\sqrt{2}}{2}) = -\\\\frac{\\\\sqrt{2}}{2}`.\\\\nDividing both sides by `\\\\frac{\\\\sqrt{2}}{2}` yields `k = -1`.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "A 'horizontal tangent' at a point `x=a` implies that the derivative of the function at that point, `f'(a)`, is equal to zero. This is because the slope of a horizontal line is zero."
+        },
+        {
+          "step": 2,
+          "hint": "To find the derivative of `f(x) = e^{kx} \\\\sin(x)`, you need to use the product rule, `(uv)' = u'v + uv'`. Remember to also apply the chain rule when differentiating `e^{kx}`."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the derivative `f'(x)`, set `f'(\\\\frac{\\\\pi}{4}) = 0`. This will give you an equation `e^{k\\\\pi/4} (k \\\\sin(\\\\frac{\\\\pi}{4}) + \\\\cos(\\\\frac{\\\\pi}{4})) = 0`. Solve this equation for `k`, remembering the values of `\\\\sin(\\\\frac{\\\\pi}{4})` and `\\\\cos(\\\\frac{\\\\pi}{4})`."
+        }
+      ],
+      "options": {
+        "A": "-1",
+        "B": "1",
+        "C": "0",
+        "D": "-\\\\frac{\\\\pi}{4}"
+      },
+      "answer": "A",
+      "difficulty": 3,
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-20T14:19:50.445706",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 90.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 75,
+          "scaffolding": 75,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The final scaffolding step is overly prescriptive. It provides the exact equation `e^{k\\\\pi/4} (k \\\\sin(\\\\frac{\\\\pi}{4}) + \\\\cos(\\\\frac{\\\\pi}{4})) = 0` that the student needs to solve, which removes the crucial step of the student substituting the value of x into their own derived function. | Suggestion: Revise the third scaffolding hint to be less explicit. Instead of providing the full equation, guide the student's process. A better hint would be: 'Now, set your derivative expression `f'(x)` equal to zero and substitute `x = \\\\frac{\\\\pi}{4}`. Solve the resulting equation for the constant `k`. Remember that an exponential term like `e^y` is never zero.'"
+      }
+    }
+  ]
+}

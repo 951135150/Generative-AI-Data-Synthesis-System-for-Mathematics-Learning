@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_112003",
+  "batch_name": "FullRun_Step_8",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:20:03.911070",
+  "target_topics": [
+    "Indefinite Integrals"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the indefinite integral: $$ \\int \\frac{3x + 2}{\\sqrt{x - 4}} dx $$",
+      "real_world_context": "In a materials science experiment, the rate of change of a material's temperature `T` (in degrees Celsius) with respect to applied pressure `P` (in Pascals) is given by the function `dT/dP = (3P + 2) / \\sqrt{P - 4}` for `P > 4`. Find the general function `T(P)` that describes the material's temperature as a function of pressure.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The expression inside the square root, `x - 4`, makes direct integration difficult. What technique is often used to simplify integrals with a composite function inside a root or power?"
+        },
+        {
+          "step": 2,
+          "hint": "If you set `u = x - 4`, you will have `du = dx`. However, the numerator still contains an `x` term. How can you rewrite the term `3x + 2` entirely in terms of `u`?"
+        },
+        {
+          "step": 3,
+          "hint": "After substitution, you should have an integral of the form `∫ (A*u + B) / \\sqrt{u} du`. Separate this into two terms and apply the power rule for integration, `∫ u^n du = u^(n+1)/(n+1) + C`."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The algebraic solution involves a change of variables (u-substitution) to transform the complex integrand into a simpler form that resembles a sum of power functions. The key steps are choosing `u`, expressing `x` and `dx` in terms of `u` and `du`, integrating the new function of `u` term-by-term, and finally substituting back to express the result in terms of the original variable `x`.",
+        "visual_conceptual": "Conceptually, we are finding the family of functions `F(x)` whose rate of change (derivative) is the given function `f(x) = (3x + 2) / \\sqrt{x - 4}`. The u-substitution `u = x - 4` is like shifting our coordinate system horizontally by 4 units. This transformation simplifies the 'rate' function's structure, making it easier to determine the 'total accumulation' function. The final answer, `F(x) + C`, represents an infinite set of curves, each a vertical shift of the others, all having the same slope `f(x)` at any given `x > 4`."
+      },
+      "solution": "To solve the integral $$ \\int \\frac{3x + 2}{\\sqrt{x - 4}} dx $$, we use the method of u-substitution.\n\n1.  Let `u = x - 4`. This implies `du = dx`. We also need to express `x` in terms of `u`: `x = u + 4`.\n2.  Substitute these into the integral. The numerator becomes `3x + 2 = 3(u + 4) + 2 = 3u + 12 + 2 = 3u + 14`. The denominator is `\\sqrt{u}`.\n    $$ \\int \\frac{3u + 14}{\\sqrt{u}} du $$\n3.  Rewrite the integrand by splitting the fraction and using exponent notation:\n    $$ \\int \\left( \\frac{3u}{\\sqrt{u}} + \\frac{14}{\\sqrt{u}} \\right) du = \\int (3u^{1/2} + 14u^{-1/2}) du $$\n4.  Apply the power rule for integration, `\\int u^n du = \\frac{u^{n+1}}{n+1} + C`, to each term:\n    $$ 3 \\cdot \\frac{u^{1/2 + 1}}{1/2 + 1} + 14 \\cdot \\frac{u^{-1/2 + 1}}{-1/2 + 1} + C $$\n    $$ = 3 \\cdot \\frac{u^{3/2}}{3/2} + 14 \\cdot \\frac{u^{1/2}}{1/2} + C $$\n5.  Simplify the coefficients:\n    $$ = 3 \\cdot \\frac{2}{3} u^{3/2} + 14 \\cdot 2 u^{1/2} + C $$\n    $$ = 2u^{3/2} + 28u^{1/2} + C $$\n6.  Substitute back `u = x - 4` to get the final answer in terms of `x`:\n    $$ 2(x - 4)^{3/2} + 28(x - 4)^{1/2} + C $$\n    This can be optionally factored by taking out `2(x-4)^{1/2}`:\n    $$ 2\\sqrt{x-4} \\left( (x-4) + 14 \\right) + C = 2\\sqrt{x-4} (x+10) + C $$",
+      "concepts": [
+        "Indefinite Integrals",
+        "U-Substitution",
+        "Power Rule for Integration",
+        "Algebraic Manipulation of Integrands"
+      ],
+      "topic": "Indefinite Integrals",
+      "generated_at": "2026-04-06T11:19:48.994591",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Indefinite Integrals"
+      ],
+      "source_topics_pool": [
+        "Indefinite Integrals"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is well-constructed, mathematically sound, and pedagogically strong. | To make the real-world context more impactful, add a follow-up part asking the student to find the constant of integration 'C' given an initial condition. For example: 'If the material's temperature is 20°C when the pressure is 5 Pascals, find the specific function T(P)'. This would test an additional concept and make the application feel more complete."
+      }
+    }
+  ]
+}

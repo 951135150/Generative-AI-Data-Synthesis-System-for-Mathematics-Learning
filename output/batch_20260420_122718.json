@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_122718",
+  "batch_name": "drill_122718",
+  "mode": "drill",
+  "generated_at": "2026-04-20T12:27:18.410499",
+  "target_topics": [
+    "Applications of Integration"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the area of the region enclosed by the curves $y = x^2$ and $y = x + 2$.",
+      "question_type": "mcq",
+      "solution": "To find the area between two curves, we first need to determine their points of intersection. We set the equations equal to each other:\\\\n$x^2 = x + 2$\\\\\n$x^2 - x - 2 = 0$\\\\\n$(x - 2)(x + 1) = 0$\\\\\nSo, the points of intersection occur at $x = -1$ and $x = 2$. These will be our limits of integration.\\\\nNext, we determine which function is greater on the interval $[-1, 2]$. We can test a point in the interval, for example $x=0$. For $y = x^2$, we get $y=0$. For $y = x+2$, we get $y=2$. Since $2 > 0$, the function $y = x+2$ is the upper curve.\\\\nThe area $A$ is given by the integral of the upper function minus the lower function:\\\\n$A = \\\\int_{-1}^{2} ((x + 2) - x^2) \\\\, dx$\\\\\nNow, we find the antiderivative:\\\\n$A = \\\\left[ \\\\frac{x^2}{2} + 2x - \\\\frac{x^3}{3} \\\\right]_{-1}^{2}$\\\\nFinally, we evaluate the definite integral:\\\\n$A = \\\\left( \\\\frac{2^2}{2} + 2(2) - \\\\frac{2^3}{3} \\\\right) - \\\\left( \\\\frac{(-1)^2}{2} + 2(-1) - \\\\frac{(-1)^3}{3} \\\\right)$\\\\n$A = \\\\left( \\\\frac{4}{2} + 4 - \\\\frac{8}{3} \\\\right) - \\\\left( \\\\frac{1}{2} - 2 + \\\\frac{1}{3} \\\\right)$\\\\n$A = \\\\left( 2 + 4 - \\\\frac{8}{3} \\\\right) - \\\\left( \\\\frac{3}{6} - \\\\frac{12}{6} + \\\\frac{2}{6} \\\\right)$\\\\n$A = \\\\left( 6 - \\\\frac{8}{3} \\\\right) - \\\\left( -\\\\frac{7}{6} \\\\right)$\\\\n$A = \\\\left( \\\\frac{18}{3} - \\\\frac{8}{3} \\\\right) + \\\\frac{7}{6}$\\\\n$A = \\\\frac{10}{3} + \\\\frac{7}{6} = \\\\frac{20}{6} + \\\\frac{7}{6} = \\\\frac{27}{6} = \\\\frac{9}{2}$",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "First, find the points of intersection of the two curves by setting their equations equal to each other. These x-values will be your limits of integration."
+        },
+        {
+          "step": 2,
+          "hint": "Set up the definite integral for the area. The formula is $\\\\int_{a}^{b} (\\\\text{upper function} - \\\\text{lower function}) \\\\, dx$. You may need to test a point between the intersection points to determine which function is 'upper'."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the antiderivative of the integrand and then evaluate it at the upper and lower limits of integration (the Fundamental Theorem of Calculus)."
+        }
+      ],
+      "options": {
+        "A": "$\\frac{9}{2}$",
+        "B": "$\\frac{10}{3}$",
+        "C": "$\\frac{13}{6}$",
+        "D": "$\\frac{15}{2}$"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Applications of Integration",
+      "generated_at": "2026-04-20T12:26:53.559217",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Integration"
+      ],
+      "source_topics_pool": [
+        "Applications of Integration"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None. The problem is a well-constructed, standard example of finding the area between curves. The mathematical solution is flawless. | Suggestion: This is an excellent problem for its stated purpose ('drill'). To elevate its difficulty from a 2 to a 3, one could use functions where the 'upper' and 'lower' curve switch roles within the region of interest, requiring the student to split the area into multiple integrals. For example, using y = x^3 and y = x."
+      }
+    }
+  ]
+}

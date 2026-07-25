@@ -1,0 +1,72 @@
+{
+  "batch_id": "batch_20260406_111509",
+  "batch_name": "FullRun_Step_4",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:15:09.732709",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position $p(t)$ (in meters) of an object on a damped spring at time $t$ (in seconds) is given by the function $p(t) = 10e^{-0.5t} \\\\sin(2t)$. Find the instantaneous velocity of the object at $t = \\\\frac{\\\\pi}{2}$ seconds.",
+      "real_world_context": "In physics and engineering, damped oscillations model many real-world systems, from a car's suspension system to the electrical current in an RLC circuit. The position function describes how the amplitude of the oscillation decays over time due to energy dissipation (like friction or resistance). Calculating the derivative (velocity) is crucial for understanding the system's dynamics at any given moment.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The function $p(t)$ is a product of two functions: $f(t) = 10e^{-0.5t}$ and $g(t) = \\\\sin(2t)$. Which differentiation rule should you apply first?"
+        },
+        {
+          "step": 2,
+          "hint": "Recall the Product Rule: If $h(t) = f(t)g(t)$, then $h'(t) = f'(t)g(t) + f(t)g'(t)$. What are the derivatives of $f(t)$ and $g(t)$? You may need another rule for these."
+        },
+        {
+          "step": 3,
+          "hint": "To find the derivatives of the individual functions, you need the Chain Rule. The derivative of $e^u$ is $e^u \\\\cdot u'$ and the derivative of $\\\\sin(u)$ is $\\\\cos(u) \\\\cdot u'$. Apply this to find $f'(t)$ and $g'(t)$."
+        },
+        {
+          "step": 4,
+          "hint": "After finding the complete velocity function $v(t) = p'(t)$, substitute $t = \\\\frac{\\\\pi}{2}$ into the expression. Remember the unit circle values for $\\\\sin(\\\\pi)$ and $\\\\cos(\\\\pi)$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The velocity is the first derivative of the position function, $v(t) = p'(t)$. The function $p(t)$ is a product of $f(t) = 10e^{-0.5t}$ and $g(t) = \\\\sin(2t)$. Using the Product Rule, $(fg)' = f'g + fg'$, we first find the derivatives of $f(t)$ and $g(t)$ using the Chain Rule. $f'(t) = 10e^{-0.5t} \\\\cdot (-0.5) = -5e^{-0.5t}$. And $g'(t) = \\\\cos(2t) \\\\cdot 2 = 2\\\\cos(2t)$. Combining these gives the velocity function: $v(t) = (-5e^{-0.5t})\\\\sin(2t) + (10e^{-0.5t})(2\\\\cos(2t))$. Evaluating at $t = \\\\frac{\\\\pi}{2}$ yields the specific instantaneous velocity.",
+        "visual_conceptual": "The graph of $p(t)$ is a sine wave whose amplitude decreases exponentially over time, resembling a wave that is 'dying out'. The derivative, $v(t)$, represents the slope of the tangent line to this graph at any time $t$. This slope is the object's instantaneous velocity. At $t = \\\\frac{\\\\pi}{2}$, we are finding the velocity at a specific point in its oscillation. Since $\\\\sin(2 \\\\cdot \\\\frac{\\\\pi}{2}) = \\\\sin(\\\\pi) = 0$, the object is at its equilibrium position ($p=0$) at this time. The non-zero velocity we calculate, $v(\\\\frac{\\\\pi}{2})$, tells us how fast it is moving *through* this equilibrium point. A negative value indicates it is moving in the negative direction (e.g., downwards or leftwards)."
+      },
+      "solution": "The position of the object is given by $p(t) = 10e^{-0.5t} \\\\sin(2t)$. To find the velocity, $v(t)$, we must compute the derivative of $p(t)$ with respect to $t$. We will use the Product Rule, with $u(t) = 10e^{-0.5t}$ and $w(t) = \\\\sin(2t)$.\n\nFirst, we find the derivatives of $u(t)$ and $w(t)$ using the Chain Rule:\n$u'(t) = \\\\frac{d}{dt}(10e^{-0.5t}) = 10e^{-0.5t} \\\\cdot (-0.5) = -5e^{-0.5t}$.\n$w'(t) = \\\\frac{d}{dt}(\\\\sin(2t)) = \\\\cos(2t) \\\\cdot 2 = 2\\\\cos(2t)$.\n\nNow, we apply the Product Rule, $p'(t) = u'(t)w(t) + u(t)w'(t)$:\n$v(t) = p'(t) = (-5e^{-0.5t})(\\\\sin(2t)) + (10e^{-0.5t})(2\\\\cos(2t))$\n$v(t) = -5e^{-0.5t}\\\\sin(2t) + 20e^{-0.5t}\\\\cos(2t)$.\n\nFinally, we substitute $t = \\\\frac{\\\\pi}{2}$ into the velocity function:\n$v(\\\\frac{\\\\pi}{2}) = -5e^{-0.5(\\\\pi/2)}\\\\sin(2 \\\\cdot \\\\frac{\\\\pi}{2}) + 20e^{-0.5(\\\\pi/2)}\\\\cos(2 \\\\cdot \\\\frac{\\\\pi}{2})$\n$v(\\\\frac{\\\\pi}{2}) = -5e^{-\\\\pi/4}\\\\sin(\\\\pi) + 20e^{-\\\\pi/4}\\\\cos(\\\\pi)$.\n\nSince $\\\\sin(\\\\pi) = 0$ and $\\\\cos(\\\\pi) = -1$:\n$v(\\\\frac{\\\\pi}{2}) = -5e^{-\\\\pi/4}(0) + 20e^{-\\\\pi/4}(-1)$\n$v(\\\\frac{\\\\pi}{2}) = 0 - 20e^{-\\\\pi/4}$\n\n$$ v(\\\\frac{\\\\pi}{2}) = -20e^{-\\\\pi/4} \\\\text{ meters/second.} $$",
+      "concepts": [
+        "Product Rule",
+        "Chain Rule",
+        "Derivatives of Exponential Functions",
+        "Derivatives of Trigonometric Functions"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T11:14:50.219272",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 99.2,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 98,
+          "scaffolding": 98,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is well-constructed, mathematically sound, and pedagogically robust. | To elevate the problem from a procedural drill to a more complex task, consider adding a second part that asks for interpretation or further analysis. For example: 'Is the object speeding up or slowing down at t = π/2 seconds? Justify your answer.' This would require students to calculate the acceleration (the second derivative) and compare the signs of velocity and acceleration, assessing a deeper level of conceptual understanding."
+      }
+    }
+  ]
+}

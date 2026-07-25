@@ -1,0 +1,208 @@
+{
+  "batch_id": "batch_20260322_001028",
+  "batch_name": "augmentation_round_1",
+  "generated_at": "2026-03-22T00:10:28.964379",
+  "topics": [
+    "Intermediate Value Theorem",
+    "Related Rates",
+    "Fundamental Theorem of Calculus",
+    "Partial Derivatives"
+  ],
+  "num_per_topic": 15,
+  "total_generated": 4,
+  "problems": [
+    {
+      "problem_statement": "A cylindrical tank with a radius of 5 meters is being filled with water at a constant rate of 2 cubic meters per minute. Initially, the tank is empty. Determine if there is a time $t$ (in minutes) when the water level is exactly 3 meters high. Justify your answer using the Intermediate Value Theorem.",
+      "real_world_context": "Fluid Dynamics/Reservoir Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the formula for the volume $V$ of a cylinder in terms of its radius $r$ and height $h$: $V = \\pi r^2 h$. In this case, $r$ is constant. Define a function $V(t)$ representing the volume of water in the tank at time $t$. How is $V(t)$ related to the filling rate?"
+        },
+        {
+          "step": 2,
+          "hint": "Express the height $h(t)$ of the water as a function of time $t$ using the volume $V(t)$ and the cylinder's radius.  Then, define a new function $f(t) = h(t) - 3$. What does $f(t)$ represent?"
+        },
+        {
+          "step": 3,
+          "hint": "Consider the behavior of $f(t)$ as $t$ approaches 0 and as $t$ becomes very large.  Does $f(t)$ change sign? If so, what theorem can you apply to conclude that there exists a time $t$ when $h(t) = 3$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by defining a volume function, deriving a height function, and then applying the IVT to a function representing the difference between the height and the target height.",
+        "visual_conceptual": "Imagine the water level rising in the tank. Since the tank is being filled continuously, the water level must pass through every height between the initial height (0) and the height it will eventually reach as time goes to infinity. Therefore, it must pass through 3 meters."
+      },
+      "solution": "Let $V(t)$ be the volume of water in the tank at time $t$. Since the tank is filled at a rate of 2 cubic meters per minute, $V(t) = 2t$. The volume of a cylinder is given by $V = \\pi r^2 h$, where $r = 5$ meters. Thus, $V(t) = \\pi (5^2) h(t) = 25\\pi h(t)$.  Equating the two expressions for $V(t)$, we have $25\\pi h(t) = 2t$, so $h(t) = \\frac{2t}{25\\pi}$.\n\nNow, define $f(t) = h(t) - 3 = \\frac{2t}{25\\pi} - 3$. We want to show that there exists a $t$ such that $f(t) = 0$.  \n\nAs $t \\to 0$, $f(t) \\to -3 < 0$. As $t \\to \\infty$, $f(t) \\to \\infty > 0$. Since $f(t)$ is a continuous function (as it is a linear function), by the Intermediate Value Theorem, there exists a $c$ such that $f(c) = 0$, which means $h(c) = 3$. Therefore, there is a time $t$ when the water level is exactly 3 meters high.",
+      "concepts": [
+        "Intermediate Value Theorem",
+        "Volume of a Cylinder",
+        "Continuity",
+        "Function Definition",
+        "Rate of Change"
+      ],
+      "topic": "Intermediate Value Theorem",
+      "sub_topic": "Intermediate Value Theorem",
+      "generated_at": "2026-03-21T23:34:52.522472",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A conical tank with vertex down is 12 meters high and has a radius of 3 meters at the top. Water is being pumped into the tank at a constant rate of 2 cubic meters per minute. How fast is the water level rising when the water is 4 meters deep?",
+      "real_world_context": "Fluid Dynamics/Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the variables: $V$ (volume of water), $h$ (height of water), and $r$ (radius of the water surface). Relate $r$ and $h$ using similar triangles."
+        },
+        {
+          "step": 2,
+          "hint": "Write the formula for the volume of a cone, $V = \\frac{1}{3}\\pi r^2 h$. Substitute the relationship between $r$ and $h$ from step 1 into the volume formula to express $V$ solely in terms of $h$."
+        },
+        {
+          "step": 3,
+          "hint": "Differentiate both sides of the equation $V(h)$ with respect to time $t$. Then, substitute the given rate of change of volume ($\\frac{dV}{dt} = 2$) and the desired height ($h = 4$) to solve for $\\frac{dh}{dt}$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Using similar triangles to relate radius and height, and then applying implicit differentiation to the volume formula.",
+        "visual_conceptual": "Imagine filling a cone-shaped tank. The rate at which the water level rises depends on the rate at which volume is added, and the changing cross-sectional area of the cone as it fills."
+      },
+      "solution": "Let $r$ be the radius and $h$ be the height of the water. By similar triangles, $\\frac{r}{h} = \\frac{3}{12} = \\frac{1}{4}$, so $r = \\frac{1}{4}h$. The volume of the water is $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi (\\frac{1}{4}h)^2 h = \\frac{\\pi}{48}h^3$. Differentiating with respect to time $t$, we get $\\frac{dV}{dt} = \\frac{\\pi}{16}h^2 \\frac{dh}{dt}$. We are given $\\frac{dV}{dt} = 2$ and $h = 4$. Thus, $2 = \\frac{\\pi}{16}(4^2) \\frac{dh}{dt} = \\pi \\frac{dh}{dt}$. Therefore, $\\frac{dh}{dt} = \\frac{2}{\\pi}$ meters per minute.",
+      "concepts": [
+        "related rates",
+        "similar triangles",
+        "volume of a cone",
+        "implicit differentiation"
+      ],
+      "topic": "Related Rates",
+      "sub_topic": "Related Rates",
+      "generated_at": "2026-03-21T23:45:40.304984",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A spherical balloon is being inflated at a rate of 100 cubic centimeters per second. The volume $V$ of a sphere with radius $r$ is given by $V = \\frac{4}{3}\\pi r^3$.  Determine the rate at which the radius of the balloon is increasing when the radius is 5 centimeters. Express your answer in centimeters per second.",
+      "real_world_context": "Related Rates in Physics (specifically, fluid dynamics and geometry)",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the known rate (dV/dt) and the quantity you need to find (dr/dt). Recognize that both $V$ and $r$ are functions of time $t$.  Write down the given equation relating $V$ and $r$."
+        },
+        {
+          "step": 2,
+          "hint": "Differentiate both sides of the volume equation $V = \\frac{4}{3}\\pi r^3$ with respect to time $t$. Remember to use the chain rule when differentiating $r^3$."
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the given value of $V$ (when $r=5$) and the known rate $\\frac{dV}{dt} = 100$ into the differentiated equation. Solve for $\\frac{dr}{dt}$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Applying implicit differentiation to a volume formula to relate rates of change.  The core equation is $\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.",
+        "visual_conceptual": "Imagine the balloon expanding.  The rate of volume increase (dV/dt) is causing the radius (r) to increase at a certain rate (dr/dt).  The surface area of the balloon is increasing as well, and the relationship between these rates is governed by the geometry of the sphere."
+      },
+      "solution": "Given $V = \\frac{4}{3}\\pi r^3$ and $\\frac{dV}{dt} = 100$ cm$^3$/s. We want to find $\\frac{dr}{dt}$ when $r = 5$ cm.\n\nDifferentiating with respect to $t$, we get:\n$\\frac{dV}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.\n\nSubstituting the given values:\n$100 = 4\\pi (5^2) \\frac{dr}{dt}$.\n$100 = 100\\pi \\frac{dr}{dt}$.\n$\\frac{dr}{dt} = \\frac{100}{100\\pi} = \\frac{1}{\\pi}$ cm/s.",
+      "concepts": [
+        "Related Rates",
+        "Implicit Differentiation",
+        "Chain Rule",
+        "Volume of a Sphere"
+      ],
+      "topic": "Fundamental Theorem of Calculus",
+      "sub_topic": "Fundamental Theorem of Calculus",
+      "generated_at": "2026-03-21T23:53:13.208127",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A chemical reaction in a closed container produces a gas. The rate of gas production, $R(t)$ (in liters per minute), is monitored and found to be given by $R(t) = 5t^2 + 2t$ liters/minute, where $t$ is the time in minutes after the reaction begins. The initial volume of gas in the container is 10 liters. Determine the volume of gas in the container after 3 minutes. Furthermore, find the instantaneous rate of change of the volume of gas at $t = 3$ minutes.",
+      "real_world_context": "Chemical Kinetics/Rate of Reaction",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recognize that the volume of gas is the accumulation of the rate of gas production over time. This suggests using integration to find the total volume added."
+        },
+        {
+          "step": 2,
+          "hint": "Set up a definite integral to represent the volume of gas produced between $t=0$ and $t=3$. Remember to add the initial volume to find the total volume at $t=3$."
+        },
+        {
+          "step": 3,
+          "hint": "To find the instantaneous rate of change of the volume at $t=3$, recall that the derivative of the volume function represents the rate of change.  Evaluate $V'(t)$ at $t=3$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem involves finding the definite integral of a rate function to determine a total quantity (volume) and then finding the derivative of the resulting volume function to determine the instantaneous rate of change.  This directly applies the Fundamental Theorem of Calculus.",
+        "visual_conceptual": "Imagine a graph of $R(t)$. The area under the curve from $t=0$ to $t=3$ represents the total amount of gas produced during those 3 minutes. The derivative of the volume function represents the slope of the tangent line to the volume curve at a specific time, indicating the instantaneous rate of gas production."
+      },
+      "solution": "Let $V(t)$ be the volume of gas in the container at time $t$. We are given $R(t) = 5t^2 + 2t$ and $V(0) = 10$.  \n\n1.  To find the volume at $t=3$, we integrate the rate function from 0 to 3 and add the initial volume:\n$V(3) = V(0) + \\int_0^3 R(t) dt = 10 + \\int_0^3 (5t^2 + 2t) dt = 10 + \\left[ \\frac{5}{3}t^3 + t^2 \\right]_0^3 = 10 + \\left( \\frac{5}{3}(3^3) + 3^2 \\right) - \\left( \\frac{5}{3}(0^3) + 0^2 \\right) = 10 + (45 + 9) = 10 + 54 = 64$ liters.\n\n2.  To find the instantaneous rate of change at $t=3$, we first find the volume function $V(t)$ by integrating $R(t)$:\n$V(t) = \\int R(t) dt = \\int (5t^2 + 2t) dt = \\frac{5}{3}t^3 + t^2 + C$.  Since $V(0) = 10$, we have $10 = \\frac{5}{3}(0)^3 + (0)^2 + C$, so $C = 10$. Thus, $V(t) = \\frac{5}{3}t^3 + t^2 + 10$.\n\nNow, we find the derivative of $V(t)$:\n$V'(t) = \\frac{d}{dt} \\left( \\frac{5}{3}t^3 + t^2 + 10 \\right) = 5t^2 + 2t$.  \n\nFinally, we evaluate $V'(3)$:\n$V'(3) = 5(3^2) + 2(3) = 5(9) + 6 = 45 + 6 = 51$ liters/minute.",
+      "concepts": [
+        "Fundamental Theorem of Calculus",
+        "Definite Integral",
+        "Indefinite Integral",
+        "Rate of Change",
+        "Accumulation",
+        "Derivatives"
+      ],
+      "topic": "Fundamental Theorem of Calculus",
+      "sub_topic": "Fundamental Theorem of Calculus",
+      "generated_at": "2026-03-21T23:54:14.314865",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "概念标签可能过多"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,568 @@
+{
+  "batch_id": "batch_20260322_150502",
+  "batch_name": "generation_3",
+  "generated_at": "2026-03-22T15:05:02.326920",
+  "topics": [
+    "Intermediate Value Theorem",
+    "Related Rates",
+    "Fundamental Theorem of Calculus",
+    "Partial Derivatives",
+    "L'Hôpital's Rule",
+    "Chain Rule",
+    "Optimization",
+    "Integration by Parts",
+    "Riemann Sums",
+    "Volume of Revolution",
+    "Lagrange Multipliers",
+    "Polar Coordinates",
+    "Green's Theorem",
+    "Taylor Series",
+    "Separable ODEs"
+  ],
+  "num_per_topic": 5,
+  "total_generated": 11,
+  "problems": [
+    {
+      "problem_statement": "A cylindrical tank with a radius of 5 meters is being filled with water at a constant rate of 2 cubic meters per minute. Initially, the tank is empty. Determine if there is a time $t$ (in minutes) when the water level is exactly 3 meters high. Justify your answer using the Intermediate Value Theorem.",
+      "real_world_context": "Fluid Dynamics/Reservoir Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the formula for the volume $V$ of a cylinder in terms of its radius $r$ and height $h$: $V = \\pi r^2 h$. In this case, $r$ is constant. Define a function $V(t)$ representing the volume of water in the tank at time $t$. How is $V(t)$ related to the filling rate?"
+        },
+        {
+          "step": 2,
+          "hint": "Express the height $h(t)$ of the water as a function of time $t$ using the volume $V(t)$ and the cylinder's radius.  Then, define a new function $f(t) = h(t) - 3$. What does $f(t)$ represent?"
+        },
+        {
+          "step": 3,
+          "hint": "Consider the behavior of $f(t)$ as $t$ approaches 0 and as $t$ becomes very large.  Does $f(t)$ change sign? If so, what theorem can you apply to conclude that there exists a time $t$ when $h(t) = 3$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by defining a volume function, deriving a height function, and then applying the IVT to a function representing the difference between the height and the target height.",
+        "visual_conceptual": "Imagine the water level rising in the tank. Since the tank is being filled continuously, the water level must pass through every height between 0 and the maximum possible height. Therefore, it must reach a height of 3 meters at some point."
+      },
+      "solution": "Let $V(t)$ be the volume of water in the tank at time $t$. Since the tank is filled at a rate of 2 cubic meters per minute, $V(t) = 2t$. The volume of a cylinder is given by $V = \\pi r^2 h$, where $r = 5$ meters. Thus, $V(t) = \\pi (5^2) h(t) = 25\\pi h(t)$.  Equating the two expressions for $V(t)$, we have $25\\pi h(t) = 2t$, so $h(t) = \\frac{2t}{25\\pi}$.\n\nNow, define $f(t) = h(t) - 3 = \\frac{2t}{25\\pi} - 3$. We want to determine if there exists a $t$ such that $f(t) = 0$.  \n\nAt $t = 0$, $f(0) = \\frac{2(0)}{25\\pi} - 3 = -3 < 0$. As $t \\rightarrow \\infty$, $f(t) \\rightarrow \\infty$. Since $f(t)$ is a continuous function (as it is a linear function), and $f(0) < 0$ while $f(t)$ becomes positive for large $t$, by the Intermediate Value Theorem, there exists a $c$ such that $f(c) = 0$. This means that $h(c) = 3$ for some time $c$.",
+      "concepts": [
+        "Intermediate Value Theorem",
+        "Volume of a Cylinder",
+        "Continuity",
+        "Function Definition",
+        "Rate of Change"
+      ],
+      "topic": "Intermediate Value Theorem",
+      "sub_topic": "Intermediate Value Theorem",
+      "generated_at": "2026-03-22T14:00:56.302139",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A conical tank with vertex down is 12 meters high and has a radius of 3 meters at the top. Water is being pumped into the tank at a constant rate of 2 cubic meters per minute. How fast is the water level rising when the water is 4 meters deep?",
+      "real_world_context": "Fluid Dynamics/Engineering",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the variables: $V$ (volume of water), $h$ (height of water), and $r$ (radius of water surface). Relate $r$ and $h$ using similar triangles."
+        },
+        {
+          "step": 2,
+          "hint": "Express the volume $V$ of the water in terms of $h$ using the formula for the volume of a cone: $V = \\frac{1}{3}\\pi r^2 h$. Substitute the relationship between $r$ and $h$ from step 1 into this equation to get $V$ solely as a function of $h$."
+        },
+        {
+          "step": 3,
+          "hint": "Differentiate both sides of the equation $V = f(h)$ with respect to time $t$. Then, substitute the given rate of change of volume ($\\frac{dV}{dt} = 2$) and the desired height ($h = 4$) to solve for $\\frac{dh}{dt}$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved using related rates, involving the volume of a cone and implicit differentiation with respect to time. The key is to establish a relationship between the radius and height of the water level using similar triangles.",
+        "visual_conceptual": "Imagine a cone filling with water. The water level (height) is rising, and the radius of the water surface is also changing. The rate at which the volume increases is related to the rate at which the height increases. The similar triangles represent the proportional relationship between the radius and height of the water at any given time."
+      },
+      "solution": "Let $V$ be the volume of water, $h$ be the height of the water, and $r$ be the radius of the water surface. We have $\\frac{r}{h} = \\frac{3}{12} = \\frac{1}{4}$, so $r = \\frac{1}{4}h$. The volume of the water is $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi (\\frac{1}{4}h)^2 h = \\frac{\\pi}{48}h^3$. Differentiating with respect to time $t$, we get $\\frac{dV}{dt} = \\frac{\\pi}{16}h^2 \\frac{dh}{dt}$. We are given $\\frac{dV}{dt} = 2$ and we want to find $\\frac{dh}{dt}$ when $h = 4$. Substituting these values, we have $2 = \\frac{\\pi}{16}(4^2) \\frac{dh}{dt} = \\pi \\frac{dh}{dt}$. Therefore, $\\frac{dh}{dt} = \\frac{2}{\\pi}$ meters per minute.",
+      "concepts": [
+        "related rates",
+        "volume of a cone",
+        "similar triangles",
+        "implicit differentiation"
+      ],
+      "topic": "Related Rates",
+      "sub_topic": "Related Rates",
+      "generated_at": "2026-03-22T14:05:04.412893",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A chemical reaction in a closed container produces a gas. The rate of gas production, $R(t)$ (in liters per minute), is monitored and found to be given by $R(t) = 5t^2 + 2t$ liters/minute, where $t$ is the time in minutes after the reaction begins. The initial volume of gas in the container is 10 liters. Determine the volume of gas in the container after 3 minutes. Furthermore, find the instantaneous rate of change of the volume of gas at $t = 3$ minutes.",
+      "real_world_context": "Chemical Kinetics/Rate of Reaction",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recognize that the volume of gas is the accumulation of the rate of gas production over time. This suggests using integration to find the total gas produced."
+        },
+        {
+          "step": 2,
+          "hint": "Set up a definite integral to represent the total gas produced between $t=0$ and $t=3$. Remember to add the initial volume to find the total volume at $t=3$."
+        },
+        {
+          "step": 3,
+          "hint": "To find the instantaneous rate of change of the volume at $t=3$, recall that the derivative of the volume function gives the rate of change.  Evaluate $V'(t)$ at $t=3$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem involves finding the definite integral of a rate function to determine a total quantity (volume) and then finding the derivative of the resulting volume function to determine the instantaneous rate of change.  This directly applies the Fundamental Theorem of Calculus.",
+        "visual_conceptual": "Imagine a graph of $R(t)$. The area under the curve from $t=0$ to $t=3$ represents the *change* in volume during that time. Adding this change to the initial volume gives the total volume at $t=3$. The instantaneous rate of change is the height of the $R(t)$ curve at $t=3$."
+      },
+      "solution": "Let $V(t)$ be the volume of gas at time $t$. We are given $R(t) = 5t^2 + 2t$ and $V(0) = 10$.  \n\n1.  To find the volume at $t=3$, we integrate $R(t)$ from 0 to 3 and add the initial volume:\n$V(3) = V(0) + \\int_0^3 (5t^2 + 2t) dt = 10 + \\left[ \\frac{5}{3}t^3 + t^2 \\right]_0^3 = 10 + \\left( \\frac{5}{3}(3^3) + 3^2 \\right) - \\left( \\frac{5}{3}(0^3) + 0^2 \\right) = 10 + (45 + 9) = 10 + 54 = 64$ liters.\n\n2.  To find the instantaneous rate of change at $t=3$, we first find the volume function $V(t)$ by integrating $R(t)$:\n$V(t) = \\int (5t^2 + 2t) dt = \\frac{5}{3}t^3 + t^2 + C$.  Since $V(0) = 10$, we have $10 = \\frac{5}{3}(0)^3 + (0)^2 + C$, so $C = 10$. Thus, $V(t) = \\frac{5}{3}t^3 + t^2 + 10$.\n\nNow, we find the derivative of $V(t)$:\n$V'(t) = \\frac{d}{dt} \\left( \\frac{5}{3}t^3 + t^2 + 10 \\right) = 5t^2 + 2t$.\n\nFinally, we evaluate $V'(3)$:\n$V'(3) = 5(3^2) + 2(3) = 5(9) + 6 = 45 + 6 = 51$ liters/minute.",
+      "concepts": [
+        "Fundamental Theorem of Calculus",
+        "Definite Integral",
+        "Indefinite Integral",
+        "Rate of Change",
+        "Accumulation",
+        "Derivatives"
+      ],
+      "topic": "Fundamental Theorem of Calculus",
+      "sub_topic": "Fundamental Theorem of Calculus",
+      "generated_at": "2026-03-22T14:08:09.575465",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "概念标签可能过多"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A spherical balloon is being inflated such that its volume is increasing at a constant rate of 20 cubic centimeters per second.  The volume $V$ of a sphere with radius $r$ is given by $V = \\frac{4}{3}\\pi r^3$.  At the instant when the radius of the balloon is 5 centimeters, how fast is the radius increasing?",
+      "real_world_context": "Related Rates - Physics (Fluid Dynamics)",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the known rates (given information) and the unknown rate you need to find. Express these as derivatives with respect to time, $t$. Which variables are changing with respect to time?"
+        },
+        {
+          "step": 2,
+          "hint": "Differentiate the volume formula $V = \\frac{4}{3}\\pi r^3$ implicitly with respect to time $t$. Remember to treat $r$ as a function of $t$ and apply the chain rule."
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the given values for $\\frac{dV}{dt}$ and $r$ into the equation you obtained in step 2. Then, solve for $\\frac{dr}{dt}$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Implicit differentiation of the volume formula with respect to time, utilizing the chain rule to relate the rates of change of volume and radius.",
+        "visual_conceptual": "Imagine the balloon expanding. The rate of volume increase represents the flow of air into the balloon, while the rate of radius increase describes how quickly the balloon's size is changing. The chain rule connects these rates through the geometry of the sphere."
+      },
+      "solution": "Let $V$ be the volume and $r$ be the radius of the balloon. We are given $\\frac{dV}{dt} = 20$ cm$^3$/s and we want to find $\\frac{dr}{dt}$ when $r = 5$ cm.  We have $V = \\frac{4}{3}\\pi r^3$. Differentiating with respect to $t$, we get $\\frac{dV}{dt} = \\frac{4}{3}\\pi (3r^2) \\frac{dr}{dt} = 4\\pi r^2 \\frac{dr}{dt}$.  Substituting the given values, we have $20 = 4\\pi (5^2) \\frac{dr}{dt}$, so $20 = 100\\pi \\frac{dr}{dt}$.  Therefore, $\\frac{dr}{dt} = \\frac{20}{100\\pi} = \\frac{1}{5\\pi}$ cm/s.",
+      "concepts": [
+        "Related Rates",
+        "Implicit Differentiation",
+        "Chain Rule",
+        "Volume of a Sphere"
+      ],
+      "topic": "Chain Rule",
+      "sub_topic": "Chain Rule",
+      "generated_at": "2026-03-22T14:18:41.913398",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A particle moves along the x-axis with a velocity given by $v(t) = t e^{-t}$ meters per second, where $t$ is measured in seconds.  Determine the displacement of the particle from $t=0$ to $t=2$ seconds. In other words, find $\\int_0^2 t e^{-t} dt$.",
+      "real_world_context": "Physics - Kinematics and Motion",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Integration by parts is appropriate here. Identify which part of the integrand ($t e^{-t}$) should be considered 'u' and which should be 'dv'. Consider which choice will simplify the integral after applying the integration by parts formula."
+        },
+        {
+          "step": 2,
+          "hint": "After choosing 'u' and 'dv', calculate 'du' and 'v'. Remember that $v$ is the integral of $dv$.  Apply the integration by parts formula: $\\int u dv = uv - \\int v du$."
+        },
+        {
+          "step": 3,
+          "hint": "Evaluate the remaining integral.  This should be a simpler integral than the original.  Finally, evaluate the expression at the upper and lower limits of integration ($t=2$ and $t=0$) and subtract to find the displacement."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The integration by parts formula $\\int u dv = uv - \\int v du$ is applied to decompose the integral into a product of functions and a simpler integral. The process relies on the product rule for differentiation in reverse.",
+        "visual_conceptual": "The displacement represents the net change in position of the particle over the time interval [0, 2]. The integral $\\int_0^2 v(t) dt$ calculates the area under the velocity curve, which geometrically corresponds to the displacement. The exponential decay in $e^{-t}$ causes the velocity to decrease over time, affecting the accumulated displacement."
+      },
+      "solution": "Let $u = t$ and $dv = e^{-t} dt$. Then $du = dt$ and $v = -e^{-t}$. Applying integration by parts, we have:\n\n$\\int t e^{-t} dt = -t e^{-t} - \\int (-e^{-t}) dt = -t e^{-t} + \\int e^{-t} dt = -t e^{-t} - e^{-t} + C$.\n\nNow, we evaluate the definite integral:\n\n$\\int_0^2 t e^{-t} dt = [-t e^{-t} - e^{-t}]_0^2 = (-2e^{-2} - e^{-2}) - (0e^{-0} - e^{-0}) = -3e^{-2} - (-1) = 1 - 3e^{-2} \\approx 0.5975$ meters.",
+      "concepts": [
+        "Integration by Parts",
+        "Definite Integrals",
+        "Exponential Functions",
+        "Velocity and Displacement",
+        "Antiderivatives"
+      ],
+      "topic": "Integration by Parts",
+      "sub_topic": "Integration by Parts",
+      "generated_at": "2026-03-22T14:30:17.365501",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A storage tank for liquid propane is designed in the shape of a horizontal cylinder with hemispherical ends. The cylinder has a radius of $r = 2$ meters and a length of $L = 10$ meters. Determine the volume of propane the tank can hold.",
+      "real_world_context": "Chemical Engineering - Tank Volume Calculation",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Consider the tank as a combination of geometric shapes. What shapes are present, and how can you calculate their individual volumes? Remember the volume of a cylinder is $V_{cylinder} = \\pi r^2 h$ and the volume of a sphere is $V_{sphere} = \\frac{4}{3}\\pi r^3$."
+        },
+        {
+          "step": 2,
+          "hint": "The hemispherical ends combined form a complete sphere.  The cylindrical portion has length $L$, but you need to account for the hemispheres 'taking up' some of that length. How does the radius relate to the effective length of the cylindrical section?"
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the volume of the cylinder and the sphere separately. Then, sum these volumes to find the total volume of the tank. Ensure your units are consistent (cubic meters)."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The total volume is the sum of the cylinder's volume and the sphere's volume: $V_{total} = V_{cylinder} + V_{sphere} = \\pi r^2 L + \\frac{4}{3}\\pi r^3$.  Since the hemispheres form a sphere, the length of the cylindrical section is effectively reduced by $2r$.",
+        "visual_conceptual": "Imagine the tank as a cylinder with a sphere attached to each end.  The volume is found by adding the volume of the cylinder to the volume of the sphere. Visualizing the cross-section as a circle helps understand the relationship between the radius and the length of the cylindrical portion."
+      },
+      "solution": "The volume of the cylinder is $V_{cylinder} = \\pi r^2 L = \\pi (2^2)(10) = 40\\pi$ cubic meters. The volume of the sphere formed by the two hemispheres is $V_{sphere} = \\frac{4}{3}\\pi r^3 = \\frac{4}{3}\\pi (2^3) = \\frac{32}{3}\\pi$ cubic meters. Therefore, the total volume of the tank is $V_{total} = V_{cylinder} + V_{sphere} = 40\\pi + \\frac{32}{3}\\pi = \\frac{120\\pi + 32\\pi}{3} = \\frac{152}{3}\\pi$ cubic meters. Approximately, $V_{total} \\approx 159.23$ cubic meters.",
+      "concepts": [
+        "Volume of Revolution (implicitly, as the shapes can be generated by rotation)",
+        "Volume of a Cylinder",
+        "Volume of a Sphere",
+        "Geometric Modeling",
+        "Application of Formulas"
+      ],
+      "topic": "Volume of Revolution",
+      "sub_topic": "Volume of Revolution",
+      "generated_at": "2026-03-22T14:41:03.688182",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果"
+        ]
+      }
+    },
+    {
+      "problem_statement": "An engineer is designing a rectangular metal tank with a square base and no top. The tank must hold a volume of $4$ cubic meters. The cost of the material for the base is $10 per square meter, and the cost of the material for the sides is $5 per square meter. Determine the dimensions of the tank that minimize the total cost of the materials.",
+      "real_world_context": "Optimization in Engineering (Cost Minimization)",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Define the variables. Let $x$ be the side length of the square base and $h$ be the height of the tank. Express the volume $V$ and the cost $C$ in terms of $x$ and $h$."
+        },
+        {
+          "step": 2,
+          "hint": "Use the volume constraint ($V = 4$) to eliminate one of the variables ($h$) from the cost function. This will give you a cost function $C$ solely in terms of $x$."
+        },
+        {
+          "step": 3,
+          "hint": "Find the critical points of the cost function by taking its derivative with respect to $x$, setting it equal to zero, and solving for $x$. Then, use the second derivative test to confirm that this value of $x$ minimizes the cost. Finally, calculate the corresponding value of $h$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved by setting up a cost function $C(x, h) = 10x^2 + 4(5xh)$ subject to the constraint $x^2h = 4$. Using Lagrange multipliers, we form the Lagrangian $L(x, h, \\lambda) = 10x^2 + 20xh + \\lambda(4 - x^2h)$. Taking partial derivatives and setting them to zero yields the system of equations to solve.",
+        "visual_conceptual": "Imagine the tank. The cost is minimized when the trade-off between the expensive base and the cheaper sides is optimal. Geometrically, this corresponds to finding the point where the cost surface is tangent to the volume constraint surface."
+      },
+      "solution": "Let $x$ be the side length of the base and $h$ be the height. The volume is $V = x^2h = 4$, so $h = \\frac{4}{x^2}$. The cost is $C = 10x^2 + 4(5xh) = 10x^2 + 20xh$. Substituting $h = \\frac{4}{x^2}$, we get $C(x) = 10x^2 + 20x(\\frac{4}{x^2}) = 10x^2 + \\frac{80}{x}$. Taking the derivative, $C'(x) = 20x - \\frac{80}{x^2}$. Setting $C'(x) = 0$, we have $20x = \\frac{80}{x^2}$, so $x^3 = 4$, and $x = \\sqrt[3]{4}$. The second derivative is $C''(x) = 20 + \\frac{160}{x^3}$. Since $C''(\\sqrt[3]{4}) > 0$, we have a minimum. Then $h = \\frac{4}{(\\sqrt[3]{4})^2} = \\frac{4}{4^{2/3}} = 4^{1/3} = \\sqrt[3]{4}$. Thus, $x = \\sqrt[3]{4}$ and $h = \\sqrt[3]{4}$.",
+      "concepts": [
+        "Lagrange Multipliers",
+        "Optimization",
+        "Partial Derivatives",
+        "Constrained Optimization",
+        "Second Derivative Test"
+      ],
+      "topic": "Lagrange Multipliers",
+      "sub_topic": "Lagrange Multipliers",
+      "generated_at": "2026-03-22T14:45:44.268823",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A robotic arm is designed to spray paint a circular region with a radius of 2 meters. The arm's spray nozzle deposits paint at a rate proportional to the distance from the center of the circle. Specifically, the rate of paint deposition, $R(r)$, is given by $R(r) = kr$, where $k = 0.5 \\text{ kg/m}^2$ is a constant. Determine the total mass of paint deposited over the entire circular region. Express your answer in kilograms.",
+      "real_world_context": "Robotics and Manufacturing (Paint Application)",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Consider how to represent the circular region in polar coordinates. What are the appropriate limits for $r$ and $\\theta$?"
+        },
+        {
+          "step": 2,
+          "hint": "Recall that the differential area element in polar coordinates is $dA = r dr d\\theta$. How can you express the total mass as an integral of the deposition rate over the area?"
+        },
+        {
+          "step": 3,
+          "hint": "Evaluate the double integral. Remember to integrate with respect to $r$ first, then $\\theta$. What is the final numerical value for the total mass?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved using a double integral in polar coordinates: $\\int_{0}^{2\\pi} \\int_{0}^{2} kr^2 dr d\\theta$. This represents summing infinitesimal mass elements ($k r dr d\\theta$) over the entire circular region.",
+        "visual_conceptual": "Imagine concentric rings of paint being applied. The rings closer to the center receive less paint (lower deposition rate), while those further out receive more. The integral sums the mass deposited on each ring to find the total mass."
+      },
+      "solution": "The circular region is described by $0 \\leq r \\leq 2$ and $0 \\leq \\theta \\leq 2\\pi$. The total mass $M$ is given by:\n\n$M = \\iint_D R(r) dA = \\int_{0}^{2\\pi} \\int_{0}^{2} kr^2 dr d\\theta = k \\int_{0}^{2\\pi} \\left[ \\frac{r^3}{3} \\right]_{0}^{2} d\\theta = k \\int_{0}^{2\\pi} \\frac{8}{3} d\\theta = \\frac{8k}{3} \\int_{0}^{2\\pi} d\\theta = \\frac{8k}{3} [\\theta]_{0}^{2\\pi} = \\frac{8k}{3} (2\\pi) = \\frac{16\\pi k}{3}$.\n\nSince $k = 0.5$, we have:\n\n$M = \\frac{16\\pi (0.5)}{3} = \\frac{8\\pi}{3} \\approx 8.3776 \\text{ kg}$.",
+      "concepts": [
+        "Polar Coordinates",
+        "Double Integrals",
+        "Area Element in Polar Coordinates",
+        "Integration",
+        "Real-World Applications of Integration"
+      ],
+      "topic": "Polar Coordinates",
+      "sub_topic": "Polar Coordinates",
+      "generated_at": "2026-03-22T14:50:16.512488",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果"
+        ]
+      }
+    },
+    {
+      "problem_statement": "An electrical engineer is designing a circuit board with a current flowing around a closed path $C$ in the $xy$-plane. The current density is given by the vector field $\\mathbf{F}(x, y) = (y^2x) \\mathbf{i} + (x^3 + 2xy) \\mathbf{j}$. The path $C$ encloses a region $D$ representing a sensitive component on the board. To ensure electromagnetic compatibility, the engineer needs to calculate the total current flowing *into* the component, which is proportional to the flux of the curl of $\\mathbf{F}$ across the region $D$.  Assume $C$ is the boundary of the region $D$ defined by $x^2 + y^2 \\leq 1$ in the first quadrant ($x \\geq 0, y \\geq 0$). Use Green's Theorem to determine the circulation of $\\mathbf{F}$ around $C$, and relate this to the current flowing into the component.",
+      "real_world_context": "Electromagnetic Engineering/Circuit Design",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall Green's Theorem: $\\oint_C P dx + Q dy = \\iint_D (\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y}) dA$. Identify $P(x, y)$ and $Q(x, y)$ from the given vector field $\\mathbf{F}$. "
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the partial derivatives $\\frac{\\partial Q}{\\partial x}$ and $\\frac{\\partial P}{\\partial y}$. Then, determine the integrand for the double integral: $(\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y})$. "
+        },
+        {
+          "step": 3,
+          "hint": "Evaluate the double integral $\\iint_D (\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y}) dA$ over the region $D$ ($x^2 + y^2 \\leq 1$ in the first quadrant). Consider using polar coordinates to simplify the integration."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Applying Green's Theorem transforms a line integral around a closed curve into a double integral over the enclosed region. This allows for easier calculation in many cases, especially when the region is well-defined.",
+        "visual_conceptual": "Green's Theorem connects the circulation of a vector field around a boundary to the 'rotation' or 'curl' of the field within the enclosed area.  A larger circulation implies a stronger rotational effect of the field."
+      },
+      "solution": "Let $P(x, y) = y^2x$ and $Q(x, y) = x^3 + 2xy$. Then, $\\frac{\\partial Q}{\\partial x} = 3x^2 + 2y$ and $\\frac{\\partial P}{\\partial y} = 2xy$.  Therefore, $\\frac{\\partial Q}{\\partial x} - \\frac{\\partial P}{\\partial y} = 3x^2 + 2y - 2xy$.  Using Green's Theorem, $\\oint_C (y^2x dx + (x^3 + 2xy) dy) = \\iint_D (3x^2 + 2y - 2xy) dA$.  Converting to polar coordinates, $x = r\\cos\\theta$, $y = r\\sin\\theta$, and $dA = r dr d\\theta$. The region $D$ is described by $0 \\leq r \\leq 1$ and $0 \\leq \\theta \\leq \\frac{\\pi}{2}$.  The integral becomes:\n\n$\\int_0^{\\frac{\\pi}{2}} \\int_0^1 (3(r\\cos\\theta)^2 + 2(r\\sin\\theta) - 2(r\\cos\\theta)(r\\sin\\theta)) r dr d\\theta = \\int_0^{\\frac{\\pi}{2}} \\int_0^1 (3r^2\\cos^2\\theta + 2r\\sin\\theta - 2r^2\\cos\\theta\\sin\\theta) r dr d\\theta$\n\n$= \\int_0^{\\frac{\\pi}{2}} \\int_0^1 (3r^3\\cos^2\\theta + 2r^2\\sin\\theta - 2r^3\\cos\\theta\\sin\\theta) dr d\\theta = \\int_0^{\\frac{\\pi}{2}} [\\frac{3}{4}r^4\\cos^2\\theta + \\frac{2}{3}r^3\\sin\\theta - \\frac{1}{2}r^4\\cos\\theta\\sin\\theta]_0^1 d\\theta$\n\n$= \\int_0^{\\frac{\\pi}{2}} (\\frac{3}{4}\\cos^2\\theta + \\frac{2}{3}\\sin\\theta - \\frac{1}{2}\\cos\\theta\\sin\\theta) d\\theta = \\int_0^{\\frac{\\pi}{2}} (\\frac{3}{4}(\\frac{1 + \\cos(2\\theta)}{2}) + \\frac{2}{3}\\sin\\theta - \\frac{1}{4}\\sin(2\\theta)) d\\theta$\n\n$= \\int_0^{\\frac{\\pi}{2}} (\\frac{3}{8} + \\frac{3}{8}\\cos(2\\theta) + \\frac{2}{3}\\sin\\theta - \\frac{1}{4}\\sin(2\\theta)) d\\theta = [\\frac{3}{8}\\theta + \\frac{3}{16}\\sin(2\\theta) - \\frac{2}{3}\\cos\\theta + \\frac{1}{8}\\cos(2\\theta)]_0^{\\frac{\\pi}{2}}$\n\n$= (\\frac{3}{8}(\\frac{\\pi}{2}) + 0 - 0 + \\frac{1}{8}(1)) - (0 + 0 - \\frac{2}{3} + \\frac{1}{8}) = \\frac{3\\pi}{16} + \\frac{1}{8} + \\frac{2}{3} - \\frac{1}{8} = \\frac{3\\pi}{16} + \\frac{2}{3}$.",
+      "concepts": [
+        "Green's Theorem",
+        "Line Integrals",
+        "Double Integrals",
+        "Partial Derivatives",
+        "Polar Coordinates",
+        "Flux",
+        "Circulation"
+      ],
+      "topic": "Green's Theorem",
+      "sub_topic": "Green's Theorem",
+      "generated_at": "2026-03-22T14:53:22.539173",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 91.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果",
+          "概念标签可能过多"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A robotic arm is designed to follow a specific trajectory for precise welding. The desired end-effector position, $y(x)$, is given by $y = \\sqrt{1 + x^2}$, where $x$ represents the distance along a linear track. Due to limitations in the arm's control system, it can only accurately execute movements based on polynomial approximations. Determine the second-order Taylor polynomial, $P_2(x)$, centered at $a = 0$ that approximates the end-effector position $y(x)$ for small values of $x$.  How does the accuracy of this approximation change as $x$ increases from 0 to 1?",
+      "real_world_context": "Robotics and Control Systems",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the general form of a second-order Taylor polynomial: $P_2(x) = f(a) + f'(a)(x-a) + \\frac{f''(a)}{2!}(x-a)^2$. Identify $f(x)$ and the center $a$ in this problem."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the first and second derivatives of $f(x) = \\sqrt{1 + x^2}$. Then, evaluate these derivatives at $x = a = 0$."
+        },
+        {
+          "step": 3,
+          "hint": "Substitute the values of $f(0)$, $f'(0)$, and $f''(0)$ into the Taylor polynomial $P_2(x)$ to obtain the approximation.  Finally, compare $P_2(x)$ to $y(x)$ at $x=1$ to assess the approximation's accuracy."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The Taylor polynomial is a quadratic approximation derived from the function's derivatives at a specific point. The error term, which is not included in the polynomial, represents the difference between the actual function value and the approximation.",
+        "visual_conceptual": "Imagine the curve $y = \\sqrt{1 + x^2}$. The Taylor polynomial provides a parabola that 'best fits' the curve near $x = 0$. As you move further away from $x = 0$, the parabola deviates more from the actual curve, indicating a loss of accuracy."
+      },
+      "solution": "First, $f(x) = \\sqrt{1 + x^2}$. Then, $f'(x) = \\frac{x}{\\sqrt{1 + x^2}}$ and $f''(x) = \\frac{1}{(1 + x^2)^{3/2}}$.\nEvaluating at $a = 0$, we have $f(0) = 1$, $f'(0) = 0$, and $f''(0) = 1$. \nTherefore, $P_2(x) = 1 + 0(x-0) + \\frac{1}{2}(x-0)^2 = 1 + \\frac{x^2}{2}$.\nAt $x = 1$, $y(1) = \\sqrt{1 + 1^2} = \\sqrt{2} \\approx 1.414$.  $P_2(1) = 1 + \\frac{1^2}{2} = 1.5$. The absolute error is $|1.414 - 1.5| = 0.086$. This demonstrates that the approximation becomes less accurate as $x$ moves away from 0.",
+      "concepts": [
+        "Taylor Series",
+        "Taylor Polynomial",
+        "Derivatives",
+        "Polynomial Approximation",
+        "Error Analysis"
+      ],
+      "topic": "Taylor Series",
+      "sub_topic": "Taylor Series",
+      "generated_at": "2026-03-22T14:56:40.416745",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    },
+    {
+      "problem_statement": "A tank initially contains 500 liters of a brine solution with a salt concentration of 0.2 kg/L. Brine containing 0.05 kg/L of salt enters the tank at a rate of 5 L/min, and the well-mixed solution leaves the tank at the same rate. Let $Q(t)$ be the amount of salt (in kg) in the tank at time $t$ (in minutes). Set up and solve a differential equation to determine the salt concentration in the tank after 30 minutes.",
+      "real_world_context": "Mixing Problems (Chemical Engineering/Environmental Science)",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Consider the rate of change of salt in the tank. This is equal to the rate salt enters minus the rate salt leaves. Express these rates in terms of concentration and flow rate."
+        },
+        {
+          "step": 2,
+          "hint": "The rate salt leaves the tank depends on the concentration *inside* the tank at time $t$. How is the amount of salt $Q(t)$ related to the concentration in the tank?"
+        },
+        {
+          "step": 3,
+          "hint": "You should now have a separable differential equation of the form $\\frac{dQ}{dt} = f(Q)$. Separate the variables and integrate both sides. Don't forget to use the initial condition $Q(0)$ to find the constant of integration."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is modeled by the differential equation $\\frac{dQ}{dt} = (0.05)(5) - (5/500)Q$, which represents the rate of change of salt as a function of the current amount of salt. Solving this equation yields an explicit formula for $Q(t)$.",
+        "visual_conceptual": "Imagine the tank as a system where salt is continuously added and removed. The rate of change of salt is determined by the balance between inflow and outflow. The solution curve $Q(t)$ shows how the amount of salt changes over time, approaching a steady-state value."
+      },
+      "solution": "Let $Q(t)$ be the amount of salt in the tank at time $t$. The rate of change of salt is given by $\\frac{dQ}{dt} = (\text{rate in}) - (\text{rate out})$. The rate in is $(0.05 \text{ kg/L})(5 \text{ L/min}) = 0.25 \text{ kg/min}$. The rate out is $(\\frac{Q(t)}{500} \text{ kg/L})(5 \text{ L/min}) = \\frac{Q(t)}{100} \text{ kg/min}$. Thus, $\\frac{dQ}{dt} = 0.25 - \\frac{Q}{100}$. Separating variables, we get $\\frac{dQ}{0.25 - \\frac{Q}{100}} = dt$. Integrating both sides, we have $\\int \\frac{dQ}{0.25 - \\frac{Q}{100}} = \\int dt$. Let $u = 0.25 - \\frac{Q}{100}$, then $du = -\\frac{1}{100}dQ$, so $dQ = -100du$. The integral becomes $\\int \\frac{-100}{u} du = \\int dt$, which simplifies to $-100 \\ln|u| = t + C$. Substituting back for $u$, we get $-100 \\ln|0.25 - \\frac{Q}{100}| = t + C$.  The initial condition is $Q(0) = (0.2 \text{ kg/L})(500 \text{ L}) = 100 \text{ kg}$. Plugging this in, $-100 \\ln|0.25 - 1| = 0 + C$, so $C = -100 \\ln(0.75)$. Thus, $-100 \\ln|0.25 - \\frac{Q}{100}| = t - 100 \\ln(0.75)$.  Dividing by -100, we get $\\ln|0.25 - \\frac{Q}{100}| = -0.01t + \\ln(0.75)$. Exponentiating both sides, we have $0.25 - \\frac{Q}{100} = e^{-0.01t + \\ln(0.75)} = 0.75e^{-0.01t}$.  Solving for $Q$, we get $Q(t) = 100(0.25 - 0.75e^{-0.01t})$.  After 30 minutes, $Q(30) = 100(0.25 - 0.75e^{-0.3}) \\approx 100(0.25 - 0.75(0.7408)) \\approx 100(0.25 - 0.5556) \\approx 44.44$ kg.",
+      "concepts": [
+        "Separable Differential Equations",
+        "First-Order ODEs",
+        "Mixing Problems",
+        "Initial Value Problems",
+        "Exponential Decay"
+      ],
+      "topic": "Separable ODEs",
+      "sub_topic": "Separable ODEs",
+      "generated_at": "2026-03-22T14:59:26.903555",
+      "model": "gemma-3-27b-it",
+      "evaluation": {
+        "score": 95.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": []
+      }
+    }
+  ]
+}

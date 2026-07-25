@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_135712",
+  "batch_name": "V3_Step_13",
+  "mode": "drill",
+  "generated_at": "2026-04-20T13:57:12.211690",
+  "target_topics": [
+    "Applications of Derivatives"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find all open intervals on which the function `f(x) = x^3 - 6x^2 + 9x + 1` is increasing.",
+      "question_type": "mcq",
+      "solution": "To find where the function is increasing, we must find where its derivative is positive. First, compute the derivative of `f(x)`: \\\n`f'(x) = \\\\frac{d}{dx}(x^3 - 6x^2 + 9x + 1) = 3x^2 - 12x + 9`.\\\nNext, find the critical points by setting the derivative equal to zero: \\\n`3x^2 - 12x + 9 = 0` \\\nDivide by 3 for simplicity: \\\n`x^2 - 4x + 3 = 0` \\\nFactor the quadratic equation: \\\n`(x - 1)(x - 3) = 0` \\\nThe critical points are `x = 1` and `x = 3`. These points divide the number line into three intervals: `(-\\\\infty, 1)`, `(1, 3)`, and `(3, \\\\infty)`. We test a point from each interval in `f'(x)` to determine its sign. \\\n1. For `(-\\\\infty, 1)`, let's test `x = 0`: `f'(0) = 3(0)^2 - 12(0) + 9 = 9`. Since `f'(0) > 0`, the function is increasing on `(-\\\\infty, 1)`. \\\n2. For `(1, 3)`, let's test `x = 2`: `f'(2) = 3(2)^2 - 12(2) + 9 = 12 - 24 + 9 = -3`. Since `f'(2) < 0`, the function is decreasing on `(1, 3)`. \\\n3. For `(3, \\\\infty)`, let's test `x = 4`: `f'(4) = 3(4)^2 - 12(4) + 9 = 48 - 48 + 9 = 9`. Since `f'(4) > 0`, the function is increasing on `(3, \\\\infty)`. \\\nTherefore, `f(x)` is increasing on the union of the intervals where `f'(x) > 0`, which is `(-\\\\infty, 1) \\\\cup (3, \\\\infty)`.",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "To determine where a function is increasing or decreasing, you need to analyze the sign of its first derivative, `f'(x)`. Start by finding the derivative of `f(x) = x^3 - 6x^2 + 9x + 1`."
+        },
+        {
+          "step": 2,
+          "hint": "A function is increasing when its first derivative is positive (`f'(x) > 0`). To find the intervals where this is true, first find the critical points by solving `f'(x) = 0`."
+        },
+        {
+          "step": 3,
+          "hint": "The critical points you found in the previous step divide the x-axis into intervals. Test a sample point from each interval in the derivative `f'(x)` to determine if the derivative is positive or negative in that interval. The function is increasing on intervals where `f'(x)` is positive."
+        }
+      ],
+      "options": {
+        "A": "`(-\\\\infty, 1) \\\\cup (3, \\\\infty)`",
+        "B": "`(1, 3)`",
+        "C": "`(2, \\\\infty)`",
+        "D": "`(-\\\\infty, 2)`"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Applications of Derivatives",
+      "generated_at": "2026-04-20T13:57:00.125886",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Applications of Derivatives"
+      ],
+      "source_topics_pool": [
+        "Applications of Derivatives"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: None | Suggestion: The problem is a strong, fundamental exercise. To deepen the learning, it could be extended to a multi-part question that also asks for the intervals of decrease and the coordinates of the local maximum and minimum. This would leverage the student's work on the first derivative test to cover more related concepts within the same problem."
+      }
+    }
+  ]
+}

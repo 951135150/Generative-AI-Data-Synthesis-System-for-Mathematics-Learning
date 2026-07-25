@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_180704",
+  "batch_name": "FullRun_Step_24",
+  "mode": "drill",
+  "generated_at": "2026-04-06T18:07:04.478758",
+  "target_topics": [
+    "Techniques of Integration"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "In a mechanical system, the force exerted on an object varies with its position `x` (in meters). The force is given by the function $F(x) = 4x \\cos(2x)$ Newtons. Calculate the total work done (in Joules) in moving the object from position $x=0$ to $x=\\frac{\\pi}{4}$ meters. Recall that work $W$ is the integral of force with respect to displacement: $W = \\int_{a}^{b} F(x) \\, dx$.",
+      "real_world_context": "This problem models a common scenario in physics and engineering where a force is not constant. For example, this could represent the force exerted by a spring-like mechanism that also has an oscillating component, or the force on a charged particle moving through a non-uniform magnetic field. Calculating the work done is crucial for understanding the energy transfer in such systems.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The integral you need to solve is $\\int 4x \\cos(2x) \\, dx$. This is a product of two different types of functions (a polynomial and a trigonometric function). Which integration technique is most suitable for this form?"
+        },
+        {
+          "step": 2,
+          "hint": "For Integration by Parts, $\\int u \\, dv = uv - \\int v \\, du$, you need to choose 'u' and 'dv'. A good strategy is to choose 'u' to be the part that simplifies when you differentiate it. What would be a good choice for 'u' and 'dv' in $\\int 4x \\cos(2x) \\, dx$?"
+        },
+        {
+          "step": 3,
+          "hint": "After applying the Integration by Parts formula and evaluating the boundary terms, you will be left with a simpler integral. Make sure to correctly evaluate the definite integral at the upper and lower bounds, $x=\\pi/4$ and $x=0$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The algebraic solution involves a direct application of the Integration by Parts formula, $\\int u \\, dv = uv - \\int v \\, du$. By strategically choosing $u$ as the polynomial part ($4x$) and $dv$ as the trigonometric part ($\\cos(2x) dx$), we transform the original complex integral into a much simpler one. The derivative of $4x$ is a constant, which simplifies the new integral $\\int v \\, du$ significantly.",
+        "visual_conceptual": "Conceptually, the integral $\\int_{0}^{\\pi/4} F(x) \\, dx$ represents the net area under the force-displacement curve $y=F(x)$ from $x=0$ to $x=\\pi/4$. The function $F(x) = 4x \\cos(2x)$ starts at 0, increases, and then decreases, crossing the x-axis at $x=\\pi/4$. The work done is the accumulation of 'force times small displacement' over the entire path. Integration by Parts is a tool that helps us calculate this accumulated area by re-expressing it in terms of the product of the functions at the boundaries and the area under a related, simpler curve."
+      },
+      "solution": "To find the work done, we must evaluate the definite integral of the force function from $x=0$ to $x=\\frac{\\pi}{4}$.\n$$ W = \\int_{0}^{\\pi/4} 4x \\cos(2x) \\, dx $$\nThis integral is a product of a polynomial and a trigonometric function, which suggests using Integration by Parts. The formula for definite integrals is $\\int_{a}^{b} u \\, dv = [uv]_{a}^{b} - \\int_{a}^{b} v \\, du$.\n\n1.  **Choose u and dv**:\n    Let $u = 4x$ and $dv = \\cos(2x) \\, dx$.\n\n2.  **Find du and v**:\n    Differentiating $u$: $du = 4 \\, dx$.\n    Integrating $dv$: $v = \\int \\cos(2x) \\, dx = \\frac{1}{2} \\sin(2x)$.\n\n3.  **Apply the Integration by Parts formula**:\n    $$ W = \\left[4x \\cdot \\frac{1}{2} \\sin(2x)\\right]_{0}^{\\pi/4} - \\int_{0}^{\\pi/4} \\left(\\frac{1}{2} \\sin(2x)\\right) \\cdot 4 \\, dx $$\n\n4.  **Simplify and evaluate**:\n    $$ W = [2x \\sin(2x)]_{0}^{\\pi/4} - \\int_{0}^{\\pi/4} 2 \\sin(2x) \\, dx $$\n    First, evaluate the boundary term:\n    $$ [2x \\sin(2x)]_{0}^{\\pi/4} = \\left(2 \\cdot \\frac{\\pi}{4} \\cdot \\sin\\left(2 \\cdot \\frac{\\pi}{4}\\right)\\right) - (2 \\cdot 0 \\cdot \\sin(0)) = \\frac{\\pi}{2} \\sin\\left(\\frac{\\pi}{2}\\right) - 0 = \\frac{\\pi}{2}(1) = \\frac{\\pi}{2} $$\n    Next, evaluate the remaining integral:\n    $$ - \\int_{0}^{\\pi/4} 2 \\sin(2x) \\, dx = -2 \\left[-\\frac{1}{2} \\cos(2x)\\right]_{0}^{\\pi/4} = [\\cos(2x)]_{0}^{\\pi/4} $$\n    $$ = \\cos\\left(2 \\cdot \\frac{\\pi}{4}\\right) - \\cos(0) = \\cos\\left(\\frac{\\pi}{2}\\right) - 1 = 0 - 1 = -1 $$\n\n5.  **Combine the results**:\n    $$ W = \\frac{\\pi}{2} + (-1) = \\frac{\\pi}{2} - 1 $$\n\nThe total work done is $\\left(\\frac{\\pi}{2} - 1\\right)$ Joules, which is approximately $0.57$ Joules.",
+      "concepts": [
+        "Integration by Parts",
+        "Definite Integrals",
+        "Work as an Integral of Force",
+        "Antiderivatives of Trigonometric Functions"
+      ],
+      "topic": "Techniques of Integration",
+      "generated_at": "2026-04-06T18:06:21.972122",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Techniques of Integration"
+      ],
+      "source_topics_pool": [
+        "Techniques of Integration"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is well-constructed, mathematically sound, and pedagogically strong. The generated difficulty of 3 seems more appropriate than the target difficulty of 2 due to the composite argument in the trigonometric function, but this is a minor discrepancy, not a flaw in the problem's content. | To further enhance the problem, include a plot of the function $F(x) = 4x \\cos(2x)$ over the interval $[0, \\pi/4]$. This would allow students to visually connect the concept of work as the 'area under the force curve' with their calculated numerical answer (approx. 0.57), helping them to build intuition and check the reasonableness of their result."
+      }
+    }
+  ]
+}

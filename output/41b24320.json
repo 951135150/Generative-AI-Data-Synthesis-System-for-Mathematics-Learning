@@ -1,0 +1,41 @@
+{
+  "id": "41b24320",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "A rectangle is to be inscribed in the region bounded by the x-axis and the graph of the parabola $ y = 12 - x^2 $. What are the dimensions of the rectangle with the largest possible area?",
+  "question_type": "calculation",
+  "difficulty": 3,
+  "solution": "$$\n\\begin{aligned}\n& \\text{Let the rectangle have vertices at } (-x, 0), (x, y), \\text{ and } (-x, y), \\text{ where the top two vertices lie on the parabola.} \\\\\n& \\text{The width of the rectangle is } w = 2x \\text{ and the height is } h = y. \\\\\n& \\text{Since the point } (x, y) \\text{ is on the parabola, we have } y = 12 - x^2. \\\\\n& \\text{The area of the rectangle, } A, \\text{ can be expressed as a function of } x: \\\\\n& A(x) = w \\cdot h = (2x)(12 - x^2) = 24x - 2x^3. \\\\\n& \\text{The domain for } x \\text{ is } (0, \\sqrt{12}) \\text{ since the rectangle must have a positive width and stay within the parabola's x-intercepts.} \\\\\n& \\text{To find the value of } x \\text{ that maximizes the area, we find the derivative of } A(x) \\text{ and set it to zero.} \\\\\n& A'(x) = \\frac{d}{dx}(24x - 2x^3) = 24 - 6x^2. \\\\\n& \\text{Setting } A'(x) = 0: \\\\\n& 24 - 6x^2 = 0 \\\\\n& 6x^2 = 24 \\\\\n& x^2 = 4 \\\\\n& x = 2 (\\text{since } x > 0). \\\\\n& \\text{To verify that this is a maximum, we use the Second Derivative Test:} \\\\\n& A''(x) = \\frac{d}{dx}(24 - 6x^2) = -12x. \\\\\n& A''(2) = -12(2) = -24. \\\\\n& \\text{Since } A''(2) < 0, x=2 \\text{ corresponds to a local maximum.} \\\\\n& \\text{The dimensions of the rectangle are:} \\\\\n& \\text{Width: } w = 2x = 2(2) = 4. \\\\\n& \\text{Height: } h = 12 - x^2 = 12 - 2^2 = 12 - 4 = 8. \\\\\n& \\text{Thus, the dimensions of the rectangle with the largest area are 4 by 8.}\n\\end{aligned}\n$$",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "Let a vertex of the rectangle in the first quadrant be at the point $ (x, y) $. Express the area of the rectangle as a function of $ x $ and $ y $. Then, use the equation of the parabola to write the area as a function of a single variable, $ A(x) $."
+    },
+    {
+      "step": 2,
+      "hint": "To find the maximum area, you need to find the critical points of the area function $ A(x) $. Calculate the derivative $ A'(x) $, set it equal to zero, and solve for $ x $."
+    }
+  ],
+  "integration_analysis": "This problem is a classic example of optimization, a key application of derivatives. It requires students to translate a geometric problem into a functional relationship. Specifically, it integrates concepts from analytic geometry (understanding the properties of a parabola) with differential calculus (finding maxima/minima by analyzing derivatives). The process involves setting up a model (the area function), finding critical points, and using the second derivative test to confirm the nature of the extremum.",
+  "generated_at": "2026-05-06T16:31:44.991637",
+  "mode": "drill",
+  "target_difficulty": 3,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 97.0,
+    "dimensions": {
+      "structure": 100,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 95.0,
+      "scaffolding": 95.0,
+      "concept_integration": 90.0,
+      "originality": 100.0
+    },
+    "issues": [],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 97.0/60.0 | Mode: DRILL | Flaw: None. The problem statement, solution, and scaffolding are mathematically sound and pedagogically effective. | Suggestion: The problem is excellent as a standard optimization exercise. The 'Related Concepts' metadata field is empty, but the problem inherently integrates analytic geometry. Adding 'Analytic Geometry' or 'Properties of Parabolas' to the related concepts would more accurately describe the problem's nature and aid in curriculum mapping."
+  },
+  "problem_id": "41b24320"
+}

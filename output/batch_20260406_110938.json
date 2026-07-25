@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_110938",
+  "batch_name": "FullRun_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:09:38.359453",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A signal processing algorithm models the voltage of a circuit, $V(t)$ in millivolts, at time $t$ in microseconds. The model is given by the function: $$ V(t) = \\\\frac{t^2 - 9}{t - 3} $$ for $t \\\\neq 3$. The system requires a continuous signal to function properly. What value must be assigned to $V(3)$ to ensure that the function $V(t)$ is continuous at $t = 3$?",
+      "real_world_context": "In digital signal processing, it's crucial for signals to be continuous to avoid errors in data interpretation or system failure. Sometimes, a function describing a signal might be undefined at a single point due to a measurement glitch. This problem involves finding the correct value to 'patch' the signal, ensuring it's continuous and can be processed reliably.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For a function $f(x)$ to be continuous at a point $x=c$, the function's value at that point, $f(c)$, must be equal to the limit of the function as $x$ approaches $c$. How would you write this condition for the function $V(t)$ at $t=3$?"
+        },
+        {
+          "step": 2,
+          "hint": "Attempt to calculate the limit, $\\\\lim_{t \\to 3} V(t)$, by substituting $t=3$ directly into the expression. What indeterminate form do you get, and what does this tell you about the strategy you should use to find the limit?"
+        },
+        {
+          "step": 3,
+          "hint": "The numerator, $t^2 - 9$, is a difference of squares. How can you factor this expression to simplify the fraction $\\\\frac{t^2 - 9}{t - 3}$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The definition of continuity at a point $c$ is that $\\\\lim_{t \\to c} V(t) = V(c)$. To find the value that makes $V(t)$ continuous at $t=3$, we must calculate the limit of $V(t)$ as $t$ approaches 3. The expression $\\\\frac{t^2 - 9}{t - 3}$ can be simplified by factoring the numerator as a difference of squares, $(t-3)(t+3)$. This allows us to cancel the $(t-3)$ term, removing the division by zero and resolving the indeterminate form. The limit can then be found by simple substitution into the simplified expression.",
+        "visual_conceptual": "The function $V(t) = \\\\frac{t^2 - 9}{t - 3}$ is identical to the linear function $g(t) = t+3$ for all values of $t$ except $t=3$. At $t=3$, the graph of $V(t)$ has a 'hole' or a removable discontinuity. To make the function continuous, we need to 'plug' this hole. The y-coordinate of the hole is the value that the function 'approaches' from both sides. This value is found by evaluating the simplified function, $g(t) = t+3$, at $t=3$. This gives $g(3)=6$. Therefore, defining $V(3)=6$ fills the hole and makes the graph a single, unbroken straight line."
+      },
+      "solution": "To ensure $V(t)$ is continuous at $t=3$, the value of $V(3)$ must be equal to the limit of $V(t)$ as $t$ approaches 3. We must evaluate the limit: $$ V(3) = \\\\lim_{t \\to 3} V(t) = \\\\lim_{t \\to 3} \\\\frac{t^2 - 9}{t - 3} $$ Direct substitution of $t=3$ results in the indeterminate form $\\\\frac{0}{0}$. We can resolve this by factoring the numerator as a difference of squares, $a^2 - b^2 = (a-b)(a+b)$. $$ \\\\lim_{t \\to 3} \\\\frac{(t - 3)(t + 3)}{t - 3} $$ Since the limit considers values of $t$ approaching 3 but not equal to 3, we can cancel the $(t-3)$ term from the numerator and denominator. $$ \\\\lim_{t \\to 3} (t + 3) $$ Now, we can evaluate the limit by direct substitution: $$ 3 + 3 = 6 $$ Therefore, to make the function $V(t)$ continuous at $t=3$, we must define $V(3) = 6$.",
+      "concepts": [
+        "Definition of Continuity at a Point",
+        "Limits of Rational Functions",
+        "Removable Discontinuities",
+        "Factoring Polynomials"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T11:09:20.794449",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The assigned difficulty of 3 is slightly high for what is a canonical introductory problem on removable discontinuities. The problem's own target difficulty of 2 is more appropriate. This is a minor calibration issue, not a flaw in the problem's content or structure. | To deepen conceptual understanding, a follow-up question could be added. For example: 'Now, consider a different signal model, G(t) = 1/(t-3). Explain why G(t) cannot be made continuous at t=3 and what this type of discontinuity might represent in the context of the circuit's voltage.' This would require students to contrast removable and non-removable discontinuities."
+      }
+    }
+  ]
+}

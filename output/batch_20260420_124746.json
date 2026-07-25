@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260420_124746",
+  "batch_name": "drill_124746",
+  "mode": "drill",
+  "generated_at": "2026-04-20T12:47:46.688991",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the derivative of the function \\(f(x) = 3x^4 - \\\\frac{2}{x} + 5\\\\sqrt{x}\\\\) with respect to \\(x\\).",
+      "question_type": "mcq",
+      "solution": "To find the derivative of \\(f(x)\\), we first rewrite the function using power notation for each term: \\\\(f(x) = 3x^4 - 2x^{-1} + 5x^{1/2}\\\\).\\\\nNext, we apply the power rule, \\\\(\\frac{d}{dx}(ax^n) = anx^{n-1}\\\\), to each term individually.\\\\nFor the first term, \\(\\frac{d}{dx}(3x^4) = 3 \\\\cdot 4x^{4-1} = 12x^3\\\\).\\\\nFor the second term, \\(\\frac{d}{dx}(-2x^{-1}) = -2 \\\\cdot (-1)x^{-1-1} = 2x^{-2} = \\\\frac{2}{x^2}\\\\).\\\\nFor the third term, \\(\\frac{d}{dx}(5x^{1/2}) = 5 \\\\cdot \\\\frac{1}{2}x^{\\frac{1}{2}-1} = \\\\frac{5}{2}x^{-1/2} = \\\\frac{5}{2\\\\sqrt{x}}\\\\).\\\\nCombining these results gives the derivative: \\\\(f'(x) = 12x^3 + \\\\frac{2}{x^2} + \\\\frac{5}{2\\\\sqrt{x}}\\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Before differentiating, rewrite the function so that every term is in the form \\(ax^n\\). Remember that \\(\\frac{1}{x} = x^{-1}\\) and \\(\\sqrt{x} = x^{1/2}\\)."
+        },
+        {
+          "step": 2,
+          "hint": "Apply the power rule for differentiation, which states that \\(\\frac{d}{dx}(x^n) = nx^{n-1}\\), to each term of the rewritten function."
+        },
+        {
+          "step": 3,
+          "hint": "Pay close attention to the signs when differentiating the term \\(-2x^{-1}\\). The derivative of \\(x^{-1}\\) is \\(-1 \\cdot x^{-2}\\)."
+        }
+      ],
+      "options": {
+        "A": "\\(12x^3 + \\\\frac{2}{x^2} + \\\\frac{5}{2\\\\sqrt{x}}\\\\)",
+        "B": "\\(12x^3 - \\\\frac{2}{x^2} + \\\\frac{5}{2\\\\sqrt{x}}\\\\)",
+        "C": "\\(12x^3 + \\\\frac{2}{x^2} + \\\\frac{5}{\\\\sqrt{x}}\\\\)",
+        "D": "\\(12x^3 - 2\\\\ln|x| + \\\\frac{5}{2\\\\sqrt{x}}\\\\)"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-20T12:47:09.996880",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 92.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 40
+        },
+        "passed": true,
+        "issues": [
+          "Detected high similarity with Golden Dataset."
+        ],
+        "ai_feedback": "Flaw: None | Suggestion: The problem is an excellent and fundamental drill for the power rule. To enhance engagement, it could be framed in a simple applied context, such as finding the velocity function v(t) given a position function s(t), which would reinforce the physical interpretation of the derivative without adding significant complexity."
+      }
+    }
+  ]
+}

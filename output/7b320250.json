@@ -1,0 +1,42 @@
+{
+  "id": "7b320250",
+  "topic": "Applications of Derivatives",
+  "problem_statement": "Find the equation of the tangent line to the curve $ y = x^3 - 2x $ at the point $ (2, 4) $.",
+  "question_type": "calculation",
+  "difficulty": 1,
+  "solution": "The slope of the tangent line to a function $ f(x) $ at a point is given by its derivative $ f'(x) $ evaluated at the x-coordinate of that point. First, we find the derivative of the function $ y = f(x) = x^3 - 2x $: $$ f'(x) = \\frac{d}{dx}(x^3 - 2x) = 3x^2 - 2 $$ Next, we evaluate the derivative at the x-coordinate of the given point $ (2, 4) $, which is $ x=2 $, to find the slope $ m $: $$ m = f'(2) = 3(2)^2 - 2 = 3(4) - 2 = 12 - 2 = 10 $$ Now, we use the point-slope form of a line, $ y - y_1 = m(x - x_1) $, with the point $ (x_1, y_1) = (2, 4) $ and the slope $ m=10 $: $$ y - 4 = 10(x - 2) $$ Finally, we simplify the equation to the slope-intercept form: $$ y - 4 = 10x - 20 $$ $$ y = 10x - 16 $$ Therefore, the equation of the tangent line is $ y = 10x - 16 $.",
+  "scaffolding": [
+    {
+      "step": 1,
+      "hint": "The first step is to find a general expression for the slope of the tangent line at any point on the curve. What calculus operation gives you this?"
+    },
+    {
+      "step": 2,
+      "hint": "After finding the derivative, you have a formula for the slope at any $x$. Use the given point $(2, 4)$ to find the specific numerical slope, and then use the point-slope formula to write the equation of the line."
+    }
+  ],
+  "integration_analysis": "",
+  "generated_at": "2026-04-25T14:53:59.596750",
+  "mode": "drill",
+  "target_difficulty": 1,
+  "core_topic": "Applications of Derivatives",
+  "integrated_topics": [
+    "Applications of Derivatives"
+  ],
+  "evaluation": {
+    "score": 82.5,
+    "dimensions": {
+      "structure": 75,
+      "math_logic": 100.0,
+      "pedagogical_alignment": 100.0,
+      "scaffolding": 100.0,
+      "concept_integration": 0.0,
+      "originality": 100.0
+    },
+    "issues": [
+      "Missing mandatory fields: ['integration_analysis']"
+    ],
+    "passed": true,
+    "ai_feedback": "Status: Passed | Score: 82.5/60.0 | Mode: DRILL | Flaw: None | Suggestion: None. The problem is an excellent, fundamental drill for the topic. The scaffolding is well-structured, guiding the student from the core calculus concept to the final algebraic steps."
+  }
+}

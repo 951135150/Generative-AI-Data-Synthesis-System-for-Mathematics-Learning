@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260406_172849",
+  "batch_name": "FullRun_Step_4",
+  "mode": "drill",
+  "generated_at": "2026-04-06T17:28:49.729781",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The temperature $T$ (in degrees Celsius) of a specialized electronic component $t$ hours after a system is powered on is modeled by the function: $$ T(t) = 20e^{-0.1t} \\cos(\\pi t) + 75 $$ Find the instantaneous rate of change of the temperature at exactly $t=1$ hour. Give the exact answer.",
+      "real_world_context": "In thermal engineering, understanding the rate at which a component's temperature changes is crucial for designing effective cooling systems and preventing overheating. This model represents a component that experiences damped thermal oscillations around a steady-state ambient temperature. The derivative, $T'(t)$, represents the instantaneous rate of heating or cooling.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The function has a term that is a product of two functions of $t$, $20e^{-0.1t}$ and $\\cos(\\pi t)$. Which differentiation rule should you apply to handle a product?"
+        },
+        {
+          "step": 2,
+          "hint": "To differentiate terms like $e^{-0.1t}$ and $\\cos(\\pi t)$, you need to differentiate the 'outer' function and then multiply by the derivative of the 'inner' function. What is this rule called?"
+        },
+        {
+          "step": 3,
+          "hint": "After finding the general derivative function $T'(t)$, substitute $t=1$. What are the exact values of $\\cos(\\pi)$ and $\\sin(\\pi)$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The algebraic solution involves applying the rules of differentiation to the given function $T(t)$. The core of the problem is recognizing that the term $20e^{-0.1t} \\cos(\\pi t)$ requires the Product Rule, where $u(t) = 20e^{-0.1t}$ and $v(t) = \\cos(\\pi t)$. Furthermore, finding the derivatives $u'(t)$ and $v'(t)$ each requires an application of the Chain Rule. The derivative of the constant term $+75$ is simply zero. After combining these results to find the expression for $T'(t)$, we perform a direct substitution of $t=1$ and use known trigonometric values to find the final numerical answer.",
+        "visual_conceptual": "Conceptually, the function $T(t)$ represents the temperature's value over time. The derivative, $T'(t)$, represents the slope of the tangent line to the graph of $T(t)$ at any time $t$. We are asked to find the slope at the specific point where $t=1$. A positive slope (a positive value for $T'(1)$) means the temperature is increasing at that exact moment. A negative slope would mean it is decreasing. Our final positive answer, $2e^{-0.1}$, indicates that at the one-hour mark, the component is momentarily getting hotter, even though the $e^{-0.1t}$ factor ensures that the temperature oscillations will decay over the long term."
+      },
+      "solution": "We need to find the derivative of $T(t) = 20e^{-0.1t} \\cos(\\pi t) + 75$ and evaluate it at $t=1$. The rate of change is $T'(t)$.\n\n1.  **Differentiate the function:**\nThe derivative of the constant term, 75, is 0. We focus on the term $20e^{-0.1t} \\cos(\\pi t)$. We must use the Product Rule, where $(f \\cdot g)' = f'g + fg'$.\nLet $f(t) = 20e^{-0.1t}$ and $g(t) = \\cos(\\pi t)$.\n\n2.  **Find the derivatives of the parts using the Chain Rule:**\n    -   For $f(t) = 20e^{-0.1t}$, the derivative is:\n        $$ f'(t) = 20 \\cdot e^{-0.1t} \\cdot \\frac{d}{dt}(-0.1t) = 20e^{-0.1t} \\cdot (-0.1) = -2e^{-0.1t} $$\n    -   For $g(t) = \\cos(\\pi t)$, the derivative is:\n        $$ g'(t) = -\\sin(\\pi t) \\cdot \\frac{d}{dt}(\\pi t) = -\\sin(\\pi t) \\cdot (\\pi) = -\\pi\\sin(\\pi t) $$\n\n3.  **Apply the Product Rule:**\n    $$ T'(t) = f'(t)g(t) + f(t)g'(t) $$\n    $$ T'(t) = (-2e^{-0.1t}) \\cdot (\\cos(\\pi t)) + (20e^{-0.1t}) \\cdot (-\\pi\\sin(\\pi t)) $$\n    $$ T'(t) = -2e^{-0.1t}\\cos(\\pi t) - 20\\pi e^{-0.1t}\\sin(\\pi t) $$\n\n4.  **Evaluate at $t=1$:**\n    Substitute $t=1$ into the expression for $T'(t)$.\n    $$ T'(1) = -2e^{-0.1(1)}\\cos(\\pi(1)) - 20\\pi e^{-0.1(1)}\\sin(\\pi(1)) $$\n    We use the known values $\\cos(\\pi) = -1$ and $\\sin(\\pi) = 0$.\n    $$ T'(1) = -2e^{-0.1}(-1) - 20\\pi e^{-0.1}(0) $$\n    $$ T'(1) = 2e^{-0.1} - 0 $$\n    $$ T'(1) = 2e^{-0.1} $$\n\n5.  **Final Answer:**\nThe instantaneous rate of change of the temperature at $t=1$ hour is exactly $2e^{-0.1}$ degrees Celsius per hour.",
+      "concepts": [
+        "Product Rule",
+        "Chain Rule",
+        "Derivatives of Exponential Functions",
+        "Derivatives of Trigonometric Functions",
+        "Instantaneous Rate of Change"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T17:28:17.143676",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is exceptionally well-constructed, mathematically sound, and pedagogically effective. | To further strengthen the connection between the mathematics and the context, a follow-up question could be added, such as: 'Based on the sign of your answer, is the component heating up or cooling down at t=1 hour? Explain your reasoning.' This would explicitly test the student's ability to interpret the meaning of the derivative in the given context."
+      }
+    }
+  ]
+}

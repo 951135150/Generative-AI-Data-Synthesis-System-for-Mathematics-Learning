@@ -1,0 +1,71 @@
+{
+  "batch_id": "batch_20260406_120002",
+  "batch_name": "FullRun_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-06T12:00:02.510182",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let $f(x)$ be a function defined as: $$ f(x) = \\begin{cases} ax^2 + 1 & \\text{if } x < -1 \\\\ x + b & \\text{if } -1 \\le x < 2 \\\\ 3x - a & \\text{if } x \\ge 2 \\end{cases} $$ Find the values of the constants $a$ and $b$ such that the function $f(x)$ is continuous for all real numbers $x$.",
+      "real_world_context": "In signal processing, it's often necessary to splice together different mathematical models to describe a signal over time. For the signal to be physically realistic and avoid errors in transmission, it must be continuous. This problem models such a scenario, where you need to find the correct parameters to ensure a smooth, uninterrupted signal across different time intervals.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For a function to be continuous at a point, the limit from the left must equal the limit from the right, and both must equal the function's value at that point. At which x-values do the pieces of the function change?"
+        },
+        {
+          "step": 2,
+          "hint": "Consider the point $x = -1$. Set the limit of the first piece as $x \\to -1^-$ equal to the limit of the second piece as $x \\to -1^+$. This will give you one equation involving $a$ and $b$."
+        },
+        {
+          "step": 3,
+          "hint": "Now, consider the point $x = 2$. Set the limit of the second piece as $x \\to 2^-$ equal to the limit of the third piece as $x \\to 2^+$. This will give you a second equation involving $a$ and $b$."
+        },
+        {
+          "step": 4,
+          "hint": "You now have a system of two linear equations with two variables, $a$ and $b$. Solve this system to find the required values."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Continuity requires that the limits from the left and right are equal at the 'break' points. At $x=-1$, we must have $\\\\lim_{x \\to -1^-} f(x) = \\\\lim_{x \\to -1^+} f(x)$. This gives $a(-1)^2 + 1 = (-1) + b$, which simplifies to $a+1 = -1+b$, or $a-b = -2$. At $x=2$, we must have $\\\\lim_{x \\to 2^-} f(x) = \\\\lim_{x \\to 2^+} f(x)$. This gives $2+b = 3(2)-a$, which simplifies to $2+b = 6-a$, or $a+b=4$. Solving the system of equations $a-b=-2$ and $a+b=4$ yields the unique solution.",
+        "visual_conceptual": "Imagine the graph of $f(x)$ being drawn in three parts: a parabola for $x < -1$, a straight line for $-1 \\le x < 2$, and another straight line for $x \\ge 2$. For the function to be continuous, there can be no 'jumps' or 'holes' in the graph. The constants $a$ and $b$ act as tuning knobs. We need to tune $a$ (which affects the shape of the parabola and the slope of the final line) and $b$ (which affects the vertical position of the middle line segment) so that the end of the first piece perfectly meets the start of the second, and the end of the second piece perfectly meets the start of the third."
+      },
+      "solution": "For $f(x)$ to be continuous everywhere, it must be continuous at the points where the definition changes, i.e., at $x = -1$ and $x = 2$.\\\\ \n\n1. **Continuity at $x = -1$**:\\\nWe require $\\\\lim_{x \\to -1^-} f(x) = \\\\lim_{x \\to -1^+} f(x) = f(-1)$.\\\nLeft-hand limit: $\\\\lim_{x \\to -1^-} (ax^2 + 1) = a(-1)^2 + 1 = a + 1$.\\\nRight-hand limit (and function value): $\\\\lim_{x \\to -1^+} (x + b) = -1 + b$.\\\nEquating the limits: $a + 1 = -1 + b \\\\implies a - b = -2$. (Equation 1)\\\\ \n\n2. **Continuity at $x = 2$**:\\\nWe require $\\\\lim_{x \\to 2^-} f(x) = \\\\lim_{x \\to 2^+} f(x) = f(2)$.\\\nLeft-hand limit: $\\\\lim_{x \\to 2^-} (x + b) = 2 + b$.\\\nRight-hand limit (and function value): $\\\\lim_{x \\to 2^+} (3x - a) = 3(2) - a = 6 - a$.\\\nEquating the limits: $2 + b = 6 - a \\\\implies a + b = 4$. (Equation 2)\\\\ \n\n3. **Solve the system of equations**:\\\nWe have the system:\\\n(1) $a - b = -2$\\\n(2) $a + b = 4$\\\\ \nAdding Equation (1) and Equation (2):\\\n$(a - b) + (a + b) = -2 + 4$\\\n$2a = 2$\\\n$a = 1$\\\\ \nSubstitute $a = 1$ into Equation (2):\\\n$1 + b = 4$\\\n$b = 3$\\\\ \n\nTherefore, the values that make the function continuous are $a = 1$ and $b = 3$.",
+      "concepts": [
+        "Limits of Piecewise Functions",
+        "Definition of Continuity at a Point",
+        "Solving Systems of Linear Equations"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-06T11:59:48.416158",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically sound, well-scaffolded, and pedagogically effective. The solution is derived correctly, and the supporting materials are clear. | To further enhance student understanding, a final step could be added to the scaffolding or solution, prompting the student to graph the resulting function (with the found values of a=1 and b=3) using a graphing tool to visually verify its continuity. This would reinforce the connection between the algebraic solution and the geometric interpretation."
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "batch_id": "batch_20260329_172011",
+  "batch_name": "generation_10",
+  "generated_at": "2026-03-29T17:20:11.192777",
+  "topics": [
+    "Separable ODEs"
+  ],
+  "num_per_topic": 1,
+  "total_generated": 0,
+  "problems": []
+}

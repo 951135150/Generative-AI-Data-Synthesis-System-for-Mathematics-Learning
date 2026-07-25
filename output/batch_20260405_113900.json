@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260405_113900",
+  "batch_name": "Demo_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:39:00.047128",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position of a toy car moving along a straight track is given by the function $s(t) = 3t^2 - 4t + 5$, where $s$ is the position in meters and $t$ is the time in seconds. What is the instantaneous velocity of the toy car at $t = 2$ seconds?",
+      "real_world_context": "In physics and engineering, the derivative is fundamental for describing motion. The derivative of a position function with respect to time gives the instantaneous velocity, which is crucial for analyzing the movement of objects, from cars and airplanes to subatomic particles.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "What is the mathematical relationship between the position function, $s(t)$, and the instantaneous velocity function, $v(t)$?"
+        },
+        {
+          "step": 2,
+          "hint": "Apply the appropriate differentiation rules (like the Power Rule and Sum/Difference Rule) to find the derivative of $s(t) = 3t^2 - 4t + 5$."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the general velocity function $v(t)$, what is the final step to find the velocity at the specific time $t = 2$?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The instantaneous velocity $v(t)$ is the derivative of the position function $s(t)$ with respect to time $t$. We use the Power Rule, which states that $\\\frac{d}{dt}(t^n) = nt^{n-1}$, and the Sum/Difference Rule. Applying these rules term by term to $s(t) = 3t^2 - 4t + 5$ gives the velocity function $v(t) = s'(t) = 6t - 4$. To find the velocity at a specific time, we substitute the value of $t$ into this new function.",
+        "visual_conceptual": "Imagine a graph where the vertical axis is the car's position ($s$) and the horizontal axis is time ($t$). The function $s(t) = 3t^2 - 4t + 5$ plots a parabola. The instantaneous velocity at any time $t$ is the slope of the tangent line to this parabola at that specific point. We are looking for the slope of the tangent line at the point where $t=2$. A positive slope means the car is moving in the positive direction, while a negative slope would mean it's moving in the negative direction."
+      },
+      "solution": "The position function is given by $s(t) = 3t^2 - 4t + 5$. \\\\ \\\\ Step 1: Find the instantaneous velocity function, $v(t)$, by taking the derivative of the position function, $s(t)$. $$ v(t) = s'(t) = \\\\frac{d}{dt}(3t^2 - 4t + 5) $$ \\\\ \\\\ Step 2: Apply the Power Rule and Sum/Difference Rule to differentiate each term. $$ v(t) = \\\\frac{d}{dt}(3t^2) - \\\\frac{d}{dt}(4t) + \\\\frac{d}{dt}(5) $$ $$ v(t) = 3(2t^{2-1}) - 4(1t^{1-1}) + 0 $$ $$ v(t) = 6t - 4 $$ \\\\ \\\\ Step 3: Evaluate the velocity function at $t = 2$ seconds to find the instantaneous velocity at that moment. $$ v(2) = 6(2) - 4 $$ $$ v(2) = 12 - 4 = 8 $$ The instantaneous velocity of the toy car at $t = 2$ seconds is 8 m/s.",
+      "concepts": [
+        "Power Rule for Differentiation",
+        "Sum/Difference Rule for Differentiation",
+        "Instantaneous Rate of Change",
+        "Position and Velocity"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-05T11:38:09.588716",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is a well-constructed, classic example of an introductory derivative application. | To increase complexity and deepen understanding, a follow-up question could be added. For example: 'Part B: At what time is the toy car momentarily at rest?' or 'Part C: What is the acceleration of the car at any time t?'. This would require students to solve for v(t)=0 or take a second derivative, respectively."
+      }
+    }
+  ]
+}

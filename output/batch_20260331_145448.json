@@ -1,0 +1,336 @@
+{
+  "batch_id": "batch_20260331_145448",
+  "batch_name": "Sampling_Optimization_Test",
+  "mode": "exam",
+  "generated_at": "2026-03-31T14:54:48.272667",
+  "target_topics": [
+    "Intermediate Value Theorem",
+    "Related Rates",
+    "Fundamental Theorem of Calculus",
+    "Partial Derivatives",
+    "L'Hôpital's Rule",
+    "Chain Rule",
+    "Optimization",
+    "Integration by Parts",
+    "Riemann Sums",
+    "Volume of Revolution",
+    "Lagrange Multipliers",
+    "Polar Coordinates",
+    "Green's Theorem",
+    "Taylor Series",
+    "Separable ODEs"
+  ],
+  "difficulty_setting": 4,
+  "total_generated": 4,
+  "problems": [
+    {
+      "problem_statement": "An advanced plasma thruster component is being designed. Its properties are analyzed in several stages. \\\\\\\\[10pt] \\\\textbf{Part A: Thermal Analysis on a Path} \\\\ The temperature distribution on a planar section of the component is modeled by the function $T(x, y) = x^2 - y + 1$. A probe travels along the path $\\\\mathbf{r}(t) = (t, 2t^2)$ for time $t \\\\ge 0$. \\\\ \\\\ (i) Show that there must be a time $t_0 \\\\in (0, 2)$ at which the probe registers a temperature of $T=0$. \\\\ (ii) Find the instantaneous rate of change of temperature experienced by the probe at $t=3$. Let this value be $K$. \\\\\\\\[10pt] \\\\textbf{Part B: Boundary Temperature Optimization} \\\\ To prevent material failure, the maximum and minimum temperatures must be found on the circular boundary of the component, defined by the equation $x^2 + y^2 = |K| + 3$. Using your value of $K$ from Part A, find the maximum temperature, $T_{max}$, on this boundary using the method of Lagrange Multipliers. \\\\\\\\[10pt] \\\\textbf{Part C: Containment Field Circulation} \\\\ A magnetic containment field, represented by the vector field $\\\\mathbf{F}(x,y) = \\\\langle -y, T_{max} \\\\cdot x \\\\rangle$, acts on the plasma within the boundary from Part B. Using your value of $T_{max}$ from Part B, calculate the circulation of $\\\\mathbf{F}$ around this circular boundary, $W = \\\\oint_C \\\\mathbf{F} \\\\cdot d\\\\mathbf{r}$. Use Green's Theorem. The boundary should be oriented counter-clockwise. \\\\\\\\[10pt] \\\\textbf{Part D: Component Volume Calculation} \\\\ The final thruster nozzle is a solid of revolution. It is formed by rotating the curve $h(x) = \\\\sqrt{x}$ about the x-axis over the interval $[0, L]$, where the length $L$ is determined by the circulation value from Part C according to the relation $L = \\\\frac{W}{45\\\\pi}$. Using your value of $W$, calculate the total volume $V$ of the nozzle.",
+      "real_world_context": "This problem simulates a multi-stage design and analysis process for a critical component in an aerospace application, such as a plasma thruster for satellite propulsion. It integrates thermal analysis (Parts A and B), electromagnetic field effects (Part C), and final component manufacturing geometry (Part D). Each stage's result directly informs the parameters of the next, mirroring how real-world engineering problems are solved in a dependent, sequential manner.",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For Part A(i), define a composite function for temperature along the path, $f(t) = T(x(t), y(t))$. To show a root exists on an interval, what theorem connects the function's values at the endpoints?"
+        },
+        {
+          "step": 2,
+          "hint": "For Part A(ii), the rate of change of temperature along the path is $df/dt$. Recall the multivariable chain rule: $df/dt = (\\\\partial T / \\\\partial x)(dx/dt) + (\\\\partial T / \\\\partial y)(dy/dt)$."
+        },
+        {
+          "step": 3,
+          "hint": "For Part B, you need to optimize $T(x,y)$ subject to a constraint $g(x,y)=0$. Set up the Lagrange Multiplier system $\\\\nabla T = \\\\lambda \\\\nabla g$ and solve for $(x,y)$. Don't forget to consider all cases that arise from the system of equations."
+        },
+        {
+          "step": 4,
+          "hint": "For Part C, Green's Theorem states $\\\\oint_C P dx + Q dy = \\\\iint_D (\\\\partial Q/\\\\partial x - \\\\partial P/\\\\partial y) dA$. Identify $P$, $Q$, and the region of integration $D$ enclosed by the circular path."
+        },
+        {
+          "step": 5,
+          "hint": "For Part D, the volume of a solid formed by rotating a function $y=h(x)$ around the x-axis from $a$ to $b$ is found using the disk method formula: $V = \\\\pi \\\\int_a^b [h(x)]^2 dx$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution is a sequential calculation. Part A uses the Intermediate Value Theorem on a composite function $f(t)=T(\\\\mathbf{r}(t))$ and then finds its derivative using the chain rule to get a constant $K$. Part B uses $K$ to define a circular constraint and applies the Lagrange Multiplier method to find the maximum of $T(x,y)$ on this circle, yielding $T_{max}$. Part C uses $T_{max}$ in a vector field $\\\\mathbf{F}$ and applies Green's Theorem to compute circulation $W$ by converting the line integral into a double integral over the disk. Part D uses $W$ to define an integration limit $L$ for a volume of revolution integral, which is solved using the disk method to find the final volume $V$.",
+        "visual_conceptual": "Conceptually, the problem follows a design narrative. First (A), we confirm a thermal 'null point' ($T=0$) exists along a test path on a surface and measure the thermal gradient. This measurement informs the safety boundary (B), a circle on which we find the hottest point. The intensity of this 'hot spot' determines the strength of a containment field (C), and we calculate the total rotational effect (circulation) of this field. Finally, the total circulation value dictates the physical length of the nozzle (D), whose volume we calculate by conceptually slicing it into an infinite number of thin disks and summing their volumes."
+      },
+      "solution": "\\\\textbf{Part A: Thermal Analysis on a Path} \\\\ \\\\ (i) Define the temperature as a function of time, $f(t) = T(x(t), y(t))$. With $x(t)=t$ and $y(t)=2t^2$, we have $f(t) = t^2 - (2t^2) + 1 = 1 - t^2$. The function $f(t)$ is continuous. We evaluate it at the endpoints of the interval $[0, 2]$: \\\\ $f(0) = 1 - 0^2 = 1$. \\\\ $f(2) = 1 - 2^2 = -3$. \\\\ Since $f(0) > 0$ and $f(2) < 0$, by the Intermediate Value Theorem, there must exist a $t_0 \\\\in (0, 2)$ such that $f(t_0) = 0$. \\\\ \\\\ (ii) We use the multivariable chain rule to find $K = \\\\frac{df}{dt} = \\\\frac{\\\\partial T}{\\\\partial x}\\\\frac{dx}{dt} + \\\\frac{\\\\partial T}{\\\\partial y}\\\\frac{dy}{dt}$. \\\\ We have $\\\\frac{\\\\partial T}{\\\\partial x} = 2x$ and $\\\\frac{\\\\partial T}{\\\\partial y} = -1$. \\\\ From $\\\\mathbf{r}(t) = (t, 2t^2)$, we have $\\\\frac{dx}{dt} = 1$ and $\\\\frac{dy}{dt} = 4t$. \\\\ At $t=3$, the position is $(x,y) = (3, 2(3^2)) = (3, 18)$, and $\\\\frac{dy}{dt} = 4(3) = 12$. \\\\ Substituting these values: \\\\ $K = \\\\frac{df}{dt}\\\\bigg|_{t=3} = (2x)\\\\bigg|_{(3,18)} (1) + (-1)(12) = (2(3))(1) - 12 = 6 - 12 = -6$. \\\\ So, $K = -6$. \\\\\\\\[10pt] \\\\textbf{Part B: Boundary Temperature Optimization} \\\\ We need to optimize $T(x,y) = x^2 - y + 1$ subject to the constraint $g(x,y) = x^2 + y^2 - (|K|+3) = 0$. \\\\ Since $K=-6$, $|K|=6$. The constraint is $x^2 + y^2 = 9$. \\\\ We set up the Lagrange system $\\\\nabla T = \\\\lambda \\\\nabla g$: \\\\ $\\\\langle 2x, -1 \\\\rangle = \\\\lambda \\\\langle 2x, 2y \\\\rangle$. \\\\ This gives the system of equations: \\\\ 1) $2x = \\\\lambda (2x) \\\\implies 2x(1-\\\\lambda) = 0$ \\\\ 2) $-1 = \\\\lambda (2y)$ \\\\ 3) $x^2 + y^2 = 9$ \\\\ From (1), we have two cases: $x=0$ or $\\\\lambda=1$. \\\\ Case 1: $x=0$. From (3), $y^2 = 9 \\\\implies y = \\\\pm 3$. This gives points $(0,3)$ and $(0,-3)$. \\\\ $T(0,3) = 0^2 - 3 + 1 = -2$. \\\\ $T(0,-3) = 0^2 - (-3) + 1 = 4$. \\\\ Case 2: $\\\\lambda=1$. From (2), $-1 = 1(2y) \\\\implies y = -1/2$. \\\\ From (3), $x^2 + (-1/2)^2 = 9 \\\\implies x^2 + 1/4 = 9 \\\\implies x^2 = 35/4 \\\\implies x = \\\\pm \\\\frac{\\\\sqrt{35}}{2}$. \\\\ This gives points $(\\\\pm \\\\frac{\\\\sqrt{35}}{2}, -1/2)$. \\\\ $T(\\\\pm \\\\frac{\\\\sqrt{35}}{2}, -1/2) = (\\\\frac{\\\\sqrt{35}}{2})^2 - (-1/2) + 1 = \\\\frac{35}{4} + \\\\frac{1}{2} + 1 = \\\\frac{35}{4} + \\\\frac{2}{4} + \\\\frac{4}{4} = \\\\frac{41}{4}$. \\\\ Comparing all values, the maximum temperature is $T_{max} = \\\\frac{41}{4}$. \\\\\\\\[10pt] \\\\textbf{Part C: Containment Field Circulation} \\\\ We calculate $W = \\\\oint_C \\\\mathbf{F} \\\\cdot d\\\\mathbf{r}$ for $\\\\mathbf{F} = \\\\langle -y, \\\\frac{41}{4}x \\\\rangle$ on the circle $C: x^2+y^2=9$. \\\\ Using Green's Theorem: $W = \\\\iint_D (\\\\frac{\\\\partial Q}{\\\\partial x} - \\\\frac{\\\\partial P}{\\\\partial y}) dA$, where $D$ is the disk $x^2+y^2 \\\\le 9$. \\\\ Here, $P(x,y) = -y$ and $Q(x,y) = \\\\frac{41}{4}x$. \\\\ $\\\\frac{\\\\partial Q}{\\\\partial x} = \\\\frac{41}{4}$ and $\\\\frac{\\\\partial P}{\\\\partial y} = -1$. \\\\ The integrand is $\\\\frac{41}{4} - (-1) = \\\\frac{45}{4}$. \\\\ $W = \\\\iint_D \\\\frac{45}{4} dA = \\\\frac{45}{4} \\\\cdot (\\\\text{Area of D})$. \\\\ The area of the disk with radius 3 is $\\\\pi r^2 = \\\\pi(3^2) = 9\\\\pi$. \\\\ $W = \\\\frac{45}{4} \\\\cdot 9\\\\pi = \\\\frac{405\\\\pi}{4}$. \\\\\\\\[10pt] \\\\textbf{Part D: Component Volume Calculation} \\\\ We are given the length of the integration interval $L = \\\\frac{W}{45\\\\pi}$. \\\\ $L = \\\\frac{405\\\\pi/4}{45\\\\pi} = \\\\frac{405}{4 \\\\cdot 45} = \\\\frac{9}{4}$. \\\\ We need to find the volume of revolution of $h(x) = \\\\sqrt{x}$ about the x-axis from $x=0$ to $x=9/4$. \\\\ Using the disk method: \\\\ $V = \\\\pi \\\\int_{0}^{9/4} [h(x)]^2 dx = \\\\pi \\\\int_{0}^{9/4} (\\\\sqrt{x})^2 dx = \\\\pi \\\\int_{0}^{9/4} x dx$. \\\\ $V = \\\\pi \\\\left[ \\\\frac{x^2}{2} \\\\right]_{0}^{9/4} = \\\\pi \\\\left( \\\\frac{(9/4)^2}{2} - 0 \\\\right) = \\\\pi \\\\left( \\\\frac{81/16}{2} \\\\right) = \\\\frac{81\\\\pi}{32}$. \\\\ The final volume is $V = \\\\frac{81\\\\pi}{32}$.",
+      "concepts": [
+        "Intermediate Value Theorem",
+        "Partial Derivatives",
+        "Multivariable Chain Rule",
+        "Lagrange Multipliers",
+        "Green's Theorem",
+        "Volume of Revolution"
+      ],
+      "topic": "Multi-topic Integration",
+      "generated_at": "2026-03-31T14:40:43.158852",
+      "model": "gemini-2.5-pro",
+      "mode": "exam",
+      "target_difficulty": 4,
+      "integrated_topics": [
+        "Intermediate Value Theorem",
+        "Partial Derivatives",
+        "Green's Theorem",
+        "Chain Rule",
+        "Lagrange Multipliers",
+        "Volume of Revolution"
+      ],
+      "source_topics_pool": [
+        "Intermediate Value Theorem",
+        "Related Rates",
+        "Fundamental Theorem of Calculus",
+        "Partial Derivatives",
+        "L'Hôpital's Rule",
+        "Chain Rule",
+        "Optimization",
+        "Integration by Parts",
+        "Riemann Sums",
+        "Volume of Revolution",
+        "Lagrange Multipliers",
+        "Polar Coordinates",
+        "Green's Theorem",
+        "Taylor Series",
+        "Separable ODEs"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The constants used to link the problem parts (e.g., defining the boundary radius from K, and the length L from W) are clearly reverse-engineered for mathematical convenience. For instance, the relation L = W / (45π) is contrived to simplify the circulation value W into a clean integration limit, which slightly undermines the authenticity of the 'real-world' context. | To improve the problem's realism, provide a brief, plausible physical justification for the constants that connect the parts. For example, when defining the length L, state something like: 'The nozzle length L is determined by the material's plasma containment efficiency formula, L = W / (C_m * π), where the material constant C_m for this alloy is 45.' This small addition would make the narrative feel more integrated and less like a simple mathematical contrivance."
+      }
+    },
+    {
+      "problem_statement": "A team of aerospace engineers is designing a new turbine blade. The manufacturing process involves several temperature-dependent stages. \\\\newline\\\\newline **Part A: Thermal Expansion Rate** \\\\newline The radius $r$ (in cm) of a critical component is a function of its temperature $T$ (in degrees Celsius), given by $r(T) = \\\\sqrt{16 + T^2}$. The temperature of the component at time $t$ (in seconds) is modeled by $T(t) = 3t$. Let $K$ be the instantaneous rate of change of the radius with respect to time, $\\\\frac{dr}{dt}$, at $t=1$ second. Calculate the exact value of $K$. \\\\newline\\\\newline **Part B: Cross-Sectional Area Approximation** \\\\newline The profile of the turbine blade's airfoil is described by the curve $y = f(x) = Kx^2$ for $x \\\\in [0, 5]$, where $K$ is the constant you found in Part A. Approximate the cross-sectional area under this curve from $x=0$ to $x=5$ by computing a right Riemann sum with $n=5$ equal subintervals. \\\\newline\\\\newline **Part C: Blade Volume Calculation** \\\\newline The final solid blade is generated by revolving the region bounded by the curve $y = f(x) = Kx^2$, the x-axis, and the line $x=5$ around the x-axis. Calculate the exact volume of the turbine blade.",
+      "real_world_context": "This problem models a simplified workflow in aerospace engineering. Part A simulates calculating thermal expansion rates, a critical factor in high-performance engines where components change size with temperature. Part B and C model the design phase, where the geometric properties (cross-sectional area and volume) of a component, like a turbine blade, are calculated from its mathematical profile. The integration of these parts shows how an initial physical parameter ($K$) can directly influence the final design geometry and volume of a manufactured object.",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For Part A, you are asked to find $\\\\frac{dr}{dt}$. Since $r$ is a function of $T$, and $T$ is a function of $t$, which differentiation rule connects these rates of change?"
+        },
+        {
+          "step": 2,
+          "hint": "For Part B, a right Riemann sum uses the right endpoint of each subinterval to determine the height of the rectangle. First, calculate the width of each subinterval, $\\\\Delta x$. Then, identify the five x-values you will use to evaluate the function's height."
+        },
+        {
+          "step": 3,
+          "hint": "For Part C, you are revolving a region around the x-axis to create a solid. Should you use the disk method or the washer method? Recall the formula for the volume of a representative disk with radius $R$ and thickness $dx$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is solved sequentially. In Part A, the Chain Rule, $\\\\frac{dr}{dt} = \\\\frac{dr}{dT} \\\\cdot \\\\frac{dT}{dt}$, is used to find a numerical value $K$. This constant $K$ is then substituted into the function $y = Kx^2$ for Part B. A right Riemann sum, $A \\\\approx \\\\sum_{i=1}^{n} f(x_i) \\\\Delta x$, is calculated by summing the areas of five rectangles. Finally, in Part C, the volume of revolution is found by integrating the cross-sectional area of infinitesimally thin disks along the x-axis, using the formula $V = \\\\pi \\\\int_{a}^{b} [f(x)]^2 dx$.",
+        "visual_conceptual": "Imagine the process in stages. First (Part A), we are measuring how fast a metal component is expanding at a specific moment in time due to heating. This gives us a specific rate, $K$. Second (Part B), we use this rate $K$ as a scaling factor to define the shape of a new part, $y=Kx^2$. We then lay a grid of 5 rectangles over this shape and add up their areas to get a rough estimate of its 2D cross-section. Third (Part C), we take that exact curve, spin it around the x-axis to create a 3D solid (like a trumpet bell or a nose cone), and then calculate its exact volume by mathematically summing an infinite number of wafer-thin cylindrical disks that make up the solid."
+      },
+      "solution": "**Part A: Find the rate of change K**\\\\newline We are given $r(T) = \\\\sqrt{16 + T^2}$ and $T(t) = 3t$. We need to find $\\\\frac{dr}{dt}$ at $t=1$.\\\\newline Using the Chain Rule: $\\\\frac{dr}{dt} = \\\\frac{dr}{dT} \\\\cdot \\\\frac{dT}{dt}$.\\\\newline First, find the derivatives: \\\\newline $$\\frac{dr}{dT} = \\\\frac{1}{2\\\\sqrt{16+T^2}} \\\\cdot (2T) = \\\\frac{T}{\\\\sqrt{16+T^2}}$$\\\\newline $$\\frac{dT}{dt} = 3$$\\\\newline Now, evaluate at $t=1$. At $t=1$, the temperature is $T(1) = 3(1) = 3^{\\\\circ}$C.\\\\newline Substitute $T=3$ into $\\\\frac{dr}{dT}$: \\\\newline $$\\frac{dr}{dT}\\\\bigg|_{T=3} = \\\\frac{3}{\\\\sqrt{16+3^2}} = \\\\frac{3}{\\\\sqrt{16+9}} = \\\\frac{3}{\\\\sqrt{25}} = \\\\frac{3}{5}$$\\\\newline Now, calculate $\\\\frac{dr}{dt}$ at $t=1$: \\\\newline $$K = \\\\frac{dr}{dt}\\\\bigg|_{t=1} = \\\\frac{dr}{dT}\\\\bigg|_{T=3} \\\\cdot \\\\frac{dT}{dt}\\\\bigg|_{t=1} = \\\\frac{3}{5} \\\\cdot 3 = \\\\frac{9}{5}$$\\\\newline So, $K = \\\\frac{9}{5}$.\\\\newline\\\\newline **Part B: Approximate the area using a right Riemann sum**\\\\newline The function is $f(x) = Kx^2 = \\\\frac{9}{5}x^2$. The interval is $[0, 5]$ and $n=5$.\\\\newline The width of each subinterval is $\\\\Delta x = \\\\frac{5-0}{5} = 1$.\\\\newline The right endpoints are $x_1=1, x_2=2, x_3=3, x_4=4, x_5=5$.\\\\newline The Riemann sum is $R_5 = \\\\sum_{i=1}^{5} f(x_i) \\\\Delta x = [f(1) + f(2) + f(3) + f(4) + f(5)] \\\\cdot 1$.\\\\newline $$f(1) = \\\\frac{9}{5}(1)^2 = \\\\frac{9}{5}$$\\\\newline $$f(2) = \\\\frac{9}{5}(2)^2 = \\\\frac{36}{5}$$\\\\newline $$f(3) = \\\\frac{9}{5}(3)^2 = \\\\frac{81}{5}$$\\\\newline $$f(4) = \\\\frac{9}{5}(4)^2 = \\\\frac{144}{5}$$\\\\newline $$f(5) = \\\\frac{9}{5}(5)^2 = \\\\frac{9}{5}(25) = 45 = \\\\frac{225}{5}$$\\\\newline $$R_5 = \\\\frac{9}{5} + \\\\frac{36}{5} + \\\\frac{81}{5} + \\\\frac{144}{5} + \\\\frac{225}{5} = \\\\frac{9+36+81+144+225}{5} = \\\\frac{495}{5} = 99$$\\\\newline The approximate area is 99 square units.\\\\newline\\\\newline **Part C: Calculate the exact volume**\\\\newline We revolve the region bounded by $y = \\\\frac{9}{5}x^2$, $y=0$, and $x=5$ about the x-axis. We use the disk method.\\\\newline The volume $V$ is given by the integral $V = \\\\pi \\\\int_{0}^{5} [f(x)]^2 dx$.\\\\newline $$[f(x)]^2 = \\\\left(\\\\frac{9}{5}x^2\\\\right)^2 = \\\\frac{81}{25}x^4$$\\\\newline Set up and evaluate the integral: \\\\newline $$V = \\\\pi \\\\int_{0}^{5} \\\\frac{81}{25}x^4 dx = \\\\frac{81\\\\pi}{25} \\\\int_{0}^{5} x^4 dx$$ \\\\newline $$V = \\\\frac{81\\\\pi}{25} \\\\left[ \\\\frac{x^5}{5} \\\\right]_{0}^{5} = \\\\frac{81\\\\pi}{25} \\\\left( \\\\frac{5^5}{5} - \\\\frac{0^5}{5} \\\\right)$$\\\\newline $$V = \\\\frac{81\\\\pi}{25} \\\\left( \\\\frac{3125}{5} \\\\right) = \\\\frac{81\\\\pi}{25} (625)$$\\\\newline Since $625 = 25^2$, we have: \\\\newline $$V = 81\\\\pi \\\\cdot 25 = 2025\\\\pi$$\\\\newline The exact volume is $2025\\\\pi$ cubic units.",
+      "concepts": [
+        "Chain Rule",
+        "Riemann Sums",
+        "Volume of Revolution",
+        "Disk Method",
+        "Definite Integrals"
+      ],
+      "topic": "Multi-topic Integration",
+      "generated_at": "2026-03-31T14:43:29.898278",
+      "model": "gemini-2.5-pro",
+      "mode": "exam",
+      "target_difficulty": 4,
+      "integrated_topics": [
+        "Chain Rule",
+        "Riemann Sums",
+        "Volume of Revolution"
+      ],
+      "source_topics_pool": [
+        "Intermediate Value Theorem",
+        "Related Rates",
+        "Fundamental Theorem of Calculus",
+        "Partial Derivatives",
+        "L'Hôpital's Rule",
+        "Chain Rule",
+        "Optimization",
+        "Integration by Parts",
+        "Riemann Sums",
+        "Volume of Revolution",
+        "Lagrange Multipliers",
+        "Polar Coordinates",
+        "Green's Theorem",
+        "Taylor Series",
+        "Separable ODEs"
+      ],
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 85,
+          "scaffolding": 85,
+          "concept_integration": 95,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The real-world context is contrived due to a dimensional inconsistency. The constant K is calculated as a rate of change of radius with respect to time (cm/s) in Part A, but it is used as a coefficient in the equation y = Kx^2, where its units would need to be length⁻¹ (e.g., cm⁻¹) for the equation to be dimensionally sound. | To improve the physical plausibility, the problem could be rephrased. For instance, Part A could solve for a dimensionless material property, or the problem could explicitly state that the design parameter K is set to be 'numerically equal' to the rate found in Part A, acknowledging the simplification. A better alternative would be to have Part A calculate a value that has the correct units for Part B, such as the curvature of a different component at a specific point."
+      }
+    },
+    {
+      "problem_statement": "An advanced composite material is used for a circular heat sink of radius $\\\\sqrt{3}$ cm, centered at the origin. The thermal conductivity at any point $(x, y)$ on the sink is given by the function $K(x, y) = xy^2$. For optimal performance, the cooling system must be calibrated based on the maximum thermal conductivity along the boundary of the sink. \\\\newline\\\\newline **Part A:** Find the maximum value, $C$, of the thermal conductivity function $K(x, y)$ on the boundary of the circular heat sink. \\\\newline\\\\newline **Part B:** The average temperature of the entire heat sink, $H(t)$ (in degrees Celsius), cools over time $t$ (in seconds) according to the separable differential equation: $$\\frac{dH}{dt} = -\\\\frac{C}{H}$$ where $C$ is the maximum conductivity value you found in Part A. Given an initial average temperature of $H(0) = 10^{\\\\circ}$C, find the time $t_f$ it takes for the average temperature to reach $6^{\\\\circ}$C. \\\\newline\\\\newline **Part C:** A diagnostic sensor moves across the surface of the heat sink. Its position is described by the parametric equations $x(t) = \\\\cos(\\\\frac{\\\\pi t}{16})$ and $y(t) = \\\\sqrt{t} + 1$. The temperature at any point $(x, y)$ is given by the function $T(x, y) = K(x, y) = xy^2$. Using the value of $t_f$ from Part B, calculate the instantaneous rate of change of temperature, $\\\\frac{dT}{dt}$, that the sensor records at time $t = t_f$.",
+      "real_world_context": "This problem models a multi-stage engineering design and analysis process for a thermal management system, common in aerospace or high-performance computing. Part A involves optimizing a material property under a geometric constraint. Part B models the system's transient thermal behavior using a differential equation. Part C analyzes the data from a moving diagnostic sensor, a common task in system verification and testing.",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For Part A, you need to maximize a function $K(x,y)$ subject to a constraint. What optimization technique uses gradients to solve such problems?"
+        },
+        {
+          "step": 2,
+          "hint": "For Part B, the differential equation is 'separable'. How can you algebraically rearrange the equation so that all terms involving $H$ are on one side with $dH$ and all terms involving $t$ are on the other side with $dt$?"
+        },
+        {
+          "step": 3,
+          "hint": "For Part C, the temperature $T$ is a function of $x$ and $y$, which are themselves functions of time $t$. What rule allows you to find the total derivative $\\\\frac{dT}{dt}$ by combining partial derivatives and ordinary derivatives?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution involves a sequential application of three distinct calculus methods. First, the method of Lagrange Multipliers is used to find the extrema of $K(x, y)$ on the circle $x^2 + y^2 = 3$. This yields a constant $C$. Second, this constant is substituted into a separable ordinary differential equation, which is then solved by integration and application of an initial condition to find a specific time $t_f$. Finally, the multivariable chain rule is applied to find the rate of change of temperature along a parametric path, using the previously calculated time $t_f$ as the point of evaluation.",
+        "visual_conceptual": "Imagine the function $K(x,y)$ as a landscape of hills and valleys. The constraint in Part A is a circular path drawn on this landscape. Lagrange Multipliers find the highest point on that specific path. This highest point's value, $C$, then dictates the cooling behavior in Part B; think of it as setting the 'difficulty' for the cooling process. The solution to the ODE is a curve showing temperature decay over time. In Part C, a sensor travels along a new path on the same landscape. The chain rule helps us calculate how rapidly the sensor's perceived temperature is changing at a specific moment ($t_f$), which depends on both the steepness of the landscape at its location and the velocity at which it is moving."
+      },
+      "solution": "**Part A: Lagrange Multipliers**\\\\newline We want to maximize $K(x, y) = xy^2$ subject to the constraint $g(x, y) = x^2 + y^2 - 3 = 0$.\\\\newline The Lagrange multiplier setup is $\\\\nabla K = \\\\lambda \\\\nabla g$.\\\\newline 1. $K_x = y^2 = \\\\lambda g_x = \\\\lambda(2x)$ \\\\newline 2. $K_y = 2xy = \\\\lambda g_y = \\\\lambda(2y)$ \\\\newline 3. Constraint: $x^2 + y^2 = 3$ \\\\newline From (2), $2y(x - \\\\lambda) = 0$, which implies $y=0$ or $x=\\\\lambda$.\\\\newline Case 1: $y=0$. From (3), $x^2 = 3 \\\\implies x = \\\\pm\\\\sqrt{3}$. The value of $K$ is $K(\\\\pm\\\\sqrt{3}, 0) = 0$.\\\\newline Case 2: $x=\\\\lambda$. Substitute into (1): $y^2 = (x)(2x) = 2x^2$.\\\\newline Substitute $y^2=2x^2$ into the constraint (3): $x^2 + (2x^2) = 3 \\\\implies 3x^2 = 3 \\\\implies x^2 = 1 \\\\implies x = \\\\pm 1$.\\\\newline If $x=1$, then $y^2 = 2(1)^2 = 2$. $K(1, \\\\pm\\\\sqrt{2}) = 1(\\\\pm\\\\sqrt{2})^2 = 2$.\\\\newline If $x=-1$, then $y^2 = 2(-1)^2 = 2$. $K(-1, \\\\pm\\\\sqrt{2}) = -1(\\\\pm\\\\sqrt{2})^2 = -2$.\\\\newline Comparing the values $\\{0, 2, -2\\}$, the maximum value is $C=2$.\\\\newline \\\\newline **Part B: Separable ODE**\\\\newline We solve the IVP $\\\\frac{dH}{dt} = -\\\\frac{2}{H}$ with $H(0)=10$.\\\\newline Separate variables: $H \\\\, dH = -2 \\\\, dt$.\\\\newline Integrate both sides: $\\\\int H \\\\, dH = \\\\int -2 \\\\, dt \\\\implies \\\\frac{1}{2}H^2 = -2t + K_0$.\\\\newline Use the initial condition $H(0)=10$: $\\\\frac{1}{2}(10)^2 = -2(0) + K_0 \\\\implies K_0 = 50$.\\\\newline The solution is $\\\\frac{1}{2}H^2 = -2t + 50$, or $H(t)^2 = 100 - 4t$. So, $H(t) = \\\\sqrt{100 - 4t}$.\\\\newline Find the time $t_f$ when $H(t_f) = 6$: \\\\newline $6 = \\\\sqrt{100 - 4t_f} \\\\implies 36 = 100 - 4t_f \\\\implies 4t_f = 64 \\\\implies t_f = 16$ seconds.\\\\newline \\\\newline **Part C: Chain Rule**\\\\newline We need to find $\\\\frac{dT}{dt}$ at $t=t_f=16$. The temperature function is $T(x,y) = xy^2$.\\\\newline The chain rule is $\\\\frac{dT}{dt} = \\\\frac{\\\\partial T}{\\\\partial x}\\\\frac{dx}{dt} + \\\\frac{\\\\partial T}{\\\\partial y}\\\\frac{dy}{dt}$.\\\\newline The partial derivatives are $\\\\frac{\\\\partial T}{\\\\partial x} = y^2$ and $\\\\frac{\\\\partial T}{\\\\partial y} = 2xy$.\\\\newline The path derivatives are $\\\\frac{dx}{dt} = -\\\\frac{\\\\pi}{16}\\\\sin(\\\\frac{\\\\pi t}{16})$ and $\\\\frac{dy}{dt} = \\\\frac{1}{2\\\\sqrt{t}}$.\\\\newline Now, evaluate everything at $t=16$: \\\\newline Position: $x(16) = \\\\cos(\\\\pi) = -1$ and $y(16) = \\\\sqrt{16} + 1 = 5$.\\\\newline Path derivatives at $t=16$: $\\\\frac{dx}{dt}\\\\bigg|_{t=16} = -\\\\frac{\\\\pi}{16}\\\\sin(\\\\pi) = 0$ and $\\\\frac{dy}{dt}\\\\bigg|_{t=16} = \\\\frac{1}{2\\\\sqrt{16}} = \\\\frac{1}{8}$.\\\\newline Partial derivatives at $(x,y)=(-1,5)$: $\\\\frac{\\\\partial T}{\\\\partial x}\\\\bigg|_{(-1,5)} = 5^2 = 25$ and $\\\\frac{\\\\partial T}{\\\\partial y}\\\\bigg|_{(-1,5)} = 2(-1)(5) = -10$.\\\\newline Substitute into the chain rule: \\\\newline $\\\\frac{dT}{dt}\\\\bigg|_{t=16} = (25)(0) + (-10)(\\\\frac{1}{8}) = -\\\\frac{10}{8} = -\\\\frac{5}{4}$.\\\\newline The rate of change of temperature is $-1.25^{\\\\circ}$C/s.",
+      "concepts": [
+        "Lagrange Multipliers",
+        "Constrained Optimization",
+        "Separable Differential Equations",
+        "Initial Value Problems",
+        "Multivariable Chain Rule",
+        "Parametric Equations"
+      ],
+      "topic": "Multi-topic Integration",
+      "generated_at": "2026-03-31T14:50:23.829280",
+      "model": "gemini-2.5-pro",
+      "mode": "exam",
+      "target_difficulty": 4,
+      "integrated_topics": [
+        "Separable ODEs",
+        "Lagrange Multipliers",
+        "Chain Rule"
+      ],
+      "source_topics_pool": [
+        "Intermediate Value Theorem",
+        "Related Rates",
+        "Fundamental Theorem of Calculus",
+        "Partial Derivatives",
+        "L'Hôpital's Rule",
+        "Chain Rule",
+        "Optimization",
+        "Integration by Parts",
+        "Riemann Sums",
+        "Volume of Revolution",
+        "Lagrange Multipliers",
+        "Polar Coordinates",
+        "Green's Theorem",
+        "Taylor Series",
+        "Separable ODEs"
+      ],
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 75,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem's narrative is inconsistent. It states the sensor in Part C 'moves across the surface of the heat sink', which has a radius of sqrt(3). However, at the evaluation time t=16, the sensor's position is (-1, 5), which is at a distance of sqrt(26) from the origin, placing it far outside the heat sink's boundary. | Modify the parametric path in Part C so that the sensor remains on or within the heat sink for the duration of the problem. For example, a path like x(t) = (t/16)cos(πt) and y(t) = (t/16)sin(πt) would ensure the sensor's path is a spiral that stays within the unit circle, which is inside the heat sink's boundary, making the physical context coherent."
+      }
+    },
+    {
+      "problem_statement": "An aerospace engineering team is designing a next-generation rocket. The design process involves several stages of mathematical modeling and optimization. \\\\\\\\[10pt] \\\\textbf{Part A: Propulsion Analysis} \\\\ The thrust $g(t)$ (in kilonewtons, kN) of a prototype engine is measured at discrete time intervals, as shown in the table. \\\\ \\\\begin{center} \\\\begin{tabular}{|c|c|c|c|c|} \\\\hline \\\\textbf{Time $t$ (s)} & 0 & 1 & 2 & 3 \\\\\\\\ \\\\hline \\\\textbf{Thrust $g(t)$ (kN)} & 20 & 22 & 25 & 30 \\\\\\\\ \\\\hline \\\\end{tabular} \\\\end{center} \\\\ \\\\ 1. First, approximate the total impulse $I = \\\\int_0^3 g(t) \\\\, dt$ using the Trapezoidal Rule with $n=3$ subintervals. Let this value be $A$. \\\\ 2. A related performance metric is described by the function $F(x) = \\\\int_A^{x^3} \\\\sqrt[3]{t} \\\\, dt$. Calculate the value $B = F'(3)$. This constant $B$ will be used in Part B. \\\\\\\\[10pt] \\\\textbf{Part B: Fuel Tank Optimization} \\\\ The main fuel tank is a cylinder with radius $r$ and height $h$. The material cost is proportional to the surface area, which is to be minimized. For structural reasons, the volume of the tank must be exactly $B\\\\pi$ cubic meters, where $B$ is the value you found in Part A. Find the optimal ratio $M = h/r$ that minimizes the total surface area $S = 2\\\\pi r^2 + 2\\\\pi rh$ subject to this volume constraint. \\\\\\\\[10pt] \\\\textbf{Part C: Nozzle Design and Manufacturing} \\\\ The profile of the engine nozzle is generated by revolving the curve $r(x) = \\\\sqrt{M \\\\ln(1+x^2)}$ about the x-axis from $x=0$ to $x=1$, where $M$ is the optimal ratio from Part B. The exact volume of the nozzle material is given by $V = \\\\pi \\\\int_0^1 [r(x)]^2 \\\\, dx$. \\\\ To simplify the manufacturing process, the function $\\\\ln(1+u)$ is approximated by its second-degree Taylor polynomial centered at $u=0$. Use this polynomial to find an approximate value for the volume $V$.",
+      "real_world_context": "This problem simulates a multi-stage design process in aerospace engineering. Part A models the analysis of engine test data (a common task in propulsion engineering) using numerical integration and the Fundamental Theorem of Calculus to define performance parameters. Part B addresses a classic optimization problem: designing a container (like a fuel tank) to have minimum material cost for a fixed volume, a direct application of Lagrange Multipliers. Part C involves geometric design (calculating the volume of a nozzle) and manufacturing simplification, where complex curves are approximated by simpler polynomials (Taylor Series), a technique used in computer-aided design (CAD) and manufacturing (CAM).",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "For Part A.1, what is the formula for the Trapezoidal Rule? It involves the sum of function values at the endpoints of each subinterval, with the interior points weighted differently."
+        },
+        {
+          "step": 2,
+          "hint": "For Part A.2, you need to differentiate an integral whose upper limit is a function of $x$. Which two fundamental calculus rules must be combined to solve this?"
+        },
+        {
+          "step": 3,
+          "hint": "For Part B, identify the objective function to minimize and the constraint equation. The method of Lagrange multipliers involves setting the gradient of the objective function proportional to the gradient of the constraint function."
+        },
+        {
+          "step": 4,
+          "hint": "For Part C, first write down the integral for the volume of revolution. Then, find the second-degree Taylor polynomial for $\\ln(1+u)$ around $u=0$. Substitute this polynomial into your integral (with an appropriate substitution for $u$) before integrating."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The solution involves a sequential application of calculus techniques. First, the Trapezoidal Rule provides a numerical sum. This sum becomes a parameter in a function defined by an integral. Differentiating this function using the FTC and Chain Rule yields a second parameter. This second parameter defines the constraint for a Lagrange Multiplier optimization problem, where solving the system $\\nabla f = \\lambda \\nabla g$ and the constraint equation gives an optimal dimensional ratio. Finally, this ratio is used in the definition of a curve, and the volume of its revolution is approximated by replacing the transcendental function with its Taylor polynomial and integrating the resulting simpler polynomial.",
+        "visual_conceptual": "Imagine the problem as a story of building a rocket. In Part A, we look at a graph of engine thrust vs. time and find the area underneath (total impulse) by drawing trapezoids. We then use this value to define a more abstract performance rate. In Part B, we have a lump of clay (a fixed volume) and want to shape it into a cylinder. We can make it short and wide or tall and skinny. Lagrange multipliers help us find the perfect dimensions (the $h/r$ ratio) that use the least amount of 'paint' to cover its surface. In Part C, we are shaping the nozzle. The true shape is a complex curve. To make it easier for a machine to build, we replace this complex curve with a simpler polynomial curve that looks almost identical near the origin. We then calculate the volume of the shape made by this simpler, approximate curve."
+      },
+      "solution": "\\\\textbf{Part A: Propulsion Analysis} \\\\ \\\\ 1. The subintervals are $[0,1], [1,2], [2,3]$, so the width is $\\\\Delta t = 1$. The Trapezoidal Rule approximation for the impulse $I$ is: \\\\ $$ A = I \\\\approx \\\\frac{\\\\Delta t}{2} [g(0) + 2g(1) + 2g(2) + g(3)] \\\\ = \\\\frac{1}{2} [20 + 2(22) + 2(25) + 30] \\\\ = \\\\frac{1}{2} [20 + 44 + 50 + 30] = \\\\frac{144}{2} = 72. $$ \\\\ So, $A=72$. \\\\ \\\\ 2. We are given $F(x) = \\\\int_{72}^{x^3} \\\\sqrt[3]{t} \\\\, dt$. Let $u(x) = x^3$. Then $F(x) = \\\\int_{72}^{u(x)} t^{1/3} \\\\, dt$. \\\\ By the Fundamental Theorem of Calculus Part 1 and the Chain Rule: \\\\ $$ F'(x) = \\\\frac{dF}{du} \\\\cdot \\\\frac{du}{dx} = (u(x))^{1/3} \\\\cdot (3x^2) = (x^3)^{1/3} \\\\cdot (3x^2) = x \\\\cdot 3x^2 = 3x^3. $$ \\\\ We need to find $B = F'(3)$: \\\\ $$ B = F'(3) = 3(3)^3 = 3(27) = 81. $$ \\\\ \\\\textbf{Part B: Fuel Tank Optimization} \\\\ \\\\ We want to minimize the surface area $S(r,h) = 2\\\\pi r^2 + 2\\\\pi rh$. This is equivalent to minimizing the function $C(r,h) = r^2 + rh$. \\\\ The constraint is that the volume $V = \\\\pi r^2 h$ must be $B\\\\pi = 81\\\\pi$. \\\\ So, the constraint equation is $g(r,h) = r^2 h = 81$. \\\\ Using Lagrange Multipliers, we set $\\\\nabla C = \\\\lambda \\\\nabla g$: \\\\ $$ \\\\nabla C = \\\\langle 2r+h, r \\\\rangle $$ \\\\ $$ \\\\nabla g = \\\\langle 2rh, r^2 \\\\rangle $$ \\\\ This gives the system of equations: \\\\ 1) $2r+h = \\\\lambda (2rh)$ \\\\ 2) $r = \\\\lambda (r^2)$ \\\\ 3) $r^2 h = 81$ \\\\ From (2), since $r \\\\neq 0$, we have $\\\\lambda = \\\\frac{r}{r^2} = \\\\frac{1}{r}$. \\\\ Substitute this into (1): \\\\ $$ 2r+h = \\\\frac{1}{r} (2rh) = 2h \\\\implies 2r = h. $$ \\\\ The optimal ratio is $M = \\\\frac{h}{r} = 2$. \\\\ (We can verify the dimensions using (3): $r^2(2r) = 81 \\\\implies 2r^3 = 81 \\\\implies r = \\\\sqrt[3]{81/2}$.) \\\\ \\\\textbf{Part C: Nozzle Design and Manufacturing} \\\\ \\\\ The nozzle radius is $r(x) = \\\\sqrt{M \\\\ln(1+x^2)} = \\\\sqrt{2 \\\\ln(1+x^2)}$, since $M=2$ from Part B. \\\\ The volume of revolution is: \\\\ $$ V = \\\\pi \\\\int_0^1 [r(x)]^2 \\\\, dx = \\\\pi \\\\int_0^1 2 \\\\ln(1+x^2) \\\\, dx = 2\\\\pi \\\\int_0^1 \\\\ln(1+x^2) \\\\, dx. $$ \\\\ We approximate $\\\\ln(1+u)$ with its second-degree Taylor polynomial around $u=0$. \\\\ Let $f(u) = \\\\ln(1+u)$. Then $f(0)=0$. \\\\ $f'(u) = \\\\frac{1}{1+u}$, so $f'(0)=1$. \\\\ $f''(u) = -\\\\frac{1}{(1+u)^2}$, so $f''(0)=-1$. \\\\ The Taylor polynomial is $P_2(u) = f(0) + f'(0)u + \\\\frac{f''(0)}{2!}u^2 = 0 + 1\\\\cdot u - \\\\frac{1}{2}u^2 = u - \\\\frac{u^2}{2}$. \\\\ We substitute $u=x^2$ to approximate $\\\\ln(1+x^2) \\\\approx x^2 - \\\\frac{(x^2)^2}{2} = x^2 - \\\\frac{x^4}{2}$. \\\\ Now we compute the approximate volume: \\\\ $$ V_{approx} = 2\\\\pi \\\\int_0^1 \\\\left( x^2 - \\\\frac{x^4}{2} \\\\right) \\\\, dx \\\\ = 2\\\\pi \\\\left[ \\\\frac{x^3}{3} - \\\\frac{x^5}{10} \\\\right]_0^1 \\\\ = 2\\\\pi \\\\left( (\\\\frac{1}{3} - \\\\frac{1}{10}) - 0 \\\\right) \\\\ = 2\\\\pi \\\\left( \\\\frac{10-3}{30} \\\\right) = 2\\\\pi \\\\left( \\\\frac{7}{30} \\\\right) = \\\\frac{7\\\\pi}{15}. $$",
+      "concepts": [
+        "Fundamental Theorem of Calculus",
+        "Lagrange Multipliers",
+        "Chain Rule",
+        "Volume of Revolution",
+        "Taylor Series",
+        "Riemann Sums"
+      ],
+      "topic": "Multi-topic Integration",
+      "generated_at": "2026-03-31T14:53:19.393347",
+      "model": "gemini-2.5-pro",
+      "mode": "exam",
+      "target_difficulty": 4,
+      "integrated_topics": [
+        "Fundamental Theorem of Calculus",
+        "Lagrange Multipliers",
+        "Chain Rule",
+        "Volume of Revolution",
+        "Taylor Series",
+        "Riemann Sums"
+      ],
+      "source_topics_pool": [
+        "Intermediate Value Theorem",
+        "Related Rates",
+        "Fundamental Theorem of Calculus",
+        "Partial Derivatives",
+        "L'Hôpital's Rule",
+        "Chain Rule",
+        "Optimization",
+        "Integration by Parts",
+        "Riemann Sums",
+        "Volume of Revolution",
+        "Lagrange Multipliers",
+        "Polar Coordinates",
+        "Green's Theorem",
+        "Taylor Series",
+        "Separable ODEs"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The problem's primary weakness is its 'daisy-chain' structure. An arithmetic error in Part A will cascade, making it impossible to get the correct numerical answers for Parts B and C, even if the student's methodology for those later parts is perfect. This can be overly punitive in an assessment context. | To improve fairness and allow for partial credit, provide 'backup' values. For example, after Part A, add: 'If you were unable to calculate B, use the value B=81 for the remainder of the problem.' Do the same for Part B with the value M=2. This decouples the parts, allowing a student who makes an early mistake to still demonstrate their mastery of Lagrange Multipliers, Volume of Revolution, and Taylor Series."
+      }
+    }
+  ]
+}

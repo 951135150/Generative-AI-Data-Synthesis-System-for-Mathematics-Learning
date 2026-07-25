@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260405_110251",
+  "batch_name": "Demo_Step_2",
+  "mode": "drill",
+  "generated_at": "2026-04-05T11:02:51.561034",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let $C(q)$ be a piecewise function representing the production cost (in thousands of dollars) for producing $q$ thousand units of a product. Find the value of the constant $k$ that makes the function $C(q)$ continuous for all $q > 0$. $$ C(q) = \\begin{cases} kq^2 + 3 & \\text{if } 0 < q \\le 2 \\\\ 5q - 1 & \\text{if } q > 2 \\end{cases} $$",
+      "real_world_context": "In manufacturing and economics, cost functions are often modeled using piecewise functions. For example, a company might have one cost model for low production volumes and another for high volumes due to economies of scale. For the cost model to be realistic, there shouldn't be a sudden jump in cost at the transition point. This problem asks you to ensure such a smooth transition by enforcing mathematical continuity.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the definition of continuity at a point. For $C(q)$ to be continuous at $q=2$, the limit as $q$ approaches 2 must exist and be equal to the function's value at $q=2$."
+        },
+        {
+          "step": 2,
+          "hint": "For the limit $\\lim_{q \\to 2} C(q)$ to exist, the left-hand limit ($\\lim_{q \\to 2^-} C(q)$) must be equal to the right-hand limit ($\\lim_{q \\to 2^+} C(q)$)."
+        },
+        {
+          "step": 3,
+          "hint": "Calculate the left-hand limit using the expression for $q \\le 2$ and the right-hand limit using the expression for $q > 2$. Set them equal to each other to form an equation in terms of $k$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "For the function $C(q)$ to be continuous at $q=2$, the left-hand limit must equal the right-hand limit. We set up the equation: $\\lim_{q \\to 2^-} C(q) = \\lim_{q \\to 2^+} C(q)$. Substituting the respective function pieces, we get $\\lim_{q \\to 2^-} (kq^2 + 3) = \\lim_{q \\to 2^+} (5q - 1)$. Evaluating the limits by direct substitution gives $k(2)^2 + 3 = 5(2) - 1$. This simplifies to the algebraic equation $4k + 3 = 9$, which we solve for $k$.",
+        "visual_conceptual": "Imagine plotting the two pieces of the cost function on a graph. The first piece, $C(q) = kq^2 + 3$, is a parabola. The second piece, $C(q) = 5q - 1$, is a straight line. The function is continuous if there is no 'jump' or 'hole' in the graph at the point where the two pieces meet, which is at $q=2$. We are looking for the value of $k$ that adjusts the shape of the parabola so that its endpoint at $q=2$ perfectly connects with the starting point of the line segment at $q=2$. Both pieces must yield the same cost value at this transition point."
+      },
+      "solution": "For $C(q)$ to be continuous at $q=2$, the following condition must be met: $\\lim_{q \\to 2^-} C(q) = \\lim_{q \\to 2^+} C(q) = C(2)$. \\\\Step 1: Calculate the left-hand limit. As $q$ approaches 2 from the left, we use the first piece of the function: \\\\$$ \\lim_{q \\to 2^-} C(q) = \\lim_{q \\to 2^-} (kq^2 + 3) = k(2)^2 + 3 = 4k + 3 $$ \\\\This is also the value of $C(2)$. \\\\Step 2: Calculate the right-hand limit. As $q$ approaches 2 from the right, we use the second piece of the function: \\\\$$ \\lim_{q \\to 2^+} C(q) = \\lim_{q \\to 2^+} (5q - 1) = 5(2) - 1 = 10 - 1 = 9 $$ \\\\Step 3: Set the limits equal to each other to ensure the overall limit exists and the function is continuous. \\\\$$ 4k + 3 = 9 $$ \\\\Step 4: Solve for $k$. \\\\$$ 4k = 9 - 3 $$ \\\\$$ 4k = 6 $$ \\\\$$ k = \\frac{6}{4} = \\frac{3}{2} $$ \\\\Thus, for $k = 3/2$, the function $C(q)$ is continuous at $q=2$.",
+      "concepts": [
+        "Definition of Continuity",
+        "One-Sided Limits",
+        "Piecewise Functions"
+      ],
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-05T11:02:26.880320",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None. The problem is mathematically and conceptually sound. The economic model (a quadratic cost function for low volume followed by a linear one for high volume) is a simplification for pedagogical purposes and does not represent a flaw in the calculus problem itself. | The scaffolding is effective but very directive. To encourage deeper student reasoning, the hints could be rephrased as questions. For example, Step 3 could be changed from a command ('Calculate the... and set them equal...') to a prompt ('What is the value of the cost function as you approach q=2 from the left? What about from the right? What must be true about these two values for the function to be continuous?')."
+      }
+    }
+  ]
+}

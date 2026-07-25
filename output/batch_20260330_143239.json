@@ -1,0 +1,324 @@
+{
+  "batch_id": "batch_20260330_143239",
+  "batch_name": "generation_11",
+  "generated_at": "2026-03-30T14:32:39.331669",
+  "topics": [
+    "Optimization",
+    "Derivatives",
+    "Limits"
+  ],
+  "num_per_topic": 2,
+  "total_generated": 6,
+  "problems": [
+    {
+      "problem_statement": "An offshore oil rig is located 3 km from the nearest point on a straight coastline, point A. A refinery is located 8 km down the coast from point A. The cost of laying pipe is \\$5 million per km underwater and \\$3 million per km on land. To what point on the coastline should the pipe be laid from the rig to minimize the total cost of the pipeline? What is the minimum cost?",
+      "real_world_context": "Logistics and Cost Minimization",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Define a variable, say $x$, for the distance along the coast from point A to where the pipe makes landfall. Use the Pythagorean theorem to express the length of the underwater pipe and then write a total cost function $C(x)$."
+        },
+        {
+          "step": 2,
+          "hint": "Calculate the derivative of the cost function, $C'(x)$, with respect to your variable $x$. Set this derivative equal to zero to find the critical points where a minimum cost might occur."
+        },
+        {
+          "step": 3,
+          "hint": "Solve the equation $C'(x)=0$ for $x$. To confirm this point is a minimum, you can either use the Second Derivative Test or evaluate the cost at this critical point and at the endpoints of the feasible domain (i.e., $x=0$ and $x=8$)."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem requires setting up a cost function $C(x) = 5\\sqrt{x^2 + 3^2} + 3(8-x)$ for $x \\in [0, 8]$. The minimum is found by solving $C'(x) = \\frac{5x}{\\sqrt{x^2+9}} - 3 = 0$. This is an application of finding the absolute minimum of a continuous function on a closed interval.",
+        "visual_conceptual": "Imagine a right triangle with the rig, point A, and the landfall point as vertices. The underwater pipe is the hypotenuse. There is a trade-off: laying more pipe on land reduces the length of the expensive underwater section, but increases the total path length. The optimal solution is the point that perfectly balances the higher cost per km underwater with the path lengths. This is analogous to Snell's Law in optics, which describes how light bends when passing between two different media to follow the path of least time."
+      },
+      "solution": "Let $x$ be the distance in km from point A to the point P on the shore where the pipe lands. The domain for $x$ is $[0, 8]$.\n1. The length of the underwater pipe from the rig to P is given by the Pythagorean theorem: $d_{water} = \\sqrt{x^2 + 3^2} = \\sqrt{x^2+9}$.\n2. The length of the pipe on land from P to the refinery is $d_{land} = 8 - x$.\n3. The total cost function is $C(x) = 5 \\cdot d_{water} + 3 \\cdot d_{land} = 5\\sqrt{x^2+9} + 3(8-x)$.\n4. To find the minimum cost, we take the derivative of $C(x)$ and find the critical points:\n$C'(x) = \\frac{d}{dx}(5(x^2+9)^{1/2} + 24 - 3x) = 5 \\cdot \\frac{1}{2}(x^2+9)^{-1/2} \\cdot (2x) - 3 = \\frac{5x}{\\sqrt{x^2+9}} - 3$.\n5. Set the derivative to zero: $\\frac{5x}{\\sqrt{x^2+9}} - 3 = 0 \\implies 5x = 3\\sqrt{x^2+9}$.\n6. Square both sides: $(5x)^2 = (3\\sqrt{x^2+9})^2 \\implies 25x^2 = 9(x^2+9) \\implies 25x^2 = 9x^2 + 81$.\n7. Solve for $x$: $16x^2 = 81 \\implies x^2 = \\frac{81}{16} \\implies x = \\frac{9}{4} = 2.25$ km. (We take the positive root as $x$ is a distance).\n8. We check the cost at the critical point and the endpoints:\n$C(0) = 5\\sqrt{0^2+9} + 3(8-0) = 5(3) + 24 = 39$.\n$C(8) = 5\\sqrt{8^2+9} + 3(8-8) = 5\\sqrt{64+9} = 5\\sqrt{73} \\approx 42.72$.\n$C(2.25) = 5\\sqrt{2.25^2+9} + 3(8-2.25) = 5\\sqrt{5.0625+9} + 3(5.75) = 5\\sqrt{14.0625} + 17.25 = 5(3.75) + 17.25 = 18.75 + 17.25 = 36$.\nComparing the values, the minimum cost is \\$36 million, which occurs when the pipe comes ashore 2.25 km from point A.",
+      "concepts": [
+        "Optimization",
+        "Applied Extrema Problems",
+        "Critical Points",
+        "Pythagorean Theorem",
+        "Chain Rule",
+        "Absolute Extrema on a Closed Interval"
+      ],
+      "topic": "Optimization",
+      "sub_topic": "Optimization",
+      "generated_at": "2026-03-30T14:30:16.157815",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "概念标签可能过多"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A beverage company is designing a new cylindrical can that must hold 1 liter (1000 cm³) of liquid. To minimize production costs, they are investigating the can's dimensions. The material for the circular top and bottom of the can costs $0.005 per square centimeter, while the material for the cylindrical side costs $0.0025 per square centimeter. What are the radius and height of the can that will minimize the total cost of material?",
+      "real_world_context": "Manufacturing and Cost Optimization",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Identify the primary equation to be minimized (the Cost function) and the secondary/constraint equation (the Volume of a cylinder). Express the total cost in terms of the can's radius ($r$) and height ($h$) using the surface area formulas and given costs."
+        },
+        {
+          "step": 2,
+          "hint": "Use the volume constraint ($V = 1000$) to express the Cost function in terms of a single variable, such as $r$. Then, find the derivative of this cost function with respect to that variable."
+        },
+        {
+          "step": 3,
+          "hint": "Set the derivative equal to zero to find the critical value for the radius. Solve for the dimensions ($r$ and $h$) that minimize the cost. You can use the second derivative test to confirm it's a minimum."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "This involves setting up a cost function $C(r, h) = 0.005 \\cdot (2\\pi r^2) + 0.0025 \\cdot (2\\pi r h)$ subject to the constraint $V = \\pi r^2 h = 1000$. We substitute $h$ from the volume constraint into the cost function to get $C(r)$, find its derivative $C'(r)$, and solve $C'(r) = 0$ for the optimal radius.",
+        "visual_conceptual": "Imagine two extremes for a can with a fixed volume: a very short, wide 'pancake' can and a very tall, thin 'pencil' can. The 'pancake' has a huge top/bottom area (the more expensive part) but small side area. The 'pencil' has a tiny top/bottom but a large side area. Optimization finds the 'sweet spot' dimension between these extremes where the combined cost of the differently priced materials is at its lowest."
+      },
+      "solution": "The cost function is $C(r, h) = (0.005)(2\\pi r^2) + (0.0025)(2\\pi r h) = 0.01\\pi r^2 + 0.005\\pi r h$. The volume constraint is $V = \\pi r^2 h = 1000$, so $h = \\frac{1000}{\\pi r^2}$. Substituting this into the cost function gives $C(r) = 0.01\\pi r^2 + 0.005\\pi r (\\frac{1000}{\\pi r^2}) = 0.01\\pi r^2 + \\frac{5}{r}$. To find the minimum, we take the derivative: $C'(r) = 0.02\\pi r - \\frac{5}{r^2}$. Setting $C'(r)=0$ yields $0.02\\pi r = \\frac{5}{r^2}$, which simplifies to $r^3 = \\frac{5}{0.02\\pi} = \\frac{250}{\\pi}$. Therefore, the optimal radius is $r = \\sqrt[3]{\\frac{250}{\\pi}} \\approx 4.30$ cm. The corresponding height is $h = \\frac{1000}{\\pi r^2} = \\frac{1000}{\\pi (\\frac{250}{\\pi})^{2/3}} = 4 \\sqrt[3]{\\frac{250}{\\pi}} = 4r \\approx 17.20$ cm. The optimal dimensions are a radius of approximately 4.30 cm and a height of approximately 17.20 cm.",
+      "concepts": [
+        "Optimization",
+        "Constrained Optimization",
+        "Derivatives",
+        "Critical Points",
+        "Cost Function",
+        "Applied Calculus"
+      ],
+      "topic": "Optimization",
+      "sub_topic": "Optimization",
+      "generated_at": "2026-03-30T14:30:49.030523",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 91.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果",
+          "概念标签可能过多"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A tech company manufactures high-performance graphics cards. The total cost, $C(q)$, in thousands of dollars, to produce $q$ hundred cards is given by the function $C(q) = 0.01q^2 + 5q + 2500$. While producing more cards increases the total cost, the company is interested in making production as efficient as possible. Your task is to determine the production level $q$ that minimizes the *average cost* per hundred cards and to find this minimum average cost.",
+      "real_world_context": "Marginal Analysis in Economics",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The problem asks to minimize the *average cost*, not the total cost. How do you define the average cost function, $A(q)$, from the total cost function, $C(q)$?"
+        },
+        {
+          "step": 2,
+          "hint": "To find the minimum value of a function, you need to find its critical points. What is the derivative of the average cost function, $A'(q)$, and what value should it be set to?"
+        },
+        {
+          "step": 3,
+          "hint": "After solving for the production level $q$, how can you verify that this point corresponds to a minimum, not a maximum? Use the Second Derivative Test. Then, calculate the minimum average cost by plugging this $q$ back into the $A(q)$ function."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The average cost function is $A(q) = \\frac{C(q)}{q}$. To find the minimum, we compute the derivative $A'(q)$ using the quotient rule or by first simplifying the expression for $A(q)$. We then solve the equation $A'(q) = 0$ for $q$. The solution represents a critical point, which we can confirm is a minimum by checking that the second derivative, $A''(q)$, is positive at that point.",
+        "visual_conceptual": "Geometrically, the average cost $A(q) = \\frac{C(q)}{q}$ represents the slope of the line (secant line) from the origin $(0,0)$ to a point $(q, C(q))$ on the total cost curve. Minimizing the average cost is equivalent to finding the point on the curve where this slope is smallest. This occurs precisely when the secant line from the origin becomes tangent to the cost curve. At this point of tangency, the slope of the tangent line (the marginal cost, $C'(q)$) is equal to the slope of the secant line from the origin (the average cost, $A(q)$). Therefore, the average cost is minimized when marginal cost equals average cost."
+      },
+      "solution": "1. **Define the Average Cost Function:**\nThe total cost function is $C(q) = 0.01q^2 + 5q + 2500$. The average cost function, $A(q)$, is the total cost divided by the quantity produced, $q$.\n$A(q) = \\frac{C(q)}{q} = \\frac{0.01q^2 + 5q + 2500}{q}$\nSimplifying this expression gives:\n$A(q) = 0.01q + 5 + \\frac{2500}{q} = 0.01q + 5 + 2500q^{-1}$\n\n2. **Find the Derivative and Critical Points:**\nTo find the minimum average cost, we differentiate $A(q)$ with respect to $q$ and set the derivative equal to zero.\n$A'(q) = \\frac{d}{dq}(0.01q + 5 + 2500q^{-1}) = 0.01 - 2500q^{-2} = 0.01 - \\frac{2500}{q^2}$\nNow, set $A'(q) = 0$ to find the critical points:\n$0.01 - \\frac{2500}{q^2} = 0$\n$0.01 = \\frac{2500}{q^2}$\n$q^2 = \\frac{2500}{0.01} = 250000$\n$q = \\sqrt{250000} = 500$\nSince quantity $q$ must be positive, we only consider the positive root. The production level that minimizes average cost is 500 hundred cards (i.e., 50,000 cards).\n\n3. **Verify the Minimum and Calculate the Cost:**\nWe use the Second Derivative Test to confirm this is a minimum. First, find $A''(q)$:\n$A''(q) = \\frac{d}{dq}(0.01 - 2500q^{-2}) = -(-2)2500q^{-3} = \\frac{5000}{q^3}$\nAt $q=500$, $A''(500) = \\frac{5000}{500^3} > 0$. Since the second derivative is positive, the function is concave up at this point, confirming a local minimum.\n\nFinally, calculate the minimum average cost by substituting $q=500$ into the average cost function $A(q)$:\n$A(500) = 0.01(500) + 5 + \\frac{2500}{500} = 5 + 5 + 5 = 15$\nThe minimum average cost is $15 thousand per hundred cards, or $150 per card.\n\n**Conceptual Check:** At $q=500$, Marginal Cost is $C'(q) = 0.02q + 5$, so $C'(500) = 0.02(500) + 5 = 10 + 5 = 15$. This matches the average cost $A(500)$, as predicted by theory.",
+      "concepts": [
+        "Derivatives",
+        "Optimization",
+        "Average vs. Marginal Cost",
+        "Quotient Rule",
+        "Power Rule",
+        "Second Derivative Test",
+        "Critical Points"
+      ],
+      "topic": "Derivatives",
+      "sub_topic": "Derivatives",
+      "generated_at": "2026-03-30T14:31:15.925629",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 91.0,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果",
+          "概念标签可能过多",
+          "无同主题参考示例"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A rocket is launched vertically and is tracked by a radar station located on the ground 5 km from the launch pad. The rocket's velocity is a constant 800 km/h. What is the rate of change of the angle of elevation of the radar dish when the rocket is at an altitude of 3 km? Express your answer in radians per hour.",
+      "real_world_context": "Aerospace Engineering / Kinematics",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Draw a diagram of the situation. You should see a right triangle. Identify the variables: the rocket's altitude ($y$), the constant distance from the observer to the launchpad ($x$), and the angle of elevation ($\\theta$). Which trigonometric function relates these three quantities?"
+        },
+        {
+          "step": 2,
+          "hint": "You need to find a relationship between the rates of change. Differentiate the trigonometric equation you found in Step 1 with respect to time ($t$). Remember that both the altitude ($y$) and the angle ($\\theta$) are functions of time, so you must use the chain rule."
+        },
+        {
+          "step": 3,
+          "hint": "You need to find the rate of change of the angle, $\\frac{d\\theta}{dt}$, at a specific instant. Use the given altitude ($y=3$ km) and distance ($x=5$ km) to find the value of the trigonometric functions of $\\theta$ at that moment. Then, substitute all known values ($\\frac{dy}{dt}$, $x$, and the value for the trigonometric function) into your differentiated equation to solve for $\\frac{d\\theta}{dt}$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "Let $y(t)$ be the rocket's altitude and $\\theta(t)$ be the angle of elevation. The constant distance to the launchpad is $x=5$. The relationship is given by $\\tan(\\theta) = \\frac{y}{x}$. Differentiating with respect to time $t$ gives $\\sec^2(\\theta) \\frac{d\\theta}{dt} = \\frac{1}{x} \\frac{dy}{dt}$. Solving for the desired rate yields $\\frac{d\\theta}{dt} = \\frac{\\cos^2(\\theta)}{x} \\frac{dy}{dt}$. This formula shows that the rate of change of the angle depends on the rocket's speed, its distance from the observer, and the current angle itself.",
+        "visual_conceptual": "Imagine looking up at the rocket. As it rises, you have to tilt your head up faster. The derivative $\\frac{d\\theta}{dt}$ represents the instantaneous speed at which you are tilting your head. When the rocket is low, a small increase in height creates a large change in your viewing angle. When the rocket is very high, that same increase in height results in a much smaller change in your viewing angle. Therefore, we expect the rate of change of the angle to be largest at the beginning of the launch and to decrease as the rocket gets higher."
+      },
+      "solution": "Let $y$ be the altitude of the rocket and $\\theta$ be the angle of elevation from the radar station. The horizontal distance is a constant, $x = 5$ km. The relationship between these variables is given by the tangent function:\n\n$\\tan(\\theta) = \\frac{y}{x} = \\frac{y}{5}$\n\nWe are asked to find $\\frac{d\\theta}{dt}$ when $y=3$ km, and we are given that $\\frac{dy}{dt} = 800$ km/h.\n\nFirst, we differentiate our equation with respect to time $t$, using the chain rule:\n\n$\\frac{d}{dt}(\\tan(\\theta)) = \\frac{d}{dt}(\\frac{y}{5})$\n\n$\\sec^2(\\theta) \\cdot \\frac{d\\theta}{dt} = \\frac{1}{5} \\cdot \\frac{dy}{dt}$\n\nNow, we solve for $\\frac{d\\theta}{dt}$:\n\n$\\frac{d\\theta}{dt} = \\frac{1}{5 \\sec^2(\\theta)} \\frac{dy}{dt} = \\frac{\\cos^2(\\theta)}{5} \\frac{dy}{dt}$\n\nWe need to find the value of $\\cos^2(\\theta)$ at the instant when $y=3$ km. At this moment, we have a right triangle with adjacent side $x=5$ and opposite side $y=3$. The hypotenuse, $h$, can be found using the Pythagorean theorem:\n\n$h = \\sqrt{x^2 + y^2} = \\sqrt{5^2 + 3^2} = \\sqrt{25 + 9} = \\sqrt{34}$\n\nThe cosine of the angle at this instant is:\n\n$\\cos(\\theta) = \\frac{\\text{adjacent}}{\\text{hypotenuse}} = \\frac{5}{\\sqrt{34}}$\n\nTherefore, $\\cos^2(\\theta) = (\\frac{5}{\\sqrt{34}})^2 = \\frac{25}{34}$.\n\nFinally, we substitute the known values into our equation for $\\frac{d\\theta}{dt}$:\n\n$\\frac{d\\theta}{dt} = \\frac{25/34}{5} \\cdot 800 = \\frac{5}{34} \\cdot 800 = \\frac{4000}{34} = \\frac{2000}{17}$\n\nThe rate of change of the angle of elevation is $\\frac{2000}{17}$ radians per hour, which is approximately 117.65 rad/hr.",
+      "concepts": [
+        "Derivatives",
+        "Related Rates",
+        "Chain Rule",
+        "Implicit Differentiation",
+        "Trigonometric Derivatives",
+        "Pythagorean Theorem"
+      ],
+      "topic": "Derivatives",
+      "sub_topic": "Derivatives",
+      "generated_at": "2026-03-30T14:31:41.869499",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "概念标签可能过多",
+          "无同主题参考示例"
+        ]
+      }
+    },
+    {
+      "problem_statement": "A pendulum is attached to a pivot and submerged in a viscous fluid. When released from an initial position, its displacement from the vertical equilibrium position (in centimeters) at time $t$ (in seconds) is modeled by the function $P(t) = e^{-0.1t} \\cos(4\\pi t)$. The term $e^{-0.1t}$ represents the damping effect of the fluid, which causes the amplitude of the swings to decrease over time. Using the principles of limits, prove rigorously that the pendulum eventually comes to rest at its equilibrium position. What does 'eventually' mean in this mathematical context?",
+      "real_world_context": "Classical Mechanics / Damped Oscillations",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The problem asks you to show the pendulum 'comes to rest at its equilibrium position'. The equilibrium is at a displacement of 0. 'Eventually' implies a long-term behavior. How can you translate this entire phrase into a single mathematical limit statement involving the function $P(t)$?"
+        },
+        {
+          "step": 2,
+          "hint": "The function $P(t)$ is difficult to evaluate directly as $t \\to \\infty$ because of the oscillating $\\cos(4\\pi t)$ term. However, we know that the cosine function is always bounded. What are the maximum and minimum values of $\\cos(4\\pi t)$? Use these bounds to create two simpler functions, one that is always greater than or equal to $P(t)$ and one that is always less than or equal to $P(t)$."
+        },
+        {
+          "step": 3,
+          "hint": "You now have $P(t)$ 'squeezed' between two other functions. Evaluate the limits of these two 'bounding' functions as $t \\to \\infty$. What famous theorem allows you to make a definitive conclusion about the limit of $P(t)$ based on the limits of the functions that bound it?"
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "We need to prove that $\\lim_{t \\to \\infty} P(t) = 0$. The Squeeze Theorem is the formal tool for this. The theorem states that if we have three functions such that $g(t) \\leq f(t) \\leq h(t)$ for all $t$ in an interval around $c$ (or for all $t$ greater than some $N$ for limits at infinity), and if $\\lim_{t \\to c} g(t) = \\lim_{t \\to c} h(t) = L$, then it must be that $\\lim_{t \\to c} f(t) = L$. We apply this by establishing bounds for $P(t) = e^{-0.1t} \\cos(4\\pi t)$ and showing the bounds converge to the same limit.",
+        "visual_conceptual": "Imagine the graph of the function $P(t)$. It's a wave that oscillates up and down. The $e^{-0.1t}$ part acts as a decaying 'envelope'. If you graph the functions $y = e^{-0.1t}$ and $y = -e^{-0.1t}$, you'll see that the graph of $P(t)$ is always trapped between these two curves. As time $t$ increases, both of these envelope curves get closer and closer to the horizontal axis ($y=0$). Since the pendulum's position $P(t)$ is always squeezed between them, it has no choice but to also be forced towards $y=0$. The limit is the value that the function is inexorably drawn towards as time goes on forever."
+      },
+      "solution": "Our goal is to prove that the pendulum eventually comes to rest, which mathematically means we must show that $\\lim_{t \\to \\infty} P(t) = 0$.\n\nWe are given the position function $P(t) = e^{-0.1t} \\cos(4\\pi t)$.\n\nStep 1: Establish bounds for the function.\nWe know that the cosine function is always bounded between -1 and 1, regardless of its input:\n$-1 \\leq \\cos(4\\pi t) \\leq 1$\n\nStep 2: Apply the damping factor to the bounds.\nSince $t$ represents time, $t \\geq 0$, and the exponential function $e^{-0.1t}$ is always positive. Therefore, we can multiply the entire inequality by $e^{-0.1t}$ without changing the direction of the inequality signs:\n$-1 \\cdot e^{-0.1t} \\leq e^{-0.1t} \\cos(4\\pi t) \\leq 1 \\cdot e^{-0.1t}$\nThis simplifies to:\n$-e^{-0.1t} \\leq P(t) \\leq e^{-0.1t}$\n\nStep 3: Apply the Squeeze Theorem.\nWe have successfully 'squeezed' our position function $P(t)$ between two simpler functions: $g(t) = -e^{-0.1t}$ and $h(t) = e^{-0.1t}$. Now, let's find the limits of these bounding functions as $t \\to \\infty$.\n\nFor the upper bound:\n$\\lim_{t \\to \\infty} h(t) = \\lim_{t \\to \\infty} e^{-0.1t} = \\lim_{t \\to \\infty} \\frac{1}{e^{0.1t}} = 0$\n(As the denominator grows infinitely large, the fraction approaches 0).\n\nFor the lower bound:\n$\\lim_{t \\to \\infty} g(t) = \\lim_{t \\to \\infty} -e^{-0.1t} = - \\left( \\lim_{t \\to \\infty} e^{-0.1t} \\right) = -0 = 0$\n\nStep 4: Conclude.\nSince $P(t)$ is squeezed between $g(t)$ and $h(t)$, and since both $\\lim_{t \\to \\infty} g(t) = 0$ and $\\lim_{t \\to \\infty} h(t) = 0$, the Squeeze Theorem dictates that the limit of $P(t)$ must also be 0.\n\nTherefore, $\\lim_{t \\to \\infty} P(t) = 0$.\n\nThis rigorous proof shows that as time progresses towards infinity, the displacement of the pendulum from its equilibrium position approaches zero. This is the mathematical meaning of the pendulum 'eventually' coming to rest.",
+      "concepts": [
+        "Limits at Infinity",
+        "Squeeze Theorem",
+        "Transcendental Functions",
+        "Damped Oscillations",
+        "Bounded Functions"
+      ],
+      "topic": "Limits",
+      "sub_topic": "Limits",
+      "generated_at": "2026-03-30T14:32:13.895026",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果",
+          "无同主题参考示例"
+        ]
+      }
+    },
+    {
+      "problem_statement": "In pharmacology, the concentration of a drug in a patient's bloodstream over time is a critical measure. After an intravenous injection, the concentration, $C(t)$, of a particular antibiotic in mg/L is modeled by the function $C(t) = \\frac{150t}{t^2 + 4}$, where $t$ is the time in hours after the injection. A key question for patient safety is understanding the drug's long-term behavior. Does the drug concentration eventually level off at some non-zero baseline, or does it completely clear from the system? Use the concept of a limit to determine the ultimate concentration of the drug in the bloodstream as time progresses indefinitely.",
+      "real_world_context": "Pharmacokinetics",
+      "difficulty": 2,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The phrase 'long-term behavior' or 'as time progresses indefinitely' is a cue to consider the function's behavior as the variable $t$ becomes very large. How do you mathematically express this concept using limit notation?"
+        },
+        {
+          "step": 2,
+          "hint": "You are evaluating the limit of a rational function at infinity. A standard technique is to divide both the numerator and the denominator by the highest power of $t$ present in the denominator. In this case, that would be $t^2$."
+        },
+        {
+          "step": 3,
+          "hint": "After simplifying the expression from Step 2, evaluate the limit. What is the value of terms like $\\frac{c}{t}$ or $\\frac{c}{t^2}$ as $t \\to \\infty$? Interpret your final numerical answer in the context of the drug concentration in the bloodstream."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "We need to compute the limit of the concentration function as $t$ approaches infinity: $\\lim_{t \\to \\infty} C(t) = \\lim_{t \\to \\infty} \\frac{150t}{t^2 + 4}$. To solve this, we divide the numerator and the denominator by the highest power of $t$ in the denominator, which is $t^2$. This yields $\\lim_{t \\to \\infty} \\frac{150t/t^2}{(t^2/t^2) + (4/t^2)} = \\lim_{t \\to \\infty} \\frac{150/t}{1 + 4/t^2}$. As $t \\to \\infty$, any term of the form $\\frac{k}{t^n}$ (where $n>0$) approaches 0.",
+        "visual_conceptual": "Think of the numerator ($150t$) and the denominator ($t^2 + 4$) as two functions in a race. The numerator grows linearly, like a car traveling at a constant speed. The denominator, however, grows quadratically, like a rocket accelerating. Initially, the car might seem fast, but as time ($t$) becomes very large, the rocket's speed and distance traveled will vastly exceed the car's. The ratio of the car's distance to the rocket's distance, $\\frac{\\text{linear}}{\\text{quadratic}}$, will shrink and approach zero. Therefore, the drug concentration is 'overwhelmed' by the passage of time and eventually becomes negligible."
+      },
+      "solution": "To determine the long-term concentration of the drug, we must evaluate the limit of the function $C(t)$ as $t \\to \\infty$. \n\nThe function is $C(t) = \\frac{150t}{t^2 + 4}$.\n\nWe set up the limit:\n$L = \\lim_{t \\to \\infty} \\frac{150t}{t^2 + 4}$\n\nTo evaluate this limit, we divide both the numerator and the denominator by the highest power of $t$ in the denominator, which is $t^2$:\n$L = \\lim_{t \\to \\infty} \\frac{\\frac{150t}{t^2}}{\\frac{t^2}{t^2} + \\frac{4}{t^2}}$\n\nSimplify the expression:\n$L = \\lim_{t \\to \\infty} \\frac{\\frac{150}{t}}{1 + \\frac{4}{t^2}}$\n\nNow, we apply the limit properties. As $t \\to \\infty$, the terms $\\frac{150}{t}$ and $\\frac{4}{t^2}$ both approach 0.\n$L = \\frac{\\lim_{t \\to \\infty} \\frac{150}{t}}{1 + \\lim_{t \\to \\infty} \\frac{4}{t^2}} = \\frac{0}{1 + 0}$\n\n$L = \\frac{0}{1} = 0$\n\nThus, the limit of the drug concentration as time approaches infinity is 0 mg/L. This means that, according to the model, the drug will eventually clear completely from the system rather than leveling off at a non-zero concentration.",
+      "concepts": [
+        "Limits at Infinity",
+        "Rational Functions",
+        "Asymptotic Behavior",
+        "Mathematical Modeling"
+      ],
+      "topic": "Limits",
+      "sub_topic": "Limits",
+      "generated_at": "2026-03-30T14:32:38.754971",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 92.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 90,
+          "concepts": 100,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "最后一步应该引导得出最终结果",
+          "无同主题参考示例"
+        ]
+      }
+    }
+  ]
+}

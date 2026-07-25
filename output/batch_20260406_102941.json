@@ -1,0 +1,68 @@
+{
+  "batch_id": "batch_20260406_102941",
+  "batch_name": "Demo_Step_3",
+  "mode": "drill",
+  "generated_at": "2026-04-06T10:29:41.370286",
+  "target_topics": [
+    "Derivatives and Differentiation"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "The position of a particle moving along a straight line is given by the function $s(t) = 3t^3 - 4t^2 + 2t + 5$, where $t$ is time in seconds and $s$ is the position in meters. Find the instantaneous velocity of the particle at $t=2$ seconds.",
+      "real_world_context": "In classical mechanics, the derivative of a position function with respect to time gives the instantaneous velocity. This is fundamental for analyzing the motion of objects, from subatomic particles to celestial bodies.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Recall the relationship between position and velocity. The instantaneous velocity function, $v(t)$, is the derivative of the position function, $s(t)$, with respect to time."
+        },
+        {
+          "step": 2,
+          "hint": "Use the power rule for differentiation, which states that $\\\\frac{d}{dt}(at^n) = ant^{n-1}$, to find the derivative of each term in the position function $s(t)$."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the velocity function $v(t) = s'(t)$, substitute the specific time $t=2$ into the function to calculate the velocity at that instant."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The algebraic solution involves applying the rules of differentiation (Power Rule, Sum Rule, Constant Multiple Rule) to the given polynomial function $s(t)$ to find its derivative, $v(t)$. Then, we evaluate this new function, $v(t)$, at the specified time $t=2$ to get a numerical answer for the instantaneous velocity.",
+        "visual_conceptual": "Conceptually, the function $s(t)$ can be graphed with position on the y-axis and time on the x-axis. The derivative, $s'(t)$, represents the slope of the tangent line to this curve at any point $t$. Finding the velocity at $t=2$ is equivalent to finding the slope of the tangent line to the graph of $s(t)$ at the point where $t=2$. A positive slope indicates the particle is moving in the positive direction."
+      },
+      "solution": "The position of the particle is given by the function $s(t) = 3t^3 - 4t^2 + 2t + 5$. \\\\ The instantaneous velocity, $v(t)$, is the first derivative of the position function with respect to time, $t$. \\\\ $$ v(t) = s'(t) = \\\\frac{d}{dt}(3t^3 - 4t^2 + 2t + 5) $$ \\\\ We apply the power rule and sum/difference rule to differentiate term by term: \\\\ $$ v(t) = 3(3t^{3-1}) - 4(2t^{2-1}) + 2(1t^{1-1}) + 0 $$ \\\\ $$ v(t) = 9t^2 - 8t + 2 $$ \\\\ Now, to find the velocity at $t=2$ seconds, we substitute $t=2$ into the velocity function: \\\\ $$ v(2) = 9(2)^2 - 8(2) + 2 $$ \\\\ $$ v(2) = 9(4) - 16 + 2 $$ \\\\ $$ v(2) = 36 - 16 + 2 $$ \\\\ $$ v(2) = 22 $$ \\\\ Therefore, the instantaneous velocity of the particle at $t=2$ seconds is 22 meters per second.",
+      "concepts": [
+        "Derivative as a Rate of Change",
+        "Instantaneous Velocity",
+        "Power Rule for Differentiation",
+        "Sum/Difference Rule for Differentiation"
+      ],
+      "topic": "Derivatives and Differentiation",
+      "generated_at": "2026-04-06T10:29:27.626216",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Derivatives and Differentiation"
+      ],
+      "source_topics_pool": [
+        "Derivatives and Differentiation"
+      ],
+      "evaluation": {
+        "score": 98.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 95,
+          "scaffolding": 95,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "The assigned difficulty of 3 is slightly misaligned with the content. This is a quintessential introductory problem involving the power rule, which typically corresponds to a lower difficulty level (e.g., 2). A difficulty of 3 might imply the need for more complex rules (product, quotient, chain) or a multi-step analysis. | To elevate the problem's complexity, consider adding a second part. For instance, ask for the particle's acceleration at t=2 (requiring the second derivative), or ask for the time(s) when the particle is at rest (requiring setting v(t) = 0 and solving the resulting quadratic equation)."
+      }
+    }
+  ]
+}

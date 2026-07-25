@@ -1,0 +1,67 @@
+{
+  "batch_id": "batch_20260406_111915",
+  "batch_name": "FullRun_Step_7",
+  "mode": "drill",
+  "generated_at": "2026-04-06T11:19:15.493986",
+  "target_topics": [
+    "Indefinite Integrals"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Find the indefinite integral: $$ \\int \\left( 3x^5 - \\sqrt{x} + \\frac{2}{x^3} \\right) dx $$",
+      "real_world_context": "In aerospace engineering, the rate of change of a certain physical quantity (like the stress on a turbine blade) over time can be modeled by a complex function. Finding the indefinite integral of this rate function allows engineers to determine the general formula for the total accumulated quantity. This problem mirrors the first step in such an analysis.",
+      "difficulty": 3,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Before integrating, rewrite each term in the form of `ax^n`. How can you express `\\sqrt{x}` and `\\frac{2}{x^3}` using exponents?"
+        },
+        {
+          "step": 2,
+          "hint": "Apply the power rule for integration, `\\int x^n dx = \\frac{x^{n+1}}{n+1}`, to each term separately. Remember that the integral of a sum is the sum of the integrals."
+        },
+        {
+          "step": 3,
+          "hint": "After finding the antiderivative for each term, don't forget to add the constant of integration, `C`, to represent the entire family of antiderivatives."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The integral can be solved by applying the power rule to each term individually. First, rewrite the integrand as `3x^5 - x^{1/2} + 2x^{-3}`. Then, integrate term by term: `\\int 3x^5 dx = \\frac{3x^6}{6}`, `\\int -x^{1/2} dx = -\\frac{x^{3/2}}{3/2}`, and `\\int 2x^{-3} dx = \\frac{2x^{-2}}{-2}`. Simplifying and combining these results gives the final answer.",
+        "visual_conceptual": "An indefinite integral represents a 'family of functions'. The function we are integrating, `f(x) = 3x^5 - \\sqrt{x} + \\frac{2}{x^3}`, represents the slope of another function, `F(x)`, at any point `x`. Our goal is to find this `F(x)`. The solution, `F(x) + C`, describes an infinite set of curves. Each curve is a vertical shift of the others (represented by the constant `C`), but they all share the exact same slope `f(x)` for any given `x`."
+      },
+      "solution": "First, rewrite the integrand using exponents:\n$$ \\int \\left( 3x^5 - x^{1/2} + 2x^{-3} \\right) dx $$\nNext, use the linearity of integration to separate the terms:\n$$ \\int 3x^5 dx - \\int x^{1/2} dx + \\int 2x^{-3} dx $$\nNow, apply the power rule for integration, `\\int x^n dx = \\frac{x^{n+1}}{n+1}`, to each term:\n$$ 3 \\left( \\frac{x^{5+1}}{5+1} \\right) - \\frac{x^{1/2+1}}{1/2+1} + 2 \\left( \\frac{x^{-3+1}}{-3+1} \\right) + C $$\nSimplify the exponents and denominators:\n$$ 3 \\left( \\frac{x^6}{6} \\right) - \\frac{x^{3/2}}{3/2} + 2 \\left( \\frac{x^{-2}}{-2} \\right) + C $$\nPerform the final simplification:\n$$ \\frac{1}{2}x^6 - \\frac{2}{3}x^{3/2} - x^{-2} + C $$\nThe final answer can also be written as:\n$$ \\frac{1}{2}x^6 - \\frac{2}{3}x^{3/2} - \\frac{1}{x^2} + C $$",
+      "concepts": [
+        "Indefinite Integrals",
+        "Power Rule for Integration",
+        "Linearity of Integrals"
+      ],
+      "topic": "Indefinite Integrals",
+      "generated_at": "2026-04-06T11:17:27.149501",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Indefinite Integrals"
+      ],
+      "source_topics_pool": [
+        "Indefinite Integrals"
+      ],
+      "evaluation": {
+        "score": 96.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 90,
+          "scaffolding": 90,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "None | The real-world context is plausible but generic. To make it more compelling for a student at this level, it could be framed as a more common introductory physics problem. For example, stating that the function represents the velocity of an object, v(t), and asking for the general equation for its position, s(t), provides a more direct and frequently encountered application of basic integration."
+      }
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "batch_id": "batch_20260420_132917",
+  "batch_name": "FullRun_Step_1",
+  "mode": "drill",
+  "generated_at": "2026-04-20T13:29:17.404571",
+  "target_topics": [
+    "Limits and Continuity"
+  ],
+  "difficulty_setting": 2,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Evaluate the limit: \\\\lim_{x \\\\to 4} \\\\frac{x^2 - 16}{x - 4}",
+      "question_type": "mcq",
+      "solution": "To evaluate this limit, we first attempt direct substitution. Plugging in \\\\(x = 4\\\\) yields \\\\(\\frac{4^2 - 16}{4 - 4} = \\\\frac{16 - 16}{0} = \\\\frac{0}{0}\\\\), which is an indeterminate form. This suggests we can simplify the expression algebraically. \\\\n The numerator is a difference of squares, which can be factored as \\\\(x^2 - 16 = (x - 4)(x + 4)\\\\). \\\\n The expression becomes: \\\\n \\\\lim_{x \\\\to 4} \\\\frac{(x - 4)(x + 4)}{x - 4} \\\\n Since the limit considers values of \\\\(x\\\\) approaching 4 but not equal to 4, we know \\\\(x - 4 \\\\neq 0\\\\), so we can cancel the \\\\((x - 4)\\\\) terms: \\\\n \\\\lim_{x \\\\to 4} (x + 4) \\\\n Now, we can use direct substitution on the simplified expression: \\\\n 4 + 4 = 8",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Try to substitute \\\\(x = 4\\\\) directly into the expression. What form do you get?"
+        },
+        {
+          "step": 2,
+          "hint": "The result from Step 1 is an indeterminate form (\\\\(\\frac{0}{0}\\\\)). This means you should try to simplify the expression. Look for a way to factor the numerator."
+        },
+        {
+          "step": 3,
+          "hint": "After factoring the numerator as a difference of squares, cancel the common factor in the numerator and denominator. Then, evaluate the limit of the simplified expression."
+        }
+      ],
+      "options": {
+        "A": "8",
+        "B": "0",
+        "C": "Does Not Exist",
+        "D": "4"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Limits and Continuity",
+      "generated_at": "2026-04-20T13:28:48.299171",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 2,
+      "integrated_topics": [
+        "Limits and Continuity"
+      ],
+      "source_topics_pool": [
+        "Limits and Continuity"
+      ],
+      "evaluation": {
+        "score": 80.5,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 70,
+          "scaffolding": 70,
+          "concept_integration": 25,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The scaffolding is overly prescriptive. Step 3 does not guide the student's thinking but rather provides a complete set of instructions ('factor as a difference of squares, cancel the common factor... evaluate'), undermining the pedagogical goal of helping the student build their own problem-solving process. | Suggestion: To enhance the pedagogical value, the problem could be reframed to truly integrate the concept of continuity. For example: 'Consider the function f(x) = (x^2 - 16)/(x - 4). This function has a removable discontinuity at x = 4. What value should f(4) be defined as to make the function continuous at that point?' This would require the student to calculate the limit to answer a question explicitly about continuity, creating a stronger conceptual link."
+      }
+    }
+  ]
+}

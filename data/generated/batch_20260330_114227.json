@@ -1,0 +1,64 @@
+{
+  "batch_id": "batch_20260330_114227",
+  "batch_name": "generation_25",
+  "generated_at": "2026-03-30T11:42:27.580456",
+  "topics": [
+    "Separable ODEs"
+  ],
+  "num_per_topic": 1,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "A large pristine lake with a volume of $V = 20 \\times 10^6$ liters is initially free of pollutants. A nearby factory begins to discharge a chemical solution into the lake at a constant rate of $R = 10,000$ liters/hour. The concentration of the pollutant in the discharged solution is $C_{in} = 0.02$ grams/liter. Assume the lake is well-mixed and that water flows out of the lake at the same rate, $R$. Let $P(t)$ be the total mass of pollutant (in grams) in the lake at time $t$ (in hours). First, derive a differential equation for $P(t)$. Then, solve this initial value problem to find $P(t)$. Finally, determine how long it will take for the pollutant concentration in the lake to reach 75% of its long-term equilibrium concentration.",
+      "real_world_context": "Environmental Engineering / Chemical Mixing Problems",
+      "difficulty": 4,
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "Set up a differential equation for the rate of change of the pollutant, $\\frac{dP}{dt}$. Model this as the difference between the rate at which pollutant enters the lake and the rate at which it leaves: $\\frac{dP}{dt} = (\\text{Rate In}) - (\\text{Rate Out})$. The 'Rate Out' depends on the current concentration of the pollutant in the lake, which is $\\frac{P(t)}{V}$."
+        },
+        {
+          "step": 2,
+          "hint": "The resulting differential equation is separable. Isolate the terms involving $P$ on one side with $dP$ and the terms involving $t$ on the other. Integrate both sides with respect to their variables. You may need to use a u-substitution for the integral involving $P$."
+        },
+        {
+          "step": 3,
+          "hint": "Use the initial condition that the lake is pristine ($P(0) = 0$) to solve for the constant of integration. To find the time to reach 75% of the equilibrium concentration, first determine the long-term equilibrium mass of the pollutant by evaluating the limit of $P(t)$ as $t \\to \\infty$. Then, set your expression for $P(t)$ equal to 75% of this value and solve for $t$."
+        }
+      ],
+      "multiple_representations": {
+        "algebraic": "The problem is modeled by the first-order linear differential equation $\\frac{dP}{dt} = \\text{Rate}_{in} - \\text{Rate}_{out} = R C_{in} - R \\frac{P(t)}{V}$. This equation is solved using the method of separation of variables to derive an explicit function $P(t)$ that quantifies the mass of the pollutant at any given time $t$.",
+        "visual_conceptual": "Imagine the lake's pollution level as a quantity that is trying to reach a balance. At the start, pollutant flows in much faster than it flows out, so the amount of pollutant rises sharply. As the lake becomes more polluted, the concentration increases, causing the outflow rate of the pollutant to also increase. This slows down the net increase of pollution. The graph of $P(t)$ is an exponential growth curve that starts at the origin and flattens out, asymptotically approaching a maximum 'carrying capacity' or equilibrium level, where the rate of pollutant entering equals the rate of pollutant leaving."
+      },
+      "solution": "1. **Set up the Differential Equation**:\nRate In = (Flow Rate) $\\times$ (Incoming Concentration) = $10000 \\frac{\\text{L}}{\\text{hr}} \\times 0.02 \\frac{\\text{g}}{\\text{L}} = 200 \\frac{\\text{g}}{\\text{hr}}$.\nRate Out = (Flow Rate) $\\times$ (Lake Concentration) = $10000 \\frac{\\text{L}}{\\text{hr}} \\times \\frac{P(t)}{20 \\times 10^6} \\frac{\\text{g}}{\\text{L}} = \\frac{P(t)}{2000} \\frac{\\text{g}}{\\text{hr}}$.\nThe differential equation is $\\frac{dP}{dt} = 200 - \\frac{P}{2000} = \\frac{400000 - P}{2000}$.\n\n2. **Solve the Separable ODE**:\nSeparate the variables: $\\frac{dP}{400000 - P} = \\frac{dt}{2000}$.\nIntegrate both sides: $\\int \\frac{1}{400000 - P} dP = \\int \\frac{1}{2000} dt$.\nThis gives: $-\\ln|400000 - P| = \\frac{t}{2000} + C_1$.\nExponentiate both sides: $|400000 - P| = e^{-\\frac{t}{2000} - C_1} = e^{-C_1}e^{-\\frac{t}{2000}}$.\nLet $A = \\pm e^{-C_1}$ be a new constant. $400000 - P = A e^{-t/2000}$.\nThe general solution is $P(t) = 400000 - A e^{-t/2000}$.\n\n3. **Apply Initial Condition and Solve**:\nGiven $P(0) = 0$: $0 = 400000 - A e^0 \\implies A = 400000$.\nThe particular solution is $P(t) = 400000(1 - e^{-t/2000})$.\n\n4. **Find Time to Reach 75% of Equilibrium**:\nThe equilibrium mass is $P_{eq} = \\lim_{t \\to \\infty} P(t) = 400000(1-0) = 400000$ grams.\nWe want to find $t$ when $P(t) = 0.75 \\times 400000 = 300000$ grams.\n$300000 = 400000(1 - e^{-t/2000})$.\n$0.75 = 1 - e^{-t/2000}$.\n$e^{-t/2000} = 0.25$.\nTake the natural logarithm: $-\\frac{t}{2000} = \\ln(0.25) = \\ln(1/4) = -\\ln(4)$.\n$t = 2000 \\ln(4) = 2000 \\times 2 \\ln(2) \\approx 2000 \\times 1.386 = 2772.6$ hours.",
+      "concepts": [
+        "Separable Differential Equations",
+        "Initial Value Problems",
+        "Mathematical Modeling",
+        "Mixing Problems",
+        "Asymptotic Behavior",
+        "Limits",
+        "Exponential Decay"
+      ],
+      "topic": "Separable ODEs",
+      "sub_topic": "Separable ODEs",
+      "generated_at": "2026-03-30T11:42:27.037522",
+      "model": "gemini-2.5-pro",
+      "evaluation": {
+        "score": 93.5,
+        "dimensions": {
+          "structure": 100,
+          "scaffolding": 100,
+          "concepts": 90,
+          "difficulty": 100,
+          "context": 100,
+          "originality": 75
+        },
+        "passed": true,
+        "issues": [
+          "概念标签可能过多"
+        ]
+      }
+    }
+  ]
+}

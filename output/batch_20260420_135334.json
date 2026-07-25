@@ -1,0 +1,69 @@
+{
+  "batch_id": "batch_20260420_135334",
+  "batch_name": "V3_Step_11",
+  "mode": "drill",
+  "generated_at": "2026-04-20T13:53:34.651653",
+  "target_topics": [
+    "Multivariable Calculus"
+  ],
+  "difficulty_setting": 3,
+  "total_generated": 1,
+  "problems": [
+    {
+      "problem_statement": "Let R be the parallelogram with vertices at (0,0), (2,1), (1,2), and (3,3). Evaluate the double integral \\\\( \\\\iint_R (x+y) \\, dA \\\\).",
+      "question_type": "mcq",
+      "solution": "To evaluate this integral, we use a change of variables to map the parallelogram R to a simpler region, like a square. Let the transformation be defined by the vectors forming the sides of the parallelogram originating from the origin: \\\\(\\\\vec{a} = \\\\langle 2,1 \\\\rangle\\\\) and \\\\(\\\\vec{b} = \\\\langle 1,2 \\\\rangle\\\\). We can define a linear transformation from the uv-plane to the xy-plane as: \\\\(x = 2u + v\\\\) and \\\\(y = u + 2v\\\\). This transformation maps the unit square \\\\(S = [0,1] \\\\times [0,1]\\\\) in the uv-plane to the parallelogram R in the xy-plane. \n\nNext, we compute the Jacobian of this transformation: \n\\\\( J = \\\\frac{\\\\partial(x,y)}{\\\\partial(u,v)} = \\\\det \\\\begin{pmatrix} \\\\frac{\\\\partial x}{\\\\partial u} & \\\\frac{\\\\partial x}{\\\\partial v} \\\\\\\\ \\\\frac{\\\\partial y}{\\\\partial u} & \\\\frac{\\\\partial y}{\\\\partial v} \\\\end{pmatrix} = \\\\det \\\\begin{pmatrix} 2 & 1 \\\\\\\\ 1 & 2 \\\\end{pmatrix} = (2)(2) - (1)(1) = 3 \\\\). \n\nNow, we transform the integrand \\\\(f(x,y) = x+y\\\\) into terms of u and v: \n\\\\( x+y = (2u+v) + (u+2v) = 3u+3v = 3(u+v) \\\\). \n\nThe change of variables formula for double integrals is \\\\( \\\\iint_R f(x,y) \\, dA = \\\\iint_S f(x(u,v), y(u,v)) |J| \\, du \\, dv \\\\). \n\nSubstituting our expressions, we get: \n\\\\( \\\\iint_R (x+y) \\, dA = \\\\int_0^1 \\\\int_0^1 3(u+v) \\\\cdot |3| \\, du \\, dv \\\\) \n\\\\( = 9 \\\\int_0^1 \\\\left[ \\\\frac{u^2}{2} + vu \\\\right]_{u=0}^{u=1} \\, dv \\\\) \n\\\\( = 9 \\\\int_0^1 \\\\left( \\\\frac{1}{2} + v \\\\right) \\, dv \\\\) \n\\\\( = 9 \\\\left[ \\\\frac{v}{2} + \\\\frac{v^2}{2} \\\\right]_0^1 \\\\) \n\\\\( = 9 \\\\left( (\\\\frac{1}{2} + \\\\frac{1}{2}) - (0) \\\\right) = 9(1) = 9 \\\\).",
+      "scaffolding": [
+        {
+          "step": 1,
+          "hint": "The region of integration R is a parallelogram. This suggests that a change of variables (linear transformation) would be a good strategy to simplify the integral. The goal is to transform the parallelogram into a rectangle (often a unit square)."
+        },
+        {
+          "step": 2,
+          "hint": "Define a transformation \\\\(x = x(u,v), y = y(u,v)\\\\) that maps the unit square \\\\(0 \\\\le u \\\\le 1, 0 \\\\le v \\\\le 1\\\\) to the parallelogram R. The vectors forming the sides of the parallelogram from the origin can be used to define this transformation. Then, compute the Jacobian determinant \\\\(J = \\\\frac{\\\\partial(x,y)}{\\\\partial(u,v)}\\\\)."
+        },
+        {
+          "step": 3,
+          "hint": "Rewrite the integrand \\\\((x+y)\\\\) in terms of u and v. Then, set up the new integral over the unit square in the uv-plane using the formula \\\\( \\\\iint_R f(x,y) \\, dA = \\\\iint_S f(u,v) |J| \\, du \\, dv \\\\)."
+        },
+        {
+          "step": 4,
+          "hint": "Evaluate the transformed integral: \\\\( \\\\int_0^1 \\\\int_0^1 (3u+3v) \\\\cdot 3 \\, du \\, dv \\\\). Be careful with the iterated integration."
+        }
+      ],
+      "options": {
+        "A": "9",
+        "B": "3",
+        "C": "6",
+        "D": "1"
+      },
+      "correct_answer": "A",
+      "difficulty": 3,
+      "topic": "Multivariable Calculus",
+      "generated_at": "2026-04-20T13:53:17.990514",
+      "model": "gemini-2.5-pro",
+      "mode": "drill",
+      "target_difficulty": 3,
+      "integrated_topics": [
+        "Multivariable Calculus"
+      ],
+      "source_topics_pool": [
+        "Multivariable Calculus"
+      ],
+      "evaluation": {
+        "score": 94.0,
+        "dimensions": {
+          "structure": 100,
+          "math_logic": 100,
+          "pedagogical_alignment": 85,
+          "scaffolding": 85,
+          "concept_integration": 100,
+          "originality": 100
+        },
+        "passed": true,
+        "issues": [],
+        "ai_feedback": "Flaw: The final scaffolding step (Step 4) is overly explicit. It provides the fully transformed integral, `∫∫(3u+3v) * 3 du dv`, which removes the need for the student to perform the substitution and Jacobian multiplication themselves. This undermines the learning objective of the preceding steps. | Suggestion: Revise the final scaffolding hint to be less revealing. Instead of showing the complete transformed integral, a better hint would be: 'Now, evaluate the integral over the unit square using the transformed integrand and the absolute value of the Jacobian you found in the previous steps.' This prompts the student to perform the final assembly of the integral themselves, reinforcing the entire change of variables process."
+      }
+    }
+  ]
+}

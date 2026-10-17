@@ -1,0 +1,3622 @@
+{
+  "benchmark_version": "2.0",
+  "design": "paired_topic_stratified",
+  "seed": 42,
+  "topics": [
+    "Limits and Continuity",
+    "Derivatives and Differentiation",
+    "Integration and FTOC",
+    "Multivariable Calculus",
+    "Applications of Derivatives",
+    "Indefinite Integrals",
+    "Applications of Integration",
+    "Multiple Integrals",
+    "Vector Calculus",
+    "Sequences and Series"
+  ],
+  "cases_per_topic": 30,
+  "case_count": 300,
+  "generation_count": 600,
+  "tasks": [
+    {
+      "case_id": "t01_c001",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1194819984,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c002",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 27911967,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c003",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 685731524,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c004",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1815115025,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c005",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1461364854,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c006",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1193448329,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c007",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 667779376,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c008",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 924765563,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c009",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1445662585,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c010",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 438989805,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c011",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 398340369,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c012",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1631775357,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c013",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 415393687,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c014",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1541804686,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c015",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1477278577,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c016",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1136108454,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c017",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 186618211,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c018",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1973214822,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c019",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 536124280,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c020",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1625792787,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c021",
+      "topic": "Limits and Continuity",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 338444264,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c022",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1259191105,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c023",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1553210608,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c024",
+      "topic": "Limits and Continuity",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 825873196,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c025",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 298737106,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c026",
+      "topic": "Limits and Continuity",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 196814233,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c027",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 978815630,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c028",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1242911821,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c029",
+      "topic": "Limits and Continuity",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 342703921,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t01_c030",
+      "topic": "Limits and Continuity",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 999829240,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c001",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1149938334,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c002",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 284277889,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c003",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 906164396,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c004",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1351531223,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c005",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 913224047,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c006",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 2144181937,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c007",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1699226064,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c008",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1970753705,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c009",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 613628803,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c010",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1137651678,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c011",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 599707677,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c012",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1059257080,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c013",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1128466620,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c014",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1840109255,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c015",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1715412119,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c016",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1554762903,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c017",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 941975480,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c018",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 594130308,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c019",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 2119634399,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c020",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 390452952,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c021",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 202363285,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c022",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 470939445,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c023",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 656448479,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c024",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 687117441,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c025",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1813163240,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c026",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 272849424,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c027",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1652563013,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c028",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1639042338,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c029",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 2010258946,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t02_c030",
+      "topic": "Derivatives and Differentiation",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1079815404,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c001",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 693847829,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c002",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 2456273,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c003",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1392239675,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c004",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 2098545541,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c005",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 83651970,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c006",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 480468219,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c007",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1558990517,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c008",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1320763135,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c009",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1028439863,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c010",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 248786714,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c011",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1034535593,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c012",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 338258951,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c013",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 367878761,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c014",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 2087313121,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c015",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 297265480,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c016",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 540137296,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c017",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 551437149,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c018",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 2041322270,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c019",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 709214891,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c020",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1138409539,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c021",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1817363615,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c022",
+      "topic": "Integration and FTOC",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 909666337,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c023",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 863937247,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c024",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1338811290,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c025",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1713658874,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c026",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1603828849,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c027",
+      "topic": "Integration and FTOC",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1881625505,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c028",
+      "topic": "Integration and FTOC",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1939118223,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c029",
+      "topic": "Integration and FTOC",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 519709079,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t03_c030",
+      "topic": "Integration and FTOC",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1064746525,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c001",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1748309234,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c002",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 817804383,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c003",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 405126228,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c004",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 416314667,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c005",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1851350739,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c006",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1521696479,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c007",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1819256337,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c008",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1765670844,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c009",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 2005855667,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c010",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 232663462,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c011",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 422701550,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c012",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 260329455,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c013",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1729245242,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c014",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1457293575,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c015",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 469306919,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c016",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1067970820,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c017",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 822873088,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c018",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 816941039,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c019",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1926780541,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c020",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 602078388,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c021",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1811967841,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c022",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 788075126,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c023",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1196342297,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c024",
+      "topic": "Multivariable Calculus",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1986972437,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c025",
+      "topic": "Multivariable Calculus",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1072910527,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c026",
+      "topic": "Multivariable Calculus",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 323775634,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c027",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1903232052,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c028",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 420514789,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c029",
+      "topic": "Multivariable Calculus",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 217275224,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t04_c030",
+      "topic": "Multivariable Calculus",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 63384488,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c001",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1346922426,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c002",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 245522987,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c003",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 215359682,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c004",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 2047791082,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c005",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 676168421,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c006",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 244295904,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c007",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 344076115,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c008",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 798112150,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c009",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 294296873,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c010",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 291889680,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c011",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1010193046,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c012",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1734202799,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c013",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 514909066,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c014",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1057486868,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c015",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 170689150,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c016",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 352116052,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c017",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1800557283,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c018",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1358798143,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c019",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1119980130,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c020",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 877286584,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c021",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1349409434,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c022",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1025148381,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c023",
+      "topic": "Applications of Derivatives",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1140805649,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c024",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1699887270,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c025",
+      "topic": "Applications of Derivatives",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 562117925,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c026",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1288477634,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c027",
+      "topic": "Applications of Derivatives",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1963764597,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c028",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1357970698,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c029",
+      "topic": "Applications of Derivatives",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 311570307,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t05_c030",
+      "topic": "Applications of Derivatives",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 40009587,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c001",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 495762348,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c002",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 459716009,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c003",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 667643690,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c004",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1169726681,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c005",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1210133979,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c006",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 904647469,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c007",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1472659626,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c008",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 874443787,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c009",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1133802214,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c010",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 2098228320,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c011",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1078557553,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c012",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 218179599,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c013",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 396418889,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c014",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1819244083,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c015",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1188332531,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c016",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 189351213,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c017",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 15228622,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c018",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1432614422,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c019",
+      "topic": "Indefinite Integrals",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 561866144,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c020",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1125089309,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c021",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 693989311,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c022",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1897669065,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c023",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1836901321,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c024",
+      "topic": "Indefinite Integrals",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 41531046,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c025",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 480494664,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c026",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 323169889,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c027",
+      "topic": "Indefinite Integrals",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 640183291,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c028",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 154739678,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c029",
+      "topic": "Indefinite Integrals",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1585770584,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t06_c030",
+      "topic": "Indefinite Integrals",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 636057975,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c001",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1643004186,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c002",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 166320906,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c003",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 2021598245,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c004",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 955345537,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c005",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 857158768,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c006",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1976987348,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c007",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1501771491,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c008",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1310784794,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c009",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 977515194,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c010",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 957449367,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c011",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 101637979,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c012",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 829486135,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c013",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1711398352,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c014",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1409874348,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c015",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1196591018,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c016",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 298159856,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c017",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1198832728,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c018",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1508161137,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c019",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1716605598,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c020",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1422277848,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c021",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 118543408,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c022",
+      "topic": "Applications of Integration",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 495389030,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c023",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1121910732,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c024",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 766942939,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c025",
+      "topic": "Applications of Integration",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1140169349,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c026",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 164313410,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c027",
+      "topic": "Applications of Integration",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 465585404,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c028",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1866437132,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c029",
+      "topic": "Applications of Integration",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1484714820,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t07_c030",
+      "topic": "Applications of Integration",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1347233823,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c001",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 546696950,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c002",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 823946934,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c003",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1805803262,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c004",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1628416575,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c005",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 747441732,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c006",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1292569882,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c007",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1744079573,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c008",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1743499,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c009",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1305132983,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c010",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1232285036,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c011",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 902727745,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c012",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1846355528,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c013",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1384049914,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c014",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1997109065,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c015",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1897456484,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c016",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1899061865,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c017",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 917840538,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c018",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 2032319170,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c019",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 728818981,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c020",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 364194056,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c021",
+      "topic": "Multiple Integrals",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1218853328,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c022",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1439622619,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c023",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 401094954,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c024",
+      "topic": "Multiple Integrals",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1008752943,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c025",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1333241445,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c026",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 964824319,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c027",
+      "topic": "Multiple Integrals",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 855256552,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c028",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 632880459,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c029",
+      "topic": "Multiple Integrals",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 104906255,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t08_c030",
+      "topic": "Multiple Integrals",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 198486416,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c001",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1995627518,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c002",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1362784338,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c003",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1900838388,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c004",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1832837596,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c005",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1915184358,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c006",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 683577992,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c007",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 2038711176,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c008",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1933034905,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c009",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1113219231,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c010",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1061886576,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c011",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1191043170,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c012",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 2081328344,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c013",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1027553177,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c014",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1179387055,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c015",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1889238423,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c016",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 332788471,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c017",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1227193073,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c018",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1007142260,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c019",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1167007513,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c020",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1442454200,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c021",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1373142116,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c022",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 346078411,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c023",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 594312071,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c024",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 647812758,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c025",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 993260504,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c026",
+      "topic": "Vector Calculus",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1645124051,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c027",
+      "topic": "Vector Calculus",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 656293602,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c028",
+      "topic": "Vector Calculus",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 918920620,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c029",
+      "topic": "Vector Calculus",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 275860817,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t09_c030",
+      "topic": "Vector Calculus",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1781844052,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c001",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1670128972,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c002",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 1443665390,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c003",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 1736526879,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c004",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 708861714,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c005",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 2007425404,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c006",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 548157187,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c007",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 115820025,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c008",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1692304102,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c009",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 116402431,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c010",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 360551585,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c011",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1840877826,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c012",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 582824840,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c013",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1982979741,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c014",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 780520225,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c015",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 215970859,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c016",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1117362852,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c017",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1628238707,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c018",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "exam",
+      "seed": 1405969000,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c019",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 909074012,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c020",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1952918745,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c021",
+      "topic": "Sequences and Series",
+      "difficulty": 4,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1403792057,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c022",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1449553823,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c023",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1628334692,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c024",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "calculation",
+      "mode": "drill",
+      "seed": 1195103064,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c025",
+      "topic": "Sequences and Series",
+      "difficulty": 1,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 1810607153,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c026",
+      "topic": "Sequences and Series",
+      "difficulty": 5,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 1083497965,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c027",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "mcq",
+      "mode": "drill",
+      "seed": 351784589,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c028",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "fill_in",
+      "mode": "exam",
+      "seed": 2019952485,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c029",
+      "topic": "Sequences and Series",
+      "difficulty": 2,
+      "question_type": "fill_in",
+      "mode": "drill",
+      "seed": 83250566,
+      "pipelines": [
+        "multi_agent",
+        "single_agent"
+      ]
+    },
+    {
+      "case_id": "t10_c030",
+      "topic": "Sequences and Series",
+      "difficulty": 3,
+      "question_type": "calculation",
+      "mode": "exam",
+      "seed": 223705953,
+      "pipelines": [
+        "single_agent",
+        "multi_agent"
+      ]
+    }
+  ]
+}

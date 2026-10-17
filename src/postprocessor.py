@@ -1,5 +1,5 @@
 """
-PostProcessor - V4.2 T2P Production Hardened Version (LaTeX Rendering Enhanced)
+PostProcessor - V4.2 Calculus Atelier Production Hardened Version
 Main Updates:
 1. [Fix Delimiters] Unified regex replacement to eliminate delimiter residue caused by multiple escapes.
 2. [Remove Over-protection] Cleaned backslash stacking in clean_json_text to avoid `\begin` becoming `\\begin`.
@@ -9,11 +9,8 @@ Main Updates:
 import json
 import re
 import logging
-import torch
-import numpy as np
 from typing import Dict, List, Optional, Any
-from sentence_transformers import SentenceTransformer
-from sentence_transformers import util
+from src.config import Config
 
 logger = logging.getLogger(__name__)
 
@@ -23,18 +20,37 @@ class PostProcessor:
     def __init__(self, similarity_threshold: float = 0.85):
         self.similarity_threshold = similarity_threshold
         self.similarity_model = None
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self._model_load_attempted = False
+        self.device = "not_loaded"
 
+    def _ensure_similarity_model(self):
+        """Load the optional embedding model only when explicitly enabled.
+
+        Importing the API must never trigger a model download or a sequence of
+        network retries. Production deployments can opt in after provisioning
+        the model cache with ENABLE_SEMANTIC_DEDUP=true.
+        """
+        if not Config.ENABLE_SEMANTIC_DEDUP:
+            return None
+        if self.similarity_model is not None or self._model_load_attempted:
+            return self.similarity_model
+
+        self._model_load_attempted = True
         try:
+            import torch
+            from sentence_transformers import SentenceTransformer
+
+            self.device = "cuda" if torch.cuda.is_available() else "cpu"
             logger.info(f"Loading semantic deduplication model... (Target device: {self.device})")
             self.similarity_model = SentenceTransformer(
-                'paraphrase-multilingual-MiniLM-L12-v2',
+                Config.SEMANTIC_MODEL,
                 device=self.device
             )
             logger.info(f"Semantic deduplication engine ready [Device: {self.device.upper()}]")
         except Exception as e:
             logger.warning(f"Failed to load semantic model, falling back to text fingerprinting: {str(e)}")
             self.similarity_model = None
+        return self.similarity_model
 
     def _sanitize_text(self, text: str) -> str:
         """
@@ -195,8 +211,11 @@ class PostProcessor:
 
     def deduplicate(self, problems: List[Dict], existing: List[Dict] = None) -> List[Dict]:
         """Transformer-based semantic deduplication (supports fallback when model is unavailable)"""
-        if not problems or self.similarity_model is None:
+        if not problems or self._ensure_similarity_model() is None:
             return self._basic_deduplicate(problems, existing)
+
+        import torch
+        from sentence_transformers import util
 
         new_texts = [p.get('problem_statement', '') for p in problems
                      if isinstance(p, dict) and p.get('problem_statement')]

@@ -3,7 +3,7 @@ Quality Evaluator - Intelligent & Robust Version (V4.1)
 Audit engine optimized for deep fusion mode:
 1. Strengthened weight of cross-knowledge-point connection logic (Concept Integration).
 2. Introduced logical gap scanning to ensure rigor of multi-step comprehensive problems.
-3. Enhanced JSON safe extraction and defensive cleaning, adapted for Gemini 2.5 Pro.
+3. Enhanced JSON safe extraction and defensive cleaning, adapted for DeepSeek V4 Pro.
 4. [Core Fix]: Completely decoupled Drill mode admission criteria, exempting single-topic problems from fusion score requirements.
 """
 import json
@@ -11,7 +11,8 @@ import logging
 import re
 from typing import Dict, List, Optional, Tuple, Any
 from dataclasses import dataclass
-from src.gemini_client import GeminiClient
+from src.llm_client import LLMClient
+from src.validation import MathematicalValidator
 
 logger = logging.getLogger(__name__)
 
@@ -24,14 +25,16 @@ class EvaluationResult:
     issues: List[str]
     passed: bool
     ai_feedback: str = ""
+    deterministic_validation: Optional[Dict[str, Any]] = None
 
 
 class QualityEvaluator:
-    """Intelligent quality evaluator - Responsible for closed-loop quality control of the T2P system"""
+    """Intelligent quality evaluator for the Calculus Atelier quality loop."""
 
-    def __init__(self, golden_data_loader=None, gemini_client=None):
+    def __init__(self, golden_data_loader=None, llm_client=None):
         self.golden_loader = golden_data_loader
-        self.gemini_client = gemini_client or GeminiClient()
+        self.llm_client = llm_client or LLMClient()
+        self.mathematical_validator = MathematicalValidator()
 
         # Weight distribution: In comprehensive mode, mathematical logic and knowledge point fusion are core
         self.weights = {
@@ -96,6 +99,10 @@ class QualityEvaluator:
 
         [AUDIT RUBRIC]
         1. MATH ACCURACY: Is the solution logically sound?
+           For an MCQ, independently solve the problem, identify which option
+           content is correct, and verify that the stored `answer` key points
+           to that exact option. Do not trust the generated answer key merely
+           because it is present.
         2. CONCEPT FUSION: Meaningful link between {anchor} and {related}? (Note: If this is a single-topic DRILL, 0 is acceptable).
         3. SCAFFOLDING: Do hints guide without giving away the answer?
         4. LOGICAL CONTINUITY: Do steps follow logically?
@@ -106,13 +113,14 @@ class QualityEvaluator:
             "pedagogical_score": 0-100,
             "integration_score": 0-100,
             "is_mathematically_correct": true/false,
+            "mcq_answer_consistent": true/false/null,
             "logical_gap_detected": true/false,
             "critical_flaw": "Specific description",
             "improvement_suggestion": "Concrete action"
         }}
         """
         try:
-            response = self.gemini_client.generate(review_prompt, temperature=0.1)
+            response = self.llm_client.generate(review_prompt, temperature=0.1)
             return self._extract_json(response)
         except Exception as e:
             logger.error(f"AI review connection exception: {e}")
@@ -128,6 +136,16 @@ class QualityEvaluator:
         """Execute comprehensive audit pipeline"""
         dimensions = {}
         all_issues = []
+
+        # 0. Deterministic gate: schema, question invariants, and optional
+        # symbolic equivalence are checked before accepting an LLM verdict.
+        validation = self.mathematical_validator.validate(problem)
+        dimensions["deterministic_validation"] = (
+            100.0 if validation.status.value == "passed"
+            else 70.0 if validation.status.value == "partial"
+            else 0.0
+        )
+        all_issues.extend(validation.issues)
 
         # Identify current mode
         current_mode = problem.get('mode', 'drill').lower()
@@ -165,6 +183,18 @@ class QualityEvaluator:
         pass_threshold = 60.0 if current_mode == 'drill' else 75.0
         is_correct = ai_review.get('is_mathematically_correct', False)
         is_logical = not ai_review.get('logical_gap_detected', True)
+        is_mcq = str(problem.get("question_type", "")).lower() == "mcq"
+        answer_consistent = (
+            ai_review.get("mcq_answer_consistent") is True
+            if is_mcq
+            else True
+        )
+        dimensions["answer_consistency"] = 100.0 if answer_consistent else 0.0
+        if not answer_consistent:
+            all_issues.append(
+                "MCQ ANSWER MISMATCH: Independent review did not confirm that "
+                "the stored answer key points to the mathematically correct option."
+            )
 
         # Mode-specific admission conditions
         if current_mode == 'drill':
@@ -174,7 +204,9 @@ class QualityEvaluator:
                     total_score >= pass_threshold and
                     is_correct and
                     is_logical and
-                    dimensions['structure'] >= 75
+                    answer_consistent and
+                    dimensions['structure'] >= 75 and
+                    validation.passed
             )
         else:
             # --- EXAM/FUSION mode admission conditions: Maintain high standards ---
@@ -183,8 +215,10 @@ class QualityEvaluator:
                     total_score >= pass_threshold and
                     is_correct and
                     is_logical and
+                    answer_consistent and
                     dimensions['structure'] >= 75 and
-                    dimensions['concept_integration'] >= 50.0
+                    dimensions['concept_integration'] >= 50.0 and
+                    validation.passed
             )
 
         # 6. Build feedback
@@ -209,5 +243,6 @@ class QualityEvaluator:
             dimensions=dimensions,
             issues=all_issues,
             passed=passed,
-            ai_feedback=feedback
+            ai_feedback=feedback,
+            deterministic_validation=validation.to_dict()
         )

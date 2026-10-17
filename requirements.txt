@@ -1,6 +1,20 @@
-# --- Google Gemini API & Vertex AI ---
-# 核心 SDK，用于调用 Gemini 2.5 Pro 和多模态功能
-google-genai>=0.3.0
+# --- DeepSeek API (OpenAI-compatible) ---
+# Shared OpenAI-compatible SDK: DeepSeek text grading + dedicated vision OCR
+openai>=1.0.0
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.8.0
+sympy>=1.13.0
+SQLAlchemy>=2.0.0
+psycopg[binary]>=3.2.0
+
+# --- Observability ---
+opentelemetry-api>=1.27.0
+opentelemetry-sdk>=1.27.0
+opentelemetry-exporter-otlp-proto-http>=1.27.0
+opentelemetry-instrumentation-fastapi>=0.48b0
+opentelemetry-instrumentation-sqlalchemy>=0.48b0
+opentelemetry-instrumentation-httpx>=0.48b0
 
 # --- 数学与语义去重 (PostProcessor 依赖) ---
 # 用于语义去重引擎的模型加载
@@ -17,7 +31,10 @@ torch>=2.0.0
 matplotlib>=3.7.0
 
 # --- 系统配置与环境 ---
-# 用于读取 .env 文件中的 PROJECT_ID 和 LOCATION
+# 用于读取 .env 文件中的环境变量
 python-dotenv>=1.0.1
 # 异步网络请求支持
 httpx>=0.27.0
+
+# --- Verification and regression tests ---
+pytest>=8.0.0

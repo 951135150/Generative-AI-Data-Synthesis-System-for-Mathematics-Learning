@@ -5,7 +5,7 @@ from pathlib import Path
 
 def standardize_calculus_dataset(input_path: str, output_path: str):
     """
-    Data cleaning script for T2P project:
+    Data cleaning script for Calculus Atelier:
     1. Unify Topic tags to 15 standard core modules.
     2. Move the original segmentation labels to the sub_topic field.
     3. Ensure data consistency and optimize the Roadmap generation for UserSession.

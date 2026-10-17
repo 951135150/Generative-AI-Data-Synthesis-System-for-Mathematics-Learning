@@ -1,0 +1,41 @@
+{
+  "benchmark_version": "1.0",
+  "single_agent": {
+    "total": 218,
+    "schema_valid_rate": 0.211,
+    "deterministic_accept_rate": 0.211,
+    "symbolic_coverage_rate": 0.0,
+    "symbolic_pass_rate": 0.0,
+    "scaffolding_coverage_rate": 1.0,
+    "integration_coverage_rate": 0.0505,
+    "duplicate_rate": 0.0092,
+    "topic_count": 23,
+    "average_quality_score": 92.55
+  },
+  "multi_agent": {
+    "total": 10,
+    "schema_valid_rate": 1.0,
+    "deterministic_accept_rate": 1.0,
+    "symbolic_coverage_rate": 0.0,
+    "symbolic_pass_rate": 0.0,
+    "scaffolding_coverage_rate": 1.0,
+    "integration_coverage_rate": 1.0,
+    "duplicate_rate": 0.0,
+    "topic_count": 1,
+    "average_quality_score": 85.0
+  },
+  "delta_multi_minus_single": {
+    "schema_valid_rate": 0.789,
+    "deterministic_accept_rate": 0.789,
+    "symbolic_coverage_rate": 0.0,
+    "scaffolding_coverage_rate": 0.0,
+    "integration_coverage_rate": 0.9495,
+    "duplicate_rate": -0.0092,
+    "average_quality_score": -7.55
+  },
+  "task_manifest": {
+    "seed": 42,
+    "case_count": 100,
+    "file": "benchmark_tasks.json"
+  }
+}

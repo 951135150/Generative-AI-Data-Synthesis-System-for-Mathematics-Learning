@@ -59,7 +59,7 @@ def extract_evaluation_result(batch_id: str, output_dir: Path):
 
 def run_full_simulation():
 
-    print(f"║ {('T2P V3 Full Curriculum Adaptive Mastery Simulation').center(52)} ║")
+    print(f"║ {('Calculus Atelier Curriculum Mastery Simulation').center(52)} ║")
 
 
     user_id = "Student_Chen_V3_Final"
@@ -130,7 +130,7 @@ def run_full_simulation():
 
     user.stop_learning()
 
-    print("Congratulations! T2P V3 All Curriculum Knowledge Points Mastery Achieved (0.85+)")
+    print("Congratulations! Calculus Atelier curriculum mastery achieved (0.85+).")
 
 
     try:

@@ -88,7 +88,7 @@ def extract_evaluation_result(batch_id: str, output_dir: Path):
 
 def run_simulation():
 
-    print(f"║ {('T2P Adaptive Learning System Demo (V2.2 - Reliable)').center(54)} ║")
+    print(f"║ {('Calculus Atelier Adaptive Learning Demo').center(54)} ║")
 
 
     user_id = "Student_Chen"

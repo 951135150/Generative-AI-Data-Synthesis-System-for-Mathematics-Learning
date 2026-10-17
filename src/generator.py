@@ -1,5 +1,5 @@
 """
-Core Generation Logic - T2P System (Complex Synthesis Version)
+Core Generation Logic - Calculus Atelier (Complex Synthesis Version)
 Core optimizations:
 1. Deprecated Exam paper pipeline, changed to "single core anchor + cross-knowledge-point fusion" comprehensive problem synthesis mode.
 2. Introduced dynamic backoff retry mechanism for 429 RESOURCE_EXHAUSTED.
@@ -15,7 +15,7 @@ from datetime import datetime
 
 # Import business modules
 from src.config import Config
-from src.gemini_client import GeminiClient
+from src.llm_client import LLMClient
 from src.prompt_builder import PromptBuilder
 from src.postprocessor import PostProcessor
 from src.evaluator import QualityEvaluator
@@ -25,15 +25,15 @@ logger = logging.getLogger(__name__)
 class ProblemGenerator:
     """Problem generator - New version optimized for deep comprehensive problems"""
 
-    def __init__(self, data_loader, gemini_client=None):
+    def __init__(self, data_loader, llm_client=None):
         """Initialize generator"""
         self.data_loader = data_loader
-        self.gemini_client = gemini_client or GeminiClient()
+        self.llm_client = llm_client or LLMClient()
 
         # Initialize core components
         self.prompt_builder = PromptBuilder(data_loader)
         self.postprocessor = PostProcessor()
-        self.evaluator = QualityEvaluator(data_loader, gemini_client=self.gemini_client)
+        self.evaluator = QualityEvaluator(data_loader, llm_client=self.llm_client)
 
     def _sample_topics(self, topics: List[str], mode: str) -> List[str]:
         """
@@ -102,7 +102,7 @@ class ProblemGenerator:
                 )
 
                 # 2. Call API (with preprocessing for 429)
-                response = self.gemini_client.generate(
+                response = self.llm_client.generate(
                     prompt,
                     temperature=temperature or (0.8 if mode == "exam" else 0.5)
                 )
@@ -129,14 +129,32 @@ class ProblemGenerator:
                 # 5. Quality evaluation
                 result = self.evaluator.evaluate(problem, active_topics)
                 problem['evaluation'] = result.__dict__
+                if str(problem.get("question_type", "")).lower() == "mcq":
+                    deterministic = result.deterministic_validation or {}
+                    problem["answer_validation"] = {
+                        "status": "verified" if result.passed else "rejected",
+                        "answer_key": problem.get("answer"),
+                        "schema_check": bool(deterministic.get("schema_valid")),
+                        "symbolic_check": deterministic.get(
+                            "symbolic_status",
+                            "not_provided",
+                        ),
+                        "independent_review": (
+                            result.dimensions.get("answer_consistency") == 100.0
+                        ),
+                        "method": (
+                            "deterministic schema/symbolic validation plus "
+                            "independent low-temperature mathematical review"
+                        ),
+                    }
 
                 if result.passed:
-                    logger.info(f"✅ Generation successful (Score: {result.score})")
+                    logger.info(f"[PASS] Generation successful (Score: {result.score})")
                     return problem
                 else:
                     # Self-healing logic: Use AI review feedback as input for next round
                     current_feedback = f"Previous Attempt Flaw: {result.ai_feedback}"
-                    logger.warning(f"⚠️ Quality evaluation failed: {result.ai_feedback}")
+                    logger.warning(f"[WARN] Quality evaluation failed: {result.ai_feedback}")
                     # Linear backoff
                     time.sleep(2 * (attempt + 1))
 
@@ -145,7 +163,7 @@ class ProblemGenerator:
                 if "429" in err_msg or "RESOURCE_EXHAUSTED" in err_msg:
                     # Critical: Implement stepped silence for 429
                     wait_sec = 30 * (attempt + 1)
-                    logger.error(f"🚨 Quota limit triggered (429). Due to high node pressure, forced to wait {wait_sec}s...")
+                    logger.error(f"[429] Quota limit triggered. Waiting {wait_sec}s...")
                     time.sleep(wait_sec)
                 else:
                     logger.error(f"Generation process exception: {err_msg}")

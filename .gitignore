@@ -1,30 +1,57 @@
-# 敏感配置
+# Secrets
 .env
+.env.*
+!.env.example
+!.env.postgres.example
+*.pem
+*.key
 
 # Python
-venv/
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 .pytest_cache/
-
-# IDE
-.idea/
-.vscode/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
 
 # Node / Next.js
-node_modules/
-.next/
-out/
+t2p-web/node_modules/
+t2p-web/.next/
+t2p-web/.next-build/
+t2p-web/out/
+t2p-web/.npm-cache/
+t2p-web/playwright-report/
+t2p-web/test-results/
+t2p-web/.playwright-browsers/
 
-# 日志与运行产物
+# Generated runtime artifacts
 logs/
+output/
+data/generated/
+data/backups/
+data/users/*_progress.json
+data/*.db
+data/*.db-shm
+data/*.db-wal
 *.log
+.runtime/
+.claude/
+*.tsbuildinfo
 
-# 冗余文件
-项目副本/
-1.0.1
+# Local backups and duplicate source copies
+*.bak
+*backup*
+*副本*
+/1.0.1
 
-# 系统文件
+# Local research documents (not needed to run the application)
+/*.doc
+reports/*.docx
+reports/*.pdf
+
+# Editors and operating systems
+.idea/
+.vscode/
 .DS_Store
 Thumbs.db

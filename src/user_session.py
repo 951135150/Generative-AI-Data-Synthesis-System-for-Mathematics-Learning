@@ -1,12 +1,17 @@
 import json
 import time
 import os
+import re
+import tempfile
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
 import matplotlib.pyplot as plt
 import numpy as np
 import logging
+
+from src.config import Config
+from src.database import UserRepository
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -20,12 +25,23 @@ class UserSession:
     Adapted version: Calculus Golden Dataset V3
     """
 
-    def __init__(self, user_id: str, data_dir: str = "data/users"):
+    def __init__(
+        self,
+        user_id: str,
+        data_dir: str = "data/users",
+        user_repository: Optional[UserRepository] = None,
+    ):
+        if not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", user_id or ""):
+            raise ValueError(
+                "user_id may contain only letters, numbers, underscores, and "
+                "hyphens, with a maximum length of 64."
+            )
         self.user_id = user_id
         # Get project root directory
         base_path = Path(__file__).resolve().parent.parent
         self.storage_path = base_path / data_dir / f"{user_id}_progress.json"
         self.storage_path.parent.mkdir(parents=True, exist_ok=True)
+        self.user_repository = user_repository or UserRepository()
 
         # --- Core modification: Dynamically load V3 dataset ---
         # Prioritize environment variable, otherwise read v3 version from data directory
@@ -62,43 +78,17 @@ class UserSession:
             return ["Limits and Continuity", "Derivatives", "Integrals", "Vector Calculus"]
 
     def _load_progress(self) -> Dict:
-        """Load or initialize user progress data, supports smooth migration from older Roadmap versions"""
+        """Load progress from SQLite, using legacy JSON as an idempotent seed."""
+        legacy_progress = None
         if self.storage_path.exists():
             try:
                 with open(self.storage_path, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-                    # Ensure all new V3 Topics are initialized in user progress
-                    if "topics_status" not in data:
-                        data["topics_status"] = {}
-
-                    for topic in self.roadmap:
-                        if topic not in data["topics_status"]:
-                            data["topics_status"][topic] = {
-                                "mastery_score": 0.0,
-                                "current_level": 1,
-                                "completed_count": 0
-                            }
-                    return data
+                    legacy_progress = json.load(f)
             except Exception as e:
-                logger.warning(f"Failed to read progress file, reinitializing: {e}")
-
-        # Initialize new user structure
-        return {
-            "metadata": {
-                "user_id": self.user_id,
-                "join_date": datetime.now().strftime("%Y-%m-%d"),
-                "total_minutes": 0.0,
-                "dataset_version": "V3"
-            },
-            "topics_status": {
-                topic: {
-                    "mastery_score": 0.0,  # Mastery: 0.0 to 1.0
-                    "current_level": 1,  # Level: 1(Basic), 2(Advanced), 3(Comprehensive/Exam)
-                    "completed_count": 0
-                } for topic in self.roadmap
-            },
-            "learning_history": []
-        }
+                logger.warning(f"Failed to read legacy progress file: {e}")
+        return self.user_repository.load_or_create(
+            self.user_id, self.roadmap, legacy_progress
+        )
 
     def start_learning(self):
         """Start learning session"""
@@ -114,9 +104,28 @@ class UserSession:
             self.save()
 
     def save(self):
-        """Save progress to local JSON"""
-        with open(self.storage_path, 'w', encoding='utf-8') as f:
-            json.dump(self.progress, f, indent=4, ensure_ascii=False)
+        """Persist progress to SQLite and optionally mirror legacy JSON."""
+        self.user_repository.save_progress(self.user_id, self.progress)
+        if Config.MIRROR_JSON_PROGRESS:
+            self._mirror_json()
+
+    def _mirror_json(self):
+        """Atomically write the optional backward-compatible JSON mirror."""
+        fd, temporary_path = tempfile.mkstemp(
+            prefix=f".{self.user_id}.",
+            suffix=".tmp",
+            dir=str(self.storage_path.parent),
+        )
+        try:
+            with os.fdopen(fd, "w", encoding="utf-8") as f:
+                json.dump(self.progress, f, indent=4, ensure_ascii=False)
+                f.flush()
+                os.fsync(f.fileno())
+            os.replace(temporary_path, self.storage_path)
+        except Exception:
+            if os.path.exists(temporary_path):
+                os.unlink(temporary_path)
+            raise
 
     def get_current_task_params(self) -> Dict:
         """Adaptive path algorithm: Find the first topic not meeting target based on V3 Roadmap"""
@@ -169,12 +178,23 @@ class UserSession:
             logger.info(f"🎊 Promotion! [{target_topic}] advanced to Level {status['current_level']}")
 
         self.progress["learning_history"].append({
-            "time": datetime.now().isoformat(),
+            "time": datetime.now().astimezone().isoformat(),
             "topic": target_topic,
             "score": score,
+            "is_correct": is_passed,
             "level_at_time": status["current_level"]
         })
-        self.save()
+        self.user_repository.record_result(
+            user_id=self.user_id,
+            topic=target_topic,
+            score=score,
+            is_correct=is_passed,
+            mastery_score=status["mastery_score"],
+            current_level=status["current_level"],
+            completed_count=status["completed_count"],
+        )
+        if Config.MIRROR_JSON_PROGRESS:
+            self._mirror_json()
 
     def generate_visual_dashboard(self, save_path: str = "output/dashboard.png"):
         """Generate V3 progress-based visualization dashboard"""
@@ -190,7 +210,7 @@ class UserSession:
         levels = [self.progress["topics_status"][t]["current_level"] for t in topics]
 
         fig = plt.figure(figsize=(16, 8))
-        plt.suptitle(f"T2P V3 Learning Analytics - {self.user_id}", fontsize=20, fontweight='bold', y=0.98)
+        plt.suptitle(f"Calculus Atelier Learning Analytics - {self.user_id}", fontsize=20, fontweight='bold', y=0.98)
 
         # 1. Radar chart (Mastery distribution)
         ax1 = fig.add_subplot(121, polar=True)

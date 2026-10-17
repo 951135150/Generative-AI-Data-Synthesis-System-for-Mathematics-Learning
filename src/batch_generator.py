@@ -17,13 +17,14 @@ from pathlib import Path
 # Import business modules from src directory
 from src.config import Config
 from src.data_loader import GoldenDataLoader
-from src.gemini_client import GeminiClient
+from src.llm_client import LLMClient
 from src.generator import ProblemGenerator
+from src.ocr import OCRClient
 
 logger = logging.getLogger(__name__)
 
 class BatchGenerator:
-    """Batch generation and audit scheduler - Core engine of the T2P system"""
+    """Batch generation and audit scheduler - Core engine of Calculus Atelier."""
 
     def __init__(self, output_dir: str = None):
         """Initialize the scheduler"""
@@ -34,12 +35,15 @@ class BatchGenerator:
         self.data_loader = GoldenDataLoader(Config.GOLDEN_DATASET_PATH)
 
         # 2. Initialize core client
-        self.gemini_client = GeminiClient()
+        self.llm_client = LLMClient()
 
         # 3. Create generator
-        self.generator = ProblemGenerator(self.data_loader, gemini_client=self.gemini_client)
+        self.generator = ProblemGenerator(self.data_loader, llm_client=self.llm_client)
 
-        # 4. Maintain generation history
+        # 4. OCR client
+        self.ocr_client = OCRClient()
+
+        # 5. Maintain generation history
         self.history_file = self.output_dir / "generation_history.json"
         self.history = self._load_history()
 
@@ -152,7 +156,7 @@ class BatchGenerator:
         return batch_result
 
     def review_student_submission(self, problem_id: str, image_path: str, is_exam_mode: bool = False) -> Dict:
-        """Intelligent tutor review interface (maintained as-is)"""
+        """Intelligent tutor review interface (with OCR layer)"""
         problem_data = None
         for p in self.data_loader.problems:
             if p.get('problem_id') == problem_id:
@@ -171,17 +175,33 @@ class BatchGenerator:
             return {"error": f"Image read error: {str(e)}"}
 
         logger.info(f"Starting AI tutor audit | Problem: {problem_id}")
-        raw_review = self.gemini_client.mentor_review(
-            student_work_image=image_bytes,
+
+        # --- OCR layer: transcribe handwriting before grading ---
+        text_answer = None
+        vision_image = image_bytes
+        ocr_text = self.ocr_client.transcribe(image_bytes)
+        if ocr_text:
+            text_answer = ocr_text
+            vision_image = None  # Switch to text-only grading
+            logger.info("OCR succeeded, using transcribed text for audit.")
+        else:
+            logger.warning("OCR returned empty, falling back to raw image mode.")
+
+        raw_review = self.llm_client.mentor_review(
+            student_work_image=vision_image,
+            student_text_answer=text_answer,
             problem_data=problem_data,
             is_exam_mode=is_exam_mode
         )
 
         try:
             cleaned_review = raw_review.strip().replace("```json", "").replace("```", "")
-            return json.loads(cleaned_review)
+            result = json.loads(cleaned_review)
+            if ocr_text:
+                result["ocr_text"] = ocr_text
+            return result
         except:
-            return {"raw_ai_feedback": raw_review}
+            return {"raw_ai_feedback": raw_review, "ocr_text": ocr_text if ocr_text else ""}
 
     def get_statistics(self) -> Dict:
         """Get system runtime statistics summary (enhanced version)"""

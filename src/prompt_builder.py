@@ -128,7 +128,13 @@ class PromptBuilder:
                 {"step": 1, "hint": "Conceptual hint for the first hurdle"},
                 {"step": 2, "hint": "Procedural hint for the calculation"}
             ],
-            "integration_analysis": "Explanation of how different topics are fused here (Only for fusion mode)"
+            "integration_analysis": "Explanation of how different topics are fused here (Only for fusion mode)",
+            "symbolic_validation": {
+                "operation": "differentiate",
+                "source_expression": "x^3 + 2*x",
+                "claimed_result": "3*x^2 + 2",
+                "variable": "x"
+            }
         }
 
         if question_type == "mcq":
@@ -141,5 +147,9 @@ class PromptBuilder:
         return (
             "\n[STRICT OUTPUT RULE]: RETURN ONLY RAW JSON. NO MARKDOWN. NO PREFACE."
             f"\nJSON STRUCTURE:\n{json.dumps(schema, indent=2)}"
+            "\n[MACHINE VERIFICATION]: Include symbolic_validation when the main "
+            "claim can be expressed as differentiate, integrate, simplify, or "
+            "limit. Use valid SymPy expressions, never LaTeX, in those fields. "
+            "If no honest symbolic claim can represent the problem, use null."
             f"\n{self._get_latex_constraints()}"
         )

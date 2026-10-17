@@ -1,5 +1,5 @@
 """
-Configuration file - Manages project paths, Vertex AI parameters, and generation control
+Configuration file - Manages project paths, DeepSeek API parameters, and generation control
 """
 import os
 import logging
@@ -18,40 +18,62 @@ class Config:
     """Global configuration class"""
 
     # --- Base path configuration ---
-    # Path(__file__).resolve() -> D:\PycharmBase\T2P\src\config.py
-    # .parent.parent -> D:\PycharmBase\T2P
+    # Path(__file__).resolve() -> <project_root>\src\config.py
+    # .parent.parent -> <project_root>
     BASE_DIR = Path(__file__).resolve().parent.parent
-    BASE_DIR = Path(__file__).resolve().parent.parent
-    print(f"Currently identified project root directory: {BASE_DIR}")  # Check console output after running
 
     # --- Resource paths ---
-    # Default points to D:\PycharmBase\T2P\data\golden_dataset_v2.json
+    # Default points to <project_root>\data\golden_dataset_v2.json
     GOLDEN_DATASET_PATH = os.getenv("GOLDEN_DATASET_PATH", str(BASE_DIR / "data" / "golden_dataset_v3.json"))
 
-    # Default points to D:\PycharmBase\T2P\output
+    # Default points to <project_root>\output
     OUTPUT_DIR = os.getenv("OUTPUT_DIR", str(BASE_DIR / "output"))
+    DATABASE_URL = os.getenv(
+        "DATABASE_URL",
+        f"sqlite:///{(BASE_DIR / 'data' / 't2p.db').as_posix()}",
+    )
+    MIRROR_JSON_PROGRESS = os.getenv(
+        "MIRROR_JSON_PROGRESS", "false"
+    ).strip().lower() in {"1", "true", "yes", "on"}
+    AUTH_SESSION_HOURS = int(os.getenv("AUTH_SESSION_HOURS", "24"))
+    PASSWORD_PBKDF2_ITERATIONS = int(
+        os.getenv("PASSWORD_PBKDF2_ITERATIONS", "600000")
+    )
 
-    # Default points to D:\PycharmBase\T2P\logs\t2p_system.log
+    # --- OpenTelemetry ---
+    OTEL_ENABLED = os.getenv("OTEL_ENABLED", "false").strip().lower() in {
+        "1", "true", "yes", "on"
+    }
+    OTEL_SERVICE_NAME = os.getenv("OTEL_SERVICE_NAME", "t2p-api")
+    OTEL_EXPORTER_OTLP_ENDPOINT = os.getenv("OTEL_EXPORTER_OTLP_ENDPOINT", "")
+    OTEL_CONSOLE_EXPORTER = os.getenv(
+        "OTEL_CONSOLE_EXPORTER", "false"
+    ).strip().lower() in {"1", "true", "yes", "on"}
+
+    # Default points to <project_root>\logs\t2p_system.log
     LOG_FILE = os.getenv("LOG_FILE", str(BASE_DIR / "logs" / "t2p_system.log"))
 
-    # --- Vertex AI core configuration ---
-    # Modified (more secure)
-    PROJECT_ID = os.getenv("GOOGLE_CLOUD_PROJECT")
-    if not PROJECT_ID:
-        logger.error("❌ GOOGLE_CLOUD_PROJECT not found in environment variables")
+    # --- DeepSeek API configuration ---
+    DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
+    if not DEEPSEEK_API_KEY:
+        logger.error("❌ DEEPSEEK_API_KEY not found in environment variables")
 
-    # [Modification]: Changed default region from europe-west1 to us-central1
-    LOCATION = os.getenv("GOOGLE_CLOUD_LOCATION", "us-central1")
-    # Added this line to ensure the program can read your API Key[cite: 8, 11]
-    API_KEY = os.getenv("GOOGLE_API_KEY")
-    # Keep using gemini-2.5-pro
-    GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
+    DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+    LLM_MODEL = os.getenv("LLM_MODEL", "deepseek-v4-pro")
+
+    # --- Dedicated multimodal OCR provider ---
+    # DeepSeek V4 is used only for text reasoning/grading. Handwritten images
+    # must be transcribed by a separate vision-capable, OpenAI-compatible API.
+    VISION_PROVIDER = os.getenv("VISION_PROVIDER", "openai-compatible")
+    VISION_API_KEY = os.getenv("VISION_API_KEY") or os.getenv("OPENAI_API_KEY", "")
+    VISION_BASE_URL = os.getenv("VISION_BASE_URL", "https://api.openai.com/v1")
+    VISION_MODEL = os.getenv("VISION_MODEL", "")
+    VISION_MAX_TOKENS = int(os.getenv("VISION_MAX_TOKENS", "4096"))
 
     # --- Model generation control parameters ---
     DEFAULT_TEMPERATURE = float(os.getenv("DEFAULT_TEMPERATURE", 0.5))
     DEFAULT_MAX_TOKENS = int(os.getenv("DEFAULT_MAX_TOKENS", 16384))
     DEFAULT_TOP_P = float(os.getenv("DEFAULT_TOP_P", 0.95))
-    DEFAULT_TOP_K = int(os.getenv("DEFAULT_TOP_K", 40))
 
     # --- Runtime scheduling configuration ---
     BATCH_SIZE = int(os.getenv("BATCH_SIZE", 1))
@@ -59,6 +81,12 @@ class Config:
 
     # [Recommendation]: Considering 429 risk, retry count can be maintained at 3 or increased to 5
     MAX_RETRIES = int(os.getenv("MAX_RETRIES", 3))
+    ENABLE_SEMANTIC_DEDUP = os.getenv(
+        "ENABLE_SEMANTIC_DEDUP", "false"
+    ).strip().lower() in {"1", "true", "yes", "on"}
+    SEMANTIC_MODEL = os.getenv(
+        "SEMANTIC_MODEL", "paraphrase-multilingual-MiniLM-L12-v2"
+    )
 
     # --- Log level ---
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")

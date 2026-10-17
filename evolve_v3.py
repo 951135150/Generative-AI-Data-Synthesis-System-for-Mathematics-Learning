@@ -143,7 +143,7 @@ def save_dataset(path, problems):
     """Helper function to save the dataset"""
     output_data = {
         "dataset_info": {
-            "name": "T2P Calculus Golden Dataset V3 (Smart Recovery)",
+            "name": "Calculus Atelier Golden Dataset V3 (Smart Recovery)",
             "version": "3.1",
             "total_problems": len(problems),
             "updated_at": time.strftime("%Y-%m-%d %H:%M:%S"),

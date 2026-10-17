@@ -1,5 +1,5 @@
 """
-T2P: Automated Calculus Problem Generation and Intelligent Grading System - Mentor Edition
+Calculus Atelier: Automated Calculus Problem Generation and Intelligent Grading System
 Supports:
 1. Problem generation (Drill/Exam mode)
 2. Intelligent grading (AI Mentor mode): Supports photo/handwriting recognition, line-by-line logic audit
@@ -47,7 +47,7 @@ def print_banner():
     """Print welcome banner"""
     banner = """
     ================================================
-    |           T2P: Term 2 Project                |
+    |              Calculus Atelier                |
     |    AI-Driven Calculus Mentor System (V4.0)   |
     |      - Generative Learning & AI Grading -    |
     ================================================
@@ -58,7 +58,7 @@ def print_banner():
 def main():
     """Program main entry"""
     parser = argparse.ArgumentParser(
-        description='T2P: Intelligent Calculus Teaching Assistant with Visual Understanding',
+        description='Calculus Atelier: Intelligent Calculus Teaching Assistant with Visual Understanding',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
 
@@ -95,7 +95,7 @@ def main():
     logger = logging.getLogger("Main")
 
     try:
-        # Initialize orchestrator (internally auto-initializes DataLoader and GeminiClient)
+        # Initialize orchestrator (internally auto-initializes DataLoader and LLMClient)
         orchestrator = BatchGenerator()
 
         # --- Branch 1: Intelligent grading mode (AI Mentor Mode) ---
@@ -110,7 +110,7 @@ def main():
                 return
 
             print_banner()
-            print(f" T2P AI Mentor is reviewing your derivation process...")
+            print(" Calculus Atelier is reviewing your derivation process...")
             print(f"Mode: {'【Simulated Exam】' if args.strict else '【Guided Practice】'}")
 
 
@@ -153,7 +153,7 @@ def main():
         if args.list_topics:
             # Prioritize calling get_main_topics to get clear main categories
             topics = orchestrator.data_loader.get_main_topics()
-            print("\nT2P Problem Bank Available Core Knowledge Points (Main Topics):")
+            print("\nCalculus Atelier Problem Bank — Available Core Knowledge Points:")
 
             for i, topic in enumerate(topics, 1):
                 count = len(orchestrator.data_loader.topics_map.get(topic, []))
@@ -164,7 +164,7 @@ def main():
         # --- Branch 3: Statistics summary ---
         if args.stats:
             stats = orchestrator.get_statistics()
-            print("\nT2P System Runtime Status Summary")
+            print("\nCalculus Atelier Runtime Status Summary")
 
             print(f"Total Generated Batches: {stats['total_batches']}")
             print(f"Total Generated Count: {stats['total_problems']}")

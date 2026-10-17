@@ -1,56 +1,123 @@
-// src/context/UserContext.tsx
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import axios from 'axios';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8001';
+import { api, AUTH_TOKEN_KEY } from '@/lib/api';
 
 interface UserContextType {
   userId: string;
   setUserId: (id: string) => void;
+  password: string;
+  setPassword: (password: string) => void;
+  authenticated: boolean;
+  authReady: boolean;
   login: () => Promise<boolean>;
-  logout: () => void;
+  register: () => Promise<boolean>;
+  logout: () => Promise<void>;
 }
 
 const UserContext = createContext<UserContextType>({
   userId: '',
   setUserId: () => {},
+  password: '',
+  setPassword: () => {},
+  authenticated: false,
+  authReady: false,
   login: async () => false,
-  logout: () => {}
+  register: async () => false,
+  logout: async () => {},
 });
 
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }: { children: ReactNode }) => {
-  const [userId, setUserId] = useState('');
+  const [userId, setUserId] = useState(() =>
+    typeof window !== 'undefined'
+      ? localStorage.getItem('t2p_user_id') || ''
+      : ''
+  );
+  const [password, setPassword] = useState('');
+  const [authenticated, setAuthenticated] = useState(false);
+  const [authReady, setAuthReady] = useState(false);
+
+  const clearSession = () => {
+    sessionStorage.removeItem(AUTH_TOKEN_KEY);
+    setAuthenticated(false);
+  };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('t2p_user_id') || '';
-      if (stored) setUserId(stored);
-    }
+    const restore = async () => {
+      if (!sessionStorage.getItem(AUTH_TOKEN_KEY)) {
+        setAuthReady(true);
+        return;
+      }
+      try {
+        const response = await api.get('/auth/me');
+        setUserId(response.data.user.user_id);
+        setAuthenticated(true);
+      } catch {
+        clearSession();
+      } finally {
+        setAuthReady(true);
+      }
+    };
+    void restore();
   }, []);
 
-  const login = async (): Promise<boolean> => {
-    if (!userId.trim()) return false;
+  const authenticate = async (route: '/auth/login' | '/auth/register') => {
+    if (!userId.trim() || !password) return false;
     try {
-      await axios.post(`${API_BASE}/user/login`, { user_id: userId.trim() });
+      const response = await api.post(route, {
+        user_id: userId.trim(),
+        password,
+      });
+      sessionStorage.setItem(AUTH_TOKEN_KEY, response.data.access_token);
       localStorage.setItem('t2p_user_id', userId.trim());
+      setPassword('');
+      setAuthenticated(true);
       return true;
-    } catch (e) {
-      console.error('Login failed', e);
+    } catch (error) {
+      console.error('Authentication failed', error);
       return false;
     }
   };
 
-  const logout = () => {
-    setUserId('');
-    localStorage.removeItem('t2p_user_id');
+  const login = () => authenticate('/auth/login');
+  const register = () => authenticate('/auth/register');
+
+  const logout = async () => {
+    try {
+      if (sessionStorage.getItem(AUTH_TOKEN_KEY)) {
+        await api.post('/auth/logout');
+      }
+    } catch {
+      // Local revocation still prevents the browser from reusing the session.
+    } finally {
+      clearSession();
+      setPassword('');
+    }
   };
 
   return (
-    <UserContext.Provider value={{ userId, setUserId, login, logout }}>
+    <UserContext.Provider
+      value={{
+        userId,
+        setUserId,
+        password,
+        setPassword,
+        authenticated,
+        authReady,
+        login,
+        register,
+        logout,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

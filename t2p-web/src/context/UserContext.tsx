@@ -17,6 +17,7 @@ interface UserContextType {
   setPassword: (password: string) => void;
   authenticated: boolean;
   authReady: boolean;
+  role: string;
   login: () => Promise<boolean>;
   register: () => Promise<boolean>;
   logout: () => Promise<void>;
@@ -29,6 +30,7 @@ const UserContext = createContext<UserContextType>({
   setPassword: () => {},
   authenticated: false,
   authReady: false,
+  role: 'student',
   login: async () => false,
   register: async () => false,
   logout: async () => {},
@@ -45,10 +47,12 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
   const [authReady, setAuthReady] = useState(false);
+  const [role, setRole] = useState('student');
 
   const clearSession = () => {
     sessionStorage.removeItem(AUTH_TOKEN_KEY);
     setAuthenticated(false);
+    setRole('student');
   };
 
   useEffect(() => {
@@ -60,6 +64,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       try {
         const response = await api.get('/auth/me');
         setUserId(response.data.user.user_id);
+        setRole(response.data.user.role || 'student');
         setAuthenticated(true);
       } catch {
         clearSession();
@@ -81,6 +86,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       localStorage.setItem('t2p_user_id', userId.trim());
       setPassword('');
       setAuthenticated(true);
+      setRole(response.data.user.role || 'student');
       return true;
     } catch (error) {
       console.error('Authentication failed', error);
@@ -113,6 +119,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         setPassword,
         authenticated,
         authReady,
+        role,
         login,
         register,
         logout,

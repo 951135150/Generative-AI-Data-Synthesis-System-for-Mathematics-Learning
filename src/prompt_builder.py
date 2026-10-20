@@ -43,7 +43,7 @@ class PromptBuilder:
             # In Exam mode, the first topic is the core anchor, the rest are related knowledge points
             anchor_topic = topics[0] if topics else "Calculus"
             related_topics = topics[1:] if len(topics) > 1 else []
-            prompt = self._build_fusion_exam_prompt(anchor_topic, related_topics, difficulty)
+            prompt = self._build_fusion_exam_prompt(anchor_topic, related_topics, difficulty, question_type)
         else:
             target_topic = topics[0] if topics else "Calculus Fundamentals"
             prompt = self._build_drill_prompt(target_topic, difficulty, question_type)
@@ -96,7 +96,7 @@ class PromptBuilder:
         ]
         return "\n".join(prompt_parts)
 
-    def _build_fusion_exam_prompt(self, anchor: str, related: List[str], difficulty: int) -> str:
+    def _build_fusion_exam_prompt(self, anchor: str, related: List[str], difficulty: int, question_type: str = "calculation") -> str:
         """Deep fusion mode: Core anchor + multi-dimensional association"""
         related_str = ", ".join(related) if related else "applicable cross-domain concepts"
 
@@ -111,7 +111,7 @@ class PromptBuilder:
             "1. THEME: The problem must start with the Core Anchor but require the Related Concepts to fully solve.",
             "2. STRUCTURE: Use a multi-part structure (e.g., Part a, Part b) where Part b relies on the result or concept of Part a.",
             "3. COMPLEXITY: Focus on the transition between concepts (e.g., finding a derivative to use in a related rates application).",
-            self._get_single_output_schema(f"{anchor} (Fused)", "calculation")
+            self._get_single_output_schema(anchor, question_type)
         ]
         return "\n".join(prompt_parts)
 
@@ -140,6 +140,10 @@ class PromptBuilder:
         if question_type == "mcq":
             schema["options"] = {"A": "", "B": "", "C": "", "D": ""}
             schema["answer"] = "A"
+            schema["option_expressions"] = {"A": "3*x**2+2", "B": "3*x**2", "C": "3*x+2", "D": "x**3+2*x"}
+            schema["answer_equivalence"] = "exact"
+            schema["allow_additive_constant"] = False
+            schema["excluded_points"] = []
         elif question_type == "fill_in":
             schema["problem_statement"] = "Problem text with [BLANK_1] and [BLANK_2]"
             schema["correct_values"] = ["val1", "val2"]
@@ -151,5 +155,13 @@ class PromptBuilder:
             "claim can be expressed as differentiate, integrate, simplify, or "
             "limit. Use valid SymPy expressions, never LaTeX, in those fields. "
             "If no honest symbolic claim can represent the problem, use null."
+            " For a new MCQ, a symbolic claim and option_expressions are mandatory; use scalar "
+            "expressions in the declared variable. Display every option using canonical SymPy LaTeX "
+            "inside '$ ... $', matching its expression exactly. Set answer_equivalence='antiderivative' "
+            "and allow_additive_constant=true ONLY for an indefinite integral without fixed initial values. "
+            "Such options differing by a constant are all equivalent: never use them as distractors. "
+            "Exactly one option must match the reference on the stated real domain. List finite excluded "
+            "points explicitly and in the question; do not cancel away domain restrictions. Unsupported "
+            "non-algebraic MCQs need manual review rather than claiming machine verification."
             f"\n{self._get_latex_constraints()}"
         )

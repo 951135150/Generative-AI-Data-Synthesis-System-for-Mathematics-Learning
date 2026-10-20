@@ -53,6 +53,9 @@ export default function Dashboard() {
   const { userId, authenticated, authReady } = useUser();
   const [data, setData] = useState<ProgressMap | null>(null);
   const [totalMinutes, setTotalMinutes] = useState(0);
+  const [recommendation, setRecommendation] = useState<{ topic: string; reason: string; difficulty: number } | null>(null);
+  const [conceptEvidence, setConceptEvidence] = useState<Array<{ concept_id: string; attempts: number; correct: number; evidence_status: string }>>([]);
+  const [reviewQueue, setReviewQueue] = useState<Array<{ topic: string; overdue_days: number; interval_days: number }>>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -65,6 +68,9 @@ export default function Dashboard() {
       if (response.data.success) {
         setData(response.data.topics_status);
         setTotalMinutes(Number(response.data.total_minutes) || 0);
+        setRecommendation(response.data.recommendation || null);
+        setConceptEvidence(response.data.concept_evidence || []);
+        setReviewQueue(response.data.review_queue || []);
       }
     } catch (requestError) {
       setError(getApiErrorMessage(requestError, 'Unable to retrieve the academic record. Confirm that the backend is running.'));
@@ -281,6 +287,25 @@ export default function Dashboard() {
                 <div className="learning-brief-seal"><Lightbulb size={22} /></div>
                 <h3>{learningBrief.title}</h3>
                 <p>{learningBrief.description}</p>
+                {recommendation && <div className="recommended-task">
+                  <small>Recommended next exercise · Level {recommendation.difficulty}</small>
+                  <strong>{recommendation.topic}</strong>
+                  <p>{recommendation.reason}</p>
+                </div>}
+                {conceptEvidence.length > 0 && <div className="recommended-task">
+                  <small>Observed concept attempts · not a mastery estimate</small>
+                  {conceptEvidence.slice(0, 4).map(item => <p key={item.concept_id}>
+                    <strong>{item.concept_id.replaceAll('_', ' ')}</strong>: {item.correct}/{item.attempts} first attempts correct
+                    {item.evidence_status === 'limited' ? ' · limited evidence' : ''}
+                  </p>)}
+                </div>}
+                {reviewQueue.length > 0 && <div className="recommended-task">
+                  <small>Scheduled review · based on recorded practice dates</small>
+                  {reviewQueue.slice(0, 3).map(item => <p key={item.topic}>
+                    <strong>{item.topic}</strong>: {item.overdue_days === 0 ? 'due today' : `${item.overdue_days} days overdue`}
+                    {' '}· {item.interval_days}-day practice interval
+                  </p>)}
+                </div>}
                 <ul>
                   <li><CheckCircle2 size={13} /> Generate one focused problem at a time.</li>
                   <li><CheckCircle2 size={13} /> Submit full reasoning for AI review.</li>

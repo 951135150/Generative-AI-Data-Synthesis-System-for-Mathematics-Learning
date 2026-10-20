@@ -1,0 +1,2725 @@
+{
+  "created_at": "2026-10-20T04:07:39.922110+00:00",
+  "ai_mode": "simulation",
+  "paid_api_calls": 0,
+  "database_isolated": true,
+  "retrieval": {
+    "enabled": true,
+    "model": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dense_status": "ready",
+    "device": "cuda",
+    "device_reason": "NVIDIA GeForce GTX 1650",
+    "chunks": 18,
+    "sources": 1,
+    "index_version": "5dd950a694efa7352905"
+  },
+  "learning_coverage": {
+    "topics": [
+      "Limits and Continuity",
+      "Derivatives and Differentiation",
+      "Integration and FTOC",
+      "Multivariable Calculus",
+      "Applications of Derivatives",
+      "Indefinite Integrals",
+      "Applications of Integration",
+      "Multiple Integrals",
+      "Vector Calculus",
+      "Sequences and Series",
+      "Differential Equations",
+      "Techniques of Integration",
+      "Parametric and Polar Curves"
+    ],
+    "profiles": 4,
+    "rounds_per_topic": 3,
+    "question_types": [
+      "mcq",
+      "calculation",
+      "fill_in"
+    ],
+    "graded_curriculum_attempts": 156,
+    "graded_adaptive_followups": 4,
+    "same_id_replays": 160,
+    "fresh_id_retries_without_credit": 52
+  },
+  "profiles": [
+    {
+      "profile": "foundation",
+      "topics_covered": 13,
+      "attempts": [
+        {
+          "topic": "Limits and Continuity",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "question_type": "mcq",
+          "independent_attempts": 13,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 2,
+          "question_type": "calculation",
+          "independent_attempts": 26,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 3,
+          "question_type": "fill_in",
+          "independent_attempts": 39,
+          "all_topic_states_verified": true
+        }
+      ],
+      "topic_summary": {
+        "Limits and Continuity": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Derivatives and Differentiation": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Integration and FTOC": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multivariable Calculus": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Applications of Derivatives": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Indefinite Integrals": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Applications of Integration": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multiple Integrals": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Vector Calculus": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Sequences and Series": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Differential Equations": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Techniques of Integration": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Parametric and Polar Curves": {
+          "mastery_score": 0.6,
+          "completed_count": 3,
+          "current_level": 1
+        }
+      },
+      "recommendation": {
+        "topic": "Limits and Continuity",
+        "difficulty": 3,
+        "mode": "drill",
+        "reason": "Recorded mastery is 60% across 3 attempts. Practice this topic before increasing difficulty. Recent independent attempts suggest reviewing limits.",
+        "basis": "topic_evidence_rule",
+        "concept_ids": [
+          "limits",
+          "continuity"
+        ]
+      },
+      "concept_evidence": [
+        {
+          "concept_id": "antiderivative",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "chain_rule",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "conservative_field",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "finite_geometric_sum",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "fundamental_theorem",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "initial_condition",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "iterated_integral",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "limits",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "marginal_cost",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "parametric_derivative",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "partial_derivative",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "signed_accumulation",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "substitution",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        }
+      ],
+      "fresh_request_retries_without_credit": 13,
+      "review_check": {
+        "immediate_due_count": 0,
+        "projected_after_days": 8,
+        "projected_due_topics": [
+          "Limits and Continuity",
+          "Derivatives and Differentiation",
+          "Integration and FTOC",
+          "Multivariable Calculus",
+          "Applications of Derivatives",
+          "Indefinite Integrals",
+          "Applications of Integration",
+          "Multiple Integrals",
+          "Vector Calculus",
+          "Sequences and Series",
+          "Differential Equations",
+          "Techniques of Integration",
+          "Parametric and Polar Curves"
+        ],
+        "note": "Clock projection over actual API history; database timestamps were not changed."
+      },
+      "adaptive_generation_succeeded": true,
+      "adaptive_followup": {
+        "topic": "Limits and Continuity",
+        "graded": true,
+        "progress_recorded": true,
+        "verified_topic_state": {
+          "mastery_score": 0.84,
+          "completed_count": 4,
+          "current_level": 2
+        }
+      },
+      "final_independent_attempts": 40
+    },
+    {
+      "profile": "differential_strength",
+      "topics_covered": 13,
+      "attempts": [
+        {
+          "topic": "Limits and Continuity",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "question_type": "mcq",
+          "independent_attempts": 13,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 2,
+          "question_type": "calculation",
+          "independent_attempts": 26,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 3,
+          "question_type": "fill_in",
+          "independent_attempts": 39,
+          "all_topic_states_verified": true
+        }
+      ],
+      "topic_summary": {
+        "Limits and Continuity": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Derivatives and Differentiation": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Integration and FTOC": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multivariable Calculus": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Applications of Derivatives": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Indefinite Integrals": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Applications of Integration": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multiple Integrals": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Vector Calculus": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Sequences and Series": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Differential Equations": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Techniques of Integration": {
+          "mastery_score": 0.1,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Parametric and Polar Curves": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        }
+      },
+      "recommendation": {
+        "topic": "Limits and Continuity",
+        "difficulty": 2,
+        "mode": "drill",
+        "reason": "Recorded mastery is 10% across 3 attempts. Practice this topic before increasing difficulty. Recent independent attempts suggest reviewing limits.",
+        "basis": "topic_evidence_rule",
+        "concept_ids": [
+          "limits",
+          "continuity"
+        ]
+      },
+      "concept_evidence": [
+        {
+          "concept_id": "antiderivative",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "conservative_field",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "finite_geometric_sum",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "fundamental_theorem",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "initial_condition",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "iterated_integral",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "limits",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "signed_accumulation",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "substitution",
+          "attempts": 3,
+          "correct": 1,
+          "observed_accuracy": 0.333,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "chain_rule",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "marginal_cost",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "parametric_derivative",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "partial_derivative",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        }
+      ],
+      "fresh_request_retries_without_credit": 13,
+      "review_check": {
+        "immediate_due_count": 0,
+        "projected_after_days": 8,
+        "projected_due_topics": [
+          "Derivatives and Differentiation",
+          "Multivariable Calculus",
+          "Applications of Derivatives",
+          "Parametric and Polar Curves"
+        ],
+        "note": "Clock projection over actual API history; database timestamps were not changed."
+      },
+      "adaptive_generation_succeeded": true,
+      "adaptive_followup": {
+        "topic": "Limits and Continuity",
+        "graded": true,
+        "progress_recorded": true,
+        "verified_topic_state": {
+          "mastery_score": 0.64,
+          "completed_count": 4,
+          "current_level": 1
+        }
+      },
+      "final_independent_attempts": 40
+    },
+    {
+      "profile": "balanced",
+      "topics_covered": 13,
+      "attempts": [
+        {
+          "topic": "Limits and Continuity",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "question_type": "mcq",
+          "independent_attempts": 13,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 2,
+          "question_type": "calculation",
+          "independent_attempts": 26,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 3,
+          "question_type": "fill_in",
+          "independent_attempts": 39,
+          "all_topic_states_verified": true
+        }
+      ],
+      "topic_summary": {
+        "Limits and Continuity": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Derivatives and Differentiation": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Integration and FTOC": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multivariable Calculus": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Applications of Derivatives": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Indefinite Integrals": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Applications of Integration": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Multiple Integrals": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Vector Calculus": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Sequences and Series": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Differential Equations": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Techniques of Integration": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        },
+        "Parametric and Polar Curves": {
+          "mastery_score": 0.7,
+          "completed_count": 3,
+          "current_level": 1
+        }
+      },
+      "recommendation": {
+        "topic": "Limits and Continuity",
+        "difficulty": 3,
+        "mode": "drill",
+        "reason": "Recorded mastery is 70% across 3 attempts. Practice this topic before increasing difficulty.",
+        "basis": "topic_evidence_rule",
+        "concept_ids": [
+          "limits",
+          "continuity"
+        ]
+      },
+      "concept_evidence": [
+        {
+          "concept_id": "antiderivative",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "chain_rule",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "conservative_field",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "finite_geometric_sum",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "fundamental_theorem",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "initial_condition",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "iterated_integral",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "limits",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "marginal_cost",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "parametric_derivative",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "partial_derivative",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "signed_accumulation",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "substitution",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        }
+      ],
+      "fresh_request_retries_without_credit": 13,
+      "review_check": {
+        "immediate_due_count": 0,
+        "projected_after_days": 8,
+        "projected_due_topics": [
+          "Limits and Continuity",
+          "Derivatives and Differentiation",
+          "Integration and FTOC",
+          "Multivariable Calculus",
+          "Applications of Derivatives",
+          "Indefinite Integrals",
+          "Applications of Integration",
+          "Multiple Integrals",
+          "Vector Calculus",
+          "Sequences and Series",
+          "Differential Equations",
+          "Techniques of Integration",
+          "Parametric and Polar Curves"
+        ],
+        "note": "Clock projection over actual API history; database timestamps were not changed."
+      },
+      "adaptive_generation_succeeded": true,
+      "adaptive_followup": {
+        "topic": "Limits and Continuity",
+        "graded": true,
+        "progress_recorded": true,
+        "verified_topic_state": {
+          "mastery_score": 0.88,
+          "completed_count": 4,
+          "current_level": 2
+        }
+      },
+      "final_independent_attempts": 40
+    },
+    {
+      "profile": "advanced",
+      "topics_covered": 13,
+      "attempts": [
+        {
+          "topic": "Limits and Continuity",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": false,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 1,
+          "question_type": "mcq",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 2,
+          "question_type": "calculation",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Limits and Continuity",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Derivatives and Differentiation",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Integration and FTOC",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multivariable Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Derivatives",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Indefinite Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Applications of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Multiple Integrals",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Vector Calculus",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Sequences and Series",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Differential Equations",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Techniques of Integration",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        },
+        {
+          "topic": "Parametric and Polar Curves",
+          "round": 3,
+          "question_type": "fill_in",
+          "is_correct": true,
+          "citations": 1,
+          "retrieval_method": "hybrid",
+          "retry_idempotent": true,
+          "learning_credit": "first_attempt"
+        }
+      ],
+      "rounds": [
+        {
+          "round": 1,
+          "question_type": "mcq",
+          "independent_attempts": 13,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 2,
+          "question_type": "calculation",
+          "independent_attempts": 26,
+          "all_topic_states_verified": true
+        },
+        {
+          "round": 3,
+          "question_type": "fill_in",
+          "independent_attempts": 39,
+          "all_topic_states_verified": true
+        }
+      ],
+      "topic_summary": {
+        "Limits and Continuity": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Derivatives and Differentiation": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Integration and FTOC": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Multivariable Calculus": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Applications of Derivatives": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Indefinite Integrals": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Applications of Integration": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Multiple Integrals": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Vector Calculus": {
+          "mastery_score": 0.84,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Sequences and Series": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Differential Equations": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Techniques of Integration": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        },
+        "Parametric and Polar Curves": {
+          "mastery_score": 0.94,
+          "completed_count": 3,
+          "current_level": 2
+        }
+      },
+      "recommendation": {
+        "topic": "Vector Calculus",
+        "difficulty": 3,
+        "mode": "drill",
+        "reason": "Recorded mastery is 84% across 3 attempts. Practice this topic before increasing difficulty.",
+        "basis": "topic_evidence_rule",
+        "concept_ids": [
+          "gradient",
+          "conservative_field"
+        ]
+      },
+      "concept_evidence": [
+        {
+          "concept_id": "conservative_field",
+          "attempts": 3,
+          "correct": 2,
+          "observed_accuracy": 0.667,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "antiderivative",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "chain_rule",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "finite_geometric_sum",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "fundamental_theorem",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "initial_condition",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "iterated_integral",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "limits",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "marginal_cost",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "parametric_derivative",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "partial_derivative",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "signed_accumulation",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        },
+        {
+          "concept_id": "substitution",
+          "attempts": 3,
+          "correct": 3,
+          "observed_accuracy": 1.0,
+          "evidence_status": "observed_attempts"
+        }
+      ],
+      "fresh_request_retries_without_credit": 13,
+      "review_check": {
+        "immediate_due_count": 0,
+        "projected_after_days": 8,
+        "projected_due_topics": [
+          "Vector Calculus",
+          "Limits and Continuity",
+          "Derivatives and Differentiation",
+          "Integration and FTOC",
+          "Multivariable Calculus",
+          "Applications of Derivatives",
+          "Indefinite Integrals",
+          "Applications of Integration",
+          "Multiple Integrals",
+          "Sequences and Series",
+          "Differential Equations",
+          "Techniques of Integration",
+          "Parametric and Polar Curves"
+        ],
+        "note": "Clock projection over actual API history; database timestamps were not changed."
+      },
+      "adaptive_generation_succeeded": true,
+      "adaptive_followup": {
+        "topic": "Vector Calculus",
+        "graded": true,
+        "progress_recorded": true,
+        "verified_topic_state": {
+          "mastery_score": 0.94,
+          "completed_count": 4,
+          "current_level": 3
+        }
+      },
+      "final_independent_attempts": 40
+    }
+  ],
+  "role_simulation": {
+    "count": 2,
+    "total_llm_calls": 0,
+    "note": "Scripted role replies; autonomous AI quality was not measured."
+  },
+  "fixture_coverage": [
+    {
+      "topic": "Limits and Continuity",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Limits and Continuity",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Limits and Continuity",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Derivatives and Differentiation",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Derivatives and Differentiation",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Derivatives and Differentiation",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Integration and FTOC",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Integration and FTOC",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Integration and FTOC",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Multivariable Calculus",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Multivariable Calculus",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Multivariable Calculus",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Derivatives",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Derivatives",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Derivatives",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Indefinite Integrals",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Indefinite Integrals",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Indefinite Integrals",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Integration",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Integration",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Applications of Integration",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Multiple Integrals",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Multiple Integrals",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Multiple Integrals",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Vector Calculus",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Vector Calculus",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Vector Calculus",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Sequences and Series",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Sequences and Series",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Sequences and Series",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Differential Equations",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Differential Equations",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Differential Equations",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Techniques of Integration",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Techniques of Integration",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Techniques of Integration",
+      "question_type": "fill_in",
+      "passed": true
+    },
+    {
+      "topic": "Parametric and Polar Curves",
+      "question_type": "mcq",
+      "passed": true
+    },
+    {
+      "topic": "Parametric and Polar Curves",
+      "question_type": "calculation",
+      "passed": true
+    },
+    {
+      "topic": "Parametric and Polar Curves",
+      "question_type": "fill_in",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Synthetic behavior does not establish real learning gains.",
+    "No DeepSeek quality, latency or cost measurements.",
+    "All thirteen topics have small parameterized fixtures; these do not cover the complete syllabus or validate difficulty."
+  ]
+}

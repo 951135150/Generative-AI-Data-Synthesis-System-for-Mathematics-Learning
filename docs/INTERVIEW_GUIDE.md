@@ -2,11 +2,17 @@
 
 ## 30-second introduction
 
-Calculus Atelier is an adaptive calculus learning system rather than a thin LLM chat
-wrapper. It generates structured exercises, audits typed or handwritten
-solutions, tracks topic mastery, and recommends the next task. The core
-engineering decision is to separate probabilistic generation and pedagogical
-review from deterministic schema and symbolic mathematics validation.
+Calculus Atelier is a retrieval-augmented adaptive calculus learning system.
+It retrieves versioned course references to support exercise generation and
+source-linked teaching feedback. Four agent roles handle coverage, question
+drafting, progressive hints and review. Server-owned learning events drive
+explainable recommendations. Schema checks, symbolic validation and exact MCQ
+grading remain separate from model-generated explanations.
+
+The current zero-cost demonstration runs real local hybrid retrieval on a GPU
+and uses clearly labeled AI fixtures. It demonstrates the system workflow,
+not the quality or latency of a live DeepSeek model. A manually authored assistant
+response has also been injected into the real audit path without a paid API.
 
 ## Architecture story
 
@@ -45,11 +51,22 @@ writes safer.
 
 ## Evidence currently produced by the project
 
-- 28 automated backend tests cover schemas, authentication, ownership,
+- 158 automated backend tests cover schemas, authentication, ownership,
   database upgrades, symbolic validation, quality gates,
   API contracts, repositories, migration idempotency, and benchmark stability.
-- A Playwright test covers registration, session restoration, generation,
-  auditing, progress recording, and dashboard navigation in real Chrome.
+- Seven Playwright tests cover UI contracts, registration, generation, auditing,
+  progress, course-reference dialogs, responsive layout, course publishing controls
+  and a real local RAG path. A separate isolated workflow validates actual CUDA
+  retrieval after publication and exclusion after withdrawal.
+- Four scripted learner profiles exercise all 13 topics in three formats, totaling
+  156 curriculum attempts and four graded adaptive follow-ups. Per-topic progress,
+  citation resolution, retry deduplication and projected review eligibility are
+  asserted. This tests workflow behavior, not live AI quality or learning gains.
+- A 52-submission manual feedback replay found two ambiguous antiderivative MCQ
+  templates and an evidence gap. Remediation now rejects the old faulty options,
+  enforces symbolic uniqueness/domain/display checks and adds concept-specific notes.
+  See `reports/rag_manual_mentor_evaluation.md` and `reports/rag_mentor_remediation.md`
+  for an honest discovery → fix → regression story. No live DeepSeek claims follow.
 - The local legacy migration imported 8 learner profiles, 302 unique problems,
   and 186 historical generation runs.
 - The current offline corpus comparison reports 21.1% schema validity for 218

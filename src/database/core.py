@@ -13,7 +13,7 @@ from src.config import Config
 from src.database.models import Base
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 
 class Database:

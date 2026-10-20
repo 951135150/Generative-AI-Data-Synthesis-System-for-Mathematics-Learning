@@ -95,7 +95,7 @@ class MathematicalValidator:
         hard_failure = any(value is False for value in checks.values())
         if hard_failure:
             status = ValidationStatus.FAILED
-        elif symbolic_status == "not_provided":
+        elif symbolic_status == "not_provided" or (problem.question_type == QuestionType.MCQ and not problem.option_expressions):
             status = ValidationStatus.PARTIAL
         else:
             status = ValidationStatus.PASSED
@@ -125,6 +125,13 @@ class MathematicalValidator:
             if not checks["mcq_options_unique"]:
                 issues.append("MCQ options must be unique.")
             checks["mcq_answer_exists"] = problem.answer in problem.options
+            if problem.option_expressions:
+                self._check_mcq_semantics(problem, checks, issues)
+            elif problem.semantic_validation_required:
+                checks["mcq_semantics_present"] = False
+                issues.append("New MCQs require option_expressions for mathematical uniqueness checks.")
+            else:
+                issues.append("Legacy MCQ semantic uniqueness was not checked.")
 
         if problem.question_type == QuestionType.FILL_IN:
             blank_count = problem.problem_statement.count("[BLANK_")
@@ -134,7 +141,61 @@ class MathematicalValidator:
             if not checks["fill_in_values_match"]:
                 issues.append("Fill-in answers do not cover all blanks.")
 
-    def _parse_expression(self, expression: str, variable: sp.Symbol) -> sp.Expr:
+    def _check_mcq_semantics(self, problem, checks, issues):
+        """Bind symbolic options to display and check equivalence on real domains.
+
+        This checks declared expressions/conditions, not arbitrary natural-language
+        questions. Unsupported domains fail closed instead of certifying a guess.
+        """
+        from sympy.calculus.util import continuous_domain
+        try:
+            if not problem.symbolic_validation or set(problem.option_expressions) != set(problem.options):
+                raise ValueError("A claim and matching symbolic/display option keys are required.")
+            x = sp.Symbol(problem.symbolic_validation.variable, real=True)
+            parse = lambda value: self._parse_expression(value, x, evaluate=False)
+            exclusions = [parse(value) for value in problem.excluded_points]
+            if any(value.free_symbols or value.is_real is not True or value.is_finite is not True for value in exclusions):
+                raise ValueError("Domain exclusions must be finite real constants.")
+            domain = sp.S.Reals - sp.FiniteSet(*exclusions)
+            reference = parse(problem.symbolic_validation.claimed_result)
+            expressions = {key: parse(value) for key, value in problem.option_expressions.items()}
+            # Rendering a parsed expression binds the checked mathematics to the
+            # actual displayed option. No separate unverified symbolic answer map.
+            display_ok = all(re.sub(r"\s+", "", problem.options[key]) == re.sub(
+                r"\s+", "", f"$ {sp.latex(expressions[key])} $")
+                for key in expressions)
+            checks["mcq_expression_display_match"] = display_ok
+            if not display_ok:
+                raise ValueError("Symbolic options must match their canonical LaTeX display.")
+            primitive = problem.answer_equivalence == "antiderivative"
+            if primitive and (not problem.allow_additive_constant or problem.symbolic_validation.operation != "integrate"):
+                raise ValueError("Antiderivative equivalence requires an indefinite integral without a fixed constant.")
+            def same(left, right, *, cover_domain=True):
+                if left.free_symbols - {x} or right.free_symbols - {x}:
+                    raise ValueError("Only the declared variable is supported in symbolic MCQ options.")
+                left_domain = continuous_domain(left, x, sp.S.Reals).intersect(domain)
+                right_domain = continuous_domain(right, x, sp.S.Reals).intersect(domain)
+                # Every candidate must be defined throughout the stated domain;
+                # cancelling an extra hole must not silently make it equivalent.
+                if left_domain != right_domain or (cover_domain and left_domain != domain):
+                    return False
+                delta = sp.simplify(left - right)
+                return delta == 0 or (primitive and sp.simplify(sp.diff(delta, x)) == 0)
+            checks["mcq_reference_domain_valid"] = continuous_domain(reference, x, sp.S.Reals).intersect(domain) == domain
+            valid_keys = [key for key, value in expressions.items() if same(value, reference)]
+            checks["mcq_single_correct_option"] = valid_keys == [problem.answer]
+            pairs = list(expressions.values())
+            checks["mcq_semantic_options_unique"] = all(not same(left, right, cover_domain=False)
+                for index, left in enumerate(pairs) for right in pairs[index + 1:])
+            checks["mcq_semantics_checked"] = all(checks[k] for k in (
+                "mcq_reference_domain_valid", "mcq_single_correct_option", "mcq_semantic_options_unique"))
+            if not checks["mcq_semantics_checked"]:
+                issues.append(f"MCQ semantic validation failed; valid option keys: {valid_keys}.")
+        except Exception as error:
+            checks["mcq_semantics_checked"] = False
+            issues.append(f"MCQ semantic check could not certify uniqueness: {error}")
+
+    def _parse_expression(self, expression: str, variable: sp.Symbol, *, evaluate=True) -> sp.Expr:
         if (
             len(expression) > 500
             or "__" in expression
@@ -151,12 +212,15 @@ class MathematicalValidator:
             "Integer": sp.Integer,
             "Float": sp.Float,
             "Rational": sp.Rational,
+            "Add": sp.Add,
+            "Mul": sp.Mul,
+            "Pow": sp.Pow,
         }
         return parse_expr(
             expression.replace("^", "**"),
             local_dict=local_dict,
             global_dict=global_dict,
-            evaluate=True,
+            evaluate=evaluate,
         )
 
     def _validate_symbolic_claim(

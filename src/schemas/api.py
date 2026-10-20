@@ -37,6 +37,8 @@ class AuditRequest(BaseModel):
     selected_option: Optional[str] = Field(default=None, min_length=1, max_length=20)
     is_exam_mode: bool = False
     user_id: Optional[str] = Field(default=None, pattern=USER_ID_PATTERN)
+    attempt_id: Optional[str] = Field(default=None, pattern=r"^[A-Za-z0-9_-]{8,100}$")
+    text_answer: Optional[str] = Field(default=None, min_length=1, max_length=10000)
 
     @field_validator("selected_option")
     @classmethod
@@ -45,7 +47,7 @@ class AuditRequest(BaseModel):
 
     @model_validator(mode="after")
     def require_submission_content(self) -> "AuditRequest":
-        if not self.student_work_image and not self.selected_option:
+        if not self.student_work_image and not self.selected_option and not self.text_answer:
             raise ValueError("student work or a selected option is required")
         return self
 

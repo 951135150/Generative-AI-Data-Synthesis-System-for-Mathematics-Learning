@@ -87,7 +87,8 @@ class Coordinator:
         self.config = config
         self.message_bus = MessageBus()
         self.agents: Dict[str, Any] = {}
-        self._output_dir = config.output_dir or os.path.join(Config.OUTPUT_DIR, "multi_agent")
+        self.run_id = f"run_{uuid.uuid4().hex[:12]}"
+        self._output_dir = config.output_dir or os.path.join(Config.OUTPUT_DIR, "multi_agent", self.run_id)
         os.makedirs(self._output_dir, exist_ok=True)
 
         # Set module-level session context so ALL tool calls (even LLM-initiated) use correct directory
@@ -95,6 +96,9 @@ class Coordinator:
 
     async def synthesize(self) -> SynthesisResult:
         """Run the full multi-agent synthesis session."""
+        set_session_context(self._output_dir)
+        if Config.AI_MODE == "simulation":
+            return await self._simulate_roles()
         start_time = time.time()
         self._session_start_time = start_time  # Track when this session began
         result = SynthesisResult()
@@ -172,6 +176,70 @@ class Coordinator:
             f"Terminated: {result.terminated_by}"
         )
 
+        return result
+
+    async def _simulate_roles(self):
+        """Real retrieval/validation/message transport with explicitly scripted role replies."""
+        from src.generator import ProblemGenerator
+        from src.data_loader import GoldenDataLoader
+        from src.rag import get_retriever
+        from src.multi_agent.tools import _save_problem_to_disk
+        from src.simulation import fixture_review
+
+        start = time.perf_counter()
+        result = SynthesisResult(terminated_by="complete")
+        for name in ("curator", "synthesizer", "scaffolder", "reviewer"):
+            await self.message_bus.register(name)
+
+        async def emit(sender, recipient, content, kind=MessageType.NOTIFY):
+            await self.message_bus.send(Message(type=kind, sender=sender, recipient=recipient,
+                                                conversation_id=self.run_id,
+                                                content={"ai_mode": "simulation", "run_id": self.run_id, **content}))
+
+        generator = ProblemGenerator(GoldenDataLoader(Config.GOLDEN_DATASET_PATH))
+        try:
+            for index in range(self.config.target_count):
+                if time.perf_counter() - start > self.config.timeout_seconds:
+                    result.terminated_by = "timeout"
+                    break
+                topic = self.config.topics[index % len(self.config.topics)]
+                await emit("curator", "synthesizer", {"stage": "coverage_plan", "topic": topic,
+                                                     "note": "Scripted offline role simulation; no autonomous model reasoning."})
+                problem = await asyncio.to_thread(generator.generate_one, [topic], self.config.mode,
+                                                   self.config.difficulty, None, self.config.question_type)
+                if not problem:
+                    await emit("synthesizer", "curator", {"stage": "generation_failed"}, MessageType.ERROR)
+                    continue
+                await emit("synthesizer", "scaffolder", {"stage": "draft_ready", "problem_id": problem["id"],
+                                                           "evidence_bundle_id": problem.get("retrieval", {}).get("bundle_id")})
+                # The scaffolder actually adds a separate, answer-free verification prompt.
+                problem["scaffolding"].append({"step": 3, "hint": "Check your result using the inverse operation where applicable."})
+                await emit("scaffolder", "reviewer", {"stage": "scaffolding_ready", "hint_count": len(problem["scaffolding"])})
+                evidence = await asyncio.to_thread(get_retriever().retrieve, topic, topics=[topic], purpose="review")
+                review = fixture_review(problem)
+                if not review["is_mathematically_correct"]:
+                    await emit("reviewer", "synthesizer", {"stage": "rejected", "review": review}, MessageType.REJECT)
+                    continue
+                problem["review_retrieval"] = evidence
+                problem["publishing_status"] = "simulation_checked"
+                saved = _save_problem_to_disk(problem, output_dir=self._output_dir)
+                if saved["saved"]:
+                    result.problems.append(problem)
+                    await emit("reviewer", "curator", {"stage": "fixture_checked", "problem_id": problem["id"],
+                                                        "review_kind": "deterministic_fixture_check"}, MessageType.APPROVE)
+            result.total_problems = len(result.problems)
+            result.success = result.total_problems == self.config.target_count
+            result.error = None if result.success else "Not all offline fixtures passed."
+        except Exception as error:
+            result.error, result.terminated_by = str(error), "error"
+            await emit("curator", None, {"stage": "failed", "message": str(error)}, MessageType.ERROR)
+        result.duration_seconds = time.perf_counter() - start
+        result.total_agent_messages = self.message_bus.total_messages
+        result.conversation_log = [m.to_dict() for m in self.message_bus.get_all_messages_since(0)]
+        result.statistics = self._compute_statistics(result.problems)
+        result.statistics["ai_mode"] = "simulation"
+        result.statistics["review_kind"] = "deterministic_fixture_check"
+        self._save_final_dataset(result)
         return result
 
     def _create_agents(self) -> None:

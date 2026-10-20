@@ -26,6 +26,7 @@ class ProblemSynthesizer(AutonomousAgent):
     def __init__(self, message_bus, model=None):
         tools = get_tools_for_agent("synthesizer")
         self._last_approved_problem = None  # Cache for hardcoded save flow
+        self._pending_scaffold_problem = None
         super().__init__(
             agent_id="synthesizer",
             role="Creative Mathematician",
@@ -45,6 +46,10 @@ class ProblemSynthesizer(AutonomousAgent):
                 '- "integration_analysis": brief note on how this connects to other topics\n'
                 "- quality_score: 85\n\n"
                 "For MCQ questions, also include 'options' (A/B/C/D) and 'answer'. "
+                "Include option_expressions with a SymPy expression per key, symbolic_validation, "
+                "answer_equivalence ('exact' or 'antiderivative'), allow_additive_constant, and excluded_points. "
+                "Render each option as '$ ' + sympy.latex(expression) + ' $'. Exactly one option must be correct. "
+                "For an indefinite integral, adding a constant does NOT make a wrong distractor. "
                 "For fill-in questions, use [BLANK_1], [BLANK_2] in the statement and "
                 "include 'correct_values'.\n\n"
                 "LaTeX rules: use $ for inline math, $$ for display math. "
@@ -82,6 +87,20 @@ class ProblemSynthesizer(AutonomousAgent):
         """
         # Check for pending action first (set by _act after save_problem succeeds)
         pending = self.memory.internal_state.get("pending_action")
+
+        if self._pending_scaffold_problem:
+            for message in new_messages:
+                if message.sender == "scaffolder" and message.type == MessageType.RESPONSE:
+                    hints = message.content.get("scaffolding")
+                    if isinstance(hints, list) and hints and all(isinstance(h, dict) and h.get("hint") for h in hints):
+                        problem = self._pending_scaffold_problem
+                        problem["scaffolding"] = hints
+                        self._pending_scaffold_problem = None
+                        self.memory.internal_state["last_sent_for_review"] = problem.get("id")
+                        return Action(action_type=ActionType.SEND_MESSAGE, thought="Scaffolding completed; request review.",
+                                      message=Message(type=MessageType.REQUEST, sender=self.agent_id, recipient="reviewer",
+                                                      content={"action": "review_problem", "problem": problem}))
+            return Action(action_type=ActionType.WAIT, thought="Waiting for the delegated scaffolding task.")
 
         if pending == "notify_curator":
             problem_id = self.memory.internal_state.get("last_saved_problem_id", "unknown")
@@ -140,7 +159,10 @@ class ProblemSynthesizer(AutonomousAgent):
                 problem = action.message.content.get("problem", {})
                 pid = problem.get("id")
                 if pid:
-                    self.memory.internal_state["last_sent_for_review"] = pid
+                    self._pending_scaffold_problem = problem
+                    action.message.recipient = "scaffolder"
+                    action.message.type = MessageType.DELEGATE
+                    action.message.content = {"action": "design_scaffolding", "problem": problem}
 
             # Validate: if LLM produces SEND_MESSAGE to None or empty, retry
             if action.action_type == ActionType.SEND_MESSAGE and action.message:

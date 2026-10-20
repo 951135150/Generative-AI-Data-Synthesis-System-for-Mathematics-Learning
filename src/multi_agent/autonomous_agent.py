@@ -86,10 +86,10 @@ class AutonomousAgent:
         self._llm_call_count = 0
         self._last_action_time = time.time()
 
-        self.client = OpenAI(
-            api_key=Config.DEEPSEEK_API_KEY,
-            base_url=Config.DEEPSEEK_BASE_URL,
-        )
+        self.client = None
+        if Config.AI_MODE == "live" and Config.ALLOW_PAID_API:
+            self.client = OpenAI(api_key=Config.DEEPSEEK_API_KEY, base_url=Config.DEEPSEEK_BASE_URL,
+                                 timeout=60, max_retries=0)
 
         self._tool_schemas = self._build_tool_schemas()
         self._tool_handlers: Dict[str, Callable] = {t.name: t.handler for t in self.tools}
@@ -248,12 +248,29 @@ class AutonomousAgent:
 
     async def _reason(self, new_messages: List[Message]) -> Action:
         """Use LLM to decide the next action based on context and new messages."""
+        if self._llm_call_count >= 20:
+            return Action(action_type=ActionType.FINISH, thought="Per-agent model call budget exhausted.")
+        if self.client is None:
+            return Action(action_type=ActionType.WAIT, thought="External model access is disabled.")
         prompt = self._build_reasoning_prompt(new_messages)
+        if new_messages and Config.RAG_ENABLED:
+            from src.rag import get_retriever
+            from src.rag.service import evidence_prompt
+            config = self.memory.internal_state.get("synthesis_config", {})
+            problem = next((m.content.get("problem") for m in new_messages if m.content.get("problem")), {})
+            topics = [problem["topic"]] if problem.get("topic") else config.get("topics", [])[:1]
+            if topics:
+                query = " ".join(topics) + " " + problem.get("problem_statement", "")
+                bundle = await asyncio.to_thread(get_retriever().retrieve, query, topics=topics,
+                                                  purpose=self.agent_id, top_k=3)
+                self.memory.internal_state["last_evidence_bundle_id"] = bundle.get("bundle_id")
+                # Evidence is added after message formatting, outside the legacy message truncation.
+                prompt += evidence_prompt(bundle)
 
         max_retries = 3
         for attempt in range(max_retries):
             try:
-                response = self.client.chat.completions.create(
+                response = await asyncio.to_thread(self.client.chat.completions.create,
                     model=self.model,
                     messages=[
                         {"role": "system", "content": self._build_system_prompt()},

@@ -87,6 +87,19 @@ export default function CalculusAtelierHome() {
   const [topicOptions, setTopicOptions] = useState<string[]>([]);
   const [questionType, setQuestionType] = useState('calculation');
   const [visionOCRAvailable, setVisionOCRAvailable] = useState<boolean | null>(null);
+  const [aiMode, setAiMode] = useState('');
+  const [runtimeDevice, setRuntimeDevice] = useState('');
+  const [simulationTopics, setSimulationTopics] = useState<string[]>([]);
+  const [textAnswers, setTextAnswers] = useState<Record<string, string>>({});
+  const attemptKeys = useRef<Record<string, { fingerprint: string; key: string }>>({});
+
+  const attemptId = (problemId: string, fingerprint: string) => {
+    const previous = attemptKeys.current[problemId];
+    if (previous?.fingerprint === fingerprint) return previous.key;
+    const key = crypto.randomUUID();
+    attemptKeys.current[problemId] = { fingerprint, key };
+    return key;
+  };
 
   const [synthesisTopics, setSynthesisTopics] = useState<string[]>([]);
   const [synthesisCount, setSynthesisCount] = useState(5);
@@ -116,6 +129,9 @@ export default function CalculusAtelierHome() {
     try {
       const response = await api.get('/capabilities');
       setVisionOCRAvailable(Boolean(response.data?.vision_ocr?.configured));
+      setAiMode(String(response.data?.ai_mode || ''));
+      setRuntimeDevice(String(response.data?.rag?.device || 'not_loaded'));
+      setSimulationTopics(response.data?.simulation_topics || []);
     } catch {
       setVisionOCRAvailable(false);
     }
@@ -218,6 +234,7 @@ export default function CalculusAtelierHome() {
       const safeProblems = normalizeProblems(response.data.data);
       if (safeProblems.length > 0) {
         setProblems((current) => [...current, ...safeProblems]);
+        void fetchCapabilities();
       } else {
         setError('Generation completed, but the returned problem did not match the expected schema.');
       }
@@ -249,6 +266,7 @@ export default function CalculusAtelierHome() {
       const safeProblems = normalizeProblems(response.data.data);
       if (safeProblems.length > 0) {
         setProblems((current) => [...current, ...safeProblems]);
+        void fetchCapabilities();
       } else {
         setError('The adaptive recommendation returned an invalid problem. Please try again.');
       }
@@ -333,17 +351,15 @@ export default function CalculusAtelierHome() {
       tutor_feedback: String(data.tutor_feedback || ''),
       next_hint: String(data.next_hint || ''),
       ocr_text: String(data.ocr_text || ''),
+      citations: Array.isArray(data.citations) ? data.citations : [],
+      ai_mode: String(data.ai_mode || ''),
+      grounding_status: String(data.grounding_status || ''),
+      retrieval_method: String(data.retrieval_method || ''),
+      progress_recorded: Boolean(data.progress_recorded),
     };
     setAuditResult((current) => ({ ...current, [problem.id]: result }));
 
-    if (authenticated && userId) {
-      void api.post('/user/record', {
-        user_id: userId,
-        topic: problem.topic,
-        logic_alignment_score: result.logic_alignment_score,
-        is_correct: result.is_correct,
-      }).catch((recordError) => console.error('Failed to record progress.', recordError));
-    }
+    void fetchCapabilities();
   };
 
   const submitMCQ = async (problem: Problem, chosen: string) => {
@@ -354,6 +370,7 @@ export default function CalculusAtelierHome() {
       const response = await api.post('/audit', {
         problem_id: problem.id,
         selected_option: chosen,
+        attempt_id: attemptId(problem.id, `mcq:${chosen}`),
         is_exam_mode: (problem.mode || selectedMode) === 'exam',
         user_id: authenticated && userId ? userId : undefined,
       }, { timeout: AUDIT_TIMEOUT_MS });
@@ -369,11 +386,12 @@ export default function CalculusAtelierHome() {
   const handleAISubmission = async (problem: Problem) => {
     if (submittingProblems[problem.id]) return;
     const selectedImage = selectedImages[problem.id];
+    const typedAnswer = textAnswers[problem.id]?.trim();
     const canvas = signatureRefs.current[problem.id];
     const payload = selectedImage
       || (canvas && !canvas.isEmpty() ? canvas.getTrimmedCanvas().toDataURL('image/png') : '');
 
-    if (!payload) {
+    if (!payload && !typedAnswer) {
       window.alert('Write your derivation or upload a photograph before requesting an AI review.');
       return;
     }
@@ -382,7 +400,9 @@ export default function CalculusAtelierHome() {
     try {
       const response = await api.post('/audit', {
         problem_id: problem.id,
-        student_work_image: payload,
+        student_work_image: payload || undefined,
+        text_answer: typedAnswer || undefined,
+        attempt_id: attemptId(problem.id, typedAnswer || payload),
         is_exam_mode: (problem.mode || selectedMode) === 'exam',
         user_id: authenticated && userId ? userId : undefined,
       }, { timeout: AUDIT_TIMEOUT_MS });
@@ -415,6 +435,7 @@ export default function CalculusAtelierHome() {
   };
 
   const clearInput = (problemId: string) => {
+    setTextAnswers(current => ({ ...current, [problemId]: '' }));
     signatureRefs.current[problemId]?.clear();
     removeSelectedImage(problemId);
     if (fileInputRefs.current[problemId]) fileInputRefs.current[problemId]!.value = '';
@@ -426,6 +447,7 @@ export default function CalculusAtelierHome() {
     setAuditResult({});
     setSelectedMCQChoices({});
     setSelectedImages({});
+    setTextAnswers({});
     setSubmittingProblems({});
     setActiveProblemIndex(0);
     localStorage.removeItem(STORAGE_PROBLEMS);
@@ -456,6 +478,15 @@ export default function CalculusAtelierHome() {
       />
 
       <main className="workspace-main">
+        {aiMode && (
+          <div className="runtime-notice" role="status">
+            <strong>{aiMode === 'simulation' ? 'Offline AI simulation' : 'Live AI mode'}</strong>
+            <span>{aiMode === 'simulation'
+              ? 'No paid model calls. Questions and role replies use explicit fixtures; retrieval and learning records run locally.'
+              : 'External model access is enabled.'}</span>
+            <small>Embeddings: {runtimeDevice === 'not_loaded' ? 'loads on first use' : runtimeDevice}</small>
+          </div>
+        )}
         {activeView === 'studio' ? (
           <>
             <section className="workspace-intro">
@@ -473,7 +504,7 @@ export default function CalculusAtelierHome() {
 
             <div className="workspace-grid">
               <GenerationRail
-                topics={topicOptions}
+                topics={aiMode === 'simulation' ? topicOptions.filter(t => simulationTopics.includes(t)) : topicOptions}
                 selectedTopic={selectedTopic}
                 selectedMode={selectedMode}
                 difficulty={difficulty}
@@ -497,6 +528,8 @@ export default function CalculusAtelierHome() {
                 selectedMCQChoice={activeProblem ? selectedMCQChoices[activeProblem.id] : undefined}
                 selectedImage={activeProblem ? selectedImages[activeProblem.id] : undefined}
                 visionOCRAvailable={visionOCRAvailable}
+                textAnswer={activeProblem ? textAnswers[activeProblem.id] || '' : ''}
+                onTextAnswerChange={(id, value) => setTextAnswers(current => ({ ...current, [id]: value }))}
                 submitting={activeSubmitting}
                 generating={loading}
                 showScaffolding={activeProblem ? Boolean(scaffoldingVisible[activeProblem.id]) : false}
@@ -531,7 +564,7 @@ export default function CalculusAtelierHome() {
           </>
         ) : (
           <AgentLaboratory
-            topics={topicOptions}
+                topics={aiMode === 'simulation' ? topicOptions.filter(t => simulationTopics.includes(t)) : topicOptions}
             selectedTopics={synthesisTopics}
             count={synthesisCount}
             difficulty={synthesisDifficulty}

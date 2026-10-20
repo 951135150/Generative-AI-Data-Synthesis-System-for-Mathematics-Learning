@@ -27,5 +27,6 @@ export default defineConfig({
     url: testBaseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    env: { NEXT_PUBLIC_API_URL: 'http://127.0.0.1:8002', NEXT_DIST_DIR: '.next-e2e' },
   },
 });

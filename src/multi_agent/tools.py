@@ -9,6 +9,8 @@ import os
 import tempfile
 import time
 import logging
+import re
+from contextvars import ContextVar
 from typing import Any, Dict, List, Optional
 
 from src.config import Config
@@ -21,34 +23,35 @@ logger = logging.getLogger(__name__)
 # ── Module-level session context (set by Coordinator at session start) ──
 # This ensures tools use the correct directory even when called via LLM path
 # (where the LLM doesn't know to pass output_dir or session_start_time).
-_session_output_dir: Optional[str] = None
-_session_start_time: float = 0
+_session_output_dir = ContextVar("agent_output_dir", default=None)
+_session_start_time = ContextVar("agent_start_time", default=0.0)
 
 
 def set_session_context(output_dir: str) -> None:
     """Set the current session's output directory and start time.
     Called by the Coordinator at the beginning of each synthesis run."""
-    global _session_output_dir, _session_start_time
-    _session_output_dir = output_dir
-    _session_start_time = time.time()
+    _session_output_dir.set(output_dir)
+    _session_start_time.set(time.time())
     os.makedirs(output_dir, exist_ok=True)
 
 
 def _resolve_output_dir(explicit_dir: Optional[str]) -> str:
     """Resolve output directory: explicit arg > session context > config default."""
-    return explicit_dir or _session_output_dir or Config.OUTPUT_DIR
+    return explicit_dir or _session_output_dir.get() or Config.OUTPUT_DIR
 
 
 def _resolve_session_start(explicit_start: float) -> float:
     """Resolve session start time: explicit arg > session context > 0."""
-    return explicit_start or _session_start_time
+    return explicit_start or _session_start_time.get()
 
 
 # ── Tool Handlers (sync, no LLM calls) ────────────────────────
 
 
 def _save_problem_to_disk(problem_data: dict, output_dir: str = None) -> dict:
-    """Save a completed problem to disk. Pure file I/O."""
+    """Save a completed problem after deterministic checks."""
+    if problem_data.get("question_type") == "mcq":
+        problem_data = dict(problem_data, semantic_validation_required=True)
     validation = MathematicalValidator().validate(problem_data)
     if not validation.passed:
         logger.error(
@@ -68,6 +71,8 @@ def _save_problem_to_disk(problem_data: dict, output_dir: str = None) -> dict:
     os.makedirs(directory, exist_ok=True)
 
     problem_id = problem_data.get("problem_id") or problem_data.get("id", "unknown")
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,100}", str(problem_id)):
+        return {"saved": False, "status": "validation_failed", "issues": ["Unsafe problem identifier."]}
     filename = os.path.join(directory, f"{problem_id}.json")
 
     # Atomic replacement prevents readers from observing a partially written
@@ -100,7 +105,7 @@ def _get_topic_list(args: dict = None) -> dict:
     """Return all available topics from the data loader."""
     try:
         from src.data_loader import GoldenDataLoader
-        loader = GoldenDataLoader()
+        loader = GoldenDataLoader(Config.GOLDEN_DATASET_PATH)
         topics = loader.get_main_topics()
         return {"topics": topics, "count": len(topics)}
     except Exception as e:
@@ -111,7 +116,7 @@ def _get_examples_for_topic(topic: str, num_examples: int = 2) -> dict:
     """Fetch example problems for a given topic from the golden dataset."""
     try:
         from src.data_loader import GoldenDataLoader
-        loader = GoldenDataLoader()
+        loader = GoldenDataLoader(Config.GOLDEN_DATASET_PATH)
         examples = loader.get_examples(topic, num_examples=num_examples)
         return {"examples": examples, "count": len(examples), "topic": topic}
     except Exception as e:
@@ -184,7 +189,9 @@ def _get_dataset_size(output_dir: str = None) -> dict:
 
 def _read_problem_from_disk(problem_id: str, output_dir: str = None) -> dict:
     """Read a specific problem from disk by ID."""
-    directory = output_dir or Config.OUTPUT_DIR
+    if not re.fullmatch(r"[A-Za-z0-9_-]{1,100}", str(problem_id)):
+        return {"error": "Unsafe problem identifier."}
+    directory = _resolve_output_dir(output_dir)
     filepath = os.path.join(directory, f"{problem_id}.json")
     if not os.path.exists(filepath):
         return {"error": f"Problem {problem_id} not found"}
@@ -197,7 +204,7 @@ def _read_problem_from_disk(problem_id: str, output_dir: str = None) -> dict:
 
 def _handle_save_problem(args: dict) -> dict:
     problem_data = args.get("problem", args)
-    output_dir = args.get("output_dir")
+    output_dir = _session_output_dir.get() or args.get("output_dir")
     return _save_problem_to_disk(problem_data, output_dir=output_dir)
 
 

@@ -93,7 +93,7 @@ class QualityReviewer(AutonomousAgent):
             # A deterministic failure is a hard rejection. The LLM reviewer is
             # not allowed to overrule an invalid schema or symbolic mismatch.
             deterministic = self.mathematical_validator.validate(
-                problem_under_review or {}
+                dict(problem_under_review or {}, semantic_validation_required=(problem_under_review or {}).get("question_type") == "mcq")
             )
             if not deterministic.passed:
                 return Action(

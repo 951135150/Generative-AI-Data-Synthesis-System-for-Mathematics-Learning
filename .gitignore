@@ -19,6 +19,7 @@ venv/
 t2p-web/node_modules/
 t2p-web/.next/
 t2p-web/.next-build/
+t2p-web/.next-e2e/
 t2p-web/out/
 t2p-web/.npm-cache/
 t2p-web/playwright-report/
@@ -36,12 +37,15 @@ data/*.db-shm
 data/*.db-wal
 *.log
 .runtime/
+reports/demo/
+/tmp/
 .claude/
 *.tsbuildinfo
 
 # Local backups and duplicate source copies
 *.bak
 *backup*
+!scripts/backup_local.py
 *副本*
 /1.0.1
 

@@ -174,3 +174,26 @@ class GenerationRun(Base):
     model: Mapped[Optional[str]] = mapped_column(String(120), nullable=True)
     error_code: Mapped[Optional[str]] = mapped_column(String(120), nullable=True)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
+class EvidenceSnapshot(Base):
+    __tablename__ = "evidence_snapshots"
+
+    bundle_id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    index_version: Mapped[str] = mapped_column(String(80))
+    purpose: Mapped[str] = mapped_column(String(40))
+    payload_json: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)
+
+
+class AttemptReceipt(Base):
+    """One transaction owns the submission, progress update and retry response."""
+    __tablename__ = "attempt_receipts"
+    __table_args__ = (UniqueConstraint("user_scope", "request_key", name="uq_attempt_request"),)
+
+    receipt_id: Mapped[str] = mapped_column(String(80), primary_key=True)
+    user_scope: Mapped[str] = mapped_column(String(80))
+    request_key: Mapped[str] = mapped_column(String(100))
+    request_hash: Mapped[str] = mapped_column(String(64))
+    response_json: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utc_now)

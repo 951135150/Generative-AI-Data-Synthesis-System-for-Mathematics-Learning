@@ -54,8 +54,6 @@ test('uses a dedicated timeout for long-running AI generation', () => {
 });
 
 test('registers, generates, audits, and opens the authenticated dashboard', async ({ page }) => {
-  let recorded = false;
-
   await page.route(`${API_ORIGIN}/**`, async (route) => {
     const request = route.request();
     const path = new URL(request.url()).pathname;
@@ -135,13 +133,20 @@ test('registers, generates, audits, and opens the authenticated dashboard', asyn
           tutor_feedback: 'Excellent derivative reasoning.',
           next_hint: 'Continue with the chain rule.',
           ocr_text: 'A',
+          progress_recorded: true,
+          citations: [{ citation_id: 'C1', id: 'power-rule', title: 'Power rule', section: '2.1',
+            source_title: 'Test course notes', source_version: '1.0', content_hash: 'test-hash',
+            text: 'For a positive integer n, the derivative of x^n is n*x^(n-1).', provenance: 'E2E fixture.' }],
         },
       });
     }
     if (path === '/user/record') {
-      expect(authorization).toBe('Bearer e2e-session-token');
-      recorded = true;
-      return route.fulfill({ json: { success: true } });
+      throw new Error('The browser must not submit its own score.');
+    }
+    if (path === '/knowledge/chunks/power-rule') {
+      return route.fulfill({ json: { success: true, data: { id: 'power-rule', title: 'Power rule', section: '2.1',
+        source_title: 'Test course notes', source_version: '1.0', text: 'Differentiate the power using its exponent.',
+        provenance: 'E2E fixture.' } } });
     }
     if (path === '/user/progress/e2e_student') {
       expect(authorization).toBe('Bearer e2e-session-token');
@@ -194,10 +199,14 @@ test('registers, generates, audits, and opens the authenticated dashboard', asyn
   await expect(page.getByText('Excellent derivative reasoning.')).toBeVisible();
   await expect(selectedOption).toHaveAttribute('aria-pressed', 'true');
   await expect(selectedOption).toHaveCSS('background-color', 'rgb(24, 49, 83)');
-  await expect.poll(() => recorded).toBe(true);
+  await expect(page.getByText('Learning record saved by the server.')).toBeVisible();
+  await page.getByRole('button', { name: /\[C1\] Power rule/ }).click();
+  await expect(page.getByRole('dialog', { name: 'Course source' })).toBeVisible();
+  await expect(page.getByText('Differentiate the power using its exponent.')).toBeVisible();
+  await page.getByRole('button', { name: 'Close course source' }).click();
 
   await page.getByRole('link', { name: 'Progress Report' }).click();
-  await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page).toHaveURL(/\/dashboard$/, { timeout: 30_000 });
   await expect(page.getByText('Calculus Atelier', { exact: true }).first()).toBeVisible();
   await expect(page.getByRole('heading', { name: 'Academic Progress Report' })).toBeVisible();
   await expect(page.getByText('Derivatives and Differentiation', { exact: true }).first()).toBeVisible();

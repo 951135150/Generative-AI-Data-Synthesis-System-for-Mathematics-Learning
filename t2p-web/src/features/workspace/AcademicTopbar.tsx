@@ -77,6 +77,7 @@ export function AcademicTopbar({
           <Link href="/dashboard" aria-label="Progress Report">
             <BarChart3 size={15} /> Progress
           </Link>
+          <Link href="/knowledge" aria-label="Course Library"><BookOpenText size={15} /> Library</Link>
         </nav>
 
         <div className="workspace-auth" aria-label="Account controls">

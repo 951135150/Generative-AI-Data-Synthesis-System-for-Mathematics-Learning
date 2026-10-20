@@ -1,0 +1,4455 @@
+{
+  "review_mode": "manual_assistant_file_roundtrip",
+  "paid_api_calls": 0,
+  "database_isolated": true,
+  "runtime_ai_mode": "simulation_with_manual_mentor_adapter",
+  "retrieval_at_preparation": {
+    "enabled": true,
+    "model": "intfloat/multilingual-e5-small",
+    "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+    "dense_status": "ready",
+    "device": "cuda",
+    "device_reason": "NVIDIA GeForce GTX 1650",
+    "chunks": 18,
+    "sources": 1,
+    "index_version": "5dd950a694efa7352905"
+  },
+  "packet_hash": "43929b2ff5f7beae306c8dffc51d1afbcaf1b53442a830fddc8b511ce70a17a6",
+  "response_hash": "5b2004c5a6eae2aadbf73b1a29a00b3eccd9003df72315dcac381220dcc070f5",
+  "summary": {
+    "topics": 13,
+    "cases": 52,
+    "api_roundtrips_passed": 52,
+    "independent_learning_events": 52,
+    "baseline_supported_cases": 39,
+    "baseline_unsupported_cases": 13,
+    "cases_with_no_supporting_citation": 0,
+    "symbolically_confirmed_ambiguous_mcqs": 0
+  },
+  "mathematical_reference_checks": [
+    {
+      "case_id": "01-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "02-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "03-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "04-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "05-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "06-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "mcq_valid_option_keys": [
+        "D"
+      ],
+      "mcq_single_answer_valid": true,
+      "stored_key_verdict_on_valid_options": {
+        "D": true
+      },
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "07-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "08-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "09-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "10-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "11-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "12-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "mcq_valid_option_keys": [
+        "D"
+      ],
+      "mcq_single_answer_valid": true,
+      "stored_key_verdict_on_valid_options": {
+        "D": true
+      },
+      "existing_validator_status": "passed"
+    },
+    {
+      "case_id": "13-correct",
+      "independent_formula_agrees": true,
+      "equivalent_answer_checked": true,
+      "wrong_answer_distinct": true,
+      "existing_validator_status": "passed"
+    }
+  ],
+  "limitations": [
+    "Feedback and rubric were authored by the same assistant; no independent teaching-quality score.",
+    "Authored development cases over small existing fixtures, not held out or a full syllabus.",
+    "No live DeepSeek calls, quality estimates, latency estimates, OCR or image evaluation.",
+    "MCQ verdicts remain server-key controlled; not independent AI grading accuracy.",
+    "The response adapter checks integration, not whether a future model will produce these replies."
+  ],
+  "manual_question_and_evidence_findings": [
+    {
+      "severity": "high",
+      "category": "ambiguous_mcq",
+      "status": "addressed_in_revision_2",
+      "topics": [
+        "Indefinite Integrals",
+        "Techniques of Integration"
+      ],
+      "case_ids": [
+        "06-correct",
+        "12-correct"
+      ],
+      "valid_keys_after_fix": [
+        "D"
+      ],
+      "finding": "旧模板的 A、B、D 相差常数而同时正确。新模板改用相差 x 的干扰项，A、B 求导与被积函数不同，仅 D 有效。",
+      "resolution": "新增数学等价、原函数常数等价、定义域与选项显示绑定检查；旧缺陷由负向测试保留，不能再作为合格单选发布。"
+    },
+    {
+      "severity": "medium",
+      "category": "evidence_gap",
+      "status": "addressed_for_tested_concept",
+      "topic": "Applications of Derivatives",
+      "case_ids": [
+        "05-correct",
+        "05-wrong",
+        "05-equivalent",
+        "05-process"
+      ],
+      "finding": "旧检索只返回驻点。资料 1.1 已补充边际成本和相关变化率，新题使用 marginal_cost 概念检索。",
+      "resolution": "四条反馈改用实际覆盖定义、平移平方项求导和有限差分区别的新资料；未知概念仍须报告证据不足。"
+    },
+    {
+      "severity": "medium",
+      "category": "evidence_partial",
+      "status": "addressed_for_tested_concept",
+      "topic": "Multiple Integrals",
+      "finding": "新增矩形区域迭代积分资料，明确外层变量固定、内层常数积分乘区间长度以及连续性是矩形上 Fubini 的充分条件。",
+      "resolution": "四条反馈引用该具体段落，而不是用泛化的坐标变换资料替代。"
+    },
+    {
+      "severity": "medium",
+      "category": "baseline_scope",
+      "finding": "离线评分器只支持最终表达式，不能审阅自然语言推导；13 个过程案例应报告为不支持，而不是自动判定教师质量差或假装已完成过程评分。",
+      "proposed_action": "真实模型接入后，用独立教师复核的过程评分量表再评测。"
+    },
+    {
+      "severity": "medium",
+      "category": "mentor_prompt",
+      "status": "prompt_updated_live_behavior_unmeasured",
+      "finding": "新提示按真实提交类型审阅，区分最终表达式与显式错误步骤，接受等价形式，禁止单次错答认知诊断并要求只引用支持当前解释的资料。",
+      "resolution": "提示结构和人工回放已验证；真实模型能否始终遵守仍需独立评测。"
+    }
+  ],
+  "results": [
+    {
+      "case_id": "01-correct",
+      "topic": "Limits and Continuity",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确；仅凭选项不能判断完整推导能力。",
+        "tutor_feedback": "x 不等于 3 时，分式可约为 x+3，所以趋近 3 的极限为 6。约分用于求极限，并不使原函数在 3 处有定义。[C1]",
+        "next_hint": "另找一个可去间断点，分别说明极限与函数值。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确；仅凭选项不能判断完整推导能力。",
+        "tutor_feedback": "x 不等于 3 时，分式可约为 x+3，所以趋近 3 的极限为 6。约分用于求极限，并不使原函数在 3 处有定义。[C1]",
+        "next_hint": "另找一个可去间断点，分别说明极限与函数值。",
+        "ocr_text": "Selected option D: $ 6 $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "limits-continuity",
+            "topic": "Limits and Continuity",
+            "concepts": [
+              "limits",
+              "continuity"
+            ],
+            "title": "Limits and continuity · 极限与连续",
+            "section": "1.1",
+            "text": "A function is continuous at a when f(a) is defined, the limit as x approaches a exists, and that limit equals f(a). For a removable discontinuity, simplifying an expression can identify the limit but does not redefine the original function at the missing point. A two-sided limit requires the left and right limits to agree. 连续要求函数值与左右极限相等。",
+            "prerequisites": [],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "ab3181c712d344de48a0ac4e17c9855e3e96997088fcd0bc8bcd66a8d64b9078",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_8df43835c93db4e0a353",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_6631a7f22f82426f92fb7bd83050844d",
+        "attempt_id": "a5bb0c50d41e4c1da0de036edb3f0756",
+        "progress_recorded": true,
+        "problem_version": "de2f92c355c27331b679a83a2576c374591e6b4098d7d29fcde29ea75a5f24fa",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "limits"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "01-wrong",
+      "topic": "Limits and Continuity",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "0 不是极限值；没有推导，不能断定你为何写下零。",
+        "tutor_feedback": "直接代入产生的 0/0 是未定式，不是数值零。先分解 x²−9，再在 x≠3 时约分，得到趋近值 6。[C1]",
+        "next_hint": "把 x²−9 写成两个一次因式，哪一个能约掉？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "0 不是极限值；没有推导，不能断定你为何写下零。",
+        "tutor_feedback": "直接代入产生的 0/0 是未定式，不是数值零。先分解 x²−9，再在 x≠3 时约分，得到趋近值 6。[C1]",
+        "next_hint": "把 x²−9 写成两个一次因式，哪一个能约掉？",
+        "ocr_text": "0",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "limits-continuity",
+            "topic": "Limits and Continuity",
+            "concepts": [
+              "limits",
+              "continuity"
+            ],
+            "title": "Limits and continuity · 极限与连续",
+            "section": "1.1",
+            "text": "A function is continuous at a when f(a) is defined, the limit as x approaches a exists, and that limit equals f(a). For a removable discontinuity, simplifying an expression can identify the limit but does not redefine the original function at the missing point. A two-sided limit requires the left and right limits to agree. 连续要求函数值与左右极限相等。",
+            "prerequisites": [],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "ab3181c712d344de48a0ac4e17c9855e3e96997088fcd0bc8bcd66a8d64b9078",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_49b643937685d95904e9",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_55d8e242a05a4fd5abf2f978d5075cbe",
+        "attempt_id": "a8ac38fc3ab64d17b5d135a2e1527175",
+        "progress_recorded": true,
+        "problem_version": "156675fd359cb627cdcf1c89598ce7af0d8ec3840f7778007bdb049c5f7d540a",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "limits"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "01-equivalent",
+      "topic": "Limits and Continuity",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "3+3 与 6 等价，应接受，不能按字符串差异扣分。",
+        "tutor_feedback": "你的表达式值为 6，与约分后 x+3 在 x 趋近 3 时的值一致。这里验证的是最终答案，没有额外推断你的过程。[C1]",
+        "next_hint": "解释为什么约分只需在极限点附近成立。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "3+3 与 6 等价，应接受，不能按字符串差异扣分。",
+        "tutor_feedback": "你的表达式值为 6，与约分后 x+3 在 x 趋近 3 时的值一致。这里验证的是最终答案，没有额外推断你的过程。[C1]",
+        "next_hint": "解释为什么约分只需在极限点附近成立。",
+        "ocr_text": "3+3",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "limits-continuity",
+            "topic": "Limits and Continuity",
+            "concepts": [
+              "limits",
+              "continuity"
+            ],
+            "title": "Limits and continuity · 极限与连续",
+            "section": "1.1",
+            "text": "A function is continuous at a when f(a) is defined, the limit as x approaches a exists, and that limit equals f(a). For a removable discontinuity, simplifying an expression can identify the limit but does not redefine the original function at the missing point. A two-sided limit requires the left and right limits to agree. 连续要求函数值与左右极限相等。",
+            "prerequisites": [],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "ab3181c712d344de48a0ac4e17c9855e3e96997088fcd0bc8bcd66a8d64b9078",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_0353ec57da33ef941b51",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_dcaf597d6a884aeabdb0ffed6b220ead",
+        "attempt_id": "715aa73eab3d4cfc8e7730dc43e71814",
+        "progress_recorded": true,
+        "problem_version": "5220ad61b68206ab86ca426bc7a76343c38ae22f91d14a02d0ee2fabb36e5a0d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "limits"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "01-process",
+      "topic": "Limits and Continuity",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最后的 6 正确，但明确写出的 0/0=0 错误，不能据此得到结论。",
+        "tutor_feedback": "这不是因为你省略步骤而扣分，而是现有步骤含有无效等式。用 x²−9=(x−3)(x+3) 替换该步，再说明 x≠3 时商等于 x+3。[C1]",
+        "next_hint": "删去 0/0=0，并补上能真正推出 6 的约分步骤。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最后的 6 正确，但明确写出的 0/0=0 错误，不能据此得到结论。",
+        "tutor_feedback": "这不是因为你省略步骤而扣分，而是现有步骤含有无效等式。用 x²−9=(x−3)(x+3) 替换该步，再说明 x≠3 时商等于 x+3。[C1]",
+        "next_hint": "删去 0/0=0，并补上能真正推出 6 的约分步骤。",
+        "ocr_text": "Substituting x=3 gives 0/0, which equals 0. I conclude that the limit is 6.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "limits-continuity",
+            "topic": "Limits and Continuity",
+            "concepts": [
+              "limits",
+              "continuity"
+            ],
+            "title": "Limits and continuity · 极限与连续",
+            "section": "1.1",
+            "text": "A function is continuous at a when f(a) is defined, the limit as x approaches a exists, and that limit equals f(a). For a removable discontinuity, simplifying an expression can identify the limit but does not redefine the original function at the missing point. A two-sided limit requires the left and right limits to agree. 连续要求函数值与左右极限相等。",
+            "prerequisites": [],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "ab3181c712d344de48a0ac4e17c9855e3e96997088fcd0bc8bcd66a8d64b9078",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_a463b7dd1e4446258a4a",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_b49ae1daf5054442aab6fa1723815318",
+        "attempt_id": "a8712d6f849c4436bfdc14156eb9140d",
+        "progress_recorded": true,
+        "problem_version": "14540dd40bd225e8e38494e3aca9483ee02d25f330c896977930cbde3ca02d3e",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "limits"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "02-correct",
+      "topic": "Derivatives and Differentiation",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "外层立方的导数给出 3(3x+1)²，再乘内层导数 3，得到 9(3x+1)²。该乘积来自链式法则。[C1]",
+        "next_hint": "如果内层改为 x²+1，第二个导数因子是什么？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "外层立方的导数给出 3(3x+1)²，再乘内层导数 3，得到 9(3x+1)²。该乘积来自链式法则。[C1]",
+        "next_hint": "如果内层改为 x²+1，第二个导数因子是什么？",
+        "ocr_text": "Selected option D: $ 9 \\left(3 x + 1\\right)^{2} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-chain",
+            "topic": "Derivatives and Differentiation",
+            "concepts": [
+              "derivative",
+              "chain_rule"
+            ],
+            "title": "Chain rule · 链式法则",
+            "section": "2.1",
+            "text": "For differentiable g at x and f at g(x), the chain rule is $ (f(g(x)))' = f'(g(x))g'(x) $. Identify the inner and outer functions separately. Omitting g'(x) is a possible error, but a single wrong option is insufficient to diagnose a persistent misconception. For a power of a linear function, differentiate the outer power and multiply by the slope of the inner function. 复合函数求导时不能遗漏内函数的导数。",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "42a9a19f39f41ef8380203a6fca0da9a8de69282d23c2e02652b0aad14aec479",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_dba102183ddd1cb06066",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_92c6ddd2bd99464ca1de32ab955f3805",
+        "attempt_id": "9eb888b66e3440b59081e49f17c9dc58",
+        "progress_recorded": true,
+        "problem_version": "6f53524203375064462c4769a375011ca486daada78b64ce36da49f2bbf7ce05",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "chain_rule"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "02-wrong",
+      "topic": "Derivatives and Differentiation",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "提交的式子比正确导数少一个因子 3；这只是本次表达式的差异，不足以诊断固定误区。",
+        "tutor_feedback": "3(3x+1)² 只完成了外层求导。还要乘 d(3x+1)/dx=3，所以结果为 9(3x+1)²。[C1]",
+        "next_hint": "分别写出外层导数和内层导数，再相乘。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "提交的式子比正确导数少一个因子 3；这只是本次表达式的差异，不足以诊断固定误区。",
+        "tutor_feedback": "3(3x+1)² 只完成了外层求导。还要乘 d(3x+1)/dx=3，所以结果为 9(3x+1)²。[C1]",
+        "next_hint": "分别写出外层导数和内层导数，再相乘。",
+        "ocr_text": "3*(3*x+1)**2",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-chain",
+            "topic": "Derivatives and Differentiation",
+            "concepts": [
+              "derivative",
+              "chain_rule"
+            ],
+            "title": "Chain rule · 链式法则",
+            "section": "2.1",
+            "text": "For differentiable g at x and f at g(x), the chain rule is $ (f(g(x)))' = f'(g(x))g'(x) $. Identify the inner and outer functions separately. Omitting g'(x) is a possible error, but a single wrong option is insufficient to diagnose a persistent misconception. For a power of a linear function, differentiate the outer power and multiply by the slope of the inner function. 复合函数求导时不能遗漏内函数的导数。",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "42a9a19f39f41ef8380203a6fca0da9a8de69282d23c2e02652b0aad14aec479",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_28f709043b0574284c45",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_800e1f154f8c47f6999c275355366702",
+        "attempt_id": "4d80170befe8407dbb05ff38d7034e45",
+        "progress_recorded": true,
+        "problem_version": "938c0c1f8e194895fc4369f48bfbb2781387a97d05bb95fd21ddf59a0efbc744",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "chain_rule"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "02-equivalent",
+      "topic": "Derivatives and Differentiation",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "展开式与标准答案完全等价。",
+        "tutor_feedback": "9(3x+1)² 展开就是 81x²+54x+9，应接受你的形式。链式法则说明未展开形式的两个因子来源。[C1]",
+        "next_hint": "比较展开后求导与先用链式法则，两种方法是否一致？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "展开式与标准答案完全等价。",
+        "tutor_feedback": "9(3x+1)² 展开就是 81x²+54x+9，应接受你的形式。链式法则说明未展开形式的两个因子来源。[C1]",
+        "next_hint": "比较展开后求导与先用链式法则，两种方法是否一致？",
+        "ocr_text": "81*x**2+54*x+9",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-chain",
+            "topic": "Derivatives and Differentiation",
+            "concepts": [
+              "derivative",
+              "chain_rule"
+            ],
+            "title": "Chain rule · 链式法则",
+            "section": "2.1",
+            "text": "For differentiable g at x and f at g(x), the chain rule is $ (f(g(x)))' = f'(g(x))g'(x) $. Identify the inner and outer functions separately. Omitting g'(x) is a possible error, but a single wrong option is insufficient to diagnose a persistent misconception. For a power of a linear function, differentiate the outer power and multiply by the slope of the inner function. 复合函数求导时不能遗漏内函数的导数。",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "42a9a19f39f41ef8380203a6fca0da9a8de69282d23c2e02652b0aad14aec479",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_6449f6d57c2383bf0fce",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_56a9f56841714ac5acb2e0621c6ba01f",
+        "attempt_id": "0d06f0d5ac6d4d2186a8f58815eb013c",
+        "progress_recorded": true,
+        "problem_version": "86adc9fd452028ed408766c73e701916eec7c1eef449b998578d04f7a47acc41",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "chain_rule"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "02-process",
+      "topic": "Derivatives and Differentiation",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终导数正确，但 du/dx=1 错误，且前一步的系数无法推出最终的 9。",
+        "tutor_feedback": "u=3x+1 的导数是 3，不是 1。请修正内层求导，再由 3u²×3 得到最终式；不能只凭末行正确认定整段推导正确。[C1]",
+        "next_hint": "重新计算 du/dx，并检查相邻两行系数是否一致。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终导数正确，但 du/dx=1 错误，且前一步的系数无法推出最终的 9。",
+        "tutor_feedback": "u=3x+1 的导数是 3，不是 1。请修正内层求导，再由 3u²×3 得到最终式；不能只凭末行正确认定整段推导正确。[C1]",
+        "next_hint": "重新计算 du/dx，并检查相邻两行系数是否一致。",
+        "ocr_text": "Let u=3*x+1. I use du/dx=1 and 3*u**2*1. My final derivative is 9*(3*x+1)**2.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-chain",
+            "topic": "Derivatives and Differentiation",
+            "concepts": [
+              "derivative",
+              "chain_rule"
+            ],
+            "title": "Chain rule · 链式法则",
+            "section": "2.1",
+            "text": "For differentiable g at x and f at g(x), the chain rule is $ (f(g(x)))' = f'(g(x))g'(x) $. Identify the inner and outer functions separately. Omitting g'(x) is a possible error, but a single wrong option is insufficient to diagnose a persistent misconception. For a power of a linear function, differentiate the outer power and multiply by the slope of the inner function. 复合函数求导时不能遗漏内函数的导数。",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "42a9a19f39f41ef8380203a6fca0da9a8de69282d23c2e02652b0aad14aec479",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_4ab6381f58d2c62f8921",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_1c11d011eb6b4f50a5ffa479a14cce38",
+        "attempt_id": "dd9c3baf905142d388109418cc2f597b",
+        "progress_recorded": true,
+        "problem_version": "62780266058e5572ffdd46dbd695c5d36c54485779d41d0207d5fe93f94c58eb",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "chain_rule"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "03-correct",
+      "topic": "Integration and FTOC",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "取 F(t)=3t⁴/4，微积分基本定理给出 G(x)=F(x)−F(0)=3x⁴/4。由于下限固定，答案没有自由常数。[C1]",
+        "next_hint": "同时检查 G(0) 和 G'(x)。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "取 F(t)=3t⁴/4，微积分基本定理给出 G(x)=F(x)−F(0)=3x⁴/4。由于下限固定，答案没有自由常数。[C1]",
+        "next_hint": "同时检查 G(0) 和 G'(x)。",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-ftoc",
+            "topic": "Integration and Fundamental Theorem of Calculus",
+            "concepts": [
+              "fundamental_theorem",
+              "definite_integral"
+            ],
+            "title": "Fundamental theorem · 微积分基本定理",
+            "section": "4.1",
+            "text": "If f is continuous on [a,b] and F'=f, then $ \\int_a^b f(x)\\,dx=F(b)-F(a) $. For G(x)=integral from a to x of f(t)dt, G'(x)=f(x) at continuity points. If the upper limit is g(x), the chain rule introduces g'(x). A definite integral is signed accumulation, not automatically geometric area.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "c39783c8d4bec7775a105740f0d7e18da5f86df4e36a47791d48537bfd61ec26",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_e5e1baae2c330b192cab",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_8f22eddd717743b6b122f4c54f7a7836",
+        "attempt_id": "8a274ea922ca43ccb351f8eac7215884",
+        "progress_recorded": true,
+        "problem_version": "701b2d4577e73aa2ab4e45c493c5c40e5a19ff133133c717b175086439bae91d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "fundamental_theorem"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "03-wrong",
+      "topic": "Integration and FTOC",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是 G 的导数，不是题目要求的 G。",
+        "tutor_feedback": "上限为 x 的积分所累积的函数是 3x⁴/4；3x³ 是它的变化率。微积分基本定理把两者联系起来，但不能将它们混同。[C1]",
+        "next_hint": "寻找导数为 3x³ 且在 0 处等于零的函数。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是 G 的导数，不是题目要求的 G。",
+        "tutor_feedback": "上限为 x 的积分所累积的函数是 3x⁴/4；3x³ 是它的变化率。微积分基本定理把两者联系起来，但不能将它们混同。[C1]",
+        "next_hint": "寻找导数为 3x³ 且在 0 处等于零的函数。",
+        "ocr_text": "3*x**3",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-ftoc",
+            "topic": "Integration and Fundamental Theorem of Calculus",
+            "concepts": [
+              "fundamental_theorem",
+              "definite_integral"
+            ],
+            "title": "Fundamental theorem · 微积分基本定理",
+            "section": "4.1",
+            "text": "If f is continuous on [a,b] and F'=f, then $ \\int_a^b f(x)\\,dx=F(b)-F(a) $. For G(x)=integral from a to x of f(t)dt, G'(x)=f(x) at continuity points. If the upper limit is g(x), the chain rule introduces g'(x). A definite integral is signed accumulation, not automatically geometric area.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "c39783c8d4bec7775a105740f0d7e18da5f86df4e36a47791d48537bfd61ec26",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_13a78bc6f3929f274ab1",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_39654d58c95e406f895a238249cf4cea",
+        "attempt_id": "a69b5660e760442ebf96a8374e40dee2",
+        "progress_recorded": true,
+        "problem_version": "90772ace2d4d0eb0d8a5261453d34b093a9ed9bbecb39418a847803f82720694",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "fundamental_theorem"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "03-equivalent",
+      "topic": "Integration and FTOC",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "(3/4)x⁴ 与标准答案一致。",
+        "tutor_feedback": "你的系数写法没有改变函数。用 F(x)−F(0) 核验后，G(x)=3x⁴/4，并满足固定下限的条件。[C1]",
+        "next_hint": "将下限改为 1，结果中会多出什么常数项？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "(3/4)x⁴ 与标准答案一致。",
+        "tutor_feedback": "你的系数写法没有改变函数。用 F(x)−F(0) 核验后，G(x)=3x⁴/4，并满足固定下限的条件。[C1]",
+        "next_hint": "将下限改为 1，结果中会多出什么常数项？",
+        "ocr_text": "(3/4)*x**4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-ftoc",
+            "topic": "Integration and Fundamental Theorem of Calculus",
+            "concepts": [
+              "fundamental_theorem",
+              "definite_integral"
+            ],
+            "title": "Fundamental theorem · 微积分基本定理",
+            "section": "4.1",
+            "text": "If f is continuous on [a,b] and F'=f, then $ \\int_a^b f(x)\\,dx=F(b)-F(a) $. For G(x)=integral from a to x of f(t)dt, G'(x)=f(x) at continuity points. If the upper limit is g(x), the chain rule introduces g'(x). A definite integral is signed accumulation, not automatically geometric area.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "c39783c8d4bec7775a105740f0d7e18da5f86df4e36a47791d48537bfd61ec26",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_8270a34d9270accc0a45",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_f5554b066a194f148838b03c006617ea",
+        "attempt_id": "9da0d1c327524be4a6db6589546da6ee",
+        "progress_recorded": true,
+        "problem_version": "f03f2bb5bb30e0d9c77b7977e075fb930ad92c024e1a288553812846300f05a1",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "fundamental_theorem"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "03-process",
+      "topic": "Integration and FTOC",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "末行正确，但“定积分留下任意常数”与固定积分下限相矛盾。",
+        "tutor_feedback": "原函数可含常数，但 F(x)−F(0) 中常数相消。不能说每个 C 都符合本题；若写 G(x)=3x⁴/4+C，G(0)=0 会强制 C=0。[C1]",
+        "next_hint": "把含 C 的原函数分别代入上限和下限，观察 C 如何消去。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "末行正确，但“定积分留下任意常数”与固定积分下限相矛盾。",
+        "tutor_feedback": "原函数可含常数，但 F(x)−F(0) 中常数相消。不能说每个 C 都符合本题；若写 G(x)=3x⁴/4+C，G(0)=0 会强制 C=0。[C1]",
+        "next_hint": "把含 C 的原函数分别代入上限和下限，观察 C 如何消去。",
+        "ocr_text": "A definite integral from 0 to x leaves an arbitrary integration constant, so G(x)=3*x**4/4+C for every C. My final answer is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-ftoc",
+            "topic": "Integration and Fundamental Theorem of Calculus",
+            "concepts": [
+              "fundamental_theorem",
+              "definite_integral"
+            ],
+            "title": "Fundamental theorem · 微积分基本定理",
+            "section": "4.1",
+            "text": "If f is continuous on [a,b] and F'=f, then $ \\int_a^b f(x)\\,dx=F(b)-F(a) $. For G(x)=integral from a to x of f(t)dt, G'(x)=f(x) at continuity points. If the upper limit is g(x), the chain rule introduces g'(x). A definite integral is signed accumulation, not automatically geometric area.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "c39783c8d4bec7775a105740f0d7e18da5f86df4e36a47791d48537bfd61ec26",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_aa5ba967ba1a06578888",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_aad968c53cca4ae9a6056a0843c1208c",
+        "attempt_id": "6dbd29a91c414e5292fc853a472e838f",
+        "progress_recorded": true,
+        "problem_version": "74e770726b3e4f2a752d95b77d8da4abe743380608304c0fb881a841fbab7612",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "fundamental_theorem"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "04-correct",
+      "topic": "Multivariable Calculus",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "先把 y 视为常量，得到 f_x=9x²y，再代入 y=2，得到 18x²。偏导不是沿 y=x 的路径求导。[C1]",
+        "next_hint": "若求 f_y(x,2)，应固定哪一个变量？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "先把 y 视为常量，得到 f_x=9x²y，再代入 y=2，得到 18x²。偏导不是沿 y=x 的路径求导。[C1]",
+        "next_hint": "若求 f_y(x,2)，应固定哪一个变量？",
+        "ocr_text": "Selected option D: $ 18 x^{2} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "multivariable-partials",
+            "topic": "Multivariable Calculus",
+            "concepts": [
+              "partial_derivative",
+              "gradient"
+            ],
+            "title": "Partial derivatives · 偏导数",
+            "section": "7.1",
+            "text": "A partial derivative with respect to x holds the other independent variables fixed. The gradient collects partial derivatives. A directional derivative of a differentiable scalar function is its gradient dotted with a unit direction vector. Differentiability is stronger than mere existence of partial derivatives.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5c5248acfeb12dd93bb2a82d8fe3392d5c8a2fb2c66644d18d21ccc8f1ce8a61",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_ad889313c4e6e96e009e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_9908a1cd3ecc4cebabded6f0e1246518",
+        "attempt_id": "8fc4304dddfc4f479241188cc35d70f2",
+        "progress_recorded": true,
+        "problem_version": "5d410f73501de93ed06eff29e3c0c7d37be4f73f0edee930da86b5621af9578c",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "partial_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "04-wrong",
+      "topic": "Multivariable Calculus",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "9x² 少了代入 y=2 后的因子 2。",
+        "tutor_feedback": "对 3x³y 关于 x 求偏导时，y 保留为常量因子，结果为 9x²y；然后才得到 18x²。[C1]",
+        "next_hint": "先写含 y 的偏导式，不要立刻代值。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "9x² 少了代入 y=2 后的因子 2。",
+        "tutor_feedback": "对 3x³y 关于 x 求偏导时，y 保留为常量因子，结果为 9x²y；然后才得到 18x²。[C1]",
+        "next_hint": "先写含 y 的偏导式，不要立刻代值。",
+        "ocr_text": "9*x**2",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "multivariable-partials",
+            "topic": "Multivariable Calculus",
+            "concepts": [
+              "partial_derivative",
+              "gradient"
+            ],
+            "title": "Partial derivatives · 偏导数",
+            "section": "7.1",
+            "text": "A partial derivative with respect to x holds the other independent variables fixed. The gradient collects partial derivatives. A directional derivative of a differentiable scalar function is its gradient dotted with a unit direction vector. Differentiability is stronger than mere existence of partial derivatives.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5c5248acfeb12dd93bb2a82d8fe3392d5c8a2fb2c66644d18d21ccc8f1ce8a61",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_1cd8d71b6ff16b220b77",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_fdc50bec65ae4d629be406a65cfd03ac",
+        "attempt_id": "87a62f02c78d470c8fb5d882af2fc9ad",
+        "progress_recorded": true,
+        "problem_version": "f4c5342418e194388235f0512f4a6930414faffb83df3b87e4018a9918b2c549",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "partial_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "04-equivalent",
+      "topic": "Multivariable Calculus",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "2(9x²) 与 18x² 等价。",
+        "tutor_feedback": "这个写法正确保留了 y=2 的代入因子，与先固定 y 求偏导的规则一致。[C1]",
+        "next_hint": "尝试保留 y=a，写出一般形式。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "2(9x²) 与 18x² 等价。",
+        "tutor_feedback": "这个写法正确保留了 y=2 的代入因子，与先固定 y 求偏导的规则一致。[C1]",
+        "next_hint": "尝试保留 y=a，写出一般形式。",
+        "ocr_text": "2*(9*x**2)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "multivariable-partials",
+            "topic": "Multivariable Calculus",
+            "concepts": [
+              "partial_derivative",
+              "gradient"
+            ],
+            "title": "Partial derivatives · 偏导数",
+            "section": "7.1",
+            "text": "A partial derivative with respect to x holds the other independent variables fixed. The gradient collects partial derivatives. A directional derivative of a differentiable scalar function is its gradient dotted with a unit direction vector. Differentiability is stronger than mere existence of partial derivatives.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5c5248acfeb12dd93bb2a82d8fe3392d5c8a2fb2c66644d18d21ccc8f1ce8a61",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_2e9886cd41c040830160",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_8c13dbb866ff43f8be7224013dd7cf50",
+        "attempt_id": "63f3bb40f99a4477a54ef51594146256",
+        "progress_recorded": true,
+        "problem_version": "ae1a80cfb486e765b6fe8f7b3a9392eb28a3e47539159ed66e05c318e970b681",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "partial_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "04-process",
+      "topic": "Multivariable Calculus",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "末行正确，但把 y 换成 x 后求导是在另一条路径上计算，改变了原任务。",
+        "tutor_feedback": "偏导要求固定独立变量 y。请从 3x³y 直接得到 9x²y，再令 y=2；12x³ 对应的是替换后的不同函数。[C1]",
+        "next_hint": "在求导符号旁注明“y 固定”，并删除 y=x 的替换。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "末行正确，但把 y 换成 x 后求导是在另一条路径上计算，改变了原任务。",
+        "tutor_feedback": "偏导要求固定独立变量 y。请从 3x³y 直接得到 9x²y，再令 y=2；12x³ 对应的是替换后的不同函数。[C1]",
+        "next_hint": "在求导符号旁注明“y 固定”，并删除 y=x 的替换。",
+        "ocr_text": "While taking the partial derivative, I replace y by x, obtaining d(3*x**4)/dx=12*x**3. My final value for f_x(x,2) is 18*x**2.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "multivariable-partials",
+            "topic": "Multivariable Calculus",
+            "concepts": [
+              "partial_derivative",
+              "gradient"
+            ],
+            "title": "Partial derivatives · 偏导数",
+            "section": "7.1",
+            "text": "A partial derivative with respect to x holds the other independent variables fixed. The gradient collects partial derivatives. A directional derivative of a differentiable scalar function is its gradient dotted with a unit direction vector. Differentiability is stronger than mere existence of partial derivatives.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5c5248acfeb12dd93bb2a82d8fe3392d5c8a2fb2c66644d18d21ccc8f1ce8a61",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_d5818fb955264760d4b4",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_14d5fba46ca04eb4ab3b9f9c648e1bc8",
+        "attempt_id": "6a6f9e7553dd4b0a8beeb69ebe84544f",
+        "progress_recorded": true,
+        "problem_version": "d07700746fc05d2dfd8f47da375367718239d6aa45950becdb8dbac5eeb04afa",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "partial_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "05-correct",
+      "topic": "Applications of Derivatives",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "边际成本是 C'(x)。直接求导得 2(x−3)=2x−6，常数 3 的导数为零。新资料明确给出了边际成本定义和平移平方项的求导规则。[C1]",
+        "next_hint": "先展开成本函数，再求导，与链式法则结果比较。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "边际成本是 C'(x)。直接求导得 2(x−3)=2x−6，常数 3 的导数为零。新资料明确给出了边际成本定义和平移平方项的求导规则。[C1]",
+        "next_hint": "先展开成本函数，再求导，与链式法则结果比较。",
+        "ocr_text": "Selected option D: $ 2 x - 6 $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-marginal-cost",
+            "topic": "Applications of Derivatives",
+            "concepts": [
+              "marginal_cost",
+              "rate_of_change"
+            ],
+            "title": "Marginal cost and rates · 边际成本与变化率",
+            "section": "3.2",
+            "text": "For a differentiable total cost C(q), marginal cost is C'(q), measured as cost per unit of output. It approximates C(q+h)-C(q) by C'(q)h for a small admissible change h; a discrete one-unit difference need not equal the derivative. For C(q)=(q-a)^2+b, C'(q)=2(q-a); the constant b has zero derivative. Preserve the linear term when expanding a shifted square: (q-a)^2=q^2-2aq+a^2. Respect the feasible output domain. 边际成本是成本函数的导数，不是总成本或有限差分本身。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "3f4b4d91abf0f3d75988458dc48fdcbea056e47785118a8e9da9c81071505906",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_c8508948489c27997a9a",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_d6f3b0c672a846b7aa1c7efef8dbec8b",
+        "attempt_id": "7ade75b33dd5466daa8df62ec5314b4e",
+        "progress_recorded": true,
+        "problem_version": "c7c35756c79fe2ef04eafb00e5e1726c1f32ae80ce13d34a0fc4d90b03682c40",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "marginal_cost"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "05-wrong",
+      "topic": "Applications of Derivatives",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "2x 与正确结果相差常数 −6；仅凭答案不能确定具体推导错误。",
+        "tutor_feedback": "(x−3)² 展开为 x²−6x+9，所以导数包含 −6。本题结果为 2x−6。资料解释了平移平方项和边际成本，不必借用不相关的极值条件。[C1]",
+        "next_hint": "在展开式中找出一次项 −6x，它的导数是多少？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "2x 与正确结果相差常数 −6；仅凭答案不能确定具体推导错误。",
+        "tutor_feedback": "(x−3)² 展开为 x²−6x+9，所以导数包含 −6。本题结果为 2x−6。资料解释了平移平方项和边际成本，不必借用不相关的极值条件。[C1]",
+        "next_hint": "在展开式中找出一次项 −6x，它的导数是多少？",
+        "ocr_text": "2*x",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-marginal-cost",
+            "topic": "Applications of Derivatives",
+            "concepts": [
+              "marginal_cost",
+              "rate_of_change"
+            ],
+            "title": "Marginal cost and rates · 边际成本与变化率",
+            "section": "3.2",
+            "text": "For a differentiable total cost C(q), marginal cost is C'(q), measured as cost per unit of output. It approximates C(q+h)-C(q) by C'(q)h for a small admissible change h; a discrete one-unit difference need not equal the derivative. For C(q)=(q-a)^2+b, C'(q)=2(q-a); the constant b has zero derivative. Preserve the linear term when expanding a shifted square: (q-a)^2=q^2-2aq+a^2. Respect the feasible output domain. 边际成本是成本函数的导数，不是总成本或有限差分本身。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "3f4b4d91abf0f3d75988458dc48fdcbea056e47785118a8e9da9c81071505906",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_f56e207c4988f9a50cbc",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_24d8ce3c4f7b4b62ba3d415bb85c7a65",
+        "attempt_id": "e83167da673242a9a36882ec2222d00e",
+        "progress_recorded": true,
+        "problem_version": "775e5ce52ce1415139bcf9b571e83d01ae11f5125d4c63046c72dd64b31fc3b5",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "marginal_cost"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "05-equivalent",
+      "topic": "Applications of Derivatives",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "2(x−3) 与 2x−6 相同，应接受。",
+        "tutor_feedback": "你保留括号的形式正确，符合资料中 C(q)=(q−a)²+b 的边际成本求导规则。这里不要求必须展开答案。[C1]",
+        "next_hint": "说明成本函数的常数项为何不影响边际成本。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "2(x−3) 与 2x−6 相同，应接受。",
+        "tutor_feedback": "你保留括号的形式正确，符合资料中 C(q)=(q−a)²+b 的边际成本求导规则。这里不要求必须展开答案。[C1]",
+        "next_hint": "说明成本函数的常数项为何不影响边际成本。",
+        "ocr_text": "2*(x-3)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-marginal-cost",
+            "topic": "Applications of Derivatives",
+            "concepts": [
+              "marginal_cost",
+              "rate_of_change"
+            ],
+            "title": "Marginal cost and rates · 边际成本与变化率",
+            "section": "3.2",
+            "text": "For a differentiable total cost C(q), marginal cost is C'(q), measured as cost per unit of output. It approximates C(q+h)-C(q) by C'(q)h for a small admissible change h; a discrete one-unit difference need not equal the derivative. For C(q)=(q-a)^2+b, C'(q)=2(q-a); the constant b has zero derivative. Preserve the linear term when expanding a shifted square: (q-a)^2=q^2-2aq+a^2. Respect the feasible output domain. 边际成本是成本函数的导数，不是总成本或有限差分本身。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "3f4b4d91abf0f3d75988458dc48fdcbea056e47785118a8e9da9c81071505906",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_2ce79b75d90f7bcac50a",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_646ba7a0a6b04002ac23e31dc885b467",
+        "attempt_id": "8dc1abf8755241519a11f51d04b88f16",
+        "progress_recorded": true,
+        "problem_version": "e0cdbfaafafcac845bf581a109823e619bb0a5432c627c9ac8a030b897fa507d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "marginal_cost"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "05-process",
+      "topic": "Applications of Derivatives",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终结果正确，但 (x−3)²=x²−9 的展开错误，前后两行不一致。",
+        "tutor_feedback": "正确展开包含中间项 −6x，平方后的常数是 +9。用 x²−6x+12 求导才能得到 2x−6；新资料明确说明展开平移平方项时必须保留一次项。[C1]",
+        "next_hint": "使用 (a−b)²=a²−2ab+b² 重写第一行。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终结果正确，但 (x−3)²=x²−9 的展开错误，前后两行不一致。",
+        "tutor_feedback": "正确展开包含中间项 −6x，平方后的常数是 +9。用 x²−6x+12 求导才能得到 2x−6；新资料明确说明展开平移平方项时必须保留一次项。[C1]",
+        "next_hint": "使用 (a−b)²=a²−2ab+b² 重写第一行。",
+        "ocr_text": "I expand (x-3)**2 as x**2-9, so C'(x)=2*x. My final marginal cost is 2*x-6.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "derivative-marginal-cost",
+            "topic": "Applications of Derivatives",
+            "concepts": [
+              "marginal_cost",
+              "rate_of_change"
+            ],
+            "title": "Marginal cost and rates · 边际成本与变化率",
+            "section": "3.2",
+            "text": "For a differentiable total cost C(q), marginal cost is C'(q), measured as cost per unit of output. It approximates C(q+h)-C(q) by C'(q)h for a small admissible change h; a discrete one-unit difference need not equal the derivative. For C(q)=(q-a)^2+b, C'(q)=2(q-a); the constant b has zero derivative. Preserve the linear term when expanding a shifted square: (q-a)^2=q^2-2aq+a^2. Respect the feasible output domain. 边际成本是成本函数的导数，不是总成本或有限差分本身。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "3f4b4d91abf0f3d75988458dc48fdcbea056e47785118a8e9da9c81071505906",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_62b5582d1db2432925e4",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_2c203a9838d941289eeb1aa0664fcfa5",
+        "attempt_id": "86a07039ca5e4bebbfddb3c331bb28ab",
+        "progress_recorded": true,
+        "problem_version": "0c7b59c84b9473e938e402182acb01c4069434c7028311f9858f83c1bd97c4fd",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "marginal_cost"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "06-correct",
+      "topic": "Indefinite Integrals",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "D 是唯一正确选项；新干扰项加减的是 x，而不是常数。",
+        "tutor_feedback": "D 的导数为 3x³。A、B 加减 x 后求导会分别多 1 或少 1，不再满足题意。原函数间可以相差常数，但不能任意相差一个随 x 变化的项。[C1]",
+        "next_hint": "对四个选项逐一求导，而不是只比较表达式外观。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "D 是唯一正确选项；新干扰项加减的是 x，而不是常数。",
+        "tutor_feedback": "D 的导数为 3x³。A、B 加减 x 后求导会分别多 1 或少 1，不再满足题意。原函数间可以相差常数，但不能任意相差一个随 x 变化的项。[C1]",
+        "next_hint": "对四个选项逐一求导，而不是只比较表达式外观。",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "antiderivative-constant",
+            "topic": "Indefinite Integrals",
+            "concepts": [
+              "antiderivative",
+              "integration_constant"
+            ],
+            "title": "Antiderivatives · 原函数与积分常数",
+            "section": "4.2",
+            "text": "An indefinite integral describes a family of antiderivatives. On an interval, antiderivatives of a continuous function differ by a constant. For n not equal to -1, $ \\int x^n\\,dx=x^{n+1}/(n+1)+C $. The n=-1 case gives log|x|+C on an interval avoiding zero. Differentiate a proposed antiderivative to check it. 不定积分应包含积分常数，并检查定义域。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "d00dade4549fff20bde51f1be86421fdc0e4285e78a80199dfdbf144e61b4cd3",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_4af4da40dbb250a503fd",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_8c0c969a45f441ee81331cb50ff3aedf",
+        "attempt_id": "5adda4dd4831475b807e4fe275f3e567",
+        "progress_recorded": true,
+        "problem_version": "45230fc7716aed8a1b543c26efdeca36a16b7f268b796c591aa226f084d664a5",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "antiderivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "06-wrong",
+      "topic": "Indefinite Integrals",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "x⁴/4 的导数为 x³，遗漏被积函数中的系数 3。",
+        "tutor_feedback": "幂次积分应把指数加一并除以新指数，同时保留外部系数，所以可取 3x⁴/4。题干允许省略常数，不应仅因没写 C 扣分。[C1]",
+        "next_hint": "对你写出的原函数求导，与 3x³ 逐项比较。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "x⁴/4 的导数为 x³，遗漏被积函数中的系数 3。",
+        "tutor_feedback": "幂次积分应把指数加一并除以新指数，同时保留外部系数，所以可取 3x⁴/4。题干允许省略常数，不应仅因没写 C 扣分。[C1]",
+        "next_hint": "对你写出的原函数求导，与 3x³ 逐项比较。",
+        "ocr_text": "x**4/4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "antiderivative-constant",
+            "topic": "Indefinite Integrals",
+            "concepts": [
+              "antiderivative",
+              "integration_constant"
+            ],
+            "title": "Antiderivatives · 原函数与积分常数",
+            "section": "4.2",
+            "text": "An indefinite integral describes a family of antiderivatives. On an interval, antiderivatives of a continuous function differ by a constant. For n not equal to -1, $ \\int x^n\\,dx=x^{n+1}/(n+1)+C $. The n=-1 case gives log|x|+C on an interval avoiding zero. Differentiate a proposed antiderivative to check it. 不定积分应包含积分常数，并检查定义域。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "d00dade4549fff20bde51f1be86421fdc0e4285e78a80199dfdbf144e61b4cd3",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_11868d657dff668fda98",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_8d0799155d074e77904bf8c93e4a6732",
+        "attempt_id": "e1bb7035568e4a58be83db549e5be8bc",
+        "progress_recorded": true,
+        "problem_version": "b8abb58407915d0a5b8c097cfc926de251bbc5690410b9310b678b11629d5789",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "antiderivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "06-equivalent",
+      "topic": "Indefinite Integrals",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "加 7 仍是同一被积函数的原函数，应接受。",
+        "tutor_feedback": "原函数之间可以相差常数，3x⁴/4+7 求导后仍为 3x³。这里不能把与存储表达式不同的常数当作错误。[C1]",
+        "next_hint": "如果另给 F(0)=0，这个加 7 的答案还成立吗？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "加 7 仍是同一被积函数的原函数，应接受。",
+        "tutor_feedback": "原函数之间可以相差常数，3x⁴/4+7 求导后仍为 3x³。这里不能把与存储表达式不同的常数当作错误。[C1]",
+        "next_hint": "如果另给 F(0)=0，这个加 7 的答案还成立吗？",
+        "ocr_text": "3*x**4/4+7",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "antiderivative-constant",
+            "topic": "Indefinite Integrals",
+            "concepts": [
+              "antiderivative",
+              "integration_constant"
+            ],
+            "title": "Antiderivatives · 原函数与积分常数",
+            "section": "4.2",
+            "text": "An indefinite integral describes a family of antiderivatives. On an interval, antiderivatives of a continuous function differ by a constant. For n not equal to -1, $ \\int x^n\\,dx=x^{n+1}/(n+1)+C $. The n=-1 case gives log|x|+C on an interval avoiding zero. Differentiate a proposed antiderivative to check it. 不定积分应包含积分常数，并检查定义域。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "d00dade4549fff20bde51f1be86421fdc0e4285e78a80199dfdbf144e61b4cd3",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_6a4eaf50e5ad40d61d5c",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_4b797ce73fbc437baadc56f83067e6f0",
+        "attempt_id": "65564f32557a44ddb56ba607642aca5d",
+        "progress_recorded": true,
+        "problem_version": "8f7415a76119f32e443b8b8ba6f7b169bbda5af03350a2f545756afaaeb5bfed",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "antiderivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "06-process",
+      "topic": "Indefinite Integrals",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终式正确，但积分 x³ 得 x³/3 的规则错误。",
+        "tutor_feedback": "幂次积分是 x⁴/4，不是保持三次幂再除以 3。请把这一行修正，再乘系数 3；验证方法是对所得式求导。[C1]",
+        "next_hint": "对 x³/3 求导，看看是否能回到 x³。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终式正确，但积分 x³ 得 x³/3 的规则错误。",
+        "tutor_feedback": "幂次积分是 x⁴/4，不是保持三次幂再除以 3。请把这一行修正，再乘系数 3；验证方法是对所得式求导。[C1]",
+        "next_hint": "对 x³/3 求导，看看是否能回到 x³。",
+        "ocr_text": "I use integral(x**3)=x**3/3 and multiply by 3. My final antiderivative is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "antiderivative-constant",
+            "topic": "Indefinite Integrals",
+            "concepts": [
+              "antiderivative",
+              "integration_constant"
+            ],
+            "title": "Antiderivatives · 原函数与积分常数",
+            "section": "4.2",
+            "text": "An indefinite integral describes a family of antiderivatives. On an interval, antiderivatives of a continuous function differ by a constant. For n not equal to -1, $ \\int x^n\\,dx=x^{n+1}/(n+1)+C $. The n=-1 case gives log|x|+C on an interval avoiding zero. Differentiate a proposed antiderivative to check it. 不定积分应包含积分常数，并检查定义域。",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "d00dade4549fff20bde51f1be86421fdc0e4285e78a80199dfdbf144e61b4cd3",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_0f2b7f0a289c64dc7b5e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_94ed17d914ee4287a20eef401076c001",
+        "attempt_id": "0b220de2408548df981893bec7abf499",
+        "progress_recorded": true,
+        "problem_version": "83ac75ad51141bb6107d663dbdf7a8f3580490d4cb74568b2d64ab4edf5ed9f2",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "antiderivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "07-correct",
+      "topic": "Applications of Integration",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "空水箱的体积等于从 0 到 x 的流入速率积分，得到 3x⁴/4。资料支持“速率的积分是累积变化量”，而不是把瞬时速率直接当作体积。[C1]",
+        "next_hint": "用 V(0)=0 与 V'(x)=r(x) 双重检验。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "空水箱的体积等于从 0 到 x 的流入速率积分，得到 3x⁴/4。资料支持“速率的积分是累积变化量”，而不是把瞬时速率直接当作体积。[C1]",
+        "next_hint": "用 V(0)=0 与 V'(x)=r(x) 双重检验。",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-applications",
+            "topic": "Applications of Integration",
+            "concepts": [
+              "area",
+              "signed_accumulation"
+            ],
+            "title": "Area and accumulation · 面积与累积量",
+            "section": "6.1",
+            "text": "The area between curves y=f(x) and y=g(x) is the integral of |f-g| over the interval. Split at intersections when the upper curve changes. For a rate r(t), the integral is net change; total variation requires integrating |r(t)|. Distinguish units of rate from units of accumulation.",
+            "prerequisites": [
+              "integration-ftoc"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "72e092bb06972af052b38678fa3a22fe63304761a530a1346f627d8b18d7a944",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_78e7346b15bca3811ee2",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_f5e07bdb91964c98a6e4166a53575e05",
+        "attempt_id": "9ae7f36b5c7a4c2a9c453ed234cbc717",
+        "progress_recorded": true,
+        "problem_version": "f59eee6a2fbbfbb224f6d1d5c32aaf5c76b542c4714892f3fad1c71792b365c1",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "signed_accumulation"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "07-wrong",
+      "topic": "Applications of Integration",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是流入速率，不是累计体积。",
+        "tutor_feedback": "速率与体积的单位不同。把 r(t) 从零时刻积分到 x，才得到体积 3x⁴/4；资料强调了速率与累积量的区分。[C1]",
+        "next_hint": "写出 V(x)=积分_0^x r(t)dt，再计算。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是流入速率，不是累计体积。",
+        "tutor_feedback": "速率与体积的单位不同。把 r(t) 从零时刻积分到 x，才得到体积 3x⁴/4；资料强调了速率与累积量的区分。[C1]",
+        "next_hint": "写出 V(x)=积分_0^x r(t)dt，再计算。",
+        "ocr_text": "3*x**3",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-applications",
+            "topic": "Applications of Integration",
+            "concepts": [
+              "area",
+              "signed_accumulation"
+            ],
+            "title": "Area and accumulation · 面积与累积量",
+            "section": "6.1",
+            "text": "The area between curves y=f(x) and y=g(x) is the integral of |f-g| over the interval. Split at intersections when the upper curve changes. For a rate r(t), the integral is net change; total variation requires integrating |r(t)|. Distinguish units of rate from units of accumulation.",
+            "prerequisites": [
+              "integration-ftoc"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "72e092bb06972af052b38678fa3a22fe63304761a530a1346f627d8b18d7a944",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_1a9cf398eae1699b5ad4",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_b3e11ffd41944aa5aef9e88ed2ba5e88",
+        "attempt_id": "48addc27c06747fb870bfbec409a0b34",
+        "progress_recorded": true,
+        "problem_version": "2f9e84c4e1dc42fe6afd5efad0e9969099e7331ab05b1a279d168bedeac2d938",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "signed_accumulation"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "07-equivalent",
+      "topic": "Applications of Integration",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "0.75x⁴ 与 3x⁴/4 等价。",
+        "tutor_feedback": "小数系数没有改变累计体积函数。它在 0 处为零，导数为流入速率 3x³，符合从速率得到累积量的解释。[C1]",
+        "next_hint": "若初始已有 5 单位体积，应如何修改答案？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "0.75x⁴ 与 3x⁴/4 等价。",
+        "tutor_feedback": "小数系数没有改变累计体积函数。它在 0 处为零，导数为流入速率 3x³，符合从速率得到累积量的解释。[C1]",
+        "next_hint": "若初始已有 5 单位体积，应如何修改答案？",
+        "ocr_text": "0.75*x**4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-applications",
+            "topic": "Applications of Integration",
+            "concepts": [
+              "area",
+              "signed_accumulation"
+            ],
+            "title": "Area and accumulation · 面积与累积量",
+            "section": "6.1",
+            "text": "The area between curves y=f(x) and y=g(x) is the integral of |f-g| over the interval. Split at intersections when the upper curve changes. For a rate r(t), the integral is net change; total variation requires integrating |r(t)|. Distinguish units of rate from units of accumulation.",
+            "prerequisites": [
+              "integration-ftoc"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "72e092bb06972af052b38678fa3a22fe63304761a530a1346f627d8b18d7a944",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_b8c27b9b0e13ea257c18",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_149dacaac59546549a0853353b3c51d2",
+        "attempt_id": "7f959ec8864243c3ad2a9b170ca73a58",
+        "progress_recorded": true,
+        "problem_version": "78dbc35e56a3d19f9d1cf791bb7e417e590d43113fdae5cca16fd6d4950c1532",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "signed_accumulation"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "07-process",
+      "topic": "Applications of Integration",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最后体积正确，但“体积等于瞬时速率”的理由错误。",
+        "tutor_feedback": "请保留正确的最终式，但将理由改为速率积分，并加上空水箱的初始条件。不能让结果正确掩盖速率和累积量的混淆。[C1]",
+        "next_hint": "比较两者的单位，再给出从速率到体积的运算。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最后体积正确，但“体积等于瞬时速率”的理由错误。",
+        "tutor_feedback": "请保留正确的最终式，但将理由改为速率积分，并加上空水箱的初始条件。不能让结果正确掩盖速率和累积量的混淆。[C1]",
+        "next_hint": "比较两者的单位，再给出从速率到体积的运算。",
+        "ocr_text": "Accumulated volume equals the instantaneous inflow rate, so V(x)=3*x**3. My final volume is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-applications",
+            "topic": "Applications of Integration",
+            "concepts": [
+              "area",
+              "signed_accumulation"
+            ],
+            "title": "Area and accumulation · 面积与累积量",
+            "section": "6.1",
+            "text": "The area between curves y=f(x) and y=g(x) is the integral of |f-g| over the interval. Split at intersections when the upper curve changes. For a rate r(t), the integral is net change; total variation requires integrating |r(t)|. Distinguish units of rate from units of accumulation.",
+            "prerequisites": [
+              "integration-ftoc"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "72e092bb06972af052b38678fa3a22fe63304761a530a1346f627d8b18d7a944",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_11b657e500f59ffca579",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_5b72849b292d434aa224f4b75fe27b41",
+        "attempt_id": "40d01e022e96464d82c06608aa466662",
+        "progress_recorded": true,
+        "problem_version": "4c3ca931e13987d02c60e11f2a6195bcb7bed4cc1972463d16533dc8aba6ebb5",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "signed_accumulation"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "08-correct",
+      "topic": "Multiple Integrals",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "内层关于 y 积分时 t 固定，区间 [0,1] 的长度为 1，所以仍是 3t³。再做外层积分得到 3x⁴/4，新资料直接解释了这个区间长度因子。[C1]",
+        "next_hint": "将 y 的上限改成 2，结果怎样变化？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "内层关于 y 积分时 t 固定，区间 [0,1] 的长度为 1，所以仍是 3t³。再做外层积分得到 3x⁴/4，新资料直接解释了这个区间长度因子。[C1]",
+        "next_hint": "将 y 的上限改成 2，结果怎样变化？",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "rectangular-iterated-integral",
+            "topic": "Multiple Integrals",
+            "concepts": [
+              "iterated_integral",
+              "integration_region"
+            ],
+            "title": "Rectangular iterated integrals · 矩形区域迭代积分",
+            "section": "8.2",
+            "text": "For a continuous function on a closed bounded rectangle, the iterated integrals exist and agree with the double integral; continuity is a sufficient Fubini condition here, not a requirement for every more general version. In the inner integral, hold the outer variable fixed. If g(t) is independent of y, then integral from c to d of g(t) dy equals (d-c)g(t); in particular, the interval [0,1] contributes a factor one. Next integrate the result over the stated outer bounds. For an outer bound x=0 the integral is zero. 内层积分先固定外层变量，常数关于 y 的积分需要乘以区间长度。",
+            "prerequisites": [
+              "integration-ftoc",
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5721d8cbf5a72d8ea6ba619bf890f22faeae71c08dc97d8e34667b519a99f9f3",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_91a98a0248f1123fc20f",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_a593d938002b4e078315c640291e8cd4",
+        "attempt_id": "fc65719d07d2457e94ea93d3b4da022f",
+        "progress_recorded": true,
+        "problem_version": "d2dfe07ef3a97f00999843eef69da14e93ba6635727155c8261a421c8feebc62",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "iterated_integral"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "08-wrong",
+      "topic": "Multiple Integrals",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "答案比正确值多一倍；可能与内层区间长度有关，但未提供过程，不能确定。",
+        "tutor_feedback": "资料指出与 y 无关的 g(t) 关于 y 积分应乘区间长度 d−c。本题是 1−0=1，不是 2，因此结果为 3x⁴/4。[C1]",
+        "next_hint": "单独计算内层关于 y 的积分，再做外层运算。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "答案比正确值多一倍；可能与内层区间长度有关，但未提供过程，不能确定。",
+        "tutor_feedback": "资料指出与 y 无关的 g(t) 关于 y 积分应乘区间长度 d−c。本题是 1−0=1，不是 2，因此结果为 3x⁴/4。[C1]",
+        "next_hint": "单独计算内层关于 y 的积分，再做外层运算。",
+        "ocr_text": "3*x**4/2",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "rectangular-iterated-integral",
+            "topic": "Multiple Integrals",
+            "concepts": [
+              "iterated_integral",
+              "integration_region"
+            ],
+            "title": "Rectangular iterated integrals · 矩形区域迭代积分",
+            "section": "8.2",
+            "text": "For a continuous function on a closed bounded rectangle, the iterated integrals exist and agree with the double integral; continuity is a sufficient Fubini condition here, not a requirement for every more general version. In the inner integral, hold the outer variable fixed. If g(t) is independent of y, then integral from c to d of g(t) dy equals (d-c)g(t); in particular, the interval [0,1] contributes a factor one. Next integrate the result over the stated outer bounds. For an outer bound x=0 the integral is zero. 内层积分先固定外层变量，常数关于 y 的积分需要乘以区间长度。",
+            "prerequisites": [
+              "integration-ftoc",
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5721d8cbf5a72d8ea6ba619bf890f22faeae71c08dc97d8e34667b519a99f9f3",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_71937cefd3570dcb4e74",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_64cf9841d2c94ca4bcdec79ba85b8b94",
+        "attempt_id": "e6963c5b3c4e4b65b2fe0efe3db13457",
+        "progress_recorded": true,
+        "problem_version": "76d91448e3c48ed5b72bc5d097314eb7317dadeab79aefe65e058ba4f5e8544d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "iterated_integral"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "08-equivalent",
+      "topic": "Multiple Integrals",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "除以 4/3 等于乘以 3/4，表达式正确。",
+        "tutor_feedback": "x⁴/(4/3)=3x⁴/4，应接受这种写法。资料支持内层区间长度为 1 的运算，最终系数也可以直接化简验证。[C1]",
+        "next_hint": "把分母中的分数改写成乘法，检查系数。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "除以 4/3 等于乘以 3/4，表达式正确。",
+        "tutor_feedback": "x⁴/(4/3)=3x⁴/4，应接受这种写法。资料支持内层区间长度为 1 的运算，最终系数也可以直接化简验证。[C1]",
+        "next_hint": "把分母中的分数改写成乘法，检查系数。",
+        "ocr_text": "x**4/(4/3)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "rectangular-iterated-integral",
+            "topic": "Multiple Integrals",
+            "concepts": [
+              "iterated_integral",
+              "integration_region"
+            ],
+            "title": "Rectangular iterated integrals · 矩形区域迭代积分",
+            "section": "8.2",
+            "text": "For a continuous function on a closed bounded rectangle, the iterated integrals exist and agree with the double integral; continuity is a sufficient Fubini condition here, not a requirement for every more general version. In the inner integral, hold the outer variable fixed. If g(t) is independent of y, then integral from c to d of g(t) dy equals (d-c)g(t); in particular, the interval [0,1] contributes a factor one. Next integrate the result over the stated outer bounds. For an outer bound x=0 the integral is zero. 内层积分先固定外层变量，常数关于 y 的积分需要乘以区间长度。",
+            "prerequisites": [
+              "integration-ftoc",
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5721d8cbf5a72d8ea6ba619bf890f22faeae71c08dc97d8e34667b519a99f9f3",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_e7491a2a9c7ba0f01b3e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_baf04f0ad5c04b2287d8c9ed8fe40066",
+        "attempt_id": "baec65c29ce7478695d6c51b55db8a0a",
+        "progress_recorded": true,
+        "problem_version": "9d35ca5b6ffac09653c3f6292ddee748b477fee91fd2e692a7417fda16af54aa",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "iterated_integral"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "08-process",
+      "topic": "Multiple Integrals",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终值正确，但内层积分取 2 的步骤明确错误。",
+        "tutor_feedback": "根据资料中的常数积分规则，内层因子是区间长度 1，所以结果是 3t³，不是 6t³。请修正这一行，再推导最终结果。[C1]",
+        "next_hint": "先用原函数 y 计算 [y]_0^1。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终值正确，但内层积分取 2 的步骤明确错误。",
+        "tutor_feedback": "根据资料中的常数积分规则，内层因子是区间长度 1，所以结果是 3t³，不是 6t³。请修正这一行，再推导最终结果。[C1]",
+        "next_hint": "先用原函数 y 计算 [y]_0^1。",
+        "ocr_text": "The integral of 1 with respect to y from 0 to 1 is 2. Thus the inner integral is 6*t**3. My final I(x) is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "rectangular-iterated-integral",
+            "topic": "Multiple Integrals",
+            "concepts": [
+              "iterated_integral",
+              "integration_region"
+            ],
+            "title": "Rectangular iterated integrals · 矩形区域迭代积分",
+            "section": "8.2",
+            "text": "For a continuous function on a closed bounded rectangle, the iterated integrals exist and agree with the double integral; continuity is a sufficient Fubini condition here, not a requirement for every more general version. In the inner integral, hold the outer variable fixed. If g(t) is independent of y, then integral from c to d of g(t) dy equals (d-c)g(t); in particular, the interval [0,1] contributes a factor one. Next integrate the result over the stated outer bounds. For an outer bound x=0 the integral is zero. 内层积分先固定外层变量，常数关于 y 的积分需要乘以区间长度。",
+            "prerequisites": [
+              "integration-ftoc",
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "5721d8cbf5a72d8ea6ba619bf890f22faeae71c08dc97d8e34667b519a99f9f3",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_1cf45d0be0beb4010172",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_ea65e818d6e841b68e828163668f1319",
+        "attempt_id": "43f1e74cf9a443469e4ab0462b33da04",
+        "progress_recorded": true,
+        "problem_version": "0f2e28f5fda28c29a8ac5339c5563059517b0056fb21b6f9fd99e781601ccf60",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "iterated_integral"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "09-correct",
+      "topic": "Vector Calculus",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "可取势函数 φ(u,v)=3u⁴/4，其梯度是给定场。因此线积分为 φ(x,0)−φ(0,0)=3x⁴/4，符合保守场端点势差的规则。[C1]",
+        "next_hint": "先验证势函数的两个偏导数，再使用端点公式。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "可取势函数 φ(u,v)=3u⁴/4，其梯度是给定场。因此线积分为 φ(x,0)−φ(0,0)=3x⁴/4，符合保守场端点势差的规则。[C1]",
+        "next_hint": "先验证势函数的两个偏导数，再使用端点公式。",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "vector-calculus",
+            "topic": "Vector Calculus",
+            "concepts": [
+              "gradient",
+              "conservative_field"
+            ],
+            "title": "Vector fields · 向量场",
+            "section": "9.1",
+            "text": "For a conservative vector field F=grad(phi), a line integral depends only on endpoint potential difference. Vanishing curl is necessary under suitable smoothness, but a converse requires domain assumptions such as simple connectedness. Do not infer path independence without checking the domain.",
+            "prerequisites": [
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "2c157397333085c9f2d27078ccb14f452aec677f8a502274cb08e002264648b5",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_335a77c887349c178dec",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_f1f69db1bf7a4eb991893dbe67a43c70",
+        "attempt_id": "88249e91a2d3481d9a70fb7214642313",
+        "progress_recorded": true,
+        "problem_version": "d697e6da7fda687e75d7dd3d42aae4c44545cf57ab2ebbe8feed9650bd00f376",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "conservative_field"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "09-wrong",
+      "topic": "Vector Calculus",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是终点的场分量，不能代替沿路径累积的积分。",
+        "tutor_feedback": "令路径为 (t,0)，点积得到 3t³dt，再从 0 积分至 x。也可验证势函数后取端点势差；资料支持后者的条件性结论。[C1]",
+        "next_hint": "写出 F(r(t))·r'(t)，不要只代入终点。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x³ 是终点的场分量，不能代替沿路径累积的积分。",
+        "tutor_feedback": "令路径为 (t,0)，点积得到 3t³dt，再从 0 积分至 x。也可验证势函数后取端点势差；资料支持后者的条件性结论。[C1]",
+        "next_hint": "写出 F(r(t))·r'(t)，不要只代入终点。",
+        "ocr_text": "3*x**3",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "vector-calculus",
+            "topic": "Vector Calculus",
+            "concepts": [
+              "gradient",
+              "conservative_field"
+            ],
+            "title": "Vector fields · 向量场",
+            "section": "9.1",
+            "text": "For a conservative vector field F=grad(phi), a line integral depends only on endpoint potential difference. Vanishing curl is necessary under suitable smoothness, but a converse requires domain assumptions such as simple connectedness. Do not infer path independence without checking the domain.",
+            "prerequisites": [
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "2c157397333085c9f2d27078ccb14f452aec677f8a502274cb08e002264648b5",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_7e3c738b11e504c42883",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_6b163321b7994529a665aa10004ac0ca",
+        "attempt_id": "63dc6884707147818c04793b49727ffa",
+        "progress_recorded": true,
+        "problem_version": "988fa3fff9eb1300081e3ccad283423cbb63611a78b147d80755e5270b8fdecd",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "conservative_field"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "09-equivalent",
+      "topic": "Vector Calculus",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "括号位置不同，不改变表达式。",
+        "tutor_feedback": "(3x⁴)/4 与参考积分值一致。若用保守场方法，应先验证 φ=3u⁴/4 的梯度，而不是在任意向量场上直接假定路径无关。[C1]",
+        "next_hint": "说明这里为什么可以使用端点势差。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "括号位置不同，不改变表达式。",
+        "tutor_feedback": "(3x⁴)/4 与参考积分值一致。若用保守场方法，应先验证 φ=3u⁴/4 的梯度，而不是在任意向量场上直接假定路径无关。[C1]",
+        "next_hint": "说明这里为什么可以使用端点势差。",
+        "ocr_text": "(3*x**4)/4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "vector-calculus",
+            "topic": "Vector Calculus",
+            "concepts": [
+              "gradient",
+              "conservative_field"
+            ],
+            "title": "Vector fields · 向量场",
+            "section": "9.1",
+            "text": "For a conservative vector field F=grad(phi), a line integral depends only on endpoint potential difference. Vanishing curl is necessary under suitable smoothness, but a converse requires domain assumptions such as simple connectedness. Do not infer path independence without checking the domain.",
+            "prerequisites": [
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "2c157397333085c9f2d27078ccb14f452aec677f8a502274cb08e002264648b5",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_35c28d45658ec28f9cb2",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_f7d45029e7694e9d9438bd2581025ecc",
+        "attempt_id": "3a512e2dc7a44d0bbb29d0127178ee4d",
+        "progress_recorded": true,
+        "problem_version": "1d4039bb191bcee84eb8d0429ccb4fe642f116af035c83b281d697ce9850b46d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "conservative_field"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "09-process",
+      "topic": "Vector Calculus",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "末行积分值正确，但把线积分定义成终点场值的说法错误。",
+        "tutor_feedback": "保守场使用的是势函数的端点差，不是场本身在终点的值。补出势函数或路径参数化，就能合法得到 3x⁴/4。[C1]",
+        "next_hint": "区分 F(x,0)、φ(x,0) 和它们各自的单位或数学类型。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "末行积分值正确，但把线积分定义成终点场值的说法错误。",
+        "tutor_feedback": "保守场使用的是势函数的端点差，不是场本身在终点的值。补出势函数或路径参数化，就能合法得到 3x⁴/4。[C1]",
+        "next_hint": "区分 F(x,0)、φ(x,0) 和它们各自的单位或数学类型。",
+        "ocr_text": "A line integral is the value of the vector field's first component at the endpoint, namely 3*x**3. My final line integral is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "vector-calculus",
+            "topic": "Vector Calculus",
+            "concepts": [
+              "gradient",
+              "conservative_field"
+            ],
+            "title": "Vector fields · 向量场",
+            "section": "9.1",
+            "text": "For a conservative vector field F=grad(phi), a line integral depends only on endpoint potential difference. Vanishing curl is necessary under suitable smoothness, but a converse requires domain assumptions such as simple connectedness. Do not infer path independence without checking the domain.",
+            "prerequisites": [
+              "multivariable-partials"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "2c157397333085c9f2d27078ccb14f452aec677f8a502274cb08e002264648b5",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_f69f0a2c12dd5adeafa6",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_a53767e2f0c74bf5902d0d8a5076ee75",
+        "attempt_id": "f33ca92135d549aaac3d87bc7ab393bb",
+        "progress_recorded": true,
+        "problem_version": "fa606fac1115e0e05633a14d9329e76dde0d67334d179528465a4c014b7d6d05",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "conservative_field"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "10-correct",
+      "topic": "Sequences and Series",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确，题干已给出 x≠1。",
+        "tutor_feedback": "将四项和乘以 1−x，中间项相消，得到 1−x⁴，再除以 1−x。有限和不要求 |x|<1；x=1 时原来的多项式和仍为 4，但该分式无定义。[C1]",
+        "next_hint": "分别代入 x=2 和 x=−1，检验有限和公式。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确，题干已给出 x≠1。",
+        "tutor_feedback": "将四项和乘以 1−x，中间项相消，得到 1−x⁴，再除以 1−x。有限和不要求 |x|<1；x=1 时原来的多项式和仍为 4，但该分式无定义。[C1]",
+        "next_hint": "分别代入 x=2 和 x=−1，检验有限和公式。",
+        "ocr_text": "Selected option D: $ \\frac{1 - x^{4}}{1 - x} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "series-convergence",
+            "topic": "Sequences and Series",
+            "concepts": [
+              "series_convergence",
+              "ratio_test",
+              "finite_geometric_sum"
+            ],
+            "title": "Series and finite sums · 级数与有限求和",
+            "section": "10.1",
+            "text": "For x not equal to 1, the finite geometric sum from k=0 to N of x^k equals (1-x^(N+1))/(1-x), obtained by multiplying by 1-x and cancelling. For infinite series, a necessary condition for convergence of sum a_n is a_n tending to zero; it is not sufficient. In the ratio test, a limit below one implies absolute convergence, above one divergence, and equal to one is inconclusive. Test power-series endpoints separately.",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "1d27f31786519d2b1f7ac9836ca97ee163ea9625632491308a467a8282bf4511",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_35b54596de56e8f24863",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_dea5a43a47394ebaa675d1c6466edf08",
+        "attempt_id": "bc4ddbea97a24996a966da5781c32e62",
+        "progress_recorded": true,
+        "problem_version": "0edcf3f45199537253e5e481eef5defdf40698c66f4cc3ac67efefafd3998530",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "finite_geometric_sum"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "10-wrong",
+      "topic": "Sequences and Series",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "缺少分子中的 −x⁴ 项，使用了不同的无穷级数公式。",
+        "tutor_feedback": "这里求 k=0 到 3 的有限和，不是无穷和。有限公式为 (1−x⁴)/(1−x)，不能用 1/(1−x) 替换。[C1]",
+        "next_hint": "把 (1+x+x²+x³)(1−x) 展开。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "缺少分子中的 −x⁴ 项，使用了不同的无穷级数公式。",
+        "tutor_feedback": "这里求 k=0 到 3 的有限和，不是无穷和。有限公式为 (1−x⁴)/(1−x)，不能用 1/(1−x) 替换。[C1]",
+        "next_hint": "把 (1+x+x²+x³)(1−x) 展开。",
+        "ocr_text": "1/(1-x)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "series-convergence",
+            "topic": "Sequences and Series",
+            "concepts": [
+              "series_convergence",
+              "ratio_test",
+              "finite_geometric_sum"
+            ],
+            "title": "Series and finite sums · 级数与有限求和",
+            "section": "10.1",
+            "text": "For x not equal to 1, the finite geometric sum from k=0 to N of x^k equals (1-x^(N+1))/(1-x), obtained by multiplying by 1-x and cancelling. For infinite series, a necessary condition for convergence of sum a_n is a_n tending to zero; it is not sufficient. In the ratio test, a limit below one implies absolute convergence, above one divergence, and equal to one is inconclusive. Test power-series endpoints separately.",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "1d27f31786519d2b1f7ac9836ca97ee163ea9625632491308a467a8282bf4511",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_1445d30d550fa5c76db8",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_f8cb003c5c0a4b279c9a6ec8a1fe954b",
+        "attempt_id": "b2eb5d0e62524d2990c7922c9f1ede15",
+        "progress_recorded": true,
+        "problem_version": "d8cefd1f11fac691ea8d82c8d9d201bf89e6917552c0081be9995f8963a0f2f1",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "finite_geometric_sum"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "10-equivalent",
+      "topic": "Sequences and Series",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "提交的是正确的有限几何和分式，满足题目要求的形式。",
+        "tutor_feedback": "你的分式与四项多项式和在 x≠1 时相等。无需增加 |x|<1 条件，那是无穷几何级数的问题。[C1]",
+        "next_hint": "若只要求求和而不要求分式，x=1 应怎样处理？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "提交的是正确的有限几何和分式，满足题目要求的形式。",
+        "tutor_feedback": "你的分式与四项多项式和在 x≠1 时相等。无需增加 |x|<1 条件，那是无穷几何级数的问题。[C1]",
+        "next_hint": "若只要求求和而不要求分式，x=1 应怎样处理？",
+        "ocr_text": "(1-x**4)/(1-x)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "series-convergence",
+            "topic": "Sequences and Series",
+            "concepts": [
+              "series_convergence",
+              "ratio_test",
+              "finite_geometric_sum"
+            ],
+            "title": "Series and finite sums · 级数与有限求和",
+            "section": "10.1",
+            "text": "For x not equal to 1, the finite geometric sum from k=0 to N of x^k equals (1-x^(N+1))/(1-x), obtained by multiplying by 1-x and cancelling. For infinite series, a necessary condition for convergence of sum a_n is a_n tending to zero; it is not sufficient. In the ratio test, a limit below one implies absolute convergence, above one divergence, and equal to one is inconclusive. Test power-series endpoints separately.",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "1d27f31786519d2b1f7ac9836ca97ee163ea9625632491308a467a8282bf4511",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_2a66a65c96653c658805",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_7c54e9808eba45e8bc2d0961d512582f",
+        "attempt_id": "134296ed0bed4813ae11f35700c45a27",
+        "progress_recorded": true,
+        "problem_version": "6e6d4e1c7db910b2e12bbc650cf5c1784a59bc7059936836a3e08a57045229f3",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "finite_geometric_sum"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "10-process",
+      "topic": "Sequences and Series",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终分式正确，但声称有限和在 |x|≥1 无值是错误的。",
+        "tutor_feedback": "有限个多项式项相加对所有实数都有值，不涉及无穷级数收敛。保留分式及其 x≠1 限制，删除错误的 |x|<1 条件；在 x=1 用原和求值。[C1]",
+        "next_hint": "用 x=2 算出四项和，检查你关于不存在值的断言。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终分式正确，但声称有限和在 |x|≥1 无值是错误的。",
+        "tutor_feedback": "有限个多项式项相加对所有实数都有值，不涉及无穷级数收敛。保留分式及其 x≠1 限制，删除错误的 |x|<1 条件；在 x=1 用原和求值。[C1]",
+        "next_hint": "用 x=2 算出四项和，检查你关于不存在值的断言。",
+        "ocr_text": "This finite sum converges only when abs(x)<1, so there are no values outside that interval. My final formula is (1-x**4)/(1-x), for x!=1.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "series-convergence",
+            "topic": "Sequences and Series",
+            "concepts": [
+              "series_convergence",
+              "ratio_test",
+              "finite_geometric_sum"
+            ],
+            "title": "Series and finite sums · 级数与有限求和",
+            "section": "10.1",
+            "text": "For x not equal to 1, the finite geometric sum from k=0 to N of x^k equals (1-x^(N+1))/(1-x), obtained by multiplying by 1-x and cancelling. For infinite series, a necessary condition for convergence of sum a_n is a_n tending to zero; it is not sufficient. In the ratio test, a limit below one implies absolute convergence, above one divergence, and equal to one is inconclusive. Test power-series endpoints separately.",
+            "prerequisites": [
+              "limits-continuity"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "1d27f31786519d2b1f7ac9836ca97ee163ea9625632491308a467a8282bf4511",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_a12df582307a2859c17e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_441f14c3be084d2a81a72cf836b15936",
+        "attempt_id": "44824df94ad74f2e8a9c8bcbd612e443",
+        "progress_recorded": true,
+        "problem_version": "3d5c62e5adcc02b5aa54048d48a852a6aeab70f6098da21a7034eba2164b851a",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "finite_geometric_sum"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "11-correct",
+      "topic": "Differential Equations",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 同时满足方程与初始条件。",
+        "tutor_feedback": "积分得 y=3x⁴/4+C；代入 y(0)=0 得 C=0。求导和代初值是两项独立检查，不能只做其一。[C1]",
+        "next_hint": "把初值改为 y(0)=5，说明哪些部分保持不变。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 同时满足方程与初始条件。",
+        "tutor_feedback": "积分得 y=3x⁴/4+C；代入 y(0)=0 得 C=0。求导和代初值是两项独立检查，不能只做其一。[C1]",
+        "next_hint": "把初值改为 y(0)=5，说明哪些部分保持不变。",
+        "ocr_text": "Selected option D: $ \\frac{3 x^{4}}{4} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "differential-equations",
+            "topic": "Differential Equations",
+            "concepts": [
+              "separable_equations",
+              "initial_condition"
+            ],
+            "title": "Separable equations · 可分离变量方程",
+            "section": "12.1",
+            "text": "For y'=g(x)h(y), separation divides by h(y) only where h(y) is nonzero. Check equilibrium solutions h(y)=0 separately so they are not lost. An initial condition can determine an integration constant; verify both the equation and the initial condition by substitution.",
+            "prerequisites": [
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "41a3ce88b7d186ba0694a03025d79391e59a689f5abaad7f07f4376b51eefc1f",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_1541ef78f34dc1b8d588",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_7bbfce860f5844a0babe1c51e8ea52ce",
+        "attempt_id": "3b9bd3a7f53a47c4949826ceaca961ab",
+        "progress_recorded": true,
+        "problem_version": "334f20979707890dae37a389c8672b52f4392a13cc69177ad6b47e8e9504f792",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "initial_condition"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "11-wrong",
+      "topic": "Differential Equations",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "加 5 的函数满足微分方程，却不满足 y(0)=0。",
+        "tutor_feedback": "本题给出了初值，不能接受任意加常数。把 x=0 代入你的式子会得到 5，因此需取 C=0。[C1]",
+        "next_hint": "在最终答案下分别写出 y' 与 y(0)。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "加 5 的函数满足微分方程，却不满足 y(0)=0。",
+        "tutor_feedback": "本题给出了初值，不能接受任意加常数。把 x=0 代入你的式子会得到 5，因此需取 C=0。[C1]",
+        "next_hint": "在最终答案下分别写出 y' 与 y(0)。",
+        "ocr_text": "3*x**4/4+5",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "differential-equations",
+            "topic": "Differential Equations",
+            "concepts": [
+              "separable_equations",
+              "initial_condition"
+            ],
+            "title": "Separable equations · 可分离变量方程",
+            "section": "12.1",
+            "text": "For y'=g(x)h(y), separation divides by h(y) only where h(y) is nonzero. Check equilibrium solutions h(y)=0 separately so they are not lost. An initial condition can determine an integration constant; verify both the equation and the initial condition by substitution.",
+            "prerequisites": [
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "41a3ce88b7d186ba0694a03025d79391e59a689f5abaad7f07f4376b51eefc1f",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_308b03b04e74a0d3846a",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_4778151c3aa74f36b5ab676af75d610b",
+        "attempt_id": "82c2184402b749e79e7187f4e066a392",
+        "progress_recorded": true,
+        "problem_version": "8be8af72a64661f47af2d26cd1286fc83172284751d7b899315a0f08e4a3af91",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "initial_condition"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "11-equivalent",
+      "topic": "Differential Equations",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "(3/4)x⁴ 与满足零初值的解一致。",
+        "tutor_feedback": "这个表达式求导后为 3x³，且在 x=0 时为零，因此两项要求都通过。[C1]",
+        "next_hint": "比较这里的常数限制与没有初值的不定积分题。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "(3/4)x⁴ 与满足零初值的解一致。",
+        "tutor_feedback": "这个表达式求导后为 3x³，且在 x=0 时为零，因此两项要求都通过。[C1]",
+        "next_hint": "比较这里的常数限制与没有初值的不定积分题。",
+        "ocr_text": "(3/4)*x**4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "differential-equations",
+            "topic": "Differential Equations",
+            "concepts": [
+              "separable_equations",
+              "initial_condition"
+            ],
+            "title": "Separable equations · 可分离变量方程",
+            "section": "12.1",
+            "text": "For y'=g(x)h(y), separation divides by h(y) only where h(y) is nonzero. Check equilibrium solutions h(y)=0 separately so they are not lost. An initial condition can determine an integration constant; verify both the equation and the initial condition by substitution.",
+            "prerequisites": [
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "41a3ce88b7d186ba0694a03025d79391e59a689f5abaad7f07f4376b51eefc1f",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_3e405a7e653ea01583df",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_d208a9a5e6264cfab4987a36212ea82a",
+        "attempt_id": "52e9a2019b724984883d075e933e99e6",
+        "progress_recorded": true,
+        "problem_version": "8d7958b99df79047d9265e62af22ace5a38d3f8d1acb026802dfa9c85fb50ef5",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "initial_condition"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "11-process",
+      "topic": "Differential Equations",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终解正确，但“零初值允许 C=5”明确违反条件。",
+        "tutor_feedback": "常数确实不影响导数，但会影响 y(0)。请把初值代入通解并解出 C=0，再写出末行，而不是把它说成任意选择。[C1]",
+        "next_hint": "计算含 C 的通解在零点的值。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终解正确，但“零初值允许 C=5”明确违反条件。",
+        "tutor_feedback": "常数确实不影响导数，但会影响 y(0)。请把初值代入通解并解出 C=0，再写出末行，而不是把它说成任意选择。[C1]",
+        "next_hint": "计算含 C 的通解在零点的值。",
+        "ocr_text": "The initial condition y(0)=0 allows any integration constant, including C=5. My final solution is 3*x**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "differential-equations",
+            "topic": "Differential Equations",
+            "concepts": [
+              "separable_equations",
+              "initial_condition"
+            ],
+            "title": "Separable equations · 可分离变量方程",
+            "section": "12.1",
+            "text": "For y'=g(x)h(y), separation divides by h(y) only where h(y) is nonzero. Check equilibrium solutions h(y)=0 separately so they are not lost. An initial condition can determine an integration constant; verify both the equation and the initial condition by substitution.",
+            "prerequisites": [
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "41a3ce88b7d186ba0694a03025d79391e59a689f5abaad7f07f4376b51eefc1f",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_0ccd7cc5236a3bea525c",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_973d8161e95646dc8078109850b213d6",
+        "attempt_id": "e9110a107d1c4e7f890886ee4f198aa9",
+        "progress_recorded": true,
+        "problem_version": "c15383c54a128343935b43ce182e76d8674cb2d07ddc09ba5c77f5eeadb604be",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "initial_condition"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "12-correct",
+      "topic": "Techniques of Integration",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "D 是唯一正确选项，A、B 与 D 相差 x 而不是常数。",
+        "tutor_feedback": "令 u=3x+1，du=3dx，积分得 u⁴/4。D 与它只差常数，求导正确；新 A、B 分别多减一个 x，导数会多减 1，因此不再产生多正确选项。[C1]",
+        "next_hint": "对 A、B、D 求导，检查每个选项，而非只核对存储答案键。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "D 是唯一正确选项，A、B 与 D 相差 x 而不是常数。",
+        "tutor_feedback": "令 u=3x+1，du=3dx，积分得 u⁴/4。D 与它只差常数，求导正确；新 A、B 分别多减一个 x，导数会多减 1，因此不再产生多正确选项。[C1]",
+        "next_hint": "对 A、B、D 求导，检查每个选项，而非只核对存储答案键。",
+        "ocr_text": "Selected option D: $ \\frac{81 x^{4}}{4} + 27 x^{3} + \\frac{27 x^{2}}{2} + 3 x $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-substitution",
+            "topic": "Techniques of Integration",
+            "concepts": [
+              "substitution",
+              "chain_rule"
+            ],
+            "title": "Substitution · 换元积分",
+            "section": "5.1",
+            "text": "Substitution reverses the chain rule: $ \\int f(g(x))g'(x)\\,dx=F(g(x))+C $ when F'=f. Write u=g(x) and du=g'(x)dx, and transform the entire integrand consistently. For definite integrals, transform the bounds or return to x before evaluating. Mixing old bounds with the new variable is invalid. 换元后变量、微分和积分上下限必须一致。",
+            "prerequisites": [
+              "derivative-chain",
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "7b0f163359317913b84bf637288270adb20dce794cb06b54af922531a8173846",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_8ed4e76efcf5af37b58b",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_ad13e978887144f299aa6b17ec7814f5",
+        "attempt_id": "6c99015d6f9f4611a3dc5f89ffda730e",
+        "progress_recorded": true,
+        "problem_version": "59968865daacd175a6817e860c23e6937ce5fdfba3f93b8a3ac9f99bded80dc6",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "substitution"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "12-wrong",
+      "topic": "Techniques of Integration",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "提交式的导数为 (3x+1)³，少了被积函数中的因子 3。",
+        "tutor_feedback": "原式已有 3dx，它恰好对应 du。换元后应是积分 u³du，得到 u⁴/4，而不是再除以 3。[C1]",
+        "next_hint": "把 3dx 整体替换成 du，再检查是否多除了一次。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "提交式的导数为 (3x+1)³，少了被积函数中的因子 3。",
+        "tutor_feedback": "原式已有 3dx，它恰好对应 du。换元后应是积分 u³du，得到 u⁴/4，而不是再除以 3。[C1]",
+        "next_hint": "把 3dx 整体替换成 du，再检查是否多除了一次。",
+        "ocr_text": "(3*x+1)**4/12",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-substitution",
+            "topic": "Techniques of Integration",
+            "concepts": [
+              "substitution",
+              "chain_rule"
+            ],
+            "title": "Substitution · 换元积分",
+            "section": "5.1",
+            "text": "Substitution reverses the chain rule: $ \\int f(g(x))g'(x)\\,dx=F(g(x))+C $ when F'=f. Write u=g(x) and du=g'(x)dx, and transform the entire integrand consistently. For definite integrals, transform the bounds or return to x before evaluating. Mixing old bounds with the new variable is invalid. 换元后变量、微分和积分上下限必须一致。",
+            "prerequisites": [
+              "derivative-chain",
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "7b0f163359317913b84bf637288270adb20dce794cb06b54af922531a8173846",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_9432a3c245f8ea3c020d",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_c799a714c81e45c1a37bf4bd13f7f97a",
+        "attempt_id": "e0a25dbfe3b44696b5555e4176f8ed61",
+        "progress_recorded": true,
+        "problem_version": "69724b48aaedc37342ed35d5a155890d6cbf62fa686ffc67dd630aba10e7b456",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "substitution"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "12-equivalent",
+      "topic": "Techniques of Integration",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "紧凑形式与存储多项式相差常数 1/4，但同为正确原函数。",
+        "tutor_feedback": "(3x+1)⁴/4 求导为 3(3x+1)³，应接受。题目要求一个原函数，不要求固定零点值，因此不能因为相差 1/4 扣分。[C1]",
+        "next_hint": "用求导验证等价性，而不是强制两个原函数逐项相同。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "紧凑形式与存储多项式相差常数 1/4，但同为正确原函数。",
+        "tutor_feedback": "(3x+1)⁴/4 求导为 3(3x+1)³，应接受。题目要求一个原函数，不要求固定零点值，因此不能因为相差 1/4 扣分。[C1]",
+        "next_hint": "用求导验证等价性，而不是强制两个原函数逐项相同。",
+        "ocr_text": "(3*x+1)**4/4",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-substitution",
+            "topic": "Techniques of Integration",
+            "concepts": [
+              "substitution",
+              "chain_rule"
+            ],
+            "title": "Substitution · 换元积分",
+            "section": "5.1",
+            "text": "Substitution reverses the chain rule: $ \\int f(g(x))g'(x)\\,dx=F(g(x))+C $ when F'=f. Write u=g(x) and du=g'(x)dx, and transform the entire integrand consistently. For definite integrals, transform the bounds or return to x before evaluating. Mixing old bounds with the new variable is invalid. 换元后变量、微分和积分上下限必须一致。",
+            "prerequisites": [
+              "derivative-chain",
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "7b0f163359317913b84bf637288270adb20dce794cb06b54af922531a8173846",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_d098965489e116ea871e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_1ef52badd82842a7ae732e2b86a0ca00",
+        "attempt_id": "2d37e280324942c082b1debc569051d6",
+        "progress_recorded": true,
+        "problem_version": "5057ec02c7704b3a1f665516e7ed399ccc2b496e9fd6a49b362b778f39545f60",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "substitution"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "12-process",
+      "topic": "Techniques of Integration",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终原函数正确，但 du=dx 错误，前面推出的 3u⁴/4 也不正确。",
+        "tutor_feedback": "u=3x+1 应给出 du=3dx。修正后，原来的因子 3 被包含在 du 中，因此积分为 u⁴/4；要让换元步骤与末行一致。[C1]",
+        "next_hint": "重新写出微分替换，逐一追踪系数 3。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终原函数正确，但 du=dx 错误，前面推出的 3u⁴/4 也不正确。",
+        "tutor_feedback": "u=3x+1 应给出 du=3dx。修正后，原来的因子 3 被包含在 du 中，因此积分为 u⁴/4；要让换元步骤与末行一致。[C1]",
+        "next_hint": "重新写出微分替换，逐一追踪系数 3。",
+        "ocr_text": "Set u=3*x+1 and du=dx. I therefore integrate 3*u**3 to obtain 3*u**4/4. My final antiderivative is (3*x+1)**4/4.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "integration-substitution",
+            "topic": "Techniques of Integration",
+            "concepts": [
+              "substitution",
+              "chain_rule"
+            ],
+            "title": "Substitution · 换元积分",
+            "section": "5.1",
+            "text": "Substitution reverses the chain rule: $ \\int f(g(x))g'(x)\\,dx=F(g(x))+C $ when F'=f. Write u=g(x) and du=g'(x)dx, and transform the entire integrand consistently. For definite integrals, transform the bounds or return to x before evaluating. Mixing old bounds with the new variable is invalid. 换元后变量、微分和积分上下限必须一致。",
+            "prerequisites": [
+              "derivative-chain",
+              "antiderivative-constant"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "7b0f163359317913b84bf637288270adb20dce794cb06b54af922531a8173846",
+            "citation_id": "C1",
+            "rank_score": 0.032787
+          }
+        ],
+        "evidence_bundle_id": "evidence_1124fb7b1aa45939d06e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_d8097fb387744fada9dbf008ad218bdf",
+        "attempt_id": "68d1041873d54ec1ba4b9e9efb8e7a81",
+        "progress_recorded": true,
+        "problem_version": "bec04d89b1fee40945d4d9ad1666671a1d8b3d9539985e6201b36d51cfa68076",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "substitution"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "13-correct",
+      "topic": "Parametric and Polar Curves",
+      "kind": "correct",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "dy/dt=9t²，dx/dt=1，二者相除得到 9t²。由于 x=t，写成 x 后为 9x²，且分母恒非零。[C1]",
+        "next_hint": "若 x(t)=t²，在哪些参数值不能直接使用同一个商式？",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "所选 D 正确。",
+        "tutor_feedback": "dy/dt=9t²，dx/dt=1，二者相除得到 9t²。由于 x=t，写成 x 后为 9x²，且分母恒非零。[C1]",
+        "next_hint": "若 x(t)=t²，在哪些参数值不能直接使用同一个商式？",
+        "ocr_text": "Selected option D: $ 9 x^{2} $",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "parametric-curves",
+            "topic": "Parametric and Polar Curves",
+            "concepts": [
+              "parametric_derivative",
+              "polar_coordinates"
+            ],
+            "title": "Parametric curves · 参数曲线",
+            "section": "11.1",
+            "text": "For x=x(t) and y=y(t), dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero. A zero denominator requires separate analysis of the parametrization. In polar coordinates x=r cos(theta) and y=r sin(theta); the polar area element contributes the radial factor.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "9ceca25675df452c72471445059bc4be0a508780fb297a9ed705aeda6ce18389",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_8b49e4b97ce99c123655",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_a4cc44dd3fb0488593cf28c088508384",
+        "attempt_id": "ecc30fddcbf843f19254b5aa594ca7b8",
+        "progress_recorded": true,
+        "problem_version": "1793e421e588d031c122c395b0f59de7082adc6bf087e39d60082690172f521e",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "parametric_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "13-wrong",
+      "topic": "Parametric and Polar Curves",
+      "kind": "wrong",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          0,
+          0
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": false,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x² 少了求三次幂导数时的因子 3。",
+        "tutor_feedback": "先分别求参数导数：3t³ 的导数是 9t²，而 t 的导数是 1。按 (dy/dt)/(dx/dt) 计算后再把 t 替换成 x。[C1]",
+        "next_hint": "单独检查 dy/dt 的系数，再进行相除。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 0,
+        "error_analysis": "3x² 少了求三次幂导数时的因子 3。",
+        "tutor_feedback": "先分别求参数导数：3t³ 的导数是 9t²，而 t 的导数是 1。按 (dy/dt)/(dx/dt) 计算后再把 t 替换成 x。[C1]",
+        "next_hint": "单独检查 dy/dt 的系数，再进行相除。",
+        "ocr_text": "3*x**2",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "parametric-curves",
+            "topic": "Parametric and Polar Curves",
+            "concepts": [
+              "parametric_derivative",
+              "polar_coordinates"
+            ],
+            "title": "Parametric curves · 参数曲线",
+            "section": "11.1",
+            "text": "For x=x(t) and y=y(t), dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero. A zero denominator requires separate analysis of the parametrization. In polar coordinates x=r cos(theta) and y=r sin(theta); the polar area element contributes the radial factor.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "9ceca25675df452c72471445059bc4be0a508780fb297a9ed705aeda6ce18389",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_a3c78a357275a500dd2e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_8f78a304eedd436e9758a45a26ce4b06",
+        "attempt_id": "16e02517d04a45d3b4d974b9d44036f0",
+        "progress_recorded": true,
+        "problem_version": "5b0fb3b8df980b1c327d920f3e372e5e86d4719c8d5871a74628ff5dab94e19d",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "parametric_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "13-equivalent",
+      "topic": "Parametric and Polar Curves",
+      "kind": "equivalent",
+      "expected": {
+        "is_correct": true,
+        "score_range": [
+          100,
+          100
+        ]
+      },
+      "baseline": {
+        "status": "supported",
+        "is_correct": true,
+        "agrees_with_authored_rubric": true
+      },
+      "review": {
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "3(3x²) 等于 9x²，答案正确。",
+        "tutor_feedback": "这种因式形式与参数求导后的斜率一致。因为 x=t 且 dx/dt=1，变量替换没有引入额外因子。[C1]",
+        "next_hint": "用一个具体参数值核对斜率。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": true,
+        "logic_alignment_score": 100,
+        "error_analysis": "3(3x²) 等于 9x²，答案正确。",
+        "tutor_feedback": "这种因式形式与参数求导后的斜率一致。因为 x=t 且 dx/dt=1，变量替换没有引入额外因子。[C1]",
+        "next_hint": "用一个具体参数值核对斜率。",
+        "ocr_text": "3*(3*x**2)",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "parametric-curves",
+            "topic": "Parametric and Polar Curves",
+            "concepts": [
+              "parametric_derivative",
+              "polar_coordinates"
+            ],
+            "title": "Parametric curves · 参数曲线",
+            "section": "11.1",
+            "text": "For x=x(t) and y=y(t), dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero. A zero denominator requires separate analysis of the parametrization. In polar coordinates x=r cos(theta) and y=r sin(theta); the polar area element contributes the radial factor.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "9ceca25675df452c72471445059bc4be0a508780fb297a9ed705aeda6ce18389",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_896efd418d98c158e73e",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_6438097edff14c9e83e0f4067a5fb904",
+        "attempt_id": "7617ae5e708143d2968573c369137b63",
+        "progress_recorded": true,
+        "problem_version": "746037f3a402150b918956425bed1f31a8b53b67e56e514b67634da723bb9015",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "parametric_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    },
+    {
+      "case_id": "13-process",
+      "topic": "Parametric and Polar Curves",
+      "kind": "process",
+      "expected": {
+        "is_correct": false,
+        "score_range": [
+          40,
+          70
+        ]
+      },
+      "baseline": {
+        "status": "unsupported_freeform",
+        "agrees_with_authored_rubric": null
+      },
+      "review": {
+        "is_correct": false,
+        "logic_alignment_score": 60,
+        "error_analysis": "最终斜率正确，但明确把参数导数的分子分母写反了。",
+        "tutor_feedback": "dy/dx 应为 (dy/dt)/(dx/dt)，不是它的倒数。纠正商式后才能得到 9x²；原先的 1/(9t²) 还会在 t=0 处制造不存在的奇点。[C1]",
+        "next_hint": "从 dy=(dy/dt)dt 和 dx=(dx/dt)dt 写出正确比值。",
+        "citation_ids": [
+          "C1"
+        ]
+      },
+      "api_result": {
+        "success": true,
+        "is_correct": false,
+        "logic_alignment_score": 60.0,
+        "error_analysis": "最终斜率正确，但明确把参数导数的分子分母写反了。",
+        "tutor_feedback": "dy/dx 应为 (dy/dt)/(dx/dt)，不是它的倒数。纠正商式后才能得到 9x²；原先的 1/(9t²) 还会在 t=0 处制造不存在的奇点。[C1]",
+        "next_hint": "从 dy=(dy/dt)dt 和 dx=(dx/dt)dt 写出正确比值。",
+        "ocr_text": "I use dy/dx=(dx/dt)/(dy/dt)=1/(9*t**2). My final slope expressed in x is 9*x**2.",
+        "ai_mode": "simulation",
+        "citations": [
+          {
+            "id": "parametric-curves",
+            "topic": "Parametric and Polar Curves",
+            "concepts": [
+              "parametric_derivative",
+              "polar_coordinates"
+            ],
+            "title": "Parametric curves · 参数曲线",
+            "section": "11.1",
+            "text": "For x=x(t) and y=y(t), dy/dx=(dy/dt)/(dx/dt) where dx/dt is nonzero. A zero denominator requires separate analysis of the parametrization. In polar coordinates x=r cos(theta) and y=r sin(theta); the polar area element contributes the radial factor.",
+            "prerequisites": [
+              "derivative-chain"
+            ],
+            "source_id": "atelier-course-notes",
+            "source_title": "Calculus Atelier — Course reference notes",
+            "source_version": "1.1",
+            "provenance": "Original project teaching notes, not a quotation from a textbook. Check against the course syllabus before classroom use.",
+            "license": "CC0-1.0",
+            "content_hash": "9ceca25675df452c72471445059bc4be0a508780fb297a9ed705aeda6ce18389",
+            "citation_id": "C1",
+            "rank_score": 0.049454
+          }
+        ],
+        "evidence_bundle_id": "evidence_d637c823f62a4fcea5e7",
+        "grounding_status": "references_available",
+        "support_status": "not_independently_verified",
+        "retrieval_method": "hybrid",
+        "submission_id": "sub_c6351827a87142a5a9334ea131004ca0",
+        "attempt_id": "a0fe98195a6d41798beb40d0030eeac0",
+        "progress_recorded": true,
+        "problem_version": "cb212ebb85987e64fed348ac7df158930c42f264f2350c56a47f16876908b7de",
+        "learning_credit": "first_attempt",
+        "concept_ids": [
+          "parametric_derivative"
+        ],
+        "diagnostic_status": "insufficient_for_misconception_diagnosis"
+      },
+      "checks": {
+        "verdict_matches_authored_rubric": true,
+        "feedback_survives_api": true,
+        "citation_policy_checked": true,
+        "source_resolves": true,
+        "retry_idempotent": true,
+        "progress_recorded": true
+      }
+    }
+  ]
+}

@@ -19,6 +19,8 @@ from src.llm_client import LLMClient
 from src.prompt_builder import PromptBuilder
 from src.postprocessor import PostProcessor
 from src.evaluator import QualityEvaluator
+from src.rag import get_retriever
+from src.rag.service import evidence_prompt
 
 logger = logging.getLogger(__name__)
 
@@ -82,6 +84,9 @@ class ProblemGenerator:
 
         # Sample knowledge point combination for current task
         active_topics = self._sample_topics(topics, mode)
+        evidence = get_retriever().retrieve(
+            " ".join(active_topics), topics=active_topics, purpose="generate", exam=mode == "exam",
+        )
 
         for attempt in range(max_retries):
             try:
@@ -100,6 +105,12 @@ class ProblemGenerator:
                     feedback=current_feedback + fusion_instruction,
                     question_type=question_type
                 )
+                prompt += evidence_prompt(evidence)
+                if Config.AI_MODE == "simulation":
+                    prompt += "\n[SIMULATION TASK]" + json.dumps({
+                        "topic": active_topics[0], "difficulty": difficulty,
+                        "question_type": question_type, "mode": mode,
+                    })
 
                 # 2. Call API (with preprocessing for 429)
                 response = self.llm_client.generate(
@@ -118,6 +129,7 @@ class ProblemGenerator:
 
                 # 4. Fill metadata
                 problem.update({
+                    'topic': active_topics[0],
                     'generated_at': datetime.now().isoformat(),
                     'mode': mode,
                     'question_type': question_type,
@@ -125,24 +137,38 @@ class ProblemGenerator:
                     'core_topic': active_topics[0],
                     'integrated_topics': active_topics
                 })
+                problem["retrieval"] = evidence
+                problem["ai_mode"] = Config.AI_MODE
+                if question_type == "mcq":
+                    problem["semantic_validation_required"] = True
+                if Config.AI_MODE == "simulation" and mode == "exam":
+                    # A template is not a validated cross-topic exam; do not manufacture fusion scores.
+                    problem["simulation_note"] = "Single-concept exam fixture; cross-topic fusion not evaluated."
 
                 # 5. Quality evaluation
-                result = self.evaluator.evaluate(problem, active_topics)
+                evaluation_problem = dict(problem, mode="drill") if Config.AI_MODE == "simulation" else problem
+                result = self.evaluator.evaluate(evaluation_problem, active_topics)
                 problem['evaluation'] = result.__dict__
+                if Config.AI_MODE == "simulation":
+                    problem["evaluation"]["review_kind"] = "deterministic_fixture_check"
+                    problem["evaluation"]["semantic_quality_measured"] = False
                 if str(problem.get("question_type", "")).lower() == "mcq":
                     deterministic = result.deterministic_validation or {}
                     problem["answer_validation"] = {
-                        "status": "verified" if result.passed else "rejected",
+                        "status": ("fixture_checked" if Config.AI_MODE == "simulation" else "verified") if result.passed else "rejected",
                         "answer_key": problem.get("answer"),
+                        "semantic_options_checked": bool(deterministic.get("checks", {}).get("mcq_semantics_checked")),
                         "schema_check": bool(deterministic.get("schema_valid")),
                         "symbolic_check": deterministic.get(
                             "symbolic_status",
                             "not_provided",
                         ),
                         "independent_review": (
-                            result.dimensions.get("answer_consistency") == 100.0
+                            Config.AI_MODE != "simulation" and result.dimensions.get("answer_consistency") == 100.0
                         ),
                         "method": (
+                            "offline symbolic claim and fixture option mapping; no independent model review"
+                            if Config.AI_MODE == "simulation" else
                             "deterministic schema/symbolic validation plus "
                             "independent low-temperature mathematical review"
                         ),
@@ -156,7 +182,8 @@ class ProblemGenerator:
                     current_feedback = f"Previous Attempt Flaw: {result.ai_feedback}"
                     logger.warning(f"[WARN] Quality evaluation failed: {result.ai_feedback}")
                     # Linear backoff
-                    time.sleep(2 * (attempt + 1))
+                    if Config.AI_MODE == "live":
+                        time.sleep(2 * (attempt + 1))
 
             except Exception as e:
                 err_msg = str(e)
@@ -167,6 +194,8 @@ class ProblemGenerator:
                     time.sleep(wait_sec)
                 else:
                     logger.error(f"Generation process exception: {err_msg}")
+                    if Config.AI_MODE != "live":
+                        raise
                     time.sleep(5)
 
         return None
@@ -197,7 +226,7 @@ class ProblemGenerator:
                 batch_result.append(problem)
 
             # Rate control: Force cooldown between problems, physically avoid 429
-            if i < num - 1:
+            if i < num - 1 and Config.AI_MODE == "live":
                 delay = 10 if mode == "exam" else 5
                 logger.info(f"Cooling down ({delay}s)...")
                 time.sleep(delay)

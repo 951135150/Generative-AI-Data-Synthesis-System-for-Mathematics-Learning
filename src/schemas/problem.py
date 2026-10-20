@@ -1,7 +1,7 @@
 """Canonical problem schema for generated and curated calculus content."""
 
 from enum import Enum
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
@@ -64,6 +64,11 @@ class Problem(BaseModel):
     answer: Optional[str] = None
     correct_values: Optional[List[str]] = None
     symbolic_validation: Optional[SymbolicValidation] = None
+    option_expressions: Optional[Dict[str, str]] = None
+    answer_equivalence: Literal["exact", "antiderivative"] = "exact"
+    excluded_points: List[str] = Field(default_factory=list, max_length=20)
+    allow_additive_constant: bool = False
+    semantic_validation_required: bool = False
 
     @model_validator(mode="before")
     @classmethod

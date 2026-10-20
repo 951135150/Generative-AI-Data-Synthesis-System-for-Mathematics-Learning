@@ -71,7 +71,7 @@ class OCRClient:
 
     @property
     def configured(self) -> bool:
-        return bool(self.api_key and self.base_url and self.model)
+        return bool(Config.AI_MODE == "live" and Config.ALLOW_PAID_API and self.api_key and self.base_url and self.model)
 
     def status(self) -> dict[str, str | bool]:
         return {

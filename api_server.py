@@ -9,6 +9,7 @@ import json
 import logging
 import time
 import uuid
+import re
 from pathlib import Path
 
 from fastapi import Depends, FastAPI, HTTPException, Path as ApiPath, Query, Request
@@ -60,6 +61,11 @@ from src.schemas import (
     SynthesizeRequest,
 )
 from src.schemas.api import USER_ID_PATTERN
+from src.rag import get_retriever
+from src.rag.service import digest, validate_citations
+from src.learning.service import AttemptConflict, LearningService, recommend, review_schedule
+from src.simulation import SIMULATION_TOPICS, SimulationInputError
+from src.rag.api import router as knowledge_router
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("api_server")
@@ -89,6 +95,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.include_router(knowledge_router)
 
 orchestrator = BatchGenerator()
 problem_repository = ProblemRepository()
@@ -199,12 +206,48 @@ def get_capabilities():
     return {
         "success": True,
         "grading": {
-            "provider": "deepseek",
-            "model": Config.LLM_MODEL,
+            "provider": "deepseek" if Config.AI_MODE == "live" else Config.AI_MODE,
+            "model": orchestrator.llm_client.model_name,
             "input": "text",
         },
+        "ai_mode": Config.AI_MODE,
+        "external_calls_enabled": Config.AI_MODE == "live" and Config.ALLOW_PAID_API,
+        "rag": get_retriever().status(),
+        "simulation_topics": SIMULATION_TOPICS,
         "vision_ocr": ocr_client.status(),
     }
+
+
+@app.get("/knowledge/sources")
+def knowledge_sources():
+    retriever = get_retriever()
+    retriever.refresh()
+    return {"success": True, "sources": retriever.sources, "retrieval": retriever.status()}
+
+
+@app.get("/knowledge/chunks/{chunk_id}")
+def knowledge_chunk(chunk_id: str, content_hash: str | None = None, source_version: str | None = None):
+    chunk = get_retriever().get_chunk(chunk_id, content_hash)
+    if chunk is None or (source_version is not None and source_version != chunk["source_version"]):
+        raise HTTPException(status_code=404, detail="This source version is unavailable or withdrawn.")
+    return {"success": True, "data": chunk}
+
+
+def learner_problem(problem):
+    """A learner response must not contain answer keys or hidden grading fixtures."""
+    fields = {"id", "problem_id", "topic", "sub_topic", "problem_statement", "difficulty",
+              "mode", "question_type", "options", "ai_mode", "concept_ids", "simulation_note"}
+    result = {k: v for k, v in problem.items() if k in fields}
+    result["scaffolding"] = [] if problem.get("mode") == "exam" else problem.get("scaffolding", [])
+    return result
+
+
+def public_agent_message(message):
+    # Agent messages can contain entire answer keys. Only publish progress metadata.
+    allowed = {"stage", "topic", "problem_id", "evidence_bundle_id", "hint_count",
+               "review_kind", "note", "event", "action", "ai_mode", "run_id", "message"}
+    content = message.get("content", {})
+    return {**message, "content": {k: v for k, v in content.items() if k in allowed}}
 
 
 # ---------- User Management ----------
@@ -282,11 +325,16 @@ def get_progress(
     """Get detailed user progress (for dashboard use)"""
     require_owner(identity, user_id)
     session = UserSession(user_id)
+    concept_evidence = LearningService().concept_summary(user_id)
     return {
         "success": True,
         "user_id": user_id,
         "topics_status": session.progress["topics_status"],
-        "total_minutes": session.progress["metadata"]["total_minutes"]
+        "total_minutes": session.progress["metadata"]["total_minutes"],
+        "recommendation": recommend(session.progress, get_retriever(),
+            get_capabilities()["simulation_topics"] if Config.AI_MODE == "simulation" else None, concept_evidence),
+        "concept_evidence": concept_evidence,
+        "review_queue": review_schedule(session.progress),
     }
 
 
@@ -298,22 +346,10 @@ def record_result(
     """Record learning result. Fields: user_id, topic, logic_alignment_score, is_correct"""
     user_id = payload.user_id
     require_owner(identity, user_id)
-    topic = payload.topic
-    logic_score = payload.logic_alignment_score
-    is_passed = payload.is_correct
-
-    session = UserSession(user_id)
-    try:
-        session.record_result(topic, logic_score, is_passed)
-        return {"success": True}
-    except HTTPException:
-        raise
-    except Exception:
-        logger.exception("Failed to record user result")
-        raise HTTPException(
-            status_code=500,
-            detail={"code": "PROGRESS_WRITE_FAILED", "message": "Unable to save progress."},
-        )
+    raise HTTPException(status_code=410, detail={
+        "code": "SERVER_OWNED_PROGRESS",
+        "message": "Progress is saved automatically from /audit. Client-supplied scores are no longer accepted.",
+    })
 
 
 # ---------- Problem Generation (with Adaptive Recommendation) ----------
@@ -344,7 +380,9 @@ async def generate_questions(
         # --- Adaptive Recommendation Logic ---
         if req.user_id:
             user_session = UserSession(req.user_id)
-            recommended = user_session.get_current_task_params()
+            recommended = recommend(user_session.progress, get_retriever(),
+                get_capabilities()["simulation_topics"] if Config.AI_MODE == "simulation" else None,
+                LearningService().concept_summary(req.user_id)) or user_session.get_current_task_params()
             # If front-end does not pass any topics, user clicked 'Continue Learning', use recommendations
             if not request_topics:
                 request_topics = [recommended["topic"]]
@@ -372,6 +410,12 @@ async def generate_questions(
                 },
             )
 
+        if Config.AI_MODE == "simulation":
+            supported = get_capabilities()["simulation_topics"]
+            if any(topic not in supported for topic in request_topics):
+                raise HTTPException(status_code=422, detail={"code": "SIMULATION_TOPIC_UNAVAILABLE",
+                    "message": "Offline fixtures currently cover: " + ", ".join(supported)})
+
         # Call generator
         # LLM generation is synchronous and can take minutes. Running it on the
         # event loop made lightweight routes such as /topics and /auth time out.
@@ -390,13 +434,9 @@ async def generate_questions(
         output_dir.mkdir(parents=True, exist_ok=True)
 
         for prob in problems:
-            existing_id = prob.get('id', '')
-            if not existing_id or existing_id == 'T2P_GEN_1':
-                new_id = str(uuid.uuid4())[:8]
-                prob['id'] = new_id
-            else:
-                new_id = existing_id
-            prob['problem_id'] = prob.get('problem_id') or new_id
+            existing_id = str(prob.get('problem_id') or prob.get('id') or '')
+            new_id = existing_id if re.fullmatch(r"[A-Za-z0-9_-]{1,100}", existing_id) and existing_id != 'T2P_GEN_1' else uuid.uuid4().hex[:12]
+            prob['id'] = prob['problem_id'] = new_id
 
             file_path = output_dir / f"{new_id}.json"
             with open(file_path, 'w', encoding='utf-8') as f:
@@ -414,7 +454,7 @@ async def generate_questions(
             difficulty=request_difficulty,
             user_id=req.user_id,
             duration_ms=int((time.perf_counter() - started_at) * 1000),
-            model=Config.LLM_MODEL,
+            model=orchestrator.llm_client.model_name,
         )
         telemetry_recorder.record_generation(
             "single_agent",
@@ -422,7 +462,8 @@ async def generate_questions(
             (time.perf_counter() - started_at) * 1000,
         )
 
-        return {"success": True, "data": problems}
+        return {"success": True, "ai_mode": Config.AI_MODE,
+                "data": [learner_problem(p) for p in problems]}
 
     except HTTPException:
         raise
@@ -473,7 +514,13 @@ async def audit_submission(
                     detail={"code": "AUTH_REQUIRED", "message": "Authentication is required."},
                 )
             require_owner(identity, req.user_id)
-        raw_input = req.student_work_image
+        request_hash = digest(req.model_dump(exclude={"attempt_id"}))
+        learning_service = LearningService()
+        if req.attempt_id:
+            saved = learning_service.lookup(req.user_id or "anonymous", req.attempt_id, request_hash)
+            if saved:
+                return saved
+        raw_input = req.text_answer or req.student_work_image
         image_bytes = None
         image_mime_type = "image/jpeg"
         text_answer = None
@@ -542,7 +589,7 @@ async def audit_submission(
             # --- Text Mode: legacy MCQ selection or manually typed answer ---
             text_answer = raw_input
             if text_answer:
-                logger.info(f"Text input detected: {text_answer}, performing text audit...")
+                logger.info("Text input detected; performing text audit.")
 
         # 2. Find problem data
         problem = problem_repository.get(req.problem_id)
@@ -553,6 +600,8 @@ async def audit_submission(
             )
         if not problem:
             raise HTTPException(status_code=404, detail=f"Problem ID '{req.problem_id}' not found")
+        # Exam protection is derived from stored state, not a learner-controlled switch.
+        req.is_exam_mode = bool(req.is_exam_mode or problem.get("mode") == "exam")
 
         # Objective correctness is decided by exact option-key comparison. The
         # LLM receives the result and full option content only to explain it.
@@ -604,6 +653,14 @@ async def audit_submission(
                 },
             )
 
+        evidence = await asyncio.to_thread(
+            get_retriever().retrieve,
+            " ".join([str(problem.get("topic", "")), " ".join(problem.get("concept_ids", [])),
+                      str(problem.get("problem_statement", ""))]),
+            topics=[str(problem.get("topic", ""))], purpose="tutor", exam=req.is_exam_mode,
+            required_concepts=problem.get("concept_ids", []),
+        )
+
         # 3. Call Tutor module
         review_json = {}
         try:
@@ -616,6 +673,7 @@ async def audit_submission(
                 mcq_assessment=(
                     mcq_assessment.to_dict() if mcq_assessment else None
                 ),
+                evidence_bundle=evidence,
             )
 
             # 4. Parse results
@@ -695,39 +753,32 @@ async def audit_submission(
             fallback_feedback = ""
             fallback_hint = ""
 
+        grounding = validate_citations(review_json, evidence, exam=req.is_exam_mode)
         error_analysis = review_json.get("error_analysis") or fallback_error
         tutor_feedback = review_json.get("tutor_feedback") or fallback_feedback
         next_hint = review_json.get("next_hint") or fallback_hint
         if req.user_id:
             UserSession(req.user_id)
-        submission_id = submission_repository.create(
-            user_id=req.user_id,
-            problem_id=req.problem_id,
-            topic=str(problem.get("topic", "Unknown")),
-            input_type="text" if is_mcq_input else "image",
-            score=float(final_score),
-            is_correct=bool(is_correct),
-            ocr_text=ocr_text if ocr_text else (text_answer if is_mcq_input else None),
-            error_type=(
-                json.dumps(error_analysis, ensure_ascii=False)
-                if not isinstance(error_analysis, str)
-                else error_analysis
-            ),
-            tutor_feedback=str(tutor_feedback),
-            next_step=str(next_hint),
-        )
-
-        return {
+        response = {
             "success": True,
-            "submission_id": submission_id,
             "is_correct": is_correct,
-            "logic_alignment_score": final_score,
+            "logic_alignment_score": max(0, min(100, final_score)),
             "error_analysis": error_analysis,
             "tutor_feedback": tutor_feedback,
             "next_hint": next_hint,
-            "ocr_text": ocr_text if ocr_text else (text_answer if is_mcq_input else "Extracted from image")
+            "ocr_text": ocr_text or text_answer or "",
+            "ai_mode": Config.AI_MODE,
+            **grounding,
         }
+        return learning_service.save(
+            user_id=req.user_id, request_key=req.attempt_id, request_hash=request_hash,
+            problem=problem, response=response, evidence=evidence, text_answer=text_answer,
+        )
 
+    except AttemptConflict as error:
+        raise HTTPException(status_code=409, detail={"code": "ATTEMPT_CONFLICT", "message": str(error)}) from error
+    except SimulationInputError as error:
+        raise HTTPException(status_code=422, detail={"code": "SIMULATION_INPUT_REQUIRED", "message": str(error)}) from error
     except HTTPException:
         raise
     except Exception:
@@ -787,12 +838,13 @@ async def multi_agent_synthesize(req: SynthesizeRequest):
             "success": result.success,
             "total_problems": result.total_problems,
             "statistics": result.statistics,
-            "problems": result.problems,
+            "problems": [learner_problem(p) for p in result.problems],
             "total_llm_calls": result.total_llm_calls,
             "total_agent_messages": result.total_agent_messages,
             "duration_seconds": result.duration_seconds,
             "terminated_by": result.terminated_by,
-            "conversation_log": result.conversation_log,
+            "conversation_log": [public_agent_message(m) for m in result.conversation_log],
+            "ai_mode": Config.AI_MODE,
             "error": result.error,
         }
     except HTTPException:
@@ -843,7 +895,7 @@ async def stream_synthesis(
             # Stream new messages as SSE
             new_msgs = coordinator.message_bus.get_all_messages_since(last_msg_index)
             for msg in new_msgs:
-                yield f"data: {json.dumps(msg.to_dict(), ensure_ascii=False)}\n\n"
+                yield f"data: {json.dumps(public_agent_message(msg.to_dict()), ensure_ascii=False)}\n\n"
                 heartbeat_counter = 0  # Reset heartbeat when we have activity
             last_msg_index += len(new_msgs)
 
@@ -858,7 +910,7 @@ async def stream_synthesis(
         # Send remaining messages
         new_msgs = coordinator.message_bus.get_all_messages_since(last_msg_index)
         for msg in new_msgs:
-            yield f"data: {json.dumps(msg.to_dict(), ensure_ascii=False)}\n\n"
+            yield f"data: {json.dumps(public_agent_message(msg.to_dict()), ensure_ascii=False)}\n\n"
 
         # Send completion event
         result = await task
@@ -886,7 +938,8 @@ async def stream_synthesis(
             "event": "complete",
             "success": result.success,
             "total_problems": result.total_problems,
-            "problems": result.problems,
+            "problems": [learner_problem(p) for p in result.problems],
+            "ai_mode": Config.AI_MODE,
             "statistics": result.statistics,
             "total_llm_calls": result.total_llm_calls,
             "total_agent_messages": result.total_agent_messages,

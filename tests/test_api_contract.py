@@ -37,7 +37,8 @@ def test_capabilities_separate_vision_ocr_from_deepseek_grading():
     payload = response.json()
 
     assert response.status_code == 200
-    assert payload["grading"]["provider"] == "deepseek"
+    assert payload["grading"]["provider"] == "simulation"
+    assert payload["external_calls_enabled"] is False
     assert payload["grading"]["input"] == "text"
     assert isinstance(payload["vision_ocr"]["configured"], bool)
     assert "provider" in payload["vision_ocr"]

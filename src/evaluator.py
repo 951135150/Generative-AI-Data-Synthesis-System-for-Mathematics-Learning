@@ -139,7 +139,8 @@ class QualityEvaluator:
 
         # 0. Deterministic gate: schema, question invariants, and optional
         # symbolic equivalence are checked before accepting an LLM verdict.
-        validation = self.mathematical_validator.validate(problem)
+        validation = self.mathematical_validator.validate(dict(problem,
+            semantic_validation_required=str(problem.get("question_type", "")).lower() == "mcq"))
         dimensions["deterministic_validation"] = (
             100.0 if validation.status.value == "passed"
             else 70.0 if validation.status.value == "partial"

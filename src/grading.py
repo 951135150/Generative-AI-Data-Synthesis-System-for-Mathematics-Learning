@@ -65,6 +65,11 @@ def extract_selected_option(
 
 
 def assess_mcq(problem: Mapping[str, Any], selected_option: str) -> MCQAssessment:
+    if problem.get("option_expressions") or problem.get("semantic_validation_required") or problem.get("allow_additive_constant"):
+        from src.validation import MathematicalValidator
+        validation = MathematicalValidator().validate(dict(problem, semantic_validation_required=True))
+        if not validation.passed:
+            raise MCQReferenceError("The question's mathematical option uniqueness cannot be verified. Regenerate or review it.")
     options = problem.get("options")
     if not isinstance(options, Mapping) or len(options) < 2:
         raise MCQReferenceError("The stored question has no usable option set.")

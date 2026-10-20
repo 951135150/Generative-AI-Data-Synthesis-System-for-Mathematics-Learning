@@ -1,6 +1,8 @@
 'use client';
 
 import type { ChangeEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -27,6 +29,8 @@ import {
 } from 'lucide-react';
 
 import type { AuditResult, Problem } from './types';
+import type { CourseCitation } from './types';
+import { api } from '@/lib/api';
 
 interface ProblemWorkspaceProps {
   problem?: Problem;
@@ -36,6 +40,8 @@ interface ProblemWorkspaceProps {
   selectedMCQChoice?: string;
   selectedImage?: string;
   visionOCRAvailable: boolean | null;
+  textAnswer?: string;
+  onTextAnswerChange?: (id: string, value: string) => void;
   submitting: boolean;
   generating: boolean;
   showScaffolding: boolean;
@@ -102,6 +108,8 @@ export function ProblemWorkspace({
   selectedMCQChoice,
   selectedImage,
   visionOCRAvailable,
+  textAnswer = '',
+  onTextAnswerChange,
   submitting,
   generating,
   showScaffolding,
@@ -121,6 +129,24 @@ export function ProblemWorkspace({
   onClearInput,
   onRemoveImage,
 }: ProblemWorkspaceProps) {
+  const [source, setSource] = useState<CourseCitation | null>(null);
+  const [sourceError, setSourceError] = useState('');
+  const sourceDialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (source && sourceDialog.current && !sourceDialog.current.open) sourceDialog.current.showModal();
+  }, [source]);
+  const openSource = async (citation: CourseCitation) => {
+    setSource(null);
+    setSourceError('');
+    try {
+      const response = await api.get(`/knowledge/chunks/${encodeURIComponent(citation.id)}`, {
+        params: { content_hash: citation.content_hash, source_version: citation.source_version },
+      });
+      setSource({ ...response.data.data, citation_id: citation.citation_id });
+    } catch {
+      setSourceError('This source version has changed or is no longer available. Request a new review.');
+    }
+  };
   return (
     <section className="problem-workspace" aria-labelledby="problem-workspace-title">
       <header className="problem-workspace-header">
@@ -236,11 +262,22 @@ export function ProblemWorkspace({
           ) : (
             <section className="answer-section written-section" aria-labelledby={`draft-${problem.id}`}>
               <div className="answer-section-heading">
-                <div><small>Response workspace</small><h3 id={`draft-${problem.id}`}>Handwritten mathematical draft</h3></div>
+                <div><small>Response workspace</small><h3 id={`draft-${problem.id}`}>{problem.ai_mode === 'simulation' ? 'Mathematical answer' : 'Handwritten mathematical draft'}</h3></div>
                 <button type="button" onClick={() => onClearInput(problem.id)} aria-label="Clear handwritten input">
                   <RotateCcw size={15} /> Clear
                 </button>
               </div>
+              <label className="typed-answer">
+                <span>{problem.ai_mode === 'simulation' ? 'Final expression · offline checking' : 'Typed mathematical answer'}</span>
+                <textarea value={textAnswer} onChange={event => onTextAnswerChange?.(problem.id, event.target.value)}
+                  placeholder="Use SymPy notation, for example 6*x+2 or (3*x+1)**2" rows={3} />
+                <small>{problem.ai_mode === 'simulation'
+                  ? 'Checks the final expression only. Free-form reasoning and handwriting are not evaluated in simulation.'
+                  : 'Enter your answer or use the handwriting workspace below.'}</small>
+                <button type="button" className="academic-primary" disabled={submitting || !textAnswer.trim()}
+                  onClick={() => onSubmitWritten(problem)}><Send size={15} /> Submit typed answer</button>
+              </label>
+              <div hidden={problem.ai_mode === 'simulation'}>
               <p className="answer-instruction">Write naturally as you would on paper, or upload a photograph of your derivation. The AI mentor evaluates mathematical logic rather than typography.</p>
               <div
                 className={`vision-capability ${visionOCRAvailable === true ? 'is-ready' : visionOCRAvailable === false ? 'is-unavailable' : 'is-checking'}`}
@@ -310,6 +347,7 @@ export function ProblemWorkspace({
                   </button>
                 </div>
               </div>
+              </div>
             </section>
           )}
 
@@ -325,7 +363,18 @@ export function ProblemWorkspace({
                 {result.error_analysis && <div><small>Error analysis</small><div>{renderMathContent(result.error_analysis)}</div></div>}
                 {result.tutor_feedback && <div><small>Supervisor&apos;s advice</small><div>{renderMathContent(result.tutor_feedback)}</div></div>}
                 {result.next_hint && <div className="review-next-step"><small><Lightbulb size={12} /> Next-step guidance</small><div>{renderMathContent(result.next_hint)}</div></div>}
-                {result.ocr_text && <div><small><Camera size={12} /> OCR transcription</small><div className="ocr-copy">{renderMathContent(result.ocr_text)}</div></div>}
+                <div className="course-citations">
+                  <small>Course references · {result.retrieval_method || 'not recorded'}</small>
+                  {result.citations?.length ? result.citations.map(citation => (
+                    <button type="button" key={citation.citation_id} onClick={() => void openSource(citation)}>
+                      <BookOpenText size={14} /> [{citation.citation_id}] {citation.title} · §{citation.section}
+                    </button>
+                  )) : <p>No supporting course reference was attached to this feedback.</p>}
+                  {!!result.citations?.length && <p>References are available; support for each teaching claim has not been independently verified.</p>}
+                  {result.progress_recorded && <p>Learning record saved by the server.</p>}
+                  {sourceError && <p role="alert">{sourceError}</p>}
+                </div>
+                {result.ocr_text && <div><small><Camera size={12} /> {result.ai_mode === 'simulation' ? 'Submitted answer' : 'OCR transcription'}</small><div className="ocr-copy">{renderMathContent(result.ocr_text)}</div></div>}
               </div>
             </section>
           )}
@@ -352,6 +401,16 @@ export function ProblemWorkspace({
             <span><SlidersHorizontal size={13} /> Configure</span><i /><span><Sparkles size={13} /> Generate</span><i /><span><CheckCircle2 size={13} /> Validate</span>
           </div>
         </div>
+      )}
+      {source && createPortal(
+        <dialog ref={sourceDialog} className="source-drawer" aria-label="Course source" onCancel={() => setSource(null)}>
+          <button type="button" onClick={() => setSource(null)} aria-label="Close course source"><X size={18} /></button>
+          <p className="academic-kicker">COURSE EVIDENCE · {source.citation_id}</p>
+          <h3>{source.title}</h3>
+          <p>{source.source_title} · §{source.section} · Version {source.source_version}</p>
+          <div className="source-excerpt">{renderMathContent(source.text)}</div>
+          <small>{source.provenance}</small>
+        </dialog>, document.body,
       )}
     </section>
   );

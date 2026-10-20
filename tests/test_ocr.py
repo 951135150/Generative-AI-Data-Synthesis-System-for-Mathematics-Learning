@@ -32,7 +32,10 @@ def test_vision_ocr_requires_dedicated_configuration():
         client.transcribe(b"image")
 
 
-def test_vision_ocr_sends_image_to_configured_provider():
+def test_vision_ocr_sends_image_to_configured_provider(monkeypatch):
+    from src.config import Config
+    monkeypatch.setattr(Config, "AI_MODE", "live")
+    monkeypatch.setattr(Config, "ALLOW_PAID_API", True)
     completions = FakeCompletions(content=r"$\frac{d}{dx}x^2 = 2x$")
     client = OCRClient(
         api_key="test-key",
@@ -52,7 +55,10 @@ def test_vision_ocr_sends_image_to_configured_provider():
     assert content[1]["type"] == "text"
 
 
-def test_vision_ocr_converts_provider_errors_to_safe_domain_error():
+def test_vision_ocr_converts_provider_errors_to_safe_domain_error(monkeypatch):
+    from src.config import Config
+    monkeypatch.setattr(Config, "AI_MODE", "live")
+    monkeypatch.setattr(Config, "ALLOW_PAID_API", True)
     completions = FakeCompletions(error=RuntimeError("provider secret details"))
     client = OCRClient(
         api_key="test-key",

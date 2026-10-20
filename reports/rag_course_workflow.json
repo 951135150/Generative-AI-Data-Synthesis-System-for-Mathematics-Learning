@@ -1,0 +1,17 @@
+{
+  "paid_api_calls": 0,
+  "isolated_database": true,
+  "isolated_knowledge_catalog": true,
+  "device": "cuda",
+  "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+  "checks": {
+    "student_cannot_manage": true,
+    "preview_is_read_only": true,
+    "draft_excluded_from_retrieval": true,
+    "publish_checks_real_local_tokenizer": true,
+    "published_source_retrieved": true,
+    "stale_write_rejected": true,
+    "withdrawal_hides_source": true,
+    "source_archive_retained": true
+  }
+}

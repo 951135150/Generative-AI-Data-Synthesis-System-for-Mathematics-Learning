@@ -12,6 +12,21 @@ export interface Problem {
   options?: Record<string, string>;
   answer?: string;
   correct_values?: string[];
+  ai_mode?: string;
+  simulation_note?: string;
+  concept_ids?: string[];
+}
+
+export interface CourseCitation {
+  citation_id: string;
+  id: string;
+  title: string;
+  section: string;
+  source_title: string;
+  source_version: string;
+  content_hash: string;
+  text: string;
+  provenance: string;
 }
 
 export interface AuditResult {
@@ -21,6 +36,11 @@ export interface AuditResult {
   tutor_feedback: string;
   next_hint: string;
   ocr_text?: string;
+  citations?: CourseCitation[];
+  ai_mode?: string;
+  grounding_status?: string;
+  retrieval_method?: string;
+  progress_recorded?: boolean;
 }
 
 export interface GeneratePayload {

@@ -21,6 +21,15 @@ class Config:
     # Path(__file__).resolve() -> <project_root>\src\config.py
     # .parent.parent -> <project_root>
     BASE_DIR = Path(__file__).resolve().parent.parent
+    # External model calls are opt-in, even when an old .env contains keys.
+    AI_MODE = os.getenv("AI_MODE", "simulation").strip().lower()
+    ALLOW_PAID_API = os.getenv("ALLOW_PAID_API", "false").lower() == "true"
+    RAG_ENABLED = os.getenv("RAG_ENABLED", "true").lower() == "true"
+    RAG_MODEL = os.getenv("RAG_MODEL", "intfloat/multilingual-e5-small")
+    RAG_MODEL_REVISION = os.getenv("RAG_MODEL_REVISION", "614241f622f53c4eeff9890bdc4f31cfecc418b3")
+    RAG_CACHE_DIR = Path(os.getenv("RAG_CACHE_DIR", str(BASE_DIR / ".runtime" / "rag")))
+    KNOWLEDGE_PATH = Path(os.getenv("KNOWLEDGE_PATH", str(BASE_DIR / "data" / "knowledge")))
+    RAG_ALLOW_DOWNLOAD = os.getenv("RAG_ALLOW_DOWNLOAD", "false").lower() == "true"
 
     # --- Resource paths ---
     # Default points to <project_root>\data\golden_dataset_v2.json
@@ -55,7 +64,7 @@ class Config:
 
     # --- DeepSeek API configuration ---
     DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-    if not DEEPSEEK_API_KEY:
+    if AI_MODE == "live" and not DEEPSEEK_API_KEY:
         logger.error("❌ DEEPSEEK_API_KEY not found in environment variables")
 
     DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")

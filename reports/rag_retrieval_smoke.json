@@ -1,0 +1,906 @@
+{
+  "split": "development_smoke",
+  "limitations": "Authored with the starter notes. These are not a held-out benchmark or proof of RAG quality gains.",
+  "paid_api_calls": 0,
+  "results": {
+    "keyword_only": {
+      "runtime": {
+        "enabled": true,
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+        "dense_status": "disabled",
+        "device": "not_loaded",
+        "device_reason": "Model loads on the first retrieval or environment check.",
+        "chunks": 18,
+        "sources": 1,
+        "index_version": "5dd950a694efa7352905"
+      },
+      "recall_at_5": 1.0,
+      "mrr_at_5": 0.9791666666666666,
+      "out_of_scope_abstention": 1.0,
+      "warm_retrieval_p95_ms": 3.32,
+      "cases": [
+        {
+          "query": "chain rule inner function derivative",
+          "relevant": [
+            "derivative-chain"
+          ],
+          "retrieved": [
+            "derivative-chain",
+            "multivariable-partials",
+            "derivative-product",
+            "integration-ftoc",
+            "integration-substitution"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 5.04
+        },
+        {
+          "query": "复合函数求导遗漏内函数导数",
+          "relevant": [
+            "derivative-chain"
+          ],
+          "retrieved": [
+            "derivative-chain",
+            "derivative-product",
+            "derivative-marginal-cost",
+            "multivariable-partials",
+            "derivative-related-rates"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.45
+        },
+        {
+          "query": "product rule derivative of multiplied functions",
+          "relevant": [
+            "derivative-product"
+          ],
+          "retrieved": [
+            "integration-parts",
+            "derivative-product",
+            "derivative-chain",
+            "multivariable-partials",
+            "derivative-extrema"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 0.5,
+          "abstained": false,
+          "duration_ms": 2.51
+        },
+        {
+          "query": "乘积求导不是两个导数相乘",
+          "relevant": [
+            "derivative-product"
+          ],
+          "retrieved": [
+            "derivative-product",
+            "derivative-marginal-cost",
+            "derivative-chain",
+            "multivariable-partials",
+            "derivative-related-rates"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.33
+        },
+        {
+          "query": "stationary point second derivative zero inconclusive",
+          "relevant": [
+            "derivative-extrema"
+          ],
+          "retrieved": [
+            "derivative-extrema",
+            "series-convergence",
+            "derivative-marginal-cost",
+            "limits-continuity",
+            "multivariable-partials"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.06
+        },
+        {
+          "query": "驻点不一定是极值点",
+          "relevant": [
+            "derivative-extrema"
+          ],
+          "retrieved": [
+            "derivative-extrema"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.89
+        },
+        {
+          "query": "substitution change bounds du",
+          "relevant": [
+            "integration-substitution"
+          ],
+          "retrieved": [
+            "integration-substitution",
+            "multiple-integrals",
+            "differential-equations",
+            "integration-parts",
+            "integration-applications"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.33
+        },
+        {
+          "query": "换元积分上下限与变量一致",
+          "relevant": [
+            "integration-substitution"
+          ],
+          "retrieved": [
+            "integration-substitution",
+            "rectangular-iterated-integral",
+            "limits-continuity",
+            "derivative-marginal-cost",
+            "differential-equations"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.12
+        },
+        {
+          "query": "integration by parts minus sign boundary term",
+          "relevant": [
+            "integration-parts"
+          ],
+          "retrieved": [
+            "integration-parts",
+            "differential-equations",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.37
+        },
+        {
+          "query": "分部积分负号边界项",
+          "relevant": [
+            "integration-parts"
+          ],
+          "retrieved": [
+            "integration-parts",
+            "antiderivative-constant",
+            "rectangular-iterated-integral",
+            "integration-substitution",
+            "multiple-integrals"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.98
+        },
+        {
+          "query": "continuity left and right limits",
+          "relevant": [
+            "limits-continuity"
+          ],
+          "retrieved": [
+            "limits-continuity",
+            "integration-ftoc",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.04
+        },
+        {
+          "query": "necessary condition terms tend to zero series convergence",
+          "relevant": [
+            "series-convergence"
+          ],
+          "retrieved": [
+            "series-convergence",
+            "differential-equations",
+            "vector-calculus",
+            "rectangular-iterated-integral",
+            "derivative-extrema"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.21
+        },
+        {
+          "query": "ratio test equals one inconclusive",
+          "relevant": [
+            "series-convergence"
+          ],
+          "retrieved": [
+            "series-convergence",
+            "rectangular-iterated-integral",
+            "derivative-extrema",
+            "limits-continuity",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.2
+        },
+        {
+          "query": "fundamental theorem signed accumulation",
+          "relevant": [
+            "integration-ftoc"
+          ],
+          "retrieved": [
+            "integration-ftoc",
+            "integration-applications"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.19
+        },
+        {
+          "query": "indefinite integral additive constant",
+          "relevant": [
+            "antiderivative-constant"
+          ],
+          "retrieved": [
+            "antiderivative-constant",
+            "differential-equations",
+            "rectangular-iterated-integral",
+            "integration-applications",
+            "integration-parts"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.26
+        },
+        {
+          "query": "polar double integral Jacobian r",
+          "relevant": [
+            "multiple-integrals"
+          ],
+          "retrieved": [
+            "multiple-integrals",
+            "parametric-curves",
+            "integration-applications",
+            "rectangular-iterated-integral",
+            "derivative-related-rates"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.2
+        },
+        {
+          "query": "conservative vector field simply connected domain",
+          "relevant": [
+            "vector-calculus"
+          ],
+          "retrieved": [
+            "vector-calculus",
+            "multivariable-partials",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 2.48
+        },
+        {
+          "query": "partial derivative hold independent variables fixed",
+          "relevant": [
+            "multivariable-partials"
+          ],
+          "retrieved": [
+            "multivariable-partials",
+            "rectangular-iterated-integral",
+            "multiple-integrals",
+            "derivative-extrema",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.88
+        },
+        {
+          "query": "separation equilibrium solutions initial condition",
+          "relevant": [
+            "differential-equations"
+          ],
+          "retrieved": [
+            "differential-equations",
+            "series-convergence",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.93
+        },
+        {
+          "query": "parametric dy dx nonzero denominator",
+          "relevant": [
+            "parametric-curves"
+          ],
+          "retrieved": [
+            "parametric-curves",
+            "derivative-product",
+            "integration-substitution",
+            "differential-equations",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.88
+        },
+        {
+          "query": "marginal cost derivative shifted square",
+          "relevant": [
+            "derivative-marginal-cost"
+          ],
+          "retrieved": [
+            "derivative-marginal-cost",
+            "multivariable-partials",
+            "derivative-extrema",
+            "derivative-product",
+            "derivative-chain"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.86
+        },
+        {
+          "query": "边际成本不是有限差分",
+          "relevant": [
+            "derivative-marginal-cost"
+          ],
+          "retrieved": [
+            "derivative-marginal-cost",
+            "series-convergence"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.86
+        },
+        {
+          "query": "related rates radius area time derivative",
+          "relevant": [
+            "derivative-related-rates"
+          ],
+          "retrieved": [
+            "derivative-related-rates",
+            "derivative-marginal-cost",
+            "integration-applications",
+            "multivariable-partials",
+            "parametric-curves"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 1.87
+        },
+        {
+          "query": "rectangular inner integral constant interval length one",
+          "relevant": [
+            "rectangular-iterated-integral"
+          ],
+          "retrieved": [
+            "rectangular-iterated-integral",
+            "antiderivative-constant",
+            "integration-applications",
+            "derivative-chain",
+            "series-convergence"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 3.32
+        },
+        {
+          "query": "photosynthesis chloroplast light reaction",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 3.12
+        },
+        {
+          "query": "Napoleon Waterloo biography",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 3.12
+        },
+        {
+          "query": "chicken soup recipe ginger",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 2.02
+        },
+        {
+          "query": "capital city of France",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 1.87
+        }
+      ]
+    },
+    "hybrid": {
+      "runtime": {
+        "enabled": true,
+        "model": "intfloat/multilingual-e5-small",
+        "model_revision": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+        "dense_status": "ready",
+        "device": "cuda",
+        "device_reason": "NVIDIA GeForce GTX 1650",
+        "chunks": 18,
+        "sources": 1,
+        "index_version": "5dd950a694efa7352905"
+      },
+      "recall_at_5": 1.0,
+      "mrr_at_5": 1.0,
+      "out_of_scope_abstention": 1.0,
+      "warm_retrieval_p95_ms": 25.61,
+      "cases": [
+        {
+          "query": "chain rule inner function derivative",
+          "relevant": [
+            "derivative-chain"
+          ],
+          "retrieved": [
+            "derivative-chain",
+            "integration-ftoc",
+            "derivative-product",
+            "multivariable-partials",
+            "integration-substitution"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 181.85
+        },
+        {
+          "query": "复合函数求导遗漏内函数导数",
+          "relevant": [
+            "derivative-chain"
+          ],
+          "retrieved": [
+            "derivative-chain",
+            "derivative-product",
+            "derivative-marginal-cost",
+            "derivative-extrema",
+            "antiderivative-constant"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 22.47
+        },
+        {
+          "query": "product rule derivative of multiplied functions",
+          "relevant": [
+            "derivative-product"
+          ],
+          "retrieved": [
+            "derivative-product",
+            "derivative-chain",
+            "integration-parts",
+            "multivariable-partials",
+            "integration-ftoc"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 25.61
+        },
+        {
+          "query": "乘积求导不是两个导数相乘",
+          "relevant": [
+            "derivative-product"
+          ],
+          "retrieved": [
+            "derivative-product",
+            "derivative-chain",
+            "derivative-marginal-cost",
+            "derivative-extrema",
+            "derivative-related-rates"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 22.08
+        },
+        {
+          "query": "stationary point second derivative zero inconclusive",
+          "relevant": [
+            "derivative-extrema"
+          ],
+          "retrieved": [
+            "derivative-extrema",
+            "parametric-curves",
+            "multivariable-partials",
+            "series-convergence",
+            "antiderivative-constant"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 19.34
+        },
+        {
+          "query": "驻点不一定是极值点",
+          "relevant": [
+            "derivative-extrema"
+          ],
+          "retrieved": [
+            "derivative-extrema",
+            "integration-substitution",
+            "rectangular-iterated-integral",
+            "integration-ftoc",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 24.49
+        },
+        {
+          "query": "substitution change bounds du",
+          "relevant": [
+            "integration-substitution"
+          ],
+          "retrieved": [
+            "integration-substitution",
+            "multiple-integrals",
+            "differential-equations",
+            "integration-parts",
+            "integration-applications"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 18.31
+        },
+        {
+          "query": "换元积分上下限与变量一致",
+          "relevant": [
+            "integration-substitution"
+          ],
+          "retrieved": [
+            "integration-substitution",
+            "rectangular-iterated-integral",
+            "limits-continuity",
+            "integration-parts",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 21.21
+        },
+        {
+          "query": "integration by parts minus sign boundary term",
+          "relevant": [
+            "integration-parts"
+          ],
+          "retrieved": [
+            "integration-parts",
+            "differential-equations",
+            "derivative-marginal-cost",
+            "multiple-integrals",
+            "integration-ftoc"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 18.05
+        },
+        {
+          "query": "分部积分负号边界项",
+          "relevant": [
+            "integration-parts"
+          ],
+          "retrieved": [
+            "integration-parts",
+            "antiderivative-constant",
+            "integration-substitution",
+            "rectangular-iterated-integral",
+            "integration-ftoc"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 17.04
+        },
+        {
+          "query": "continuity left and right limits",
+          "relevant": [
+            "limits-continuity"
+          ],
+          "retrieved": [
+            "limits-continuity",
+            "integration-ftoc",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 20.59
+        },
+        {
+          "query": "necessary condition terms tend to zero series convergence",
+          "relevant": [
+            "series-convergence"
+          ],
+          "retrieved": [
+            "series-convergence",
+            "differential-equations",
+            "parametric-curves",
+            "vector-calculus",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 16.56
+        },
+        {
+          "query": "ratio test equals one inconclusive",
+          "relevant": [
+            "series-convergence"
+          ],
+          "retrieved": [
+            "series-convergence",
+            "rectangular-iterated-integral",
+            "derivative-extrema",
+            "limits-continuity",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 19.36
+        },
+        {
+          "query": "fundamental theorem signed accumulation",
+          "relevant": [
+            "integration-ftoc"
+          ],
+          "retrieved": [
+            "integration-ftoc",
+            "integration-applications"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 15.64
+        },
+        {
+          "query": "indefinite integral additive constant",
+          "relevant": [
+            "antiderivative-constant"
+          ],
+          "retrieved": [
+            "antiderivative-constant",
+            "rectangular-iterated-integral",
+            "differential-equations",
+            "integration-ftoc",
+            "integration-applications"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 15.22
+        },
+        {
+          "query": "polar double integral Jacobian r",
+          "relevant": [
+            "multiple-integrals"
+          ],
+          "retrieved": [
+            "multiple-integrals",
+            "parametric-curves",
+            "rectangular-iterated-integral",
+            "integration-applications",
+            "integration-ftoc"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 14.65
+        },
+        {
+          "query": "conservative vector field simply connected domain",
+          "relevant": [
+            "vector-calculus"
+          ],
+          "retrieved": [
+            "vector-calculus",
+            "multivariable-partials",
+            "derivative-marginal-cost"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 19.04
+        },
+        {
+          "query": "partial derivative hold independent variables fixed",
+          "relevant": [
+            "multivariable-partials"
+          ],
+          "retrieved": [
+            "multivariable-partials",
+            "rectangular-iterated-integral",
+            "multiple-integrals",
+            "derivative-marginal-cost",
+            "derivative-extrema"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 16.97
+        },
+        {
+          "query": "separation equilibrium solutions initial condition",
+          "relevant": [
+            "differential-equations"
+          ],
+          "retrieved": [
+            "differential-equations",
+            "series-convergence",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 21.31
+        },
+        {
+          "query": "parametric dy dx nonzero denominator",
+          "relevant": [
+            "parametric-curves"
+          ],
+          "retrieved": [
+            "parametric-curves",
+            "derivative-product",
+            "differential-equations",
+            "integration-substitution",
+            "integration-ftoc"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 14.9
+        },
+        {
+          "query": "marginal cost derivative shifted square",
+          "relevant": [
+            "derivative-marginal-cost"
+          ],
+          "retrieved": [
+            "derivative-marginal-cost",
+            "multivariable-partials",
+            "derivative-extrema",
+            "derivative-product",
+            "derivative-chain"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 15.89
+        },
+        {
+          "query": "边际成本不是有限差分",
+          "relevant": [
+            "derivative-marginal-cost"
+          ],
+          "retrieved": [
+            "derivative-marginal-cost",
+            "series-convergence",
+            "integration-parts",
+            "derivative-chain",
+            "rectangular-iterated-integral"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 17.58
+        },
+        {
+          "query": "related rates radius area time derivative",
+          "relevant": [
+            "derivative-related-rates"
+          ],
+          "retrieved": [
+            "derivative-related-rates",
+            "integration-applications",
+            "parametric-curves",
+            "derivative-marginal-cost",
+            "multivariable-partials"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 18.41
+        },
+        {
+          "query": "rectangular inner integral constant interval length one",
+          "relevant": [
+            "rectangular-iterated-integral"
+          ],
+          "retrieved": [
+            "rectangular-iterated-integral",
+            "antiderivative-constant",
+            "integration-applications",
+            "series-convergence",
+            "derivative-chain"
+          ],
+          "recall_at_5": 1.0,
+          "reciprocal_rank": 1.0,
+          "abstained": false,
+          "duration_ms": 17.32
+        },
+        {
+          "query": "photosynthesis chloroplast light reaction",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 22.3
+        },
+        {
+          "query": "Napoleon Waterloo biography",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 22.34
+        },
+        {
+          "query": "chicken soup recipe ginger",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 21.96
+        },
+        {
+          "query": "capital city of France",
+          "relevant": [],
+          "retrieved": [],
+          "recall_at_5": null,
+          "reciprocal_rank": null,
+          "abstained": true,
+          "duration_ms": 19.14
+        }
+      ]
+    }
+  }
+}
